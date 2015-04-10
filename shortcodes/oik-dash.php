@@ -1,6 +1,67 @@
 <?php // (C) Copyright Bobbing Wide 2014
 
 /**
+ * Enqueue the correct font for this icon
+ * 
+ *
+ * We may find genericons in jetpack\_inc\genericons\genericons.css
+ *
+ * Note: 
+ * Default sizes for dashicons are 20px, genericons 16px
+ * So if we want to display a mixture then we'll need to do something to get the sizes consistent.  
+ * 
+ * @param string $icon - the name of the icon required
+ * @param array $atts - shortcode parameters
+ * @return string - the name of the base class to use based on the chosen font
+ *  
+ */
+function bw_dash_enqueue_font( $icon, $atts ) {
+  //bw_trace2();
+  //e( $icon );
+  $font = bw_array_get( $atts, "font", null );
+  if ( !$font ) {
+    $dashicons = bw_assoc( bw_list_dashicons());
+    $dashicon = bw_array_get( $dashicons, $icon, null );
+    if ( !$dashicon ) {
+      oik_require( "shortcodes/oik-gener.php", "oik-bob-bing-wide" );
+      $genericons = bw_assoc( bw_list_genericons() );
+      $genericon = bw_array_get( $genericons, $icon, null );
+      if ( $genericon ) {
+        $font = "genericons";
+      } else {
+        // No need to load a font for this? OR do we default to dashicons anyway?
+        // Or do we load up our special one which contains the definition of the extras
+        // 
+        $texticons = bw_assoc( bw_list_texticons() );
+        $texticon = bw_array_get( $texticons, $icon, null );
+        if ( $texticon ) {
+          $font = "texticons";
+        }
+      }  
+    } else {
+      $font = "dashicons"; 
+    }
+  }
+  switch ( $font ) {
+    case "genericons" :
+      wp_register_style( 'genericons', oik_url( 'css/genericons/genericons.css' ), false );
+      $font_class = "genericon";
+      break;
+      
+    default:
+      $font_class = $font;
+  }    
+  if ( $font ) {
+    $enqueued = wp_style_is( $font, "enqueued" );
+    if ( !$enqueued ) {
+      wp_enqueue_style( $font );
+    }
+  }
+  return( $font_class );
+}  
+
+                                        
+/**
  * Implement [bw_dash] shortcode
  *
  * If there's any content then this is also displayed.
@@ -17,10 +78,18 @@
 function bw_dash( $atts=null, $content=null, $tag=null ) {
   $icon = bw_array_get_from( $atts, "icon,0", "menu" );
   $class = bw_array_get_from( $atts, "class,1", null ); 
-  wp_enqueue_style( 'dashicons' );
-  span( "dashicons dashicons-$icon $class" );
+  $font_class = bw_dash_enqueue_font( $icon, $atts );
+  if ( !$font_class ) {
+    $content = $icon . $content;
+    $font_class = "texticons";
+    $icon = "unknown";
+  }
+  
+  span( "$font_class ${font_class}-$icon $class" );
   if ( $content ) {
+    //stag ("span" );
     e( bw_do_shortcode( $content ) );
+    //etag( "span" );
   }
   epan(); 
   return( bw_ret() );
@@ -168,7 +237,7 @@ function bw_list_dashicons() {
  $di[] = 'image-rotate-left';
  $di[] = 'image-rotate-right';
  $di[] = 'image-flip-vertical';
- $di[] = 'image-flip-horiontal';
+ $di[] = 'image-flip-horizontal';
  $di[] = 'undo';
  $di[] = 'redo';
  
@@ -435,10 +504,29 @@ function bw_list_dashicons() {
   $di[] = 'tablet';
   $di[] = 'smartphone';
   $di[] = 'smiley';
+  
+  
 
  return( $di );
 
 }
+/** 
+ * Return a list of texticons which are normal characters
+ * but displayed using dashicons logic
+ * 
+ */
+function bw_list_texticons() {
+  $ti = array();
+  $ti[] = 'cent';
+  $ti[] = 'css';
+  $ti[] = 'shortcode';
+  $ti[] = 'sterling';
+  $ti[] = 'euro';
+  $ti[] = 'yen';
+  $ti[] = 'dollar';
+  return( $ti );
+}
+
   
 
 
@@ -447,7 +535,17 @@ function bw_dash__help( $shortcode="bw_dash" ) {
 } 
 
 function bw_dash__syntax( $shortcode="bw_dash" ) {
-  $syntax = array( "icon,0" => bw_skv( "menu", bw_list_dashicons(), "Dash icon to display"  )
+  $icons = bw_list_dashicons();
+  array_shift( $icons );
+  $values = implode( $icons, "|" );
+  oik_require( "shortcodes/oik-gener.php", "oik-bob-bing-wide" );
+  $icons = bw_list_genericons();
+  $values .= "|" ;
+  $values .= implode( $icons, "|" );
+  $icons = bw_list_texticons();
+  $values .= "|" ;
+  $values .= implode( $icons, "|" );
+  $syntax = array( "icon,0" => bw_skv( "menu", $values, "Dash icon to display"  )
                  , "class,1" => bw_skv( null, "<i>classnames</i>", "CSS classes" )
                  );
   return( $syntax );
@@ -464,6 +562,8 @@ function bw_dash__example( $shortcode="bw_dash" ) {
   wp_enqueue_style( 'dashicons' );
   asort( $icons );
   
+  h3( "font=dashicons" );
+  
   foreach ( $icons as $icon ) {
     sdiv( "inline" ); 
     span( "dashicons dashicons-$icon $class", null, kv( "text", $icon) );
@@ -471,8 +571,58 @@ function bw_dash__example( $shortcode="bw_dash" ) {
     e( $icon );
     ediv();
     
-  }  
+  }
+  bw_genericons_example();
+  bw_texticons_example();
 }
+
+/**
+ * Display all the genericons that are available.
+ * 
+ * Note: There will be duplicates with dashicons
+ * 
+ * 
+ */
+function bw_genericons_example() {
+  oik_require( "shortcodes/oik-gener.php", "oik-bob-bing-wide" );
+  $icons = bw_list_genericons();
+  $class = null;
+  if ( !wp_style_is( 'genericons', 'registered' ) ) {
+    wp_register_style( 'genericons', oik_url( 'css/genericons/genericons.css' ), false );
+  }
+  wp_enqueue_style( 'genericons' );
+  asort( $icons );
+  h3( "font=genericons" );
+  foreach ( $icons as $icon ) {
+    sdiv( "inline" ); 
+    span( "genericon genericon-$icon $class", null, kv( "text", $icon) );
+    epan();
+    e( $icon );
+    ediv();
+  } 
+}
+
+ 
+/**
+ * Display all the texticons that are available.
+ * 
+ * Note: There may be duplicates with dashicons
+ * 
+ */
+function bw_texticons_example() {
+  $icons = bw_list_texticons();
+  $class = null;
+  asort( $icons );
+  h3( "font=texticons" );
+  foreach ( $icons as $icon ) {
+    sdiv( "inline" ); 
+    span( "texticons texticons-$icon $class", null, kv( "text", $icon) );
+    epan();
+    e( " " );
+    e( $icon );
+    ediv();
+  } 
+} 
 
 
 

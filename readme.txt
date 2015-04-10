@@ -1,10 +1,10 @@
 === oik-bob-bing-wide ===
 Contributors: bobbingwide
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
-Tags: shortcodes, smart, lazy, [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal
+Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal
 Requires at least: 3.9
-Tested up to: 4.0
-Stable tag: 1.27
+Tested up to: 4.1-beta2
+Stable tag: 1.28
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,9 @@ In alphabetical order:
 2. [ bw_plug name="oik,oik-bob-bing-wide"] 
 
 == Upgrade Notice ==
+= 1.28 =
+Upgrade if you want to set the class= parameter for [bw_csv] or use [bw_dash] for genericons or texticons.
+
 = 1.27 =
 For oik-plugins and any other site wanting to display data from wp_options
 
@@ -114,6 +117,12 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 == Changelog ==
+= 1.28 =
+* Added: Support for class= parameter on [bw_csv]
+* Added: Support for genericons v3.2 in [bw_dash]
+* Addded: Support for texticons in [bw_dash]: cent, css, shortcode, sterling, euro, yen, dollar
+* Changed: [bw_csv] ignores empty lines
+
 = 1.27 = 
 * Added: [bw_option] shortcode - to help in examples where the result depends on the current value of an option field
 * Changed: Now dependent upon oik v2.3 or higher 

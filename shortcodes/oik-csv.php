@@ -24,25 +24,33 @@ function bw_csv_expand_shortcodes( $tablerow ) {
 
 /**
  * Display the contents of a CSV array
+ *
+ * Lines which are empty are ignored.
+ *  
  * 
  * @param array - array of CSB records - the first may contain table column headings
  * @atts array - parameters, incl th=y|n
  *  
  */
 function bw_csv_content_array( $content_array, $atts=null ) {
-  stag( "table", "bw_csv" );
+  $class = bw_array_get( $atts, "class", null );
+  stag( "table", "bw_csv " . $class );
   oik_require( "bobbforms.inc" );
   $th = bw_array_get( $atts, "th", "y"  );
   $th = bw_validate_torf( $th );
   foreach ( $content_array as $line ) {
-    $tablerow = str_getcsv( $line );
-    $tablerow = bw_csv_expand_shortcodes( $tablerow );
-    if ( $th ) {
-      bw_tablerow( $tablerow, "tr", "th" );
-      $th = false;
-    } else {    
-      bw_tablerow( $tablerow );
-    }  
+    //bw_trace2( $line, "line" );
+    $line = trim( $line );
+    if ( $line ) {
+      $tablerow = str_getcsv( $line );
+      $tablerow = bw_csv_expand_shortcodes( $tablerow );
+      if ( $th ) {
+        bw_tablerow( $tablerow, "tr", "th" );
+        $th = false;
+      } else {    
+        bw_tablerow( $tablerow );
+      }
+    }    
   }
   etag( "table" ); 
 }  
