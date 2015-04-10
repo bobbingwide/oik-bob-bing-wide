@@ -10,6 +10,7 @@ function bw_crumbs( $atts=null, $content=null, $tag=null ) {
    $result = yoast_breadcrumb('<p id="breadcrumbs">','</p>', false);
  } else {
    $result = null;
+   bw_trace2( "yoast_breadcrumb not available" );
  }
  return( $result );
 } 

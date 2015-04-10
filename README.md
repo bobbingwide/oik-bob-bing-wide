@@ -3,13 +3,16 @@
 * Donate link: http://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, smart, lazy, [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal
 * Requires at least: 3.9
-* Tested up to: 4.0-beta2
-* Stable tag: 1.25
+* Tested up to: 4.0
+* Stable tag: 1.27
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 ## Description 
 * More lazy smart shortcodes: bw_csv, bw_plug, bw_search, bw_page, bw_post, bob/fob, bing/bong, wide/hide, & wow, oik and loik, wp, wpms, bp, artisteer, drupal
+
+New in v1.27
+[bw_option] - shortcode to display WordPress option fields
 
 New in v1.25
 [bw_graphviz] - shortcode to display Grapviz diagrams
@@ -44,6 +47,7 @@ In alphabetical order:
 * [bw_csv]
 * [bw_dash]
 * [bw_graphviz]
+* [bw_option] - new in v1.27
 * [bw_page]
 * [bw_plug]
 * [bw_post]
@@ -75,6 +79,12 @@ In alphabetical order:
 2. [ bw_plug name="oik,oik-bob-bing-wide"]
 
 ## Upgrade Notice 
+# 1.27 
+For oik-plugins and any other site wanting to display data from wp_options
+
+# 1.26 
+Required for AumAbsFitnessStudios.com.
+
 # 1.25 
 Upgrade if you want to use [bw_graphviz] or [bw_crumbs]
 
@@ -104,6 +114,20 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 ## Changelog 
+# 1.27 
+* Added: [bw_option] shortcode - to help in examples where the result depends on the current value of an option field
+* Changed: Now dependent upon oik v2.3 or higher
+
+# 1.26 
+* Added: Help and syntax hooks for [bw_crumbs] and [bw_graphviz] shortcodes
+* Changed: Dashicons now displayed in span rather than div
+* Changed: Dashicons support embedded content.
+* Changed: Improved docblocks
+* Changed: [bw_post] and [bw_page] shortcodes now use dashicons and support post_type= icon= and text= parameters
+* Changed: [bw_rpt] shortcode now accepts class= parameter to allow styling of multiple tables being displayed
+* Fixed: incorrect variable used in bw_action()
+
+
 # 1.25 
 * Added: [bw_graphviz] shortcode. A lazy smart shortcode equivalent of wp-graphviz
 * Added: [bw_crumbs] shortcode. A wrapper to [wpseo_breadcrumbs]
