@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2014
+<?php // (C) Copyright Bobbing Wide 2014, 2015
 
 /**
  * Return a unique ID
@@ -66,6 +66,8 @@ function bw_graphviz_generate_createViz( $id ) {
 /**
  * Implement the [bw_graphviz] shortcode
  *
+ * @TODO Find a better way of determining when to enqueue the JavaScript. As id may exceed 1.
+ 
  *
    <div id=wpg_div_plugins>wpg_div_plugins</div>
    <script type="text/vnd.graphviz" id="wpg_plugins">
@@ -110,11 +112,11 @@ function bw_graphviz( $atts=null, $content=null, $tag=null ) {
   $output = bw_array_get( $atts, "output", "svg" );
   $lang = bw_array_get( $atts, "lang", "dot" );
   $id = bw_graphviz_id();
-  if ( 1 == $id ) {
+  //if ( 1 == $id ) {
     oik_require( "shortcodes/oik-jquery.php" );
-    bw_jquery_javascript( plugin_dir_url( __FILE__) . "jquery/viz.js" );
-    bw_jquery_javascript( plugin_dir_url( __FILE__) . "jquery/viz-public.js" );
-  }  
+    bw_jquery_javascript( oik_url( "shortcodes/jquery/viz.js", "oik-bob-bing-wide" ) );
+    bw_jquery_javascript( oik_url( "shortcodes/jquery/viz-public.js", "oik-bob-bing-wide" ) );
+  //}  
   sdiv( null, "bw_gv_div_$id" );
   e( "bw_gv_div_$id" );
   ediv(); 
