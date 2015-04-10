@@ -16,17 +16,21 @@ function bw_bp( ) {
 
 /**
  * Implement [lwp] shortcode for link to wordpress.org
+ * 
+ * Changed to remove the www. prefix
  */
 function bw_lwp() {
-  alink( "bw_lwp", "http://www.wordpress.org", bw_wp( true ), "Visit WordPress.org" ); 
+  alink( "bw_lwp", "http://wordpress.org", bw_wp( true ), "Visit WordPress.org" ); 
   return( bw_ret());
 }
 
 /**
  * Implement [lwpms] shortcode for link to wordpress.org for multisite
+ * 
+ * Changed to remove the www.prefix
  */ 
 function bw_lwpms() {
-  alink( "bw_lwpms", "http://www.wordpress.org", bw_wpms(), "Visit WordPress.org for MultiSite" ); 
+  alink( "bw_lwpms", "http://wordpress.org", bw_wpms(), "Visit WordPress.org for MultiSite" ); 
   return( bw_ret());
 }
 

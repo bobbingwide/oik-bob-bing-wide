@@ -3,12 +3,12 @@
 Plugin Name: oik bob bing wide shortcodes
 Plugin URI: http://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin
 Description: More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, bob/fob bing/bong wide/hide & wow, oik and loik, wp, wpms, bp, artisteer, drupal
-Version: 1.28
+Version: 1.29
 Author: bobbingwide
 Author URI: http://www.oik-plugins.com/author/bobbingwide
 License: GPL2
 
-    Copyright 2010-2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2010-2015 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -55,6 +55,7 @@ function oik_bob_bing_wide_init() {
   //}  
 
   /* Shortcodes for each of the more useful bobbingwide babbles  */
+  if ( false ) {
   bw_add_shortcode( 'bob', 'bw_bob', oik_path("shortcodes/oik-bob-bing-wide.php", "oik-bob-bing-wide" ), true );
   bw_add_shortcode( 'fob', 'bw_fob', oik_path("shortcodes/oik-bob-bing-wide.php", "oik-bob-bing-wide" ), true );
   bw_add_shortcode( 'bing', 'bw_bing', oik_path("shortcodes/oik-bob-bing-wide.php", "oik-bob-bing-wide" ), true );
@@ -65,6 +66,7 @@ function oik_bob_bing_wide_init() {
   bw_add_shortcode( 'wow', 'bw_wow', oik_path("shortcodes/oik-wow.php", "oik-bob-bing-wide" ), true );
   bw_add_shortcode( 'WoW', 'bw_wow', oik_path("shortcodes/oik-wow.php", "oik-bob-bing-wide" ), true );
   bw_add_shortcode( 'WOW', 'bw_wow_long', oik_path("shortcodes/oik-wow.php", "oik-bob-bing-wide" ), true);
+  }
   
   // Note: The bw_oik() & bw_oik_long() functions are actually delivered from bobbcomp.inc 
   bw_add_shortcode( 'oik', 'bw_oik', oik_path("shortcodes/oik-bob-bing-wide.php"), true );  
@@ -108,6 +110,7 @@ function oik_bob_bing_wide_init() {
   bw_add_shortcode( "bw_graphviz", "bw_graphviz", oik_path( "shortcodes/oik-graphviz.php", "oik-bob-bing-wide" ), false );
   bw_add_shortcode( "bw_crumbs", "bw_crumbs", oik_path( "shortcodes/oik-crumbs.php", "oik-bob-bing-wide"), false );
   bw_add_shortcode( "bw_option", "bw_option", oik_path( "shortcodes/oik-option.php", "oik-bob-bing-wide"), false );
+  bw_add_shortcode( "bw_text", "bw_text", oik_path( "shortcodes/oik-text.php", "oik-bob-bing-wide" ), false );
 }
 
 /**
@@ -135,7 +138,7 @@ function oik_bob_bing_wide_activation() {
       require_once( "admin/oik-activation.php" );
     }
   }  
-  $depends = "oik:2.3";
+  $depends = "oik:2.4";
   oik_plugin_lazy_activation( __FILE__, $depends, "oik_plugin_plugin_inactive" );
 }
 
@@ -144,7 +147,7 @@ function oik_bob_bing_wide_activation() {
  */
 function oik_bob_bing_wide_loaded() {
   add_action( "oik_add_shortcodes", "oik_bob_bing_wide_init" );
-  add_action( "admin_notices", "oik_bob_bing_wide_activation" );
+  add_action( "admin_notices", "oik_bob_bing_wide_activation", 11 );
   add_action( "oik_admin_menu", "oik_bob_bing_wide_admin_menu" );
 }
 

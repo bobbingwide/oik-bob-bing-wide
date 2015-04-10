@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2014
+<?php // (C) Copyright Bobbing Wide 2012-2015
 
 /**
  * Implement [bw_plug] shortcode 
@@ -55,7 +55,7 @@ function bw_plug( $atts=null, $content=null, $tag=null ) {
     $plugininfo = bw_get_plugin_info_cache2( $name );
     bw_trace( $plugininfo, __FUNCTION__, __LINE__, __FILE__, "plugininfo" );
     
-    if ( is_wp_error( $plugininfo ) || !$plugininfo || !$plugininfo->name ) {
+    if ( is_wp_error( $plugininfo ) || !$plugininfo || !property_exists( $plugininfo, "name" ) ) {
       if ( $table ) {
         bw_format_plug_table( $name, $link, FALSE );
       }  
@@ -160,33 +160,56 @@ function bw_plug_etable( $table=false ) {
  * 
  * @param string $plugin_slug - the plugin slug e.g. oik or jetpack
  * @return XML - XML form of information about the plugin
+ * @return object - object form of information about the plugin
  */ 
 function bw_get_plugin_info_cache2( $plugin_slug ) {
   bw_trace2();
-  $response_xml = wp_cache_get( "bw_plug2", $plugin_slug );
-  if ( empty( $response_xml )) {
+  //$response_xml = wp_cache_get( "bw_plug2", $plugin_slug );
+  
+  $response_xml = get_transient( 'bw_plug2_'. $plugin_slug );
+  if ( empty( $response_xml ) || !is_object( $response_xml ) ) {
     $response = bw_get_oik_plugins_info( $plugin_slug );
     if ( $response ) {
       $response_xml = null;
+      //$cache_xml = bw_get_response_as_xml( $response );
+      
+      //wp_cache_set( "bw_plug2", $response, $plugin_slug, 43200 );
+      
+      set_transient( "bw_plug2_" . $plugin_slug, $response, 43200 );
+      //gobang();
     } else {
       $response_xml = bw_get_plugin_info2( $plugin_slug );
     }  
     if ( !empty( $response_xml ) ) {
       $response_xml = _bw_tidy_response_xml( $response_xml ); 
-      wp_cache_set( "bw_plug2", $response_xml, $plugin_slug, 43200 );
+      //wp_cache_set( "bw_plug2", $response_xml, $plugin_slug, 43200 );
+      
+      set_transient( "bw_plug2_" . $plugin_slug, $response_xml, 43200 );
     }  
   } else {
     bw_trace2( $response_xml, "response_xml from cache" );
+  
   }
   bw_trace2( $response_xml, "response_xml" );
   
   if ( $response_xml ) {
-    $simple_xml = simplexml_load_string( $response_xml );   
+    $simple_xml = $response_xml; //simplexml_load_string( $response_xml );   
   } else {  
     $simple_xml = $response;
-  }  
+  } 
+  bw_trace2( $simple_xml, "simple_xml", false ); 
   return( $simple_xml );
 }
+
+/**
+ * Convert the response object to an XML string
+ */
+function bw_get_response_as_xml( $response ) { 
+
+  return( $xml );
+
+}
+ 
 
 /**
  * Return information on an oik-plugins plugin.
@@ -318,20 +341,69 @@ http://www.oik-plugins.com/oik-plugins/oik-nivo-slider/
 </homepage>
 */
 function bw_get_plugin_info2( $plugin_slug ) {
-  list( $response_xml, $oik_server ) = bw_get_local_plugin_xml( $plugin_slug );
+  list( $response_xml, $oik_server ) = bw_get_local_plugin_data( $plugin_slug );
   //bw_trace( $response_xml, __FUNCTION__, __LINE__, __FILE__, "response_xml" );
   if ( $oik_server ) {
     // We found the plugin information and also know that it's an oik server
   } else {
     // We may have found the plugin information OR believe it's wordpress.org
     // let's check wordpress.org. If we find some information overwrite what we already know.
-    $request_url = "http://api.wordpress.org/plugins/info/1.0/$plugin_slug.xml";
-    $response_xml2 = bw_remote_get2( $request_url ); //, null );
-    $response_xml = bw_analyze_response_xml2( $response_xml2, $response_xml );
+    $request_url = "http://api.wordpress.org/plugins/info/1.0/$plugin_slug.info";
+    $response_xml = bw_remote_get2( $request_url ); //, null );
+    //$response_xml = bw_analyze_response_xml2( $response_xml2, $response_xml );
   }
   //bw_trace( $response_xml, __FUNCTION__, __LINE__, __FILE__, "response_xml" );
   return $response_xml;
 }
+
+/**
+ * Get local plugin info
+ *
+ * Loads the plugin information from the plugin file, if available
+ * If the PluginURI is not wordpress.org then either set 
+ * oik_server if defined or set plugin_server to "unknown"
+ * 
+ * @param string $plugin_slug - the name of the plugin we're looking for
+ * @return array consisting of xml_string and server
+ */
+function bw_get_local_plugin_data( $plugin_slug ) {
+  $server = null;
+  $plugin_data = bw_get_plugin_data( $plugin_slug );
+  if ( $plugin_data ) {
+    $pluginURI = bw_array_get( $plugin_data, "PluginURI", null );
+    $url = parse_url( $pluginURI );
+    if ( $url['host'] != "wordpress.org" ) { 
+    
+      //$xml = new SimpleXmlElement( "<plugin></plugin>" );
+      //$plugin = $xml->plugin;
+      
+      //bw_trace2( $xml );
+      bw_add_array_key( $plugin_data, "Name" ) ;
+      bw_add_array_key( $plugin_data, "Name", "slug" );
+      bw_add_array_key( $plugin_data, "Version" );
+      bw_add_array_key( $plugin_data, "PluginURI", "homepage" );
+      bw_add_array_key( $plugin_data, "Description", "short_description" );
+      $server = bw_get_defined_plugin_server( $plugin_slug ); 
+      if ( $server ) {
+        $plugin_data["PluginURI"] = "$server/oik-plugins/$plugin_slug/";
+        bw_add_array_key( $plugin_data, "PluginURI", "oik_server" );
+      } else {
+        // don't set oik_server yet
+        $plugin_data["plugin_server"] = "unknown"; 
+      } 
+      $readme_data = bw_get_readme_data( $plugin_slug ); 
+      $plugin_data = array_merge( $plugin_data, $readme_data );
+      //bw_add_array_key( $plugin_data, $readme_data, "Tested" );
+      //bw_add_array_key( $xml, $readme_data, "Last_updated" );
+      
+      //$xml_string = $xml->asXML();
+    }  
+  } else {
+    // Never mind - assume WordPress.org ?
+  }   
+  return( array( $plugin_data, $server) );  
+} 
+
 
 
 /**
@@ -447,6 +519,20 @@ function bw_add_xml_child( &$xml, $plugin_data, $src, $target=null ) {
   $xml->addChild( $target, $value ); 
 }
 
+
+
+/**
+ * Add a field from another entry in the array
+ * 
+ */
+function bw_add_array_key( &$plugin_data, $src, $target=null ) {
+  if ( !$target ) {
+    $target = strtolower( $src );
+  }  
+  $value = bw_array_get( $plugin_data, $src, null ); 
+  $plugin_data[$target] = $value; 
+}
+
 /**
  * Analyze the response from bw_remote_get2()
  *
@@ -490,7 +576,7 @@ function bw_analyze_response_xml2( $response_xml2, $response_xml ) {
  * @return string XML with HTML entities converted to numeric entities 
  */
 function _bw_tidy_response_xml( $response_xml ) {
-  $response_xml = ent2ncr( $response_xml );
+  //$response_xml = ent2ncr( $response_xml );
   return( $response_xml );
 }
 

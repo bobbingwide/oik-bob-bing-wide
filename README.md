@@ -3,13 +3,16 @@
 * Donate link: http://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal
 * Requires at least: 3.9
-* Tested up to: 4.1-beta2
-* Stable tag: 1.28
+* Tested up to: 4.2-beta1
+* Stable tag: 1.29
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 ## Description 
 * More lazy smart shortcodes: bw_csv, bw_plug, bw_search, bw_page, bw_post, bob/fob, bing/bong, wide/hide, & wow, oik and loik, wp, wpms, bp, artisteer, drupal
+
+New in v1.28 and 1.29
+[bw_text] - shortcode to texturize (prototype)
 
 New in v1.27
 [bw_option] - shortcode to display WordPress option fields
@@ -79,6 +82,9 @@ In alphabetical order:
 2. [ bw_plug name="oik,oik-bob-bing-wide"]
 
 ## Upgrade Notice 
+# 1.29 
+Fixes the performance problem due to [bw_plug] cache logic having never worked, since August 2011!
+
 # 1.28 
 Upgrade if you want to set the class= parameter for [bw_csv] or use [bw_dash] for genericons or texticons.
 
@@ -117,6 +123,14 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 ## Changelog 
+# 1.29 
+* Fixed: [bw_plug] shortcode now actually caches the results, for half a day
+* Deprecated: The bobbingwide babble shortcodes are no longer active
+* Added: [bw_text] shortcode - prototype logic for wptexturize on demand
+* Changed: [lwp]/[lwpms] shortcodes - remove the www.prefix
+* Changed: [bw_dash] shortcode now supports new WordPress 4.1 dashicons, plus many others previously omitted.
+* Changed: Updated plugin dependency checks.
+
 # 1.28 
 * Added: Support for class= parameter on [bw_csv]
 * Added: Support for genericons v3.2 in [bw_dash]

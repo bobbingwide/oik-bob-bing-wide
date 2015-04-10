@@ -76,6 +76,7 @@ function bw_dash_enqueue_font( $icon, $atts ) {
  * @return string - generated HTML for the dash form
  */
 function bw_dash( $atts=null, $content=null, $tag=null ) {
+  bw_trace2();
   $icon = bw_array_get_from( $atts, "icon,0", "menu" );
   $class = bw_array_get_from( $atts, "class,1", null ); 
   $font_class = bw_dash_enqueue_font( $icon, $atts );
@@ -84,7 +85,6 @@ function bw_dash( $atts=null, $content=null, $tag=null ) {
     $font_class = "texticons";
     $icon = "unknown";
   }
-  
   span( "$font_class ${font_class}-$icon $class" );
   if ( $content ) {
     //stag ("span" );
@@ -103,8 +103,14 @@ function bw_dash( $atts=null, $content=null, $tag=null ) {
  * wp-includes/css/dashicons.css
  * 
  * @link https://github.com/melchoyce/dashicons/blob/master/index.html
+ *
+ * List updated from WordPress 4.1 version of dashicons.css
+ *
+ * - Added the 20 icons mentioned in post 4.1 blogs
+ * - Added some others added between 3.9 and 4.1
+ * - Added - quite a few I'd previously omitted for no good reason
  * 
- 
+ * @return array - array of dashicon class names excluding the "dashicons-" prefix
  */
 function bw_list_dashicons() {
  //<!-- admin menu -->
@@ -275,6 +281,40 @@ function bw_list_dashicons() {
 			<div data-code="f474" class="dashicons dashicons-editor-break"></div>
 			<div data-code="f475" class="dashicons dashicons-editor-code"></div>
 			<div data-code="f476" class="dashicons dashicons-editor-paragraph"></div>
+   */
+   
+ $di[] = 'editor-bold';
+ $di[] = 'editor-italic';
+ $di[] = 'editor-ul';
+ $di[] = 'editor-ol';
+ $di[] = 'editor-quote';
+ $di[] = 'editor-alignleft';
+ $di[] = 'editor-aligncenter';
+ $di[] = 'editor-alignright';
+ $di[] = 'editor-insertmore';
+ $di[] = 'editor-spellcheck';
+ $di[] = 'editor-distractionfree';
+ $di[] = 'editor-expand';
+ $di[] = 'editor-contract';
+ $di[] = 'editor-kitchensink';
+ $di[] = 'editor-underline';
+ $di[] = 'editor-justify';
+ $di[] = 'editor-textcolor';
+ $di[] = 'editor-paste-word';
+ $di[] = 'editor-removeformatting';
+ $di[] = 'editor-video';
+ $di[] = 'editor-customchar';
+ $di[] = 'editor-outdent';
+ $di[] = 'editor-indent';
+ $di[] = 'editor-help';
+ $di[] = 'editor-strikethrough';
+ $di[] = 'editor-unlink';
+ $di[] = 'editor-link';
+ $di[] = 'editor-rtl';
+ $di[] = 'editor-break';
+ $di[] = 'editor-code';
+ $di[] = 'editor-paragraph';
+  /* 
 
 			<!-- posts -->
 			<div data-code="f135" class="dashicons dashicons-align-left"></div>
@@ -287,7 +327,20 @@ function bw_list_dashicons() {
 			<div data-code="f173" class="dashicons dashicons-post-status"></div>
 			<div data-code="f464" class="dashicons dashicons-edit"></div>
 			<div data-code="f182" class="dashicons dashicons-trash"></div>
+   */
+ $di[] = 'align-left';
+ $di[] = 'align-right';
+ $di[] = 'align-center';
+ $di[] = 'align-none';
+ $di[] = 'lock';
+ $di[] = 'calendar';
+ $di[] = 'calendar-alt';
+ $di[] = 'visibility';
+ $di[] = 'post-status';
+ $di[] = 'edit';
+ $di[] = 'trash';
 
+   /*
 			<!-- sorting -->
 			<div data-code="f504" class="dashicons dashicons-external"></div>
 			<div data-code="f142" class="dashicons dashicons-arrow-up"></div>
@@ -309,7 +362,25 @@ function bw_list_dashicons() {
 			<div data-code="f164" class="dashicons dashicons-exerpt-view"></div>
    */
    
-  //$di[] = '';
+ $di[] = 'external';
+ $di[] = 'arrow-up';
+ $di[] = 'arrow-down';
+ $di[] = 'arrow-right';
+ $di[] = 'arrow-left';
+ $di[] = 'arrow-up-alt';
+ $di[] = 'arrow-down-alt';
+ $di[] = 'arrow-right-alt';
+ $di[] = 'arrow-left-alt';
+ $di[] = 'arrow-up-alt2';
+ $di[] = 'arrow-down-alt2';
+ $di[] = 'arrow-right-alt2';
+ $di[] = 'arrow-left-alt2';
+ $di[] = 'sort';
+ $di[] = 'leftright';
+ $di[] = 'randomize';
+ $di[] = 'list-view';
+ $di[] = 'exerpt-view';  // sic
+ $di[] = 'grid-view';
   
    
    /*
@@ -327,6 +398,7 @@ function bw_list_dashicons() {
 			<div data-code="f325" class="dashicons dashicons-networking"></div>
   */
   $di[] = 'share';
+  $di[] = 'share1';
   $di[] = 'share-alt';
   $di[] = 'share-alt2';
   $di[] = 'twitter';
@@ -505,7 +577,31 @@ function bw_list_dashicons() {
   $di[] = 'smartphone';
   $di[] = 'smiley';
   
+
+  // New in WordPress 4.1
+  $di[] = "controls-play";
+  $di[] = "controls-pause";
+  $di[] = "controls-forward";
+  $di[] = "controls-skipforward";
+  $di[] = "controls-back";
+  $di[] = "controls-skipback";
+  $di[] = "controls-repeat";
+  $di[] = "controls-volumeon";
+  $di[] = "controls-volumeoff"; 
+  $di[] = "align-left";
+  $di[] = "align-right";
+  $di[] = "align-center";
+  $di[] = "align-none";
+  $di[] = "phone";
+  $di[] = "building";
+  $di[] = "store";
+  $di[] = "album";
+  $di[] = "palmtree";
+  $di[] = "tickets-alt";
+  $di[] = "money";
   
+  $di[] = 'index-card';
+  $di[] = 'carrot';
 
  return( $di );
 
@@ -545,7 +641,8 @@ function bw_dash__syntax( $shortcode="bw_dash" ) {
   $icons = bw_list_texticons();
   $values .= "|" ;
   $values .= implode( $icons, "|" );
-  $syntax = array( "icon,0" => bw_skv( "menu", $values, "Dash icon to display"  )
+  $syntax = array( bw_skv( null, "text", "Dash icon to display"  )
+                 , "icon,0" => bw_skv( "menu", $values, "Dash icon to display"  )
                  , "class,1" => bw_skv( null, "<i>classnames</i>", "CSS classes" )
                  );
   return( $syntax );
