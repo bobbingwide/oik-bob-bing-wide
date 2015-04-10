@@ -80,8 +80,9 @@ function bw_rpt( $atts=null, $content=null, $tag=null ) {
   $rows = $table->rows();
   //echo "Rows: $rows" ;
   $rows--;
+  $class = bw_array_get( $atts, "class", null ); 
   
-  sdiv( "bw_rpt" );
+  sdiv( "bw_rpt $class" );
   for ( $column = $start_column; $column <= $columns; $column++ ) { 
     sdiv( "bw_rpt_cols_$columns bw_rpt_c_$column $responsive_column_class" );
     for ( $row=1; $row <= $rows; $row++ ) {

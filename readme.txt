@@ -3,13 +3,17 @@ Contributors: bobbingwide
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, smart, lazy, [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal
 Requires at least: 3.9
-Tested up to: 3.9.1
-Stable tag: 1.24
+Tested up to: 4.0-beta2
+Stable tag: 1.25
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 More lazy smart shortcodes: bw_csv, bw_plug, bw_search, bw_page, bw_post, bob/fob, bing/bong, wide/hide, & wow, oik and loik, wp, wpms, bp, artisteer, drupal
+
+New in v1.25
+[bw_graphviz] - shortcode to display Grapviz diagrams
+[bw_crumbs] - wrapper to [wpseo_breadcrumbs] 
 
 New in v1.24
 [bw_action] - Perform a WordPress action/filter hook
@@ -36,8 +40,10 @@ In alphabetical order:
 * [bong]
 * [bp]
 * [bw_action]
+* [bw_crumbs]
 * [bw_csv]
 * [bw_dash]
+* [bw_graphviz]
 * [bw_page] 
 * [bw_plug]
 * [bw_post]
@@ -69,8 +75,12 @@ In alphabetical order:
 2. [ bw_plug name="oik,oik-bob-bing-wide"] 
 
 == Upgrade Notice ==
+= 1.25 =
+Upgrade if you want to use [bw_graphviz] or [bw_crumbs]
+
 = 1.24 =
 Upgrade if you want to use the new shortcodes: [bw_action], [bw_dash] or [bw_rpt]
+
 = 1.23 =
 Upgrade if you want to use [bw_search] to replace Artisteer's [search].
 
@@ -94,6 +104,12 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 == Changelog ==
+= 1.25 =
+* Added: [bw_graphviz] shortcode. A lazy smart shortcode equivalent of wp-graphviz
+* Added: [bw_crumbs] shortcode. A wrapper to [wpseo_breadcrumbs]
+* Added: jquery folder containing the vis.js and vis-public.js files
+* Changed: Improved some docblock comments
+
 = 1.24 =
 * Added: [bw_action] shortcode - Perform a WordPress action/filter hook
 * Added: [bw_dash] shortcode - Display a dashicon

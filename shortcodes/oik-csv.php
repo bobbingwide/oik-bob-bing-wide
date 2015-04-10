@@ -80,24 +80,35 @@ function bw_csv( $atts=null, $content=null, $tag=null ) {
   return( bw_ret() );
 }
 
+/**
+ * Help hook for [bw_csv] shortcode
+ */
 function bw_csv__help( $shortcode="bw_csv" ) {
   return( "Display CSV data in a table" );
 }
 
-
+/**
+ * Syntax hook for [bw_csv] shortcode
+ */
 function bw_csv__syntax( $shortcode="bw_csv" ) {
   $syntax = array( "src" => bw_skv( null, "file", "File containing CSV data to display" )
                  , "th" => bw_skv( "y", "n", "Format table headings" )
                  );
   return( $syntax );                 
-} 
+}
 
+/**
+ * Example hook for [bw_csv] shortcode
+ */
 function bw_csv__example( $shortcode="bw_csv" ) {
  $text = "Display a simple table" ;
  $example = ']a,b' . PHP_EOL . '1,2[/bw_csv';
  bw_invoke_shortcode( $shortcode, $example, $text );
-} 
+}
 
+/**
+ * Snippet hook for [bw_csv] shortcode
+ */
 function bw_csv__snippet( $shortcode="bw_csv" ) {
  $example = ']a,b' . PHP_EOL . '1,2[/bw_csv';
   _sc__snippet( $shortcode, $example );

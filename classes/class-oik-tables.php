@@ -16,11 +16,24 @@ class OIK_table {
     $table = null;
   }
   
+  /**
+   * Return the number of columns
+   *
+   * We use row[0] to determine the number of columns 
+   *
+   * @return integer - columns
+   */
   function columns() {
     return( count( $this->table[0]) );
   }
   
+  /**
+   * Return the number of rows in the table
+   *
+   * @return integer - rows
+   */
   function rows() {
+    // need to detect a normal API call
     bw_trace2( $this->table, "this->table" );
     return( count( $this->table ) );
   }

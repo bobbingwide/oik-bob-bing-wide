@@ -16,7 +16,11 @@
  * [bw_plug name='oik,wordpress-google-plus-one-button' table='y']
  * In fact - you can omit the table= parameter since it's forced when there's more than one name.
  * 
-*/
+ * @param array $atts - shortcode parameters
+ * @param string $content - not expected
+ * @param string $tag - not expected
+ * @return string - generated HTML for the shortcode link or table of shortcodes
+ */
 if ( !function_exists( "bw_plug" ) ) {
 function bw_plug( $atts=null, $content=null, $tag=null ) {
   $name = bw_array_get_from( $atts, 'name,0', 'oik' );
@@ -75,11 +79,14 @@ function bw_plug( $atts=null, $content=null, $tag=null ) {
 
 /**
  * Get the URL structure for the notes page
- * $link can be "true" or "false" or an URL
+ * 
  * If there is a defined notes_page this value should become the default on the bw_array_get() 
  * NOT the 'n' we're now setting it to. 
  * So we need to reset that logic AND provide the admin page
  * **?** we'll leave this for oik-bob-bing-wide v2 Herb 2012/11/08
+ * 
+ * @param string $link can be "true" or "false" or an URL
+ * @return $link - link to the notes page or null
  */   
 function bw_get_notes_page_url( $link ) {
   $torf = bw_validate_torf( $link );
@@ -103,14 +110,18 @@ function bw_get_notes_page_url( $link ) {
 /**
  * table header for bw_plug
  *
+ * Produce a table header like this:
  * <table>
  * <tbody>
  * <tr>
  * <th>Plugin name and description</th>
- * <th>Plugin links: download,homepage</th>
- * <th>Version, total downloads, last update</th>
+ * <th>Plugin links</th>
+ * <th>Version, total downloads, last update, tested</th>
  * </tr>
-*/
+ *
+ * @param bool $table - true if a table is being displayed
+ *
+ */
 function bw_plug_table( $table=false ) {
   if ( $table ) {
     stag( "table" );
@@ -125,6 +136,10 @@ function bw_plug_table( $table=false ) {
 
 /**
  * table footer for bw_plug 
+ *
+ * Produce the table footer, if required
+ *
+ * @param bool $table - true if a table is being displayed
  */
 function bw_plug_etable( $table=false ) { 
   if ( $table ) {
@@ -132,8 +147,6 @@ function bw_plug_etable( $table=false ) {
     etag( "table" );
   }  
 }
-
-
 
 /**
  * Cache load of plugin info - new version
@@ -145,6 +158,8 @@ function bw_plug_etable( $table=false ) {
  * Rather than assume it's a WordPress plugin we can check if we know about it
  * by looking in the plugin directory
  * 
+ * @param string $plugin_slug - the plugin slug e.g. oik or jetpack
+ * @return XML - XML form of information about the plugin
  */ 
 function bw_get_plugin_info_cache2( $plugin_slug ) {
   bw_trace2();
@@ -170,7 +185,7 @@ function bw_get_plugin_info_cache2( $plugin_slug ) {
   } else {  
     $simple_xml = $response;
   }  
-  return ($simple_xml );
+  return( $simple_xml );
 }
 
 /**
@@ -191,6 +206,7 @@ function bw_get_oik_plugins_info( $plugin_slug ) {
     $result = oik_lazy_pluginsapi( false, "plugin_information", array( "slug" => $plugin_slug) );
     if ( $result ) {
       $result->oik_server = $server;
+      //$result['oik_server'] = $server;
     }
   } else {
     $result = false; 
@@ -199,10 +215,15 @@ function bw_get_oik_plugins_info( $plugin_slug ) {
   return( $result ); 
 }
 
- 
-
 /**
  * Get defined plugin server
+ *
+ * Obtain the plugin information from bw_plugins
+ * If set, find the server name - defaulting to the value of oik_get_plugins_server()
+ * 
+ * 
+ * @param string $plugin_slug - the plugin slid e.g. oik-bob-bing-wide
+ * @erturn string - the plugin server  e.g. 
  */
 function bw_get_defined_plugin_server( $plugin_slug ) {
   $plugin = bw_get_option( $plugin_slug, "bw_plugins" );
@@ -313,7 +334,6 @@ function bw_get_plugin_info2( $plugin_slug ) {
 }
 
 
- 
 /**
  * Get local plugin info XML
  *
@@ -363,7 +383,10 @@ function bw_get_local_plugin_xml( $plugin_slug ) {
 } 
 
 /** 
+ * Get plugin data if available
  *
+ * @param string $plugin_slug - plugin slug e.g. oik-fields
+ * @return string - plugin data for the plugin if the main plugin file exists
  */
 function bw_get_plugin_data( $plugin_slug ) {
 
@@ -378,14 +401,15 @@ function bw_get_plugin_data( $plugin_slug ) {
   return( $plugin_data );
 }
 
-
-
 /** 
  * Obtain the "Tested up to" information and, if available "Last updated" from the readme.txt file
+ * 
  * e.g. 
  *  Tested up to: 3.6
  *  Last updated: some form of date string
- * 
+ *
+ * @param string $plugin_slug - plugin slug e.g. oik-fields
+ * @return array - readme_data with "Tested" and "Last_updated" keys set
  */
 function bw_get_readme_data( $plugin_slug ) {
   require_once( ABSPATH . "wp-admin/includes/plugin.php" );
@@ -405,10 +429,15 @@ function bw_get_readme_data( $plugin_slug ) {
   return( $readme_data );
 }  
 
-
-
 /**
+ * Add a child node to the simple XML
+ * 
+ * Update the SimpleXML with the field from plugin_data
  *
+ * @param SimpleXML object $xml - SimpleXML object
+ * @param array $plugin_data - the source of the data to be added
+ * @param string $src - the field name
+ * @param string $target - the target name if different from $src
  */
 function bw_add_xml_child( &$xml, $plugin_data, $src, $target=null ) {
   if ( !$target ) {
@@ -417,8 +446,6 @@ function bw_add_xml_child( &$xml, $plugin_data, $src, $target=null ) {
   $value = bw_array_get( $plugin_data, $src, null ); 
   $xml->addChild( $target, $value ); 
 }
-
-  
 
 /**
  * Analyze the response from bw_remote_get2()
@@ -441,8 +468,6 @@ function bw_analyze_response_xml2( $response_xml2, $response_xml ) {
   }
   return( $response_xml );
 }
-
-
 
 /**
  * 
@@ -468,7 +493,6 @@ function _bw_tidy_response_xml( $response_xml ) {
   $response_xml = ent2ncr( $response_xml );
   return( $response_xml );
 }
-
 
 /**
  * Format a link or links to the plugin
@@ -530,11 +554,9 @@ function bw_link_plugin_banner( $name, $plugininfo, $banner ) {
         $image = retimage( "bw_banner", $file, $name );
         alink( "bw_banner", "http://wordpress.org/extend/plugins/$name", $image, $file );   
         break;
-    
     }
   }
 }
-
 
 /**
  * Get the banner file URL 

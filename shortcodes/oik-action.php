@@ -46,7 +46,7 @@ function bw_action( $atts=null, $content=null, $tag=null ) {
     $ret = apply_filters_ref_array( $action, $unkeyed ); 
   } else {
     //$a1 = bw_array_get_from( $atts, "1", null );
-    $ret = apply_filters( $action, $content, $args );
+    $ret = apply_filters( $action, $content, $atts );
   }  
   if ( $ret ) {
     e( $ret );

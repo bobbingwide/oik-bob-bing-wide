@@ -3,31 +3,37 @@
 /**
  * Implement [bw_dash] shortcode
  *
+ * If there's any content then this is also displayed.
+ * The styling may be a little wonky.
+ *
+ * Originally the code created a div, now it creates a span
+ * This makes it easier to use dashicons inline.
  * 
  * @param array $atts - shortcode parameters
- * @param string $content - not expected
+ * @param string $content - not (really) expected
  * @param string $tag - shortcode tag
  * @return string - generated HTML for the dash form
- *
- <div class="dashicons dashicons-star-empty"></div> 
- * 
  */
 function bw_dash( $atts=null, $content=null, $tag=null ) {
   $icon = bw_array_get_from( $atts, "icon,0", "menu" );
   $class = bw_array_get_from( $atts, "class,1", null ); 
   wp_enqueue_style( 'dashicons' );
-  sdiv( "dashicons dashicons-$icon $class" );
-  ediv(); 
+  span( "dashicons dashicons-$icon $class" );
+  if ( $content ) {
+    e( bw_do_shortcode( $content ) );
+  }
+  epan(); 
   return( bw_ret() );
 }
 
 /**
  * Produce a list of the possible dashicons in the dashicons.css file
  * 
- * @link https://github.com/melchoyce/dashicons/blob/master/index.html
  * Icon list copied on 2014/06/21
  * OR we could parse the values from 
  * wp-includes/css/dashicons.css
+ * 
+ * @link https://github.com/melchoyce/dashicons/blob/master/index.html
  * 
  
  */
@@ -459,10 +465,9 @@ function bw_dash__example( $shortcode="bw_dash" ) {
   asort( $icons );
   
   foreach ( $icons as $icon ) {
-  
-    sdiv( "dashicons dashicons-$icon $class", null, kv( "text", $icon) );
-    ediv();
     sdiv( "inline" ); 
+    span( "dashicons dashicons-$icon $class", null, kv( "text", $icon) );
+    epan();
     e( $icon );
     ediv();
     
