@@ -3,10 +3,13 @@
 Plugin Name: oik bob bing wide shortcodes
 Plugin URI: http://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin
 Description: More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, bob/fob bing/bong wide/hide & wow, oik and loik, wp, wpms, bp, artisteer, drupal
-Version: 1.30
+Version: 1.30.1
 Author: bobbingwide
 Author URI: http://www.oik-plugins.com/author/bobbingwide
-License: GPL2
+Text Domain: oik-bob-bing-wide
+Domain Path: /languages/
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
     Copyright 2010-2015 Bobbing Wide (email : herb@bobbingwide.com )
 
@@ -138,7 +141,7 @@ function oik_bob_bing_wide_activation() {
       require_once( "admin/oik-activation.php" );
     }
   }  
-  $depends = "oik:2.4";
+  $depends = "oik:2.6-alpha.0724";
   oik_plugin_lazy_activation( __FILE__, $depends, "oik_plugin_plugin_inactive" );
 }
 

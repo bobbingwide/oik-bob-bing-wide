@@ -145,6 +145,7 @@ function bw_csv_content_array_table( $content_array, $atts=null ) {
     $line = trim( $line );
     if ( $line ) {
       $tablerow = str_getcsv( $line );
+			$tablerow = bw_csv_dashicons( $tablerow, $atts );
       $tablerow = bw_csv_expand_shortcodes( $tablerow );
       if ( $th ) {
         bw_tablerow( $tablerow, "tr", "th" );
@@ -290,5 +291,48 @@ function bw_csv__snippet( $shortcode="bw_csv" ) {
   _sc__snippet( $shortcode, $example );
 } 
 
+function bw_csv_get_mapping( $atts, $key ) {
+	$map = bw_array_get( $atts, $key, null );
+	switch ( $map ) {
+		case null:
+			$map = $key;
+			break;
+			
+		case "Y":
+			$map = "[bw_dash yes]";
+			break;
+			
+		case "N":
+			$map = "[bw_dash no]";
+			break;
+			
+		default: 
+			// Whatever they said
+	}
+	return( $map );
+}
 
- 
+/**
+ * Convert to dash icons 
+ *
+ * @param array $tablerow array of columns
+ * @param array $atts 
+ * @return array updated tablerow
+ */
+function bw_csv_dashicons( $tablerow, $atts ) {
+	//$stars = bw_array_get( $atts, "stars", null );
+	bw_trace2();
+	
+	$mapping["Y"] = bw_csv_get_mapping( $atts, "y" );
+	$mapping["N"] = bw_csv_get_mapping( $atts, "n" );
+	
+	$dashed = array();
+	
+	foreach ( $tablerow as $col ) {
+		$ucol = strtoupper( $col );
+		$dashed[] = bw_array_get( $mapping, $ucol, $col );
+	}
+	return( $dashed ); 
+} 
+		 
+  

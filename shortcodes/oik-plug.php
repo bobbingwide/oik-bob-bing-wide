@@ -54,6 +54,9 @@ function bw_plug( $atts=null, $content=null, $tag=null ) {
   
     $plugininfo = bw_get_plugin_info_cache2( $name );
     bw_trace( $plugininfo, __FUNCTION__, __LINE__, __FILE__, "plugininfo" );
+		if ( is_array( $plugininfo ) ) {
+			$plugininfo = (object) $plugininfo;
+		} 
     
     if ( is_wp_error( $plugininfo ) || !$plugininfo || !property_exists( $plugininfo, "name" ) ) {
       if ( $table ) {
@@ -227,7 +230,10 @@ function bw_get_oik_plugins_info( $plugin_slug ) {
   if ( $server ) {
     oik_register_plugin_server( $plugin_slug, $server );
     $result = oik_lazy_pluginsapi( false, "plugin_information", array( "slug" => $plugin_slug) );
-    if ( $result ) {
+		
+    if ( is_wp_error( $result ) ) {
+		  $result = false;
+		} elseif ( $result ) {
       $result->oik_server = $server;
       //$result['oik_server'] = $server;
     }

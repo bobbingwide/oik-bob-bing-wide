@@ -2,14 +2,17 @@
 Contributors: bobbingwide
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal
-Requires at least: 3.9
-Tested up to: 4.2-beta4
-Stable tag: 1.30
+Requires at least: 4.2
+Tested up to: 4.3-beta4
+Stable tag: 1.30.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 More lazy smart shortcodes: bw_csv, bw_plug, bw_search, bw_page, bw_post, bob/fob, bing/bong, wide/hide, & wow, oik and loik, wp, wpms, bp, artisteer, drupal
+
+New in v1.30.1
+[bw_csv] - supports dash icon mapping for "Y" and "N"
 
 New in v1.30
 [bw_csv] - supports pagination and 4 display formats; table, ordered list, unordered list and definition list
@@ -86,6 +89,9 @@ In alphabetical order:
 2. [ bw_plug name="oik,oik-bob-bing-wide"] 
 
 == Upgrade Notice ==
+= 1.30.1 =
+Upgrade for improved support of dash icons in the [bw_csv] shortcode
+
 = 1.30 = 
 Improved [bw_csv]: Added pagination. Added uo=o|ol|u|ul|d|dl parameter to display different styles of list
 
@@ -130,6 +136,14 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 == Changelog ==
+= 1.30.1 =
+* Changed: [bw_csv] now supports y=Y and n=N parameters to ease the use of dashicons
+* Fixed: [bw_plug] casts $pluginfo from array to object when required
+* Fixed: [bw_plug] detects WP_error returned from oik_lazy_pluginsapi() 
+* Changed: Now using semantic versioning.
+* Changed: Now depends on oik v2.6-alpha.0724 
+* Tested: With WordPress 4.3-beta4
+
 = 1.30 = 
 * Changed: [bw_csv] now supports pagination. Use posts_per_page= parameter
 * Changed: [bw_csv] now supports 4 styles: table (default), ordered, unordered and definition lists. Use uo= parameter

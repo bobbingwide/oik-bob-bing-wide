@@ -1,0 +1,197 @@
+# Copyright (C) 2015 oik bob bing wide shortcodes
+# This file is distributed under the same license as the oik bob bing wide shortcodes package.
+msgid ""
+msgstr ""
+"Project-Id-Version: oik bob bing wide shortcodes 1.30.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/oik-bob-bing-wide\n"
+"POT-Creation-Date: 2015-07-27 15:12:30+00:00\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
+"Language: bb_BB\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+#: shortcodes/oik-csv.php:248
+msgid "Invalid use of bw_csv. src= parameter not set"
+msgstr "Iianlvd UsE Of bw_csv. src= peratmear nOt sEt"
+
+#: shortcodes/oik-csv.php:270
+msgid "file"
+msgstr "flie"
+
+#: shortcodes/oik-csv.php:270
+msgid "File containing CSV data to display"
+msgstr "Flie cinatnoing CSV dtaa tO dlsipay"
+
+#: shortcodes/oik-csv.php:271
+msgid "n"
+msgstr "n"
+
+#: shortcodes/oik-csv.php:271
+msgid "Format table headings"
+msgstr "Fraomt tlabe hanegdis"
+
+#: shortcodes/oik-csv.php:272
+msgid "u|ul|o|ol|d|dl"
+msgstr "U|Ul|O|Ol|d|dl"
+
+#: shortcodes/oik-csv.php:272
+msgid "Format as list - unordered, ordered or definition"
+msgstr "Foramt As lsit - uordenerd, oedrred Or deiotfniin"
+
+#: shortcodes/oik-dash.php:644
+msgid "text"
+msgstr "txet"
+
+#: shortcodes/oik-dash.php:644
+msgid "Dash icon to display"
+msgstr "Dsah iocn tO dlpiasy"
+
+#: shortcodes/oik-dash.php:646
+msgid "<i>classnames</i>"
+msgstr "<i>classnames</i>"
+
+#: shortcodes/oik-dash.php:646
+msgid "CSS classes"
+msgstr "CSS cseasls"
+
+#: shortcodes/oik-option.php:47
+msgid "<i>name</i>"
+msgstr "<i>name</i>"
+
+#: shortcodes/oik-option.php:47
+msgid "Option name"
+msgstr "Otpion name"
+
+#: shortcodes/oik-option.php:48
+msgid "<i>field_type</i>"
+msgstr "<i>field_type</i>"
+
+#: shortcodes/oik-option.php:48
+msgid "Field type. e.g. URL, textarea"
+msgstr "Feild tpye. E.g. URL, txeatrea"
+
+#: shortcodes/oik-plug.php:133
+msgid "Plugin name and description"
+msgstr "Pulgin nmae And dsiciprteon"
+
+#: shortcodes/oik-plug.php:134
+msgid "Plugin links"
+msgstr "Pgilun lknis"
+
+#: shortcodes/oik-plug.php:135
+msgid "Version, total downloads, last update, tested"
+msgstr "Veorisn, ttaol dowodalns, lsat utpade, ttseed"
+
+#: shortcodes/oik-plug.php:742
+msgid "No info available"
+msgstr "NO ifno alvlaibae"
+
+#: shortcodes/oik-plug.php:743
+msgid "&nbsp;"
+msgstr "&nbsp;"
+
+#: shortcodes/oik-plug.php:755
+msgid "home"
+msgstr "hmoe"
+
+#: shortcodes/oik-plug.php:755
+msgid "Link to plugin homepage"
+msgstr "Link tO pluign hgmopaee"
+
+#: shortcodes/oik-plug.php:819
+msgid "<i>plugin-a,plugin-b</i>"
+msgstr "<i>plugin-a,plugin-b</i>"
+
+#: shortcodes/oik-plug.php:819
+msgid "names of plugins to summarise"
+msgstr "nmaes Of plginus tO sauirmmse"
+
+#: shortcodes/oik-plug.php:820
+msgid "N|t|f|1|0"
+msgstr "N|t|f|1|0"
+
+#: shortcodes/oik-plug.php:820
+msgid ""
+"Show detailed information. Defaults to 'Y' if more than one plugin is listed"
+msgstr ""
+"Show dleitaed iotnarofimn. Daluftes tO 'Y' If mroe than OnE pgulin Is leitsd"
+
+#: shortcodes/oik-plug.php:821
+msgid "active_plugins"
+msgstr "avcite_plngius"
+
+#: shortcodes/oik-plug.php:821
+msgid "Summarise the activated plugins"
+msgstr "Srmiuamse thE aciatvted pulings"
+
+#: shortcodes/oik-plug.php:822
+msgid "y|<i>URL</i>"
+msgstr "y|<i>URL</i>"
+
+#: shortcodes/oik-plug.php:822
+msgid "URL for where to find additional information"
+msgstr "URL fOr wrehe tO fnid atdinoadil iforatnoimn"
+
+#: shortcodes/oik-plug.php:823
+msgid "y|j|p"
+msgstr "y|j|p"
+
+#: shortcodes/oik-plug.php:823
+msgid "Display the plugin banner image"
+msgstr "Diaslpy thE pulgin bnenar iagme"
+
+#: shortcodes/oik-post-page.php:113 shortcodes/oik-post-page.php:121
+msgid "<i>post_type</i>"
+msgstr "<i>post_type</i>"
+
+#: shortcodes/oik-post-page.php:113 shortcodes/oik-post-page.php:121
+msgid "Post type to add"
+msgstr "Psot type tO Add"
+
+#: shortcodes/oik-post-page.php:114 shortcodes/oik-post-page.php:122
+msgid "<i>dash icon</i>"
+msgstr "<i>dash icon</i>"
+
+#: shortcodes/oik-post-page.php:114 shortcodes/oik-post-page.php:122
+msgid "Dash icon override"
+msgstr "Dash iocn oveirdre"
+
+#: shortcodes/oik-post-page.php:115 shortcodes/oik-post-page.php:123
+msgid "<i>text</i>"
+msgstr "<i>text</i>"
+
+#: shortcodes/oik-post-page.php:115 shortcodes/oik-post-page.php:123
+msgid "tooltip text override"
+msgstr "tiotlop txet odverrie"
+
+#: shortcodes/oik-pricing-table.php:66
+msgid "Invalid use of bw_rpt. src= parameter not set"
+msgstr "Ivlinad UsE Of bw_rpt. src= peaeartmr nOt sEt"
+
+#. Plugin Name of the plugin/theme
+msgid "oik bob bing wide shortcodes"
+msgstr "OIk bOb bnig wide sodcothers"
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin"
+msgstr "http://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin"
+
+#. Description of the plugin/theme
+msgid ""
+"More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, bob/fob bing/"
+"bong wide/hide & wow, oik and loik, wp, wpms, bp, artisteer, drupal"
+msgstr ""
+"More lzay srmat sdoorchtes: bw_csv, bw_pulg, bw_pgae, bw_post, bOb/fOb bnig/"
+"bnog wdie/hdie & wOw, OIk And liok, wp, wmps, bp, atisterer, drpaul"
+
+#. Author of the plugin/theme
+msgid "bobbingwide"
+msgstr "bgnbbidwioe"
+
+#. Author URI of the plugin/theme
+msgid "http://www.oik-plugins.com/author/bobbingwide"
+msgstr "http://www.oik-plugins.com/author/bobbingwide"
+
