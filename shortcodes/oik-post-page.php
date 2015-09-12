@@ -96,7 +96,7 @@ function bw_dash_link( $atts, $content=null, $tag=null ) {
       }  
     }     
   } else {
-    bw_trace2( $post_type, "Invalid post_type" );
+    bw_trace2( $post_type, "Invalid post_type", true, BW_TRACE_WARNING );
   }   
   $dash_atts = array( $icon );
   oik_require( "shortcodes/oik-dash.php", "oik-bob-bing-wide" );
