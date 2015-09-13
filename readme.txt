@@ -1,15 +1,18 @@
 === oik-bob-bing-wide ===
 Contributors: bobbingwide
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
-Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal
+Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github
 Requires at least: 4.2
-Tested up to: 4.3-beta4
-Stable tag: 1.30.1
+Tested up to: 4.3
+Stable tag: 1.30.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
-More lazy smart shortcodes: bw_csv, bw_plug, bw_search, bw_page, bw_post, bob/fob, bing/bong, wide/hide, & wow, oik and loik, wp, wpms, bp, artisteer, drupal
+More lazy smart shortcodes: bw_csv, bw_plug, bw_search, bw_page, bw_post, oik, wp, wpms, bp, artisteer, drupal and github
+
+New in v1.30.2
+[github] - create links to GitHub repositories, issues etc
 
 New in v1.30.1
 [bw_csv] - supports dash icon mapping for "Y" and "N"
@@ -47,25 +50,21 @@ New in v1.23
 = What shortcodes does this plugin provide? =
 In alphabetical order:
 * [artisteer]
-* [bing] 
-* [bob]
-* [bong]
 * [bp]
-* [bw_action]
+* [bw_action]	- prototype
 * [bw_crumbs]
-* [bw_csv]
+* [bw_csv] - improved in v1.30, v1.30.1
 * [bw_dash]
 * [bw_graphviz]
 * [bw_option] - new in v1.27
-* [bw_page] 
+* [bw_page] - improved in v1.30.1
 * [bw_plug]
 * [bw_post]
 * [bw_rpt]
 * [bw_search]
-* [bw_text] - new in v1.28
+* [bw_text] - new in v1.28, prototype
 * [drupal]
-* [fob] 
-* [hide]
+* [github] - new in v1.30.2
 * [lartisteer]
 * [lbp]
 * [lbw]
@@ -75,13 +74,23 @@ In alphabetical order:
 * [lwpms]
 * [oik]
 * [OIK]
+* [wp]
+* [wpms]
+
+= Which shortcodes have been deprecated? = 
+
+The following shortcodes have been deprecated. 
+Implement them using diy-oik if required.
+
+* [bing] 
+* [bob]
+* [bong]
+* [fob] 
+* [hide]
 * [wide]
 * [wow]
 * [WoW]
 * [WOW]
-* [wp]
-* [wpms]
-
 
 
 == Screenshots ==
@@ -89,6 +98,9 @@ In alphabetical order:
 2. [ bw_plug name="oik,oik-bob-bing-wide"] 
 
 == Upgrade Notice ==
+= 1.30.2 =
+Upgrade to use the [github] shortcode. Requires latest version of the bw_trace2 API (v2.0.5)
+
 = 1.30.1 =
 Upgrade for improved support of dash icons in the [bw_csv] shortcode
 
@@ -136,6 +148,10 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 == Changelog ==
+= 1.30.2 = 
+* Added: [github] shortcode - Issue #1
+* Changed: Some bw_trace2() calls
+
 = 1.30.1 =
 * Changed: [bw_csv] now supports y=Y and n=N parameters to ease the use of dashicons
 * Fixed: [bw_plug] casts $pluginfo from array to object when required
