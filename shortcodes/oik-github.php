@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2015
+<?php // (C) Copyright Bobbing Wide 2015,2016
 /**
  * Implement [github] shortcode
  *
@@ -44,7 +44,7 @@ function bw_github( $atts=null, $content=null, $tag=null ) {
 		$text .= $repository;
 	}
 	if ( $type ) {
-		$github[] = $type;
+		$github[] = bw_github_sanitize_type( $type );
 		//$text .= " ". $type; 
 		$class .= " $type-link";
 	}
@@ -55,6 +55,26 @@ function bw_github( $atts=null, $content=null, $tag=null ) {
 	$target = implode( "/", $github );
 	alink( $class, $target, $text ); 
 	return( bw_ret() );
+}
+
+
+/**
+ * Autocorrect the type if we used singular by mistake
+ * 
+ * Also convert to lower case
+ *
+ * @param string $type 
+ * @return string autocorrected and sanitized
+ */
+
+function bw_github_sanitize_type( $type ) {
+	$type = strtolower( $type );
+
+	$types = array( "issue" => "issues" 
+								, "release" => "releases" 
+								);
+	$type = bw_array_get( $types, $type, $type );
+	return( $type ); 
 }
 
 
