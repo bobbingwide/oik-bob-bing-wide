@@ -33,7 +33,7 @@ function bw_plug( $atts=null, $content=null, $tag=null ) {
   $table = bw_validate_torf( $table );
   $link = bw_get_notes_page_url( $link );
   
-  bw_trace( $table, __FUNCTION__, __LINE__, __FILE__, "table" );
+  bw_trace( $table, __FUNCTION__, __LINE__, __FILE__, "table", BW_TRACE_DEBUG );
   
   if ( !empty( $option ) ) {
     $names = bw_plug_list_plugins( $option );
@@ -53,7 +53,7 @@ function bw_plug( $atts=null, $content=null, $tag=null ) {
     $name = bw_plugin_namify( $name );
   
     $plugininfo = bw_get_plugin_info_cache2( $name );
-    bw_trace( $plugininfo, __FUNCTION__, __LINE__, __FILE__, "plugininfo" );
+    bw_trace( $plugininfo, __FUNCTION__, __LINE__, __FILE__, "plugininfo", BW_TRACE_INFO );
 		if ( is_array( $plugininfo ) ) {
 			$plugininfo = (object) $plugininfo;
 		} 
@@ -502,6 +502,8 @@ function bw_get_readme_data( $plugin_slug ) {
     }
   } else {
     $readme_data = null;
+		bw_trace2( $file, "file does not exist", true, BW_TRACE_WARNING );
+		gobang();
   }    
   bw_trace2( $readme_data, "readme_data" );
   return( $readme_data );
@@ -739,7 +741,7 @@ function bw_format_plug_table( $name, $link, $plugininfo ) {
   stag( "tr");
   if ( $plugininfo === FALSE ) {
     td( $name );
-    td( "No info available" );
+    td( "No info available <!-- $link -->" );
     td( "&nbsp;" );
     }
   else {
@@ -757,7 +759,10 @@ function bw_format_plug_table( $name, $link, $plugininfo ) {
     br();
     bw_link_notes_page( $name, $link );
     etag( "td" );
-    td( $plugininfo->version . '<br />' . $plugininfo->downloaded . '<br />'. $plugininfo->last_updated . '<br />' . $plugininfo->tested );
+		$downloaded = bw_get_property( $plugininfo, "Downloaded", null );
+		$last_updated = bw_get_property( $plugininfo, "Last_updated", null );
+		$tested = bw_get_property( $plugininfo, "Tested", null );
+    td( $plugininfo->version . '<br />' . $downloaded . '<br />'. $last_updated . '<br />' . $tested );
   } 
   etag("tr");  
 }
@@ -823,6 +828,22 @@ function bw_plug__syntax( $shortcode='bw_plug' ) {
                  , "banner" => bw_skv( null, "y|j|p", "Display the plugin banner image" )
                  );
   return( $syntax );
+}
+
+/**
+ * Return the object property if it exists
+ */
+function bw_get_property( $object, $property, $default=null ) {
+	$lprop = strtolower( $property ); 
+	if ( property_exists( $object, $property ) ) {
+		$value = $object->{$property};
+	} elseif ( property_exists( $object, $lprop ) ) { 
+	 	$value = $object->{$lprop};
+	} else {
+		$value = $default;
+	}
+	return( $value );
+
 }
 
 
