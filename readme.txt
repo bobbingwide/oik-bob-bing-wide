@@ -4,7 +4,7 @@ Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github
 Requires at least: 4.2
 Tested up to: 4.3
-Stable tag: 1.30.2
+Stable tag: 1.30.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,9 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"] 
 
 == Upgrade Notice ==
+= 1.30.3 = 
+Required for oik-ajax pagination of content in the [bw_csv] shortcode
+
 = 1.30.2 =
 Upgrade to use the [github] shortcode. Requires latest version of the bw_trace2 API (v2.0.5)
 
@@ -148,6 +151,12 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 == Changelog ==
+= 1.30.3 = 
+* Added: A few language versions
+* Changed: Coreq changes for ajaxified pagination [github bobbingwide oik-ajax issue 1]
+* Changed: Minor tweaks to [bw_plug] shortcode [github bobbingwide oik-bob-bing-wide issue 4]
+* Fixed: Autocorrect the [github] type parameter [github bobbingwide oik-bobbing-wide issue 3]
+ 
 = 1.30.2 = 
 * Added: [github] shortcode - Issue #1
 * Changed: Some bw_trace2() calls
