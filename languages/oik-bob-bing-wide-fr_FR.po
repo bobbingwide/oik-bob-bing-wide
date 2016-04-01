@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the oik bob bing wide shortcodes package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik bob bing wide shortcodes 1.30.1\n"
+"Project-Id-Version: oik bob bing wide shortcodes 1.30.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik-bob-bing-wide\n"
-"POT-Creation-Date: 2015-07-27 15:12:30+00:00\n"
+"POT-Creation-Date: 2015-09-13 10:08:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: fr_FR\n"
@@ -55,6 +55,46 @@ msgstr ""
 
 #: shortcodes/oik-dash.php:646
 msgid "CSS classes"
+msgstr ""
+
+#: shortcodes/oik-github.php:70
+msgid "<i>owner</i>"
+msgstr ""
+
+#: shortcodes/oik-github.php:70
+msgid "Repository owner"
+msgstr ""
+
+#: shortcodes/oik-github.php:71
+msgid "<i>repository</i>"
+msgstr ""
+
+#: shortcodes/oik-github.php:71
+msgid "Repository name"
+msgstr ""
+
+#: shortcodes/oik-github.php:72
+msgid "issues|archives/releases"
+msgstr ""
+
+#: shortcodes/oik-github.php:72
+msgid "Content type"
+msgstr ""
+
+#: shortcodes/oik-github.php:73
+msgid "<i>identifier</i>"
+msgstr ""
+
+#: shortcodes/oik-github.php:73
+msgid "Identifier"
+msgstr ""
+
+#: shortcodes/oik-github.php:74
+msgid "<i>URL</i>"
+msgstr ""
+
+#: shortcodes/oik-github.php:74
+msgid "GitHub URL"
 msgstr ""
 
 #: shortcodes/oik-option.php:47
