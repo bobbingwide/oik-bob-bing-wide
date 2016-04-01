@@ -52,29 +52,35 @@ function bw_csv_get_funcs() {
  * @param array $atts - shortcode atts
  */
 function bw_csv_content_array_paged( $content_array, $atts ) {
-  $posts_per_page = bw_array_get( $atts, "posts_per_page", null );
-  if ( $posts_per_page ) {
-    if ( !is_numeric( $posts_per_page ) ) {
-      $posts_per_page = get_option( "posts_per_page" ); 
-    }
-    oik_require( "shortcodes/oik-navi.php" );
-    $bwscid = bw_get_shortcode_id( true );
-    $page = bw_check_paged_shortcode( $bwscid );
-    $count = count( $content_array );
-    $atts['uo'] = bw_array_get( $atts, "uo", "table" );
-    if ( $atts['uo'] == "table" ) {
-      $count--;
-    }
-    $pages = ceil( $count / $posts_per_page );
-    $start = ( $page-1 ) * $posts_per_page;
-    $end = min( $start + $posts_per_page, $count ) -1 ;                              
-    bw_navi_s2eofn( $start, $end, $count );
-    $select_array = bw_csv_content_array_select( $content_array, $start, $end, $atts );
-    bw_csv_content_array( $select_array, $atts );
-    bw_navi_paginate_links( $bwscid, $page, $pages ); 
-  } else {
+	bw_trace2();
+	$content0 = bw_array_get( $atts, "content0", null );
+	if ( $content0 ) {
     bw_csv_content_array( $content_array, $atts );
-  }
+	}	else {
+		$posts_per_page = bw_array_get( $atts, "posts_per_page", null );
+	 if ( $posts_per_page ) {
+		 if ( !is_numeric( $posts_per_page ) ) {
+			 $posts_per_page = get_option( "posts_per_page" ); 
+		 }
+		 oik_require( "shortcodes/oik-navi.php" );
+		 $bwscid = bw_get_shortcode_id( true );
+		 $page = bw_check_paged_shortcode( $bwscid );
+		 $count = count( $content_array );
+		 $atts['uo'] = bw_array_get( $atts, "uo", "table" );
+		 if ( $atts['uo'] == "table" ) {
+			 $count--;
+		 }
+		 $pages = ceil( $count / $posts_per_page );
+		 $start = ( $page-1 ) * $posts_per_page;
+		 $end = min( $start + $posts_per_page, $count ) -1 ;                              
+		 bw_navi_s2eofn( $start, $end, $count );
+		 $select_array = bw_csv_content_array_select( $content_array, $start, $end, $atts );
+		 bw_csv_content_array( $select_array, $atts );
+		 bw_navi_paginate_links( $bwscid, $page, $pages ); 
+	 } else {
+		 bw_csv_content_array( $content_array, $atts );
+	 }
+	} 
 }
 
 /**
@@ -309,6 +315,7 @@ function bw_csv_get_mapping( $atts, $key ) {
 		default: 
 			// Whatever they said
 	}
+	bw_trace2( $map, "map", true );
 	return( $map );
 }
 
@@ -332,6 +339,7 @@ function bw_csv_dashicons( $tablerow, $atts ) {
 		$ucol = strtoupper( $col );
 		$dashed[] = bw_array_get( $mapping, $ucol, $col );
 	}
+	bw_trace2( $dashed, "dashed", false, BW_TRACE_INFO );
 	return( $dashed ); 
 } 
 		 
