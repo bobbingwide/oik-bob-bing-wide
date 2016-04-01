@@ -3,7 +3,7 @@ Contributors: bobbingwide
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github
 Requires at least: 4.2
-Tested up to: 4.3
+Tested up to: 4.5-RC1
 Stable tag: 1.30.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
