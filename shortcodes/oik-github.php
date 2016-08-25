@@ -30,8 +30,8 @@ function bw_github( $atts=null, $content=null, $tag=null ) {
 	$number = bw_array_get_from( $atts, "3", null );
 	$url = bw_array_get_from( $atts, "url", "https://github.com" );
 	$github = array();
-	$text = null;
 	$class = "github";
+	$text = bw_github_genericon( "github", $class );
 	
 	$github[] = $url;
 	if ( $owner ) {
@@ -103,6 +103,26 @@ function github__example( $shortcode="github" ) {
 	$text = "Link to GitHub Issue #1 for bobbingwide/oik-bob-bing-wide" ;
 	$example = "bobbingwide oik-bob-bing-wide issues 1" ;
 	bw_invoke_shortcode( $shortcode, $example, $text );
+}
+
+
+/**
+ * Display the github genericon
+ * 
+ * Code copied/cobbled from bw_follow_link_gener()
+ * 
+ * @param string $lc_social 
+ * @param string $class
+ * @return string the HTML for the "github" genericon
+ */
+function bw_github_genericon( $lc_social="github", $class=null) {	
+  if ( !wp_style_is( 'genericons', 'registered' ) ) {
+    wp_register_style( 'genericons', oik_url( 'css/genericons/genericons.css' ), false );
+  }
+  wp_enqueue_style( 'genericons' );
+  $dash = retstag( "span", "genericon genericon-$lc_social bw_follow_me $class" );
+  $dash .= retetag( "span" );
+	return( $dash );
 }
 
 
