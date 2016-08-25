@@ -99,7 +99,7 @@ Implement them using diy-oik if required.
 
 == Upgrade Notice ==
 = 1.30.4 =
-[bw_option] now supports display of serialized data, [github] now displays the GitHub genericon
+[bw_option] now supports display of serialized data, [github] now displays the GitHub genericon. Tested with WordPress 4.6
 
 = 1.30.3 = 
 Required for oik-ajax pagination of content in the [bw_csv] shortcode
@@ -156,7 +156,9 @@ This version matches the child plugin oik-bob-bing-wide in oik v1.17
 == Changelog ==
 = 1.30.4 = 
 * Changed: [bw_option] to suppport serialized fields [github bobbingwide oik-bob-bing-wide issue 6]
-* Changed: [github] now displays the GitHub genericon
+* Changed: [github] now displays the GitHub genericon [github bobbingwide oik-bob-bing-wide issue 10]
+* Changed: Add the y=Y and n=N parameters in bw_csv__syntax [github bobbingwide oik-bob-bing-wide issue 9 ]
+* Tested: With WordPress 4.6 and WordPress Multisite
 
 = 1.30.3 = 
 * Added: A few language versions
