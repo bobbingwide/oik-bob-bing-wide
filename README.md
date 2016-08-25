@@ -1,10 +1,11 @@
 # oik-bob-bing-wide 
+![banner](https://raw.githubusercontent.com/bobbingwide/oik-bob-bing-wide/master/assets/oik-bob-bing-wide-banner-772x250.jpg)
 * Contributors: bobbingwide
 * Donate link: http://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github
 * Requires at least: 4.2
-* Tested up to: 4.5-RC1
-* Stable tag: 1.30.3
+* Tested up to: 4.6
+* Stable tag: 1.30.4
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +99,9 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"]
 
 ## Upgrade Notice 
+# 1.30.4 
+[bw_option] now supports display of serialized data, [github] now displays the GitHub genericon
+
 # 1.30.3 
 Required for oik-ajax pagination of content in the [bw_csv] shortcode
 
@@ -151,6 +155,10 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 ## Changelog 
+# 1.30.4 
+* Changed: [bw_option] to suppport serialized fields [github bobbingwide oik-bob-bing-wide issue 6]
+* Changed: [github] now displays the GitHub genericon
+
 # 1.30.3 
 * Added: A few language versions
 * Changed: Coreq changes for ajaxified pagination [github bobbingwide oik-ajax issue 1]

@@ -53,17 +53,12 @@ function oik_plugin_activate_plugin( $plugin, $plugin_name) {
 } 
  
 /**
- * Create an Upgrade plugin link
+ * Create an Update plugin link
  *
-     
-    $path = "update.php?action=install-plugin&plugin=$plugin";
-    $url = admin_url( $path );
-    $url = wp_nonce_url( $url, "install-plugin_oik" ); 
-    $link = '<a href="';
-    $link .= $url;
-    $link .= '">Install oik</a>';
-    
-  $url = wp_nonce_url(self_admin_url('update.php?action=upgrade-plugin&plugin=' . $update_file), 'upgrade-plugin_' . $update_file);
+ * Decided to use "Update" rather than " Upgrade". 
+ *
+ * @param string $plugin the plugin slug
+ * @return string the update link
  */
 function oik_plugin_update_plugin( $plugin ) {
   $path = "update.php?action=upgrade-plugin&plugin=$plugin";
@@ -72,7 +67,7 @@ function oik_plugin_update_plugin( $plugin ) {
   $link = '<a href="';
   $link .= $url;
   $link .= '">'; 
-  $link .= __(' Upgrade' );
+  $link .= __( 'Update' );
   $link .= " $plugin</a>";
   return( $link );
 }
@@ -245,7 +240,8 @@ function oik_plugin_lazy_activation( $plugin=null, $dependencies=null, $callback
  * This gives us a bit more control over the information we provide.
  * IF the oik plugin is not activated then oik_lazy_depends() will not be defined
  * 
-*/
+ */
+if ( !function_exists( "oik_depends" ) ) {
 function oik_depends( $plugin=null, $dependencies="oik", $callback=null ) {
   //bw_trace2();
   //if ( function_exists( "oik_load_plugins" )) {
@@ -258,6 +254,7 @@ function oik_depends( $plugin=null, $dependencies="oik", $callback=null ) {
       call_user_func( $callback, $plugin, $dependencies, "missing" );
     }  
   }  
+}
 }
 
 
