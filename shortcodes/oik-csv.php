@@ -276,7 +276,9 @@ function bw_csv__syntax( $shortcode="bw_csv" ) {
   $syntax = array( "src,0" => bw_skv( null, "file", "File containing CSV data to display" )
                  , "th" => bw_skv( "y", "n", "Format table headings" )
                  , "uo" => bw_skv( "table", "u|ul|o|ol|d|dl", "Format as list - unordered, ordered or definition" )
-                 );
+								 , "y" => bw_skv( null, "Y|N", "Convert y to a dash icon tick or cross" )
+								 , "n" => bw_skv( null, "N|Y", "Convert n to a dash icon cross or tick" )
+								 );
   return( $syntax );                 
 }
 
