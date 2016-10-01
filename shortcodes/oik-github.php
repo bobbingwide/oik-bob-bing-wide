@@ -30,30 +30,34 @@ function bw_github( $atts=null, $content=null, $tag=null ) {
 	$number = bw_array_get_from( $atts, "3", null );
 	$url = bw_array_get_from( $atts, "url", "https://github.com" );
 	$github = array();
-	$class = "github";
-	$text = bw_github_genericon( "github", $class );
+	if ( false != strpos( $type, "." ) ) {
+		bw_github_file( $url, $owner, $repository, $type );
+	} else {
+		$class = "github";
+		$text = bw_github_genericon( "github", $class );
 	
-	$github[] = $url;
-	if ( $owner ) {
-		$github[] = $owner;
-		$text .= $owner;
-	}
-	if ( $repository ) {
-		$github[] = $repository;
-		$text .= '/';
-		$text .= $repository;
-	}
-	if ( $type ) {
-		$github[] = bw_github_sanitize_type( $type );
-		//$text .= " ". $type; 
-		$class .= " $type-link";
-	}
-	if ( $number ) {
-		$github[] = $number;
-		$text .= "#" . $number;
-	}
-	$target = implode( "/", $github );
-	alink( $class, $target, $text ); 
+		$github[] = $url;
+		if ( $owner ) {
+			$github[] = $owner;
+			$text .= $owner;
+		}
+		if ( $repository ) {
+			$github[] = $repository;
+			$text .= '/';
+			$text .= $repository;
+		}
+		if ( $type ) {
+			$github[] = bw_github_sanitize_type( $type );
+			//$text .= " ". $type; 
+			$class .= " $type-link";
+		}
+		if ( $number ) {
+			$github[] = $number;
+			$text .= "#" . $number;
+		}
+		$target = implode( "/", $github );
+		alink( $class, $target, $text );
+	}	 
 	return( bw_ret() );
 }
 
@@ -125,4 +129,109 @@ function bw_github_genericon( $lc_social="github", $class=null) {
 	return( $dash );
 }
 
+/**
+ * Display a github file link
+ *
+ * @param string $url The GitHub URL
+ * @param string $owner
+ * @param string $repository
+ * @param string $type
+ */
+function bw_github_file( $url, $owner, $repository, $type ) {
+	if ( bw_github_maybe_image( $type ) ) {
+		$full_file = bw_github_image_file( $owner, $repository, $type );
+		$image = retimage( null, $full_file, "$owner $repository" );
+		$link = bw_github_repo_url( $url, $owner, $repository );
+		alink( null, $link, $image, "$owner $repository" ); 
+	} else {
+	
+		$link = bw_github_file_url( $url, $owner, $repository, $type );
+		alink( null, $link, "$owner $repository $type" ); 
+		
+	}
+}
+
+/**
+ * Check if the file may be an image
+ * 
+ * Note: 
+ * - test what happens with a file extension of 0 or 1 or any other index value
+ * 
+ * @param string $file
+ * @return bool - true when it could be an image
+ */
+function bw_github_maybe_image( $file ) {
+	$maybe_image = false;
+	$ext = pathinfo( $file, PATHINFO_EXTENSION );
+	$ext = strtolower( $ext );
+	//e( $ext );
+	$images = array( "jpg", "png" );
+	if ( in_array( $ext, $images) ) {
+		$maybe_image = true;
+	}
+	return( $maybe_image );
+} 
+
+/**
+ * Return a GitHub image file name
+ */ 
+function bw_github_image_file( $owner, $repository, $file ) {
+	$github[] = "https://raw.githubusercontent.com";
+	$github[] = $owner;
+	$github[] = $repository;
+	$github[] = "master";
+	$github[] = $file;
+	$target = implode( "/", $github );
+	return( $target );
+}
+
+/**
+ * Return a GitHub repo URL
+ *
+ * @param string $url The GitHub URL
+ * @param string $owner
+ * @param string $repository
+ * @param string $type
+ * @param string $number
+ * @return string the full URL
+ */
+function bw_github_repo_url( $url, $owner=null, $repository=null, $type=null, $number=null ) {
+	$github[] = $url;
+	if ( $owner ) {
+		$github[] = $owner;
+	}
+	if ( $repository ) {
+		$github[] = $repository;
+	}
+	if ( $type ) {
+	 	$github[] = bw_github_sanitize_type( $type );
+	}
+	if ( $number ) {
+		$github[] = $number;
+		}
+	$target = implode( "/", $github );
+	return( $target );
+}
+
+/**
+ * Return a GitHub file URL
+ * 
+ * @param string $url The GitHub URL
+ * @param string $owner
+ * @param string $repository
+ * @param string $file
+ * @param string $type - blob, raw, blame, commits
+ * @param string $branch - master
+ * @return string the full URL
+ */
+function bw_github_file_url( $url, $owner=null, $repository=null, $file=null, $type='blob', $branch='master' ) {
+	$github[] = $url;
+	$github[] = $owner;
+	$github[] = $repository;
+	$github[] = $type;
+	$github[] = $branch;
+	$github[] = $file;
+	$target = implode( "/", $github );
+	return( $target );
+}
 
