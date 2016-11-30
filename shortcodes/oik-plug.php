@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2015
+<?php // (C) Copyright Bobbing Wide 2012-2016
 
 /**
  * Implement [bw_plug] shortcode 
@@ -503,7 +503,8 @@ function bw_get_readme_data( $plugin_slug ) {
   } else {
     $readme_data = null;
 		bw_trace2( $file, "file does not exist", true, BW_TRACE_WARNING );
-		gobang();
+		// Perhaps it's README.txt 
+		bw_backtrace();
   }    
   bw_trace2( $readme_data, "readme_data" );
   return( $readme_data );
@@ -615,6 +616,8 @@ function bw_format_link( $name, $link, $plugininfo, $banner=null ) {
 
 /**
  * Create a plugin banner link 
+ * 
+ * The link used to be to s-plugins.wordpress.org, then changed to ps.w.org sometime in 2016
  */ 
 function bw_link_plugin_banner( $name, $plugininfo, $banner ) {
   if ( $banner ) {    
@@ -634,7 +637,8 @@ function bw_link_plugin_banner( $name, $plugininfo, $banner ) {
       case 'p':
         // Deliver a .png style banner image from WordPress.org
         $banner_type = ".png";
-        $file = "http://s-plugins.wordpress.org/$name/assets/banner-772x250$banner_type";
+				//
+        $file = "http://ps.w.org/$name/assets/banner-772x250$banner_type";
         $image = retimage( "bw_banner", $file, $name );
         alink( "bw_banner", "http://wordpress.org/extend/plugins/$name", $image, $file );   
         break;
@@ -644,7 +648,7 @@ function bw_link_plugin_banner( $name, $plugininfo, $banner ) {
         // Deliver a .jpg banner image from WordPress.org
         
         $banner_type = ".jpg"; 
-        $file = "http://s-plugins.wordpress.org/$name/assets/banner-772x250$banner_type";
+        $file = "http://ps.w.org/$name/assets/banner-772x250$banner_type";
         $image = retimage( "bw_banner", $file, $name );
         alink( "bw_banner", "http://wordpress.org/extend/plugins/$name", $image, $file );   
         break;
@@ -667,7 +671,11 @@ function bw_link_plugin_banner( $name, $plugininfo, $banner ) {
  */
 function bw_get_banner_file_URL( $name, $plugininfo ) {
   bw_trace2( );
-  $pos = strpos( $plugininfo->oik_server, "/oik-plugins/" );
+	if ( isset( $plugininfo->oik_server ) ) {
+		$pos = strpos( $plugininfo->oik_server, "/oik-plugins/" );
+	} else {
+		$pos = false;
+	}
   if ( $pos === false ) {
     $pos = strpos( $plugininfo->homepage, "/oik-plugins/" );
     if  ( $pos === false ) {
