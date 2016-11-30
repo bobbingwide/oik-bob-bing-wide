@@ -4,8 +4,8 @@
 * Donate link: http://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github
 * Requires at least: 4.2
-* Tested up to: 4.6
-* Stable tag: 1.30.4
+* Tested up to: 4.7
+* Stable tag: 1.30.5
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@
 * More lazy smart shortcodes: bw_csv, bw_plug, bw_search, bw_page, bw_post, oik, wp, wpms, bp, artisteer, drupal and github
 
 New in v1.30.2
-[github] - create links to GitHub repositories, issues etc
+https://github.com - create links to GitHub repositories, issues etc
 
 New in v1.30.1
 [bw_csv] - supports dash icon mapping for "Y" and "N"
@@ -65,7 +65,7 @@ In alphabetical order:
 * [bw_search]
 * [bw_text] - new in v1.28, prototype
 * [drupal]
-* [github] - new in v1.30.2
+* https://github.com - new in v1.30.2
 * [lartisteer]
 * [lbp]
 * [lbw]
@@ -99,14 +99,17 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"]
 
 ## Upgrade Notice 
+# 1.30.5 
+Contains a fix for bw_plug displaying banner images. Tested with WordPress 4.7
+
 # 1.30.4 
-[bw_option] now supports display of serialized data, [github] now displays the GitHub genericon. Tested with WordPress 4.6
+[bw_option] now supports display of serialized data, https://github.com now displays the GitHub genericon. Tested with WordPress 4.6
 
 # 1.30.3 
 Required for oik-ajax pagination of content in the [bw_csv] shortcode
 
 # 1.30.2 
-Upgrade to use the [github] shortcode. Requires latest version of the bw_trace2 API (v2.0.5)
+Upgrade to use the https://github.com shortcode. Requires latest version of the bw_trace2 API (v2.0.5)
 
 # 1.30.1 
 Upgrade for improved support of dash icons in the [bw_csv] shortcode
@@ -155,20 +158,25 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 ## Changelog 
+# 1.30.5 
+* Changed: Add support for type parameter being GitHub repository file name,https://github.com/bobbingwide/oik-bob-bing-wide/issues/11
+* Fixed: Update URL for [bw_plug] banner images from wordpress.org,https://github.com/bobbingwide/oik-bob-bing-wide/issues/12
+* Tested: With WordPress 4.7 and WordPress Multisite
+
 # 1.30.4 
-* Changed: [bw_option] to suppport serialized fields [github bobbingwide oik-bob-bing-wide issue 6]
-* Changed: [github] now displays the GitHub genericon [github bobbingwide oik-bob-bing-wide issue 10]
-* Changed: Add the y=Y and n=N parameters in bw_csv__syntax [github bobbingwide oik-bob-bing-wide issue 9 ]
+* Changed: [bw_option] to suppport serialized fields https://github.com/bobbingwide/oik-bob-bing-wide/issues/6
+* Changed: https://github.com now displays the GitHub genericon [github bobbingwide oik-bob-bing-wide issue 10]
+* Changed: Add the y=Y and n=N parameters in bw_csv__syntax https://github.com/bobbingwide/oik-bob-bing-wide/issues/9/
 * Tested: With WordPress 4.6 and WordPress Multisite
 
 # 1.30.3 
 * Added: A few language versions
-* Changed: Coreq changes for ajaxified pagination [github bobbingwide oik-ajax issue 1]
-* Changed: Minor tweaks to [bw_plug] shortcode [github bobbingwide oik-bob-bing-wide issue 4]
-* Fixed: Autocorrect the [github] type parameter [github bobbingwide oik-bobbing-wide issue 3]
+* Changed: Coreq changes for ajaxified pagination https://github.com/bobbingwide/oik-ajax/issues/1
+* Changed: Minor tweaks to [bw_plug] shortcode https://github.com/bobbingwide/oik-bob-bing-wide/issues/4
+* Fixed: Autocorrect the https://github.com type parameter [github bobbingwide oik-bobbing-wide issue 3]
 
 # 1.30.2 
-* Added: [github] shortcode - Issue #1
+* Added: https://github.com shortcode - Issue #1
 * Changed: Some bw_trace2() calls
 
 # 1.30.1 

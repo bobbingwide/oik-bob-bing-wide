@@ -3,8 +3,8 @@ Contributors: bobbingwide
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github
 Requires at least: 4.2
-Tested up to: 4.6
-Stable tag: 1.30.4
+Tested up to: 4.7
+Stable tag: 1.30.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,9 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"] 
 
 == Upgrade Notice ==
+= 1.30.5 = 
+Contains a fix for bw_plug displaying banner images. Tested with WordPress 4.7
+
 = 1.30.4 =
 [bw_option] now supports display of serialized data, [github] now displays the GitHub genericon. Tested with WordPress 4.6
 
@@ -154,6 +157,11 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 == Changelog ==
+= 1.30.5 =
+* Changed: Add support for type parameter being GitHub repository file name,[github bobbingwide oik-bob-bing-wide issues 11]
+* Fixed: Update URL for [bw_plug] banner images from wordpress.org,[github bobbingwide oik-bob-bing-wide issues 12]
+* Tested: With WordPress 4.7 and WordPress Multisite
+
 = 1.30.4 = 
 * Changed: [bw_option] to suppport serialized fields [github bobbingwide oik-bob-bing-wide issue 6]
 * Changed: [github] now displays the GitHub genericon [github bobbingwide oik-bob-bing-wide issue 10]
