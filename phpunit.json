@@ -1,0 +1,39 @@
+{
+    "event": "suiteStart",
+    "suite": "",
+    "tests": 2
+}{
+    "event": "suiteStart",
+    "suite": "Tests_bw_plug",
+    "tests": 1
+}{
+    "event": "testStart",
+    "suite": "Tests_bw_plug",
+    "test": "Tests_bw_plug::test_bw_plug_banner_image_url"
+}{
+    "event": "test",
+    "suite": "Tests_bw_plug",
+    "test": "Tests_bw_plug::test_bw_plug_banner_image_url",
+    "status": "pass",
+    "time": 3.3284738063812,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "suiteStart",
+    "suite": "Tests_oik_github",
+    "tests": 1
+}{
+    "event": "testStart",
+    "suite": "Tests_oik_github",
+    "test": "Tests_oik_github::test_github_type_is_file"
+}{
+    "event": "test",
+    "suite": "Tests_oik_github",
+    "test": "Tests_oik_github::test_github_type_is_file",
+    "status": "pass",
+    "time": 0.017041921615601,
+    "trace": [],
+    "message": "",
+    "output": ""
+}
