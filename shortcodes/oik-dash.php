@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2014
+<?php // (C) Copyright Bobbing Wide 2014-2016
 
 /**
  * Enqueue the correct font for this icon
@@ -603,9 +603,30 @@ function bw_list_dashicons() {
   $di[] = 'index-card';
   $di[] = 'carrot';
 
+	// New in WordPress up to 4.7
+	$di[] = "filter";
+	$di[] = "admin-customizer";
+	$di[] = "admin-multisite";
+	$di[] = "image-rotate";
+	$di[] = "image-filter";
+	$di[] = "editor-table";
+	$di[] = "unlock";
+	$di[] = "hidden";
+	$di[] = "sticky";
+	$di[] = "excerpt-view";  // Now corrected
+	$di[] = "move";
+	$di[] = "plus-alt2";
+	$di[] = "warning";
+	$di[] = "laptop";
+	$di[] = "thumbs-up";
+	$di[] = "thumbs-down";
+	$di[] = "layout";
+	$di[] = "paperclip";
+
  return( $di );
 
 }
+
 /** 
  * Return a list of texticons which are normal characters
  * but displayed using dashicons logic
