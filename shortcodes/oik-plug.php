@@ -170,6 +170,10 @@ function bw_get_plugin_info_cache2( $plugin_slug ) {
   //$response_xml = wp_cache_get( "bw_plug2", $plugin_slug );
   
   $response_xml = get_transient( 'bw_plug2_'. $plugin_slug );
+	if ( is_array( $response_xml ) ) {
+		$response_xml = (object) $response_xml;
+	}
+	bw_trace2( $response_xml, "response_xml" );
   if ( empty( $response_xml ) || !is_object( $response_xml ) ) {
     $response = bw_get_oik_plugins_info( $plugin_slug );
     if ( $response ) {
@@ -618,6 +622,11 @@ function bw_format_link( $name, $link, $plugininfo, $banner=null ) {
  * Create a plugin banner link 
  * 
  * The link used to be to s-plugins.wordpress.org, then changed to ps.w.org sometime in 2016
+ * 
+ * @param string $name the plugin name
+ * @param array $plugininfo
+ * @param string $banner
+ * @return string a link to the plugin via the banner image
  */ 
 function bw_link_plugin_banner( $name, $plugininfo, $banner ) {
   if ( $banner ) {    
