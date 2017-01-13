@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2014-2016
+<?php // (C) Copyright Bobbing Wide 2014-2017
 
 /**
  * Enqueue the correct font for this icon
@@ -76,22 +76,27 @@ function bw_dash_enqueue_font( $icon, $atts ) {
  * @return string - generated HTML for the dash form
  */
 function bw_dash( $atts=null, $content=null, $tag=null ) {
-  bw_trace2();
-  $icon = bw_array_get_from( $atts, "icon,0", "menu" );
-  $class = bw_array_get_from( $atts, "class,1", null ); 
-  $font_class = bw_dash_enqueue_font( $icon, $atts );
-  if ( !$font_class ) {
-    $content = $icon . $content;
-    $font_class = "texticons";
-    $icon = "unknown";
-  }
-  span( "$font_class ${font_class}-$icon $class" );
-  if ( $content ) {
-    //stag ("span" );
-    e( bw_do_shortcode( $content ) );
-    //etag( "span" );
-  }
-  epan(); 
+	//bw_trace2();
+	$icons = bw_array_get_from( $atts, "icon,0", "menu" );
+	$icons = bw_as_array( $icons );
+	$class = bw_array_get_from( $atts, "class,1", null );
+	$icon = bw_array_get( $icons, 0, null ); 
+	$font_class = bw_dash_enqueue_font( $icon, $atts );
+
+	foreach ( $icons as $icon ) {
+		if ( !$font_class ) {
+			$content = $icon . $content;
+			$font_class = "texticons";
+			$icon = "unknown";
+		}
+		//span( $class );	 - temporarily added to test class=hide
+		span( "$font_class ${font_class}-$icon $class" );
+		if ( $content ) {
+			e( bw_do_shortcode( $content ) );
+		}
+		//epan();
+		epan(); 
+	}
   return( bw_ret() );
 }
 
@@ -740,7 +745,23 @@ function bw_texticons_example() {
     e( $icon );
     ediv();
   } 
-} 
+}
+
+/**
+ * Enqueue fonts
+ *
+ * @param array $icons - array of icons
+ * @param array $atts - shortcode parameters
+ * @return string - the registered font class - may be texticon 
+ */
+function bw_dash_enqueue_fonts( $icons, $atts ) {
+	$font_class =null;
+	foreach ( $icons as $icon ) {
+		$font_class = bw_dash_enqueue_font( $icon, $atts );
+	}
+	return( $font_class );
+}
+	 
 
 
 
