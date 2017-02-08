@@ -1,5 +1,4 @@
-
-<?php // (C) Copyright Bobbing Wide 2016
+<?php // (C) Copyright Bobbing Wide 2016, 2017
 
 /**
  * @package oik-bob-bing-wide
