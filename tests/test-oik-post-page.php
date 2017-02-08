@@ -43,5 +43,20 @@ class Tests_oik_post_page extends BW_UnitTestCase {
 		bw_trace2( $html, "Actual output" );
 		$this->assertEquals( $expected_output, $html );
 	}
+	
+	/**
+	 * Test Add FAQ 
+	 * [bw_page post_type=oik-faq icon=sos]
+	 *
+	 * Note: This may depends on the oik-faq post type being defined.
+	 */
+	function test_bw_page_post_type_oik_faq() {
+    $expected_output = '<a href="http://example.com/wp-admin/post-new.php?post_type=oik-faq" title="Create New FAQ"><span class="dashicons dashicons-sos "></span></a>';
+		$expected_output = str_replace( "http://example.com", site_url(), $expected_output );
+		$html = bw_do_shortcode( "[bw_page post_type=oik-faq icon=sos]" );
+		bw_trace2( $expected_output, "Expected output" );
+		bw_trace2( $html, "Actual output" );
+		$this->assertEquals( $expected_output, $html );
+	}
 
 }
