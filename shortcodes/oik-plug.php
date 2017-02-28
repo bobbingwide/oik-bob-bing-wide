@@ -32,6 +32,7 @@ function bw_plug( $atts=null, $content=null, $tag=null ) {
   
   $table = bw_validate_torf( $table );
   $link = bw_get_notes_page_url( $link );
+	//return( "bw_plug dummy" );
   
   bw_trace( $table, __FUNCTION__, __LINE__, __FILE__, "table", BW_TRACE_DEBUG );
   
@@ -52,7 +53,7 @@ function bw_plug( $atts=null, $content=null, $tag=null ) {
   
     $name = bw_plugin_namify( $name );
   
-    $plugininfo = bw_get_plugin_info_cache2( $name );
+    $plugininfo = bw_get_plugin_info( $name );
     bw_trace( $plugininfo, __FUNCTION__, __LINE__, __FILE__, "plugininfo", BW_TRACE_INFO );
 		if ( is_array( $plugininfo ) ) {
 			$plugininfo = (object) $plugininfo;
@@ -860,6 +861,74 @@ function bw_get_property( $object, $property, $default=null ) {
 		$value = $default;
 	}
 	return( $value );
+
+}
+
+/**
+ * Gets plugin info
+ * 
+ * Uses oik-plugins if available.
+ * 
+ * Cut out the middle man if the plugin is defined to the local system.
+ * If not then call bw_get_plugin_info_cache2().
+ *
+ * @param string $name the plugin slug?
+ * @return array $plugininfo
+ */
+function bw_get_plugin_info( $name ) {
+	$plugininfo = null;
+	if ( function_exists( "oikp_template_redirect" ) ) {
+		oik_require( "feed/oik-plugins-feed.php", "oik-plugins" );
+		$plugin = oikp_load_plugin( $name );
+		if ( $plugin ) {
+			$plugininfo = bw_get_plugin_info_as_xml( $name, $plugin );
+		}
+	}
+
+	if ( null == $plugininfo ) {
+		$plugininfo = bw_get_plugin_info_cache2( $name );
+	}
+	return( $plugininfo );
+}
+
+
+/**
+ * Get local plugin info. 
+ * 
+ * Currently ignoring plugin version
+ * 
+ * @param string $slug
+ * @param object $post - the oik-plugin post
+ * @return object partially completed plugininfo.
+ */
+function bw_get_plugin_info_as_xml( $slug, $post ) {
+	$response = new stdClass;
+	$response->slug = $slug;
+	$version = oikp_load_pluginversion( $post );
+	
+	//bw_trace2( $version, "version" );
+	$response->name = $slug; 
+	if ( $version ) {
+		$response->last_updated = $version->post_modified;
+		$response->version = oikp_get_latestversion( $version );
+		$response->requires = oikp_get_requires( $version );
+		$response->tested = oikp_get_tested( $version );
+		$response->compatibility = oikp_get_compatibility( $version, $response->version );
+		// We can't call oikp_get_sections() as it can go recursive
+		//$response->sections = oikp_get_sections( $post, $version );
+		$response->download_url = oikp_get_package( $post, $version, $response->version );
+		$response->download_link = $response->download_url;
+		$response->downloaded = oikp_get_downloaded( $post, $version ); 
+	}	else {
+		$response->version = "";
+	}
+			
+	$response->author = bw_get_author_name( $post );
+	$response->author_profile = bw_get_author_profile( $post );
+	$response->homepage = get_permalink( $post->ID );
+	$response->short_description = get_post_meta( $post->ID, "_oikp_desc", true );
+	$response->oik_server = $response->homepage;
+	return( $response );
 
 }
 
