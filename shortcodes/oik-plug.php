@@ -1,19 +1,18 @@
-<?php // (C) Copyright Bobbing Wide 2012-2016
+<?php // (C) Copyright Bobbing Wide 2012-2017
 
 /**
- * Implement [bw_plug] shortcode 
+ * Implements the [bw_plug] shortcode 
  *  
- * Added [bw_plug name="plugin name" link="URL" table="t/f,y/n,1/0"] shortcode
- *   Format of the output is something like this.
- *   
- *     <a href="wordpress/name" title="$info">$name</a>
- *     <a href="$link" title="Read bw notes on $name" class="bwlink">(...)</a>
+ * 
  *
- * When the table parameter is set to true then the data is formatted in a table. A table header and footer is added.
- * Instead of coding
- * [bw_plug name='oik' table='y'][bw_plug name='wordpress-google-plus-one-button' table='y']
- * simplify it to 
- * [bw_plug name='oik,wordpress-google-plus-one-button' table='y']
+ * Notes:
+ * - When the table parameter is set to true then the data is formatted in a table. 
+ * - A table header and footer is added.
+ * 
+ * Instead of coding: 
+ * `[bw_plug name='oik' table='y'][bw_plug name='wordpress-google-plus-one-button' table='y']`
+ * simplify it to  `[bw_plug name='oik,wordpress-google-plus-one-button' table='y']`
+ * 
  * In fact - you can omit the table= parameter since it's forced when there's more than one name.
  * 
  * @param array $atts - shortcode parameters
@@ -45,7 +44,7 @@ function bw_plug( $atts=null, $content=null, $tag=null ) {
   
   // Force table format if there is more than one plugin name listed
   if ( count( $names) > 1 )
-    $table = TRUE;
+    $table = true;
   
   bw_plug_table( $table );
 
@@ -53,7 +52,7 @@ function bw_plug( $atts=null, $content=null, $tag=null ) {
   
     $name = bw_plugin_namify( $name );
   
-    $plugininfo = bw_get_plugin_info( $name );
+    $plugininfo = bw_get_plugin_info( $name, $table );
     bw_trace( $plugininfo, __FUNCTION__, __LINE__, __FILE__, "plugininfo", BW_TRACE_INFO );
 		if ( is_array( $plugininfo ) ) {
 			$plugininfo = (object) $plugininfo;
@@ -827,17 +826,11 @@ function bw_format_default( $name, $link ) {
   bw_link_notes_page( $name, $link, "(", ")" );
 }
 
- 
-
-
-
-
-
-
-
 /**
  * Syntax for bw_plug shortcode
-*/ 
+ *
+ * Example [bw_plug name="plugin name" link="URL" table="t/f,y/n,1/0"] shortcode
+ */ 
 function bw_plug__syntax( $shortcode='bw_plug' ) {
   $syntax = array( "name" => bw_skv( 'oik', "<i>plugin-a,plugin-b</i>", "names of plugins to summarise" )
                  , "table" => bw_skv( 'Y', 'N|t|f|1|0', "Show detailed information. Defaults to 'Y' if more than one plugin is listed" )
@@ -869,19 +862,36 @@ function bw_get_property( $object, $property, $default=null ) {
  * 
  * Uses oik-plugins if available.
  * 
- * Cut out the middle man if the plugin is defined to the local system.
+ * Cut out the middle man if the plugin is defined to the local system
+ * and we can get all the data we need. 
+ 
  * If not then call bw_get_plugin_info_cache2().
  *
  * @param string $name the plugin slug?
+ * @param bool $table 
  * @return array $plugininfo
  */
-function bw_get_plugin_info( $name ) {
+function bw_get_plugin_info( $name, $table ) {
 	$plugininfo = null;
 	if ( function_exists( "oikp_template_redirect" ) ) {
 		oik_require( "feed/oik-plugins-feed.php", "oik-plugins" );
 		$plugin = oikp_load_plugin( $name );
 		if ( $plugin ) {
-			$plugininfo = bw_get_plugin_info_as_xml( $name, $plugin );
+			if ( $table ) {
+				$plugin_type = get_post_meta( $plugin->ID, "_oikp_type", true );
+				switch ( $plugin_type ) {
+					case '1':
+					case '6': 
+						$plugininfo = bw_get_plugin_info_cache2( $name );	
+						break;
+					
+					default:
+						$plugininfo = bw_get_plugin_info_as_xml( $name, $plugin );
+					 	break;
+				}
+			} else {	
+				$plugininfo = bw_get_plugin_info_as_xml( $name, $plugin );
+			}
 		}
 	}
 
