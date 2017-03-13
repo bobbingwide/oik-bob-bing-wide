@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013-2016
+<?php // (C) Copyright Bobbing Wide 2013-2017
 
 /**
  * Expand any shortcodes in the row
@@ -150,7 +150,7 @@ function bw_csv_content_array_table( $content_array, $atts=null ) {
     //bw_trace2( $line, "line" );
     $line = trim( $line );
     if ( $line ) {
-      $tablerow = str_getcsv( $line );
+      $tablerow = str_getcsv( $line, $atts['del'] );
 			$tablerow = bw_csv_dashicons( $tablerow, $atts );
       $tablerow = bw_csv_expand_shortcodes( $tablerow );
       if ( $th ) {
@@ -180,7 +180,7 @@ function bw_csv_content_array_list( $content_array, $atts=null ) {
   foreach ( $content_array as $line ) {
     $line = trim( $line );
     if ( $line ) {
-      $tablerow = str_getcsv( $line );
+      $tablerow = str_getcsv( $line, $atts['del'] );
       $tablerow = bw_csv_expand_shortcodes( $tablerow );
       bw_csv_output_list_item( $tablerow, $ol );
     }    
@@ -257,7 +257,8 @@ function bw_csv( $atts=null, $content=null, $tag=null ) {
       $content_array = null;
     }  
   }
-  if ( $content_array ) { 
+  if ( $content_array ) {
+		$atts['del'] = bw_csv_determine_delimiter( $content_array, $atts ); 
     bw_csv_content_array_paged( $content_array, $atts ); 
   }   
   return( bw_ret() );
@@ -280,6 +281,7 @@ function bw_csv__syntax( $shortcode="bw_csv" ) {
                  , "uo" => bw_skv( "table", "u|ul|o|ol|d|dl", "Format as list - unordered, ordered or definition" )
 								 , "y" => bw_skv( null, "Y|N", "Convert y to a dash icon tick or cross" )
 								 , "n" => bw_skv( null, "N|Y", "Convert n to a dash icon cross or tick" )
+								 , "del,sep" => bw_skv( ",", "&#124;", "Delimeter between columns" )
 								 );
   return( $syntax );                 
 }
@@ -301,6 +303,13 @@ function bw_csv__snippet( $shortcode="bw_csv" ) {
   _sc__snippet( $shortcode, $example );
 } 
 
+/**
+ * Performs special mapping of characters
+ *
+ * @param array $atts
+ * @param string $key
+ * @return string the mapped result
+ */
 function bw_csv_get_mapping( $atts, $key ) {
 	$map = bw_array_get( $atts, $key, null );
 	switch ( $map ) {
@@ -319,7 +328,7 @@ function bw_csv_get_mapping( $atts, $key ) {
 		default: 
 			// Whatever they said
 	}
-	bw_trace2( $map, "map", true );
+	bw_trace2( $map, "map", true, BW_TRACE_VERBOSE );
 	return( $map );
 }
 
@@ -331,7 +340,6 @@ function bw_csv_get_mapping( $atts, $key ) {
  * @return array updated tablerow
  */
 function bw_csv_dashicons( $tablerow, $atts ) {
-	//$stars = bw_array_get( $atts, "stars", null );
 	bw_trace2();
 	
 	$mapping["Y"] = bw_csv_get_mapping( $atts, "y" );
@@ -343,8 +351,59 @@ function bw_csv_dashicons( $tablerow, $atts ) {
 		$ucol = strtoupper( $col );
 		$dashed[] = bw_array_get( $mapping, $ucol, $col );
 	}
-	bw_trace2( $dashed, "dashed", false, BW_TRACE_INFO );
+	bw_trace2( $dashed, "dashed", false, BW_TRACE_VERBOSE );
 	return( $dashed ); 
-} 
+}
+
+/**
+ * Determine the delimiter for str_getcsv
+ * 
+ * Order of preference:
+ * - Take the parameter value.
+ * - Choose the first delimiter found in the first row of the $content_array.
+ * - Default to ','. 
+ *
+ * @param array $content_array 
+ * @param array $atts
+ * @return string delimiter - defaults to ','
+ */
+function bw_csv_determine_delimiter( $content_array, $atts ) {
+	$delimiter = bw_array_get_from( $atts, "del,sep", null );
+	if ( !$delimiter ) {
+		$delimiter = bw_csv_first_char( $content_array[0], array( ',', '|' ) );
+	}
+	if ( !$delimiter ) {
+		$delimiter = ',';
+			
+	}
+	return( $delimiter );
+
+}
+
+/**
+ * Finds which character comes first
+ * 
+ * @param string $haystack where to look
+ * @param array $needles - characters to look for
+ * @return null|string the first character found
+ */
+function bw_csv_first_char( $haystack, $needles ) {
+	$first_char = null;
+	$firstpos = null;
+	foreach ( $needles as $needle ) {
+		$pos = strpos( $haystack, $needle );
+		if ( false !== $pos ) {
+			if ( $firstpos === null ) {
+				$firstpos = $pos;
+				$first_char = $needle;
+			} elseif ( $pos < $firstpos ) {
+				$firstpos = $pos;
+				$first_char = $needle;
+			}
+		}
+	}
+	return( $first_char );
+}	
+			
 		 
   
