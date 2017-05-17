@@ -3,8 +3,8 @@ Contributors: bobbingwide
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github
 Requires at least: 4.2
-Tested up to: 4.7.2
-Stable tag: 1.30.6
+Tested up to: 4.7.5
+Stable tag: 1.30.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,9 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"] 
 
 == Upgrade Notice ==
+= 1.30.7 =
+Contains improvements to the [bw_csv] shortcode. Tested with WordPress 4.7.5
+
 = 1.30.6 = 
 Contains improvements to the [bw_plug] shortcode. Tested with WordPress 4.7.2
 
@@ -160,6 +163,10 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 == Changelog ==
+= 1.30.7 =
+* Changed: Allow bw_csv to use vertical bar delimiter characters instead of comma [github bobbingwide oik-bob-bing-wide issues 20]
+* Changed: Obtain info from WordPress.org when displaying a bw_plug table [github bobbingwide oik-bob-bing-wide issues 19]
+
 = 1.30.6 =
 * Changed: Improve [bw_plug] when oik-plugins CPT defined locally [github bobbingwide oik-bob-bing-wide issue 19 ]
 * Changed: Add test for [bw_post] and [bw_page] post_type and icon parameters [github bobbingwide oik-bob-bing-wide issue 17]
