@@ -649,7 +649,7 @@ function bw_link_plugin_banner( $name, $plugininfo, $banner ) {
 				//
         $file = "http://ps.w.org/$name/assets/banner-772x250$banner_type";
         $image = retimage( "bw_banner", $file, $name );
-        alink( "bw_banner", "http://wordpress.org/extend/plugins/$name", $image, $file );   
+        alink( "bw_banner", "https://wordpress.org/plugins/$name", $image, $file );   
         break;
     
       case 'j':
@@ -659,7 +659,7 @@ function bw_link_plugin_banner( $name, $plugininfo, $banner ) {
         $banner_type = ".jpg"; 
         $file = "http://ps.w.org/$name/assets/banner-772x250$banner_type";
         $image = retimage( "bw_banner", $file, $name );
-        alink( "bw_banner", "http://wordpress.org/extend/plugins/$name", $image, $file );   
+        alink( "bw_banner", "https://wordpress.org/plugins/$name", $image, $file );   
         break;
     }
   }
@@ -709,7 +709,7 @@ function bw_get_banner_file_URL( $name, $plugininfo ) {
  * oik_server  plugin_server  link to set 
  * ----------  -------------  -------------------------
  * null        "unknown"      $homepage - since this is neither a wordpress.org or "oik" plugin
- * null        not set        wordpress.org/extend/plugins/$name
+ * null        not set        wordpress.org/plugins/$name
  * set         n/a            oik_server 
  *
  * @param string $name - the plugin slug name e.g. oik, jetpack, woocommerce
@@ -725,7 +725,7 @@ function bw_link_plugin_download( $name, $plugininfo ) {
     if ( $plugin_server == "unknown" ) {
       $download_page = bw_array_get( $plugininfo, "homepage", null );
     } else { 
-      $download_page = "http://wordpress.org/extend/plugins/".$name;
+      $download_page = "https://wordpress.org/plugins/".$name;
     }
   } else {
     $download_page = bw_array_get( $plugininfo, "homepage", $download_page );
@@ -822,7 +822,7 @@ function bw_plug_list_plugins( $option='active_plugins' ) {
  */
 function bw_format_default( $name, $link ) { 
   $title = "Link to the $name plugin on wordpress.org" ;
-  alink( NULL, "http://wordpress.org/extend/plugins/".$name, $name, $title );  
+  alink( NULL, "https://wordpress.org/plugins/".$name, $name, $title );  
   bw_link_notes_page( $name, $link, "(", ")" );
 }
 
