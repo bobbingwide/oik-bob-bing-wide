@@ -3,7 +3,7 @@
 Plugin Name: oik bob bing wide shortcodes
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin
 Description: More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, oik and loik, wp, wpms, bp, artisteer, drupal, bw_search, bw_dash, bw_rpt, bw_graphviz, bw_option, github
-Version: 1.30.7
+Version: 1.30.8
 Author: bobbingwide
 Author URI: https://www.oik-plugins.com/author/bobbingwide
 Text Domain: oik-bob-bing-wide
