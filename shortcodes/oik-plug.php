@@ -67,6 +67,7 @@ function bw_plug( $atts=null, $content=null, $tag=null ) {
       } 
     }   
     else {
+			$plugininfo->short_description = bw_get_property( $plugininfo, "short_description", null );
       if ( $table ) {
         bw_format_plug_table( $name, $link, $plugininfo );
       }  
@@ -358,7 +359,7 @@ function bw_get_plugin_info2( $plugin_slug ) {
   } else {
     // We may have found the plugin information OR believe it's wordpress.org
     // let's check wordpress.org. If we find some information overwrite what we already know.
-    $request_url = "http://api.wordpress.org/plugins/info/1.0/$plugin_slug.info";
+    $request_url = "http://api.wordpress.org/plugins/info/1.0/$plugin_slug.php?fields[short_description]=true";
     $response_xml = bw_remote_get2( $request_url ); //, null );
     //$response_xml = bw_analyze_response_xml2( $response_xml2, $response_xml );
   }
@@ -402,7 +403,11 @@ function bw_get_local_plugin_data( $plugin_slug ) {
         $plugin_data["plugin_server"] = "unknown"; 
       } 
       $readme_data = bw_get_readme_data( $plugin_slug ); 
-      $plugin_data = array_merge( $plugin_data, $readme_data );
+			//bw_trace2( $plugin_data, "plugin_data bfore", false );
+			if ( $readme_data ) {
+				$plugin_data = array_merge( $plugin_data, $readme_data );
+			}	
+			//bw_trace2( $plugin_data, "plugin_data after", false );
       //bw_add_array_key( $plugin_data, $readme_data, "Tested" );
       //bw_add_array_key( $xml, $readme_data, "Last_updated" );
       
