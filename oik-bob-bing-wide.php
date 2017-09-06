@@ -115,7 +115,60 @@ function oik_bob_bing_wide_init() {
   bw_add_shortcode( "bw_option", "bw_option", oik_path( "shortcodes/oik-option.php", "oik-bob-bing-wide"), false );
   bw_add_shortcode( "bw_text", "bw_text", oik_path( "shortcodes/oik-text.php", "oik-bob-bing-wide" ), false );
 	bw_add_shortcode( "github", "bw_github", oik_path( "shortcodes/oik-github.php", "oik-bob-bing-wide" ), false );
+	
+	
+	add_filter( "_sc__help", "oik_bob_bing_wide_sc__help", 10, 2 );
 }
+/**
+ * Implements "_sc__help" filter for oik-bob-bing-wide
+ * 
+ * @param array $help array of translated help keyed by shortcode
+ * @param string $shortcode
+ * @param array updated help array
+ */
+function oik_bob_bing_wide_sc__help( $help, $shortcode ) {
+	switch ( $shortcode ) {
+		case "OIK": $l10n_help = __( 'Spells out the oik backronym', 'oik-bob-bing-wide' ); break;
+		//case "WOW": $l10n_help = __( 'Spells out Wonder of WordPress', 'oik-bob-bing-wide' ); break;
+		//case "WoW": $l10n_help = __( 'Spells out Wonder of WordPress', 'oik-bob-bing-wide' ); break;
+		case "artisteer": $l10n_help = __( 'Styled form of Artisteer', 'oik-bob-bing-wide' ); break;
+		//case "bing": $l10n_help = __( 'Styled form of bing', 'oik-bob-bing-wide' ); break;
+		//case "bob": $l10n_help = __( 'Styled form of bob', 'oik-bob-bing-wide' ); break;
+		//case "bong": $l10n_help = __( 'Styled form of bong', 'oik-bob-bing-wide' ); break;
+		case "bp": $l10n_help = __( 'Styled form of BuddyPress', 'oik-bob-bing-wide' ); break;
+		case "bw_page": $l10n_help = __( 'Add page button', 'oik-bob-bing-wide' ); break;
+		case "bw_plug": $l10n_help = __( 'Show plugin information', 'oik-bob-bing-wide' ); break;
+		case "bw_post": $l10n_help = __( 'Add Post button', 'oik-bob-bing-wide' ); break;
+		//case "fob": $l10n_help = __( 'Styled form of fob', 'oik-bob-bing-wide' ); break;
+		//case "hide": $l10n_help = __( 'Styled form of hide', 'oik-bob-bing-wide' ); break;
+		case "lartisteer": $l10n_help = __( 'Link to Artisteer ', 'oik-bob-bing-wide' ); break;
+		case "lbp": $l10n_help = __( 'Link to BuddyPress', 'oik-bob-bing-wide' ); break;
+		case "lbw": $l10n_help = __( 'Link to Bobbing Wide sites', 'oik-bob-bing-wide' ); break;
+		case "ldrupal": $l10n_help = __( 'Link to drupal.org', 'oik-bob-bing-wide' ); break;
+		case "loik": $l10n_help = __( 'Link to [oik]-plugins', 'oik-bob-bing-wide' ); break;
+		case "lwp": $l10n_help = __( 'Link to WordPress.org', 'oik-bob-bing-wide' ); break;
+		case "lwpms": $l10n_help = __( 'Link to WordPress Multi Site', 'oik-bob-bing-wide' ); break;
+		//case "oik": $ __( 'Expand to the logo for oik', 'oik-bob-bing-wide' ); break;case "oik" ),
+		//case "wide": $l10n_help = __( 'Styled form of wide', 'oik-bob-bing-wide' ); break;
+		//case "wow": $l10n_help = __( 'Styled form of WoW', 'oik-bob-bing-wide' ); break;
+		case "wp": $l10n_help = __( 'Display a styled form of WordPress. ', 'oik-bob-bing-wide' ); break;
+		//"wp-1": $l10n_help = __( 'Sample hyphenated shortcode', 'oik-bob-bing-wide' ); break;
+		//"wp-2": $l10n_help = __( 'Sample hyphenated shortcode', 'oik-bob-bing-wide' ); break;
+		//"wp-3": $l10n_help = __( 'Sample hyphenated shortcode', 'oik-bob-bing-wide' ); break;
+		case "wpms": $l10n_help = __( 'Styled form of WordPress Multi Site', 'oik-bob-bing-wide' ); break;
+ 
+		default: 
+			$l10n_help = null;
+	}
+
+	if ( $l10n_help ) {
+		$help[ $shortcode ] = $l10n_help;
+	}
+	return $help;
+
+}
+
+	
 
 /**
  * Implement "oik_admin_menu" action for oik-bob-bing-wide
