@@ -6,245 +6,247 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik-bob-bing-wide\n"
 "POT-Creation-Date: 2017-09-25 15:08:45+00:00\n"
 "MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
+"Language: en_GB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-
 #: admin/oik-activation.php:24
 msgid "Install"
-msgstr ""
+msgstr "Install"
 
 #: admin/oik-activation.php:53
 msgid "Activate"
-msgstr ""
+msgstr "Activate"
 
 #: admin/oik-activation.php:73
 msgid "Update"
-msgstr ""
+msgstr "Update"
 
 #: admin/oik-activation.php:191
 msgid "%1$s may not be fully functional."
-msgstr ""
+msgstr "%1$s may not be fully functional."
 
 #: admin/oik-activation.php:193
 msgid ""
 "Please install and activate the required minimum version of this plugin:"
-msgstr ""
+msgstr "Please install and activate the required minimum version of this plugin:"
 
 #: oik-bob-bing-wide.php:131
 msgid "Spells out the oik backronym"
-msgstr ""
+msgstr "Spells out the oik backronym"
 
 #: oik-bob-bing-wide.php:134
 msgid "Styled form of Artisteer"
-msgstr ""
+msgstr "Styled form of Artisteer"
 
 #: oik-bob-bing-wide.php:138
 msgid "Styled form of BuddyPress"
-msgstr ""
+msgstr "Styled form of BuddyPress"
 
 #: oik-bob-bing-wide.php:139
 msgid "Add page button"
-msgstr ""
+msgstr "Add page button"
 
 #: oik-bob-bing-wide.php:140
 msgid "Show plugin information"
-msgstr ""
+msgstr "Show plugin information"
 
 #: oik-bob-bing-wide.php:141
 msgid "Add Post button"
-msgstr ""
+msgstr "Add Post button"
 
 #: oik-bob-bing-wide.php:144
 msgid "Link to Artisteer "
-msgstr ""
+msgstr "Link to Artisteer "
 
 #: oik-bob-bing-wide.php:145
 msgid "Link to BuddyPress"
-msgstr ""
+msgstr "Link to BuddyPress"
 
 #: oik-bob-bing-wide.php:146
 msgid "Link to Bobbing Wide sites"
-msgstr ""
+msgstr "Link to Bobbing Wide sites"
 
 #: oik-bob-bing-wide.php:147
 msgid "Link to drupal.org"
-msgstr ""
+msgstr "Link to drupal.org"
 
 #: oik-bob-bing-wide.php:148
 msgid "Link to [oik]-plugins"
-msgstr ""
+msgstr "Link to [oik]-plugins"
 
 #: oik-bob-bing-wide.php:149
 msgid "Link to WordPress.org"
-msgstr ""
+msgstr "Link to WordPress.org"
 
 #: oik-bob-bing-wide.php:150
 msgid "Link to WordPress Multi Site"
-msgstr ""
+msgstr "Link to WordPress Multi Site"
 
 #: oik-bob-bing-wide.php:154
 msgid "Display a styled form of WordPress. "
-msgstr ""
+msgstr "Display a styled form of WordPress. "
 
 #: oik-bob-bing-wide.php:158
 msgid "Styled form of WordPress Multi Site"
-msgstr ""
+msgstr "Styled form of WordPress Multi Site"
 
 #: shortcodes/oik-csv.php:256
 msgid "Invalid use of bw_csv. src= parameter not set"
-msgstr ""
+msgstr "Invalid use of bw_csv. src= parameter not set"
 
 #: shortcodes/oik-csv.php:279
 msgid "File containing CSV data to display"
-msgstr ""
+msgstr "File containing CSV data to display"
 
 #: shortcodes/oik-csv.php:280
 msgid "Format table headings"
-msgstr ""
+msgstr "Format table headings"
 
 #: shortcodes/oik-csv.php:281
 msgid "Format as list - unordered, ordered or definition"
-msgstr ""
+msgstr "Format as list - unordered, ordered or definition"
 
 #: shortcodes/oik-csv.php:282
 msgid "Convert y to a dash icon tick or cross"
-msgstr ""
+msgstr "Convert y to a dash icon tick or cross"
 
 #: shortcodes/oik-csv.php:283
 msgid "Convert n to a dash icon cross or tick"
-msgstr ""
+msgstr "Convert n to a dash icon cross or tick"
 
 #: shortcodes/oik-csv.php:284
 msgid "Delimeter between columns"
-msgstr ""
+msgstr "Delimeter between columns"
 
 #: shortcodes/oik-dash.php:670 shortcodes/oik-dash.php:671
 msgid "Dash icon to display"
-msgstr ""
+msgstr "Dash icon to display"
 
 #: shortcodes/oik-dash.php:672
 msgid "CSS classes"
-msgstr ""
+msgstr "CSS classes"
 
 #: shortcodes/oik-github.php:94
 msgid "Repository owner"
-msgstr ""
+msgstr "Repository owner"
 
 #: shortcodes/oik-github.php:95
 msgid "Repository name"
-msgstr ""
+msgstr "Repository name"
 
 #: shortcodes/oik-github.php:96
 msgid "Content type"
-msgstr ""
+msgstr "Content type"
 
 #: shortcodes/oik-github.php:97
 msgid "Identifier"
-msgstr ""
+msgstr "Identifier"
 
 #: shortcodes/oik-github.php:98
 msgid "GitHub URL"
-msgstr ""
+msgstr "GitHub URL"
 
 #: shortcodes/oik-graphviz.php:139
 msgid "Output format"
-msgstr ""
+msgstr "Output format"
 
 #: shortcodes/oik-graphviz.php:140
 msgid "Content language"
-msgstr ""
+msgstr "Content language"
 
 #: shortcodes/oik-option.php:70
 msgid "Option name"
-msgstr ""
+msgstr "Option name"
 
 #: shortcodes/oik-option.php:71
 msgid "Field type. e.g. URL, textarea"
-msgstr ""
+msgstr "Field type. e.g. URL, textarea"
 
 #: shortcodes/oik-plug.php:134
 msgid "Plugin name and description"
-msgstr ""
+msgstr "Plugin name and description"
 
 #: shortcodes/oik-plug.php:135
 msgid "Plugin links"
-msgstr ""
+msgstr "Plugin links"
 
 #: shortcodes/oik-plug.php:136
 msgid "Version, total downloads, last update, tested"
-msgstr ""
+msgstr "Version, total downloads, last update, tested"
 
 #: shortcodes/oik-plug.php:769
 msgid "&nbsp;"
-msgstr ""
+msgstr "&nbsp;"
 
 #: shortcodes/oik-plug.php:781
 msgid "home"
-msgstr ""
+msgstr "home"
 
 #: shortcodes/oik-plug.php:781
 msgid "Link to plugin homepage"
-msgstr ""
+msgstr "Link to plugin homepage"
 
 #: shortcodes/oik-plug.php:842
 msgid "names of plugins to summarise"
-msgstr ""
+msgstr "names of plugins to summarise"
 
 #: shortcodes/oik-plug.php:843
 msgid ""
 "Show detailed information. Defaults to 'Y' if more than one plugin is listed"
-msgstr ""
+msgstr "Show detailed information. Defaults to 'Y' if more than one plugin is listed"
 
 #: shortcodes/oik-plug.php:844
 msgid "Summarise the activated plugins"
-msgstr ""
+msgstr "Summarise the activated plugins"
 
 #: shortcodes/oik-plug.php:845
 msgid "URL for where to find additional information"
-msgstr ""
+msgstr "URL for where to find additional information"
 
 #: shortcodes/oik-plug.php:846
 msgid "Display the plugin banner image"
-msgstr ""
+msgstr "Display the plugin banner image"
 
 #: shortcodes/oik-post-page.php:78 shortcodes/oik-post-page.php:86
 msgid "Post type to add"
-msgstr ""
+msgstr "Post type to add"
 
 #: shortcodes/oik-post-page.php:79 shortcodes/oik-post-page.php:87
 msgid "Dash icon override"
-msgstr ""
+msgstr "Dash icon override"
 
 #: shortcodes/oik-post-page.php:80 shortcodes/oik-post-page.php:88
 msgid "tooltip text override"
-msgstr ""
+msgstr "tooltip text override"
 
 #: shortcodes/oik-pricing-table.php:66
 msgid "Invalid use of bw_rpt. src= parameter not set"
-msgstr ""
+msgstr "Invalid use of bw_rpt. src= parameter not set"
 
 #. Plugin Name of the plugin/theme
 msgid "oik bob bing wide shortcodes"
-msgstr ""
+msgstr "oik bob bing wide shortcodes"
 
 #. Plugin URI of the plugin/theme
 msgid "https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin"
-msgstr ""
+msgstr "https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin"
 
 #. Description of the plugin/theme
 msgid ""
 "More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, oik and loik, "
 "wp, wpms, bp, artisteer, drupal, bw_search, bw_dash, bw_rpt, bw_graphviz, "
 "bw_option, github"
-msgstr ""
+msgstr "More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, oik and loik, wp, wpms, bp, artisteer, drupal, bw_search, bw_dash, bw_rpt, bw_graphviz, bw_option, github"
 
 #. Author of the plugin/theme
 msgid "bobbingwide"
-msgstr ""
+msgstr "bobbingwide"
 
 #. Author URI of the plugin/theme
 msgid "https://www.oik-plugins.com/author/bobbingwide"
-msgstr ""
+msgstr "https://www.oik-plugins.com/author/bobbingwide"
+
