@@ -16,13 +16,15 @@ class Tests_bw_plug extends BW_UnitTestCase {
 	 * Unit test equivalent to [bw_plug oik banner=j]
 	 * 
 	 * The img src is now expected to be http://ps.w.org
+	 *
+	 * Note: This test can fail if the oik-plugins plugin is activated.
 	 */
 	function test_bw_plug_banner_image_url() {
 		$expected_output = '<div class="bw_plug">';
-		$expected_output .= '<a class="bw_banner" href="http://wordpress.org/extend/plugins/oik" title="http://ps.w.org/oik/assets/banner-772x250.jpg">';
+		$expected_output .= '<a class="bw_banner" href="https://wordpress.org/plugins/oik" title="http://ps.w.org/oik/assets/banner-772x250.jpg">';
 		$expected_output .= '<img class="bw_banner" src="http://ps.w.org/oik/assets/banner-772x250.jpg" title="oik" alt="oik"  />';
 		$expected_output .= '</a>';
-		$expected_output .= '<a class="plugin" href="http://wordpress.org/extend/plugins/oik" title="Link to the oik (oik: Over 80 advanced, powerful shortcodes for displaying the content of your WordPress website.) plugin">oik</a>';
+		$expected_output .= '<a class="plugin" href="https://wordpress.org/plugins/oik" title="Link to the oik (oik: Over 80 advanced, powerful shortcodes for displaying the content of your WordPress website.) plugin">oik</a>';
 		$expected_output .= '</div>';
 	
 		$html = bw_plug( array( 'banner' => 'j' ) );
