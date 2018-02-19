@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2014-2017
+<?php // (C) Copyright Bobbing Wide 2014-2018
 
 /**
  * Enqueue the correct font for this icon
@@ -43,6 +43,11 @@ function bw_dash_enqueue_font( $icon, $atts ) {
     }
   }
   switch ( $font ) {
+		case "svg":
+			$font = null;
+			$font_class = "svg";
+			break;
+			
     case "genericons" :
       wp_register_style( 'genericons', oik_url( 'css/genericons/genericons.css' ), false );
       $font_class = "genericon";
@@ -82,22 +87,63 @@ function bw_dash( $atts=null, $content=null, $tag=null ) {
 	$class = bw_array_get_from( $atts, "class,1", null );
 	$icon = bw_array_get( $icons, 0, null ); 
 	$font_class = bw_dash_enqueue_font( $icon, $atts );
+	if ( $font_class === "svg" ) {
+		oik_require( "shortcodes/oik-dash-svg.php", "oik-bob-bing-wide" );
+		foreach ( $icons as $icon ) {
+			bw_dash_svg_icon( $icon, $font_class, $class );
+		}
+	} else {
 
-	foreach ( $icons as $icon ) {
-		if ( !$font_class ) {
-			$content = $icon . $content;
-			$font_class = "texticons";
-			$icon = "unknown";
+		foreach ( $icons as $icon ) {
+			if ( !$font_class ) {
+				$content = $icon . $content;
+				$font_class = "texticons";
+				$icon = "unknown";
+			}
+			//span( $class );	 - temporarily added to test class=hide
+			span( "$font_class ${font_class}-$icon $class" );
+			if ( $content ) {
+				e( bw_do_shortcode( $content ) );
+			}
+			//epan();
+			epan(); 
 		}
-		//span( $class );	 - temporarily added to test class=hide
-		span( "$font_class ${font_class}-$icon $class" );
-		if ( $content ) {
-			e( bw_do_shortcode( $content ) );
-		}
-		//epan();
-		epan(); 
 	}
   return( bw_ret() );
+}
+
+/**
+ * Try to do the same as in the new editor
+ 
+	e( '<svg aria-hidden role="img" focusable="false" className=
+				xmlns="http://www.w3.org/2000/svg"
+				width={ size }
+				height={ size }
+				viewBox="0 0 20 20"
+			>
+				<path d={ path } />
+			</svg>
+ */
+function bw_dash_svg_icon( $icon, $font_class, $class ) {
+	$svg = null;
+	$svg .= kv( "role", 'img' );
+	$svg .= kv( "focusable", "false" );
+	$svg .= kv( "className", $font_class ); // needed?
+	$svg .= kv( "xmlns", "http://www.w3.org/2000/svg" );
+	$svg .= kv( "width", 20 );
+	$svg .= kv( "height", 20 );
+	$svg .= kv( "viewBox", "0 0 20 20" );
+	
+	stag( "svg aria-hidden", $font_class, null, $svg );
+	bw_dash_svg_icon_dpath( $icon );
+	etag( "svg" );
+}
+
+function bw_dash_svg_icon_dpath( $icon ) {
+	$path = bw_dash_get_svg_icon( $icon );
+	$kv = kv( "d", $path );
+	bw_echo( "<path" . $kv . " />" );
+	
 }
 
 /**
@@ -314,7 +360,7 @@ function bw_list_dashicons() {
  $di[] = 'editor-help';
  $di[] = 'editor-strikethrough';
  $di[] = 'editor-unlink';
- $di[] = 'editor-link';
+ //$di[] = 'editor-link';		- Editor link doesn't exist as a separate icon. use admin-links
  $di[] = 'editor-rtl';
  $di[] = 'editor-break';
  $di[] = 'editor-code';
@@ -384,7 +430,7 @@ function bw_list_dashicons() {
  $di[] = 'leftright';
  $di[] = 'randomize';
  $di[] = 'list-view';
- $di[] = 'exerpt-view';  // sic
+ $di[] = 'exerpt-view';  // sic	- not been fixed yet
  $di[] = 'grid-view';
   
    
@@ -627,6 +673,9 @@ function bw_list_dashicons() {
 	$di[] = "thumbs-down";
 	$di[] = "layout";
 	$di[] = "paperclip";
+	
+	// New in WordPress 4.x
+	//$di[] = "button";
 
  return( $di );
 
@@ -647,6 +696,20 @@ function bw_list_texticons() {
   $ti[] = 'yen';
   $ti[] = 'dollar';
   return( $ti );
+}
+
+/**
+ * Returns a list of SVG icons
+ *
+ * SVG icons are the new way of doing icons
+ *
+ * @return array names for SVG icons
+ */
+
+function bw_list_svgicons() {
+	$svgi = array();
+	$svgi[] = 'button';
+	return $svgi;
 }
 
   

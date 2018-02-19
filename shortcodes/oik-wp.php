@@ -92,6 +92,16 @@ function bw_art( $atts=null, $content=null, $tag=null ) {
     $bw .= " actual=$actual_setting";
   }
   return( $bw );
-}  
+} 
+ 
+/**
+ * Example for [wp] shortcode
+ *
+ * Do we really need the e.g.? 
+ */
+function wp__example() {  
+  e( bw_wp());
+}
+
 
 } /* end !defined OIK_WP_LOADED */
