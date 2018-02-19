@@ -20,27 +20,33 @@ function bw_dash_enqueue_font( $icon, $atts ) {
   //e( $icon );
   $font = bw_array_get( $atts, "font", null );
   if ( !$font ) {
-    $dashicons = bw_assoc( bw_list_dashicons());
-    $dashicon = bw_array_get( $dashicons, $icon, null );
-    if ( !$dashicon ) {
-      oik_require( "shortcodes/oik-gener.php", "oik-bob-bing-wide" );
-      $genericons = bw_assoc( bw_list_genericons() );
-      $genericon = bw_array_get( $genericons, $icon, null );
-      if ( $genericon ) {
-        $font = "genericons";
-      } else {
-        // No need to load a font for this? OR do we default to dashicons anyway?
-        // Or do we load up our special one which contains the definition of the extras
-        // 
-        $texticons = bw_assoc( bw_list_texticons() );
-        $texticon = bw_array_get( $texticons, $icon, null );
-        if ( $texticon ) {
-          $font = "texticons";
-        }
-      }  
-    } else {
-      $font = "dashicons"; 
-    }
+		$svgicons = bw_list_svgicons();
+		$svgicon = bw_array_get( $svgicons, $icon, null );
+		if ( !$svgicon ) {
+			$dashicons = bw_assoc( bw_list_dashicons());
+			$dashicon = bw_array_get( $dashicons, $icon, null );
+			if ( !$dashicon ) {
+				oik_require( "shortcodes/oik-gener.php", "oik-bob-bing-wide" );
+				$genericons = bw_assoc( bw_list_genericons() );
+				$genericon = bw_array_get( $genericons, $icon, null );
+				if ( $genericon ) {
+					$font = "genericons";
+				} else {
+				 // No need to load a font for this? OR do we default to dashicons anyway?
+					// Or do we load up our special one which contains the definition of the extras
+					// 
+					$texticons = bw_assoc( bw_list_texticons() );
+					$texticon = bw_array_get( $texticons, $icon, null );
+					if ( $texticon ) {
+						$font = "texticons";
+					}
+				} 	 
+			} else {
+				$font = "dashicons"; 
+			}
+		} else {
+			$font = "svg";
+		}	
   }
   switch ( $font ) {
 		case "svg":
@@ -86,11 +92,14 @@ function bw_dash( $atts=null, $content=null, $tag=null ) {
 	$icons = bw_as_array( $icons );
 	$class = bw_array_get_from( $atts, "class,1", null );
 	$icon = bw_array_get( $icons, 0, null ); 
+	
+	oik_require( "shortcodes/oik-dash-svg-list.php", "oik-bob-bing-wide" );
+	$svgicons = bw_dash_list_svg_icons();
 	$font_class = bw_dash_enqueue_font( $icon, $atts );
 	if ( $font_class === "svg" ) {
-		oik_require( "shortcodes/oik-dash-svg.php", "oik-bob-bing-wide" );
 		foreach ( $icons as $icon ) {
-			bw_dash_svg_icon( $icon, $font_class, $class );
+			$dpath = bw_array_get( $svgicons, $icon, null );
+			bw_dash_svg_icon( $icon, $font_class, $class, $dpath );
 		}
 	} else {
 
@@ -124,7 +133,7 @@ function bw_dash( $atts=null, $content=null, $tag=null ) {
 				<path d={ path } />
 			</svg>
  */
-function bw_dash_svg_icon( $icon, $font_class, $class ) {
+function bw_dash_svg_icon( $icon, $font_class, $class, $dpath ) {
 	$svg = null;
 	$svg .= kv( "role", 'img' );
 	$svg .= kv( "focusable", "false" );
@@ -135,13 +144,12 @@ function bw_dash_svg_icon( $icon, $font_class, $class ) {
 	$svg .= kv( "viewBox", "0 0 20 20" );
 	
 	stag( "svg aria-hidden", $font_class, null, $svg );
-	bw_dash_svg_icon_dpath( $icon );
+	bw_dash_svg_icon_dpath( $dpath );
 	etag( "svg" );
 }
 
-function bw_dash_svg_icon_dpath( $icon ) {
-	$path = bw_dash_get_svg_icon( $icon );
-	$kv = kv( "d", $path );
+function bw_dash_svg_icon_dpath( $dpath ) {
+	$kv = kv( "d", $dpath );
 	bw_echo( "<path" . $kv . " />" );
 	
 }
@@ -705,11 +713,10 @@ function bw_list_texticons() {
  *
  * @return array names for SVG icons
  */
-
 function bw_list_svgicons() {
-	$svgi = array();
-	$svgi[] = 'button';
-	return $svgi;
+	oik_require( "shortcodes/oik-dash-svg.php", "oik-bob-bing-wide" );
+	$svgicons =	bw_dash_list_svg_icons();
+	return $svgicons;
 }
 
   
