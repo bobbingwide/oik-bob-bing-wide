@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2014-2016
+<?php // (C) Copyright Bobbing Wide 2014-2018
 /**
  * Implement [bw_option] shortcode to display the value for an option field
  * 
@@ -44,7 +44,7 @@
  * @return string the generated HTML
  */
 function bw_option( $atts=null, $content=null, $tag=null ) {
-	oik_require( "includes/bw_fields.inc" );
+	oik_require_lib( "bw_fields" );
   $option = bw_array_get_from( $atts, "option,0", null );
   $type = bw_array_get_from( $atts, "type,1", null );
   if ( false !== strpos( $option, "." ) ) {
