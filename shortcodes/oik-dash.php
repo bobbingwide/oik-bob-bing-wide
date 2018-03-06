@@ -13,7 +13,8 @@
  * @param string $icon - the name of the icon required
  * @param array $atts - shortcode parameters
  * @return string - the name of the base class to use based on the chosen font
- *  
+ * 
+ * @TODO Refactor to better allow for SVG icons 
  */
 function bw_dash_enqueue_font( $icon, $atts ) {
   //bw_trace2();
@@ -122,9 +123,14 @@ function bw_dash( $atts=null, $content=null, $tag=null ) {
 }
 
 /**
- * Try to do the same as in the new editor
- 
-	e( '<svg aria-hidden role="img" focusable="false" className=
+ * Displays an SVG icon
+ * Duplicates what's done in the new editor
+ *
+ * `
+ * <svg aria-hidden 
+				role="img" 
+				focusable="false" 
+				className={ className }
 				xmlns="http://www.w3.org/2000/svg"
 				width={ size }
 				height={ size }
@@ -132,22 +138,31 @@ function bw_dash( $atts=null, $content=null, $tag=null ) {
 			>
 				<path d={ path } />
 			</svg>
+ * `
+ * 
+ * @param string $icon Icon name - e.g. button
+ * @param string $font_class SVG
+ * @param string $class Additional CSS class - can be used to override width, height and viewBox
+ * @param string $dpath - All the SVG stuff
  */
 function bw_dash_svg_icon( $icon, $font_class, $class, $dpath ) {
 	$svg = null;
 	$svg .= kv( "role", 'img' );
 	$svg .= kv( "focusable", "false" );
-	$svg .= kv( "className", $font_class ); // needed?
+	//$svg .= kv( "className", $font_class ); // needed?
 	$svg .= kv( "xmlns", "http://www.w3.org/2000/svg" );
 	$svg .= kv( "width", 20 );
 	$svg .= kv( "height", 20 );
 	$svg .= kv( "viewBox", "0 0 20 20" );
 	
-	stag( "svg aria-hidden", $font_class, null, $svg );
+	stag( "svg aria-hidden", "$font_class $class", null, $svg );
 	bw_dash_svg_icon_dpath( $dpath );
 	etag( "svg" );
 }
 
+/**
+ * Creates a `<path>` tag for the SVG icon
+ */
 function bw_dash_svg_icon_dpath( $dpath ) {
 	$kv = kv( "d", $dpath );
 	bw_echo( "<path" . $kv . " />" );
@@ -168,6 +183,8 @@ function bw_dash_svg_icon_dpath( $dpath ) {
  * - Added the 20 icons mentioned in post 4.1 blogs
  * - Added some others added between 3.9 and 4.1
  * - Added - quite a few I'd previously omitted for no good reason
+ * 
+ * List updated again for WordPress 4.7
  * 
  * @return array - array of dashicon class names excluding the "dashicons-" prefix
  */
@@ -682,7 +699,7 @@ function bw_list_dashicons() {
 	$di[] = "layout";
 	$di[] = "paperclip";
 	
-	// New in WordPress 4.x
+	// New in WordPress 4.x	 - NO, this is an SVG icon...
 	//$di[] = "button";
 
  return( $di );
@@ -714,7 +731,7 @@ function bw_list_texticons() {
  * @return array names for SVG icons
  */
 function bw_list_svgicons() {
-	oik_require( "shortcodes/oik-dash-svg.php", "oik-bob-bing-wide" );
+	oik_require( "shortcodes/oik-dash-svg-list.php", "oik-bob-bing-wide" );
 	$svgicons =	bw_dash_list_svg_icons();
 	return $svgicons;
 }
@@ -726,6 +743,11 @@ function bw_dash__help( $shortcode="bw_dash" ) {
   return( "Display a dash icon" );
 } 
 
+/**
+ * Syntax hook for [bw_dash] shortcode
+ * 
+ * @TODO Add SVG icons 
+ */
 function bw_dash__syntax( $shortcode="bw_dash" ) {
   $icons = bw_list_dashicons();
   array_shift( $icons );
@@ -746,6 +768,8 @@ function bw_dash__syntax( $shortcode="bw_dash" ) {
 
 /**
  * Example hook for [bw_dash] shortcode
+ *
+ * @TODO Add SVG icons
  * 
  */ 
 function bw_dash__example( $shortcode="bw_dash" ) {
@@ -767,6 +791,7 @@ function bw_dash__example( $shortcode="bw_dash" ) {
   }
   bw_genericons_example();
   bw_texticons_example();
+	bw_svgicons_example();
 }
 
 /**
@@ -830,6 +855,21 @@ function bw_dash_enqueue_fonts( $icons, $atts ) {
 		$font_class = bw_dash_enqueue_font( $icon, $atts );
 	}
 	return( $font_class );
+}
+
+/**
+ * Examples of SVG icons
+ */ 
+function bw_svgicons_example() {
+	$svgicons = bw_list_svgicons();
+	h3( "SVG icons" );
+	foreach ( $svgicons as $icon => $dpath ) {
+    sdiv( "inline" ); 
+		bw_dash_svg_icon( $icon, "svg", "", $dpath ); 
+    e( " " );
+    e( $icon );
+    ediv();
+	}
 }
 	 
 
