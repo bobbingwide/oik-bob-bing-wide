@@ -217,7 +217,6 @@ function bw_get_response_as_xml( $response ) {
   return( $xml );
 
 }
- 
 
 /**
  * Return information on an oik-plugins plugin.
@@ -229,7 +228,7 @@ function bw_get_response_as_xml( $response ) {
  * 
  */
 function bw_get_oik_plugins_info( $plugin_slug ) {
-  oik_require( "admin/oik-admin.inc" );
+  oik_require( "admin/oik-admin.php" );
   oik_require( "includes/oik-remote.inc" );
   $server = bw_get_defined_plugin_server( $plugin_slug ); 
   if ( $server ) {
