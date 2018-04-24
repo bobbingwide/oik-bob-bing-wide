@@ -1,27 +1,31 @@
-# Copyright (C) 2017 oik bob bing wide shortcodes
+# Copyright (C) 2018 oik bob bing wide shortcodes
 # This file is distributed under the same license as the oik bob bing wide shortcodes package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik bob bing wide shortcodes 1.30.9\n"
+"Project-Id-Version: oik bob bing wide shortcodes 1.31.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik-bob-bing-wide\n"
-"POT-Creation-Date: 2017-09-25 15:08:45+00:00\n"
+"POT-Creation-Date: 2018-04-24 16:52:42+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: admin/oik-activation.php:24
-msgid "Install"
+#: admin/oik-activation.php:23
+msgid "Install %1$s"
 msgstr ""
 
-#: admin/oik-activation.php:53
-msgid "Activate"
+#: admin/oik-activation.php:55
+msgid "Activate %1$s"
 msgstr ""
 
 #: admin/oik-activation.php:73
-msgid "Update"
+msgid "Upgrade %1$s"
+msgstr ""
+
+#: admin/oik-activation.php:189
+msgid " version "
 msgstr ""
 
 #: admin/oik-activation.php:191
@@ -30,7 +34,7 @@ msgstr ""
 
 #: admin/oik-activation.php:193
 msgid ""
-"Please install and activate the required minimum version of this plugin:"
+"Please install and activate the required minimum version of this plugin: %1$s"
 msgstr ""
 
 #: oik-bob-bing-wide.php:131
@@ -121,11 +125,11 @@ msgstr ""
 msgid "Delimeter between columns"
 msgstr ""
 
-#: shortcodes/oik-dash.php:670 shortcodes/oik-dash.php:671
+#: shortcodes/oik-dash.php:762 shortcodes/oik-dash.php:763
 msgid "Dash icon to display"
 msgstr ""
 
-#: shortcodes/oik-dash.php:672
+#: shortcodes/oik-dash.php:764
 msgid "CSS classes"
 msgstr ""
 
@@ -177,36 +181,36 @@ msgstr ""
 msgid "Version, total downloads, last update, tested"
 msgstr ""
 
-#: shortcodes/oik-plug.php:769
+#: shortcodes/oik-plug.php:766
 msgid "&nbsp;"
 msgstr ""
 
-#: shortcodes/oik-plug.php:781
+#: shortcodes/oik-plug.php:778
 msgid "home"
 msgstr ""
 
-#: shortcodes/oik-plug.php:781
+#: shortcodes/oik-plug.php:778
 msgid "Link to plugin homepage"
 msgstr ""
 
-#: shortcodes/oik-plug.php:842
+#: shortcodes/oik-plug.php:839
 msgid "names of plugins to summarise"
 msgstr ""
 
-#: shortcodes/oik-plug.php:843
+#: shortcodes/oik-plug.php:840
 msgid ""
 "Show detailed information. Defaults to 'Y' if more than one plugin is listed"
 msgstr ""
 
-#: shortcodes/oik-plug.php:844
+#: shortcodes/oik-plug.php:841
 msgid "Summarise the activated plugins"
 msgstr ""
 
-#: shortcodes/oik-plug.php:845
+#: shortcodes/oik-plug.php:842
 msgid "URL for where to find additional information"
 msgstr ""
 
-#: shortcodes/oik-plug.php:846
+#: shortcodes/oik-plug.php:843
 msgid "Display the plugin banner image"
 msgstr ""
 

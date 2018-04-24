@@ -3,7 +3,7 @@
 Plugin Name: oik bob bing wide shortcodes
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin
 Description: More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, oik and loik, wp, wpms, bp, artisteer, drupal, bw_search, bw_dash, bw_rpt, bw_graphviz, bw_option, github
-Version: 1.30.9
+Version: 1.31.0
 Author: bobbingwide
 Author URI: https://www.oik-plugins.com/author/bobbingwide
 Text Domain: oik-bob-bing-wide
@@ -199,6 +199,11 @@ function oik_bob_bing_wide_activation() {
   oik_plugin_lazy_activation( __FILE__, $depends, "oik_plugin_plugin_inactive" );
 }
 
+function oik_bob_bing_wide_gather_site_opinions( $opinions ) {
+	$opinions[] = new oik_block_editor_opinion( 'C', false, 'S', "Shortcodes [bw_csv] and [bw_graphviz] should be converted to blocks" );
+	return $opinions;
+}
+
 /** 
  * Function to invoke when oik-bob-bing-wide is loaded 
  */
@@ -206,6 +211,7 @@ function oik_bob_bing_wide_loaded() {
   add_action( "oik_add_shortcodes", "oik_bob_bing_wide_init" );
   add_action( "admin_notices", "oik_bob_bing_wide_activation", 11 );
   add_action( "oik_admin_menu", "oik_bob_bing_wide_admin_menu" );
+	add_filter( "oik_block_gather_site_opinions", "oik_bob_bing_wide_gather_site_opinions" );
 }
 
 oik_bob_bing_wide_loaded();

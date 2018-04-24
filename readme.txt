@@ -3,8 +3,9 @@ Contributors: bobbingwide
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github
 Requires at least: 4.2
-Tested up to: 4.7.5
-Stable tag: 1.30.8
+Tested up to: 5.0-alpha-42125-src
+Stable tag: 1.31.0
+Gutenberg compatible: Likely-yes
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +99,9 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"] 
 
 == Upgrade Notice ==
+= 1.31.0 =
+Update if using Gutenberg - the new block editor for WordPress 5.0
+
 = 1.30.8 = 
 Updated so that [bw_plug] works with recent changes to api.wordpress.org
 
@@ -166,6 +170,15 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 == Changelog ==
+= 1.31.0 =
+* Changed: work towards making the plugin 100% translatable and localizable [github bobbingwide oik-bob-bing-wide issues 23]
+* Changed: [bw_dash] - Update for WordPress 5.0 and the new editor [github bobbingwide oik-bob-bing-wide issues 26]
+* Fixed: Add support for https: protocol in PHPUnit tests [github bobbingwide oik-bob-bing-wide issues 24]
+* Fixed: update test_bw_plug_banner_image_url [github bobbingwide oik-bob-bing-wide issues 18]
+* Tested: With PHP 7.1. and 7.2
+* Tested: With WordPress 4.9.5 and 5.0-alpha and WordPress Multisite
+* Tetsed: With Gutenberg 2.7.0
+
 = 1.30.8 =
 * Changed: Adjusted requests to api.wordpress.org [github bobbingwide oik-bob-bing-wide issues 21]
 * Fixed: Avoid Warning message when local plugin doesn't have a readme.txt file [github bobbingwide oik-bob-bing-wide issues 22]
