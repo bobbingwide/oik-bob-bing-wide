@@ -115,6 +115,8 @@ function oik_bob_bing_wide_init() {
   bw_add_shortcode( "bw_option", "bw_option", oik_path( "shortcodes/oik-option.php", "oik-bob-bing-wide"), false );
   bw_add_shortcode( "bw_text", "bw_text", oik_path( "shortcodes/oik-text.php", "oik-bob-bing-wide" ), false );
 	bw_add_shortcode( "github", "bw_github", oik_path( "shortcodes/oik-github.php", "oik-bob-bing-wide" ), false );
+	bw_add_shortcode( "bw_archive", "bw_archive", oik_path( "shortcodes/oik-archive.php", "oik-bob-bing-wide" ), false );
+	
 	
 	
 	add_filter( "_sc__help", "oik_bob_bing_wide_sc__help", 10, 2 );
