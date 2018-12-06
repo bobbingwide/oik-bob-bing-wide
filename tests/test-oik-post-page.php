@@ -49,7 +49,10 @@ class Tests_oik_post_page extends BW_UnitTestCase {
 		$html = bw_do_shortcode( "[bw_post]" );
 		bw_trace2( $expected_output, "Expected output" );
 		bw_trace2( $html, "Actual output" );
-		$this->assertEquals( $expected_output, $html );
+		$html = $this->replace_home_url( $html );
+		$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		//$this->assertEquals( $expected_output, $html );
 	}
 	
 	
@@ -72,7 +75,9 @@ class Tests_oik_post_page extends BW_UnitTestCase {
 	 * Test Add FAQ 
 	 * [bw_page post_type=oik-faq icon=sos]
 	 *
-	 * Note: This may depends on the oik-faq post type being defined.
+	 * Note: This may depend on the oik-faq post type being defined.
+	 * The test should be updated for the new dashicon logic using SVG! 
+	 * 
 	 */
 	function test_bw_page_post_type_oik_faq() {
     $expected_output = '<a href="http://example.com/wp-admin/post-new.php?post_type=oik-faq" title="Create New FAQ"><span class="dashicons dashicons-sos "></span></a>';

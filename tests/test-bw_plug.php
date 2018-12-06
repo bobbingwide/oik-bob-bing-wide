@@ -18,6 +18,7 @@ class Tests_bw_plug extends BW_UnitTestCase {
 	 * The img src is now expected to be http://ps.w.org
 	 *
 	 * Note: This test can fail if the oik-plugins plugin is activated.
+	 * 
 	 */
 	function test_bw_plug_banner_image_url() {
 		$expected_output = '<div class="bw_plug">';

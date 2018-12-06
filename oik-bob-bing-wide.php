@@ -2,8 +2,8 @@
 /*
 Plugin Name: oik bob bing wide shortcodes
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin
-Description: More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, oik and loik, wp, wpms, bp, artisteer, drupal, bw_search, bw_dash, bw_rpt, bw_graphviz, bw_option, github
-Version: 1.31.0
+Description: More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, oik and loik, wp, wpms, bp, artisteer, drupal, bw_search, bw_dash, bw_rpt, bw_graphviz, bw_option, github, bw_archive
+Version: 1.31.1
 Author: bobbingwide
 Author URI: https://www.oik-plugins.com/author/bobbingwide
 Text Domain: oik-bob-bing-wide
@@ -185,8 +185,16 @@ function oik_bob_bing_wide_admin_menu() {
 }
 
 /**
- * Implememt "admin_notices" action for oik_bob_bing_wide
+ * Implements "admin_notices" action for oik_bob_bing_wide
+ 
+ * This code will produce a message when oik-bob-bing-widee is activated but oik isn't.
+ *
+ * Version | Dependency
+ * ------- | --------------
+ * v1.30.6 | oik v3.2.3
+ * v1.31.1 | oik v3.2.8
  * 
+ 
  */ 
 function oik_bob_bing_wide_activation() {
   static $plugin_basename = null;
@@ -197,7 +205,7 @@ function oik_bob_bing_wide_activation() {
       require_once( "admin/oik-activation.php" );
     }
   }  
-  $depends = "oik:3.2.3";
+  $depends = "oik:3.2.8";
   oik_plugin_lazy_activation( __FILE__, $depends, "oik_plugin_plugin_inactive" );
 }
 

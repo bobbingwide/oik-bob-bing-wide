@@ -1,17 +1,20 @@
 # oik-bob-bing-wide 
 ![banner](https://raw.githubusercontent.com/bobbingwide/oik-bob-bing-wide/master/assets/oik-bob-bing-wide-banner-772x250.jpg)
 * Contributors: bobbingwide
-* Donate link: http://www.oik-plugins.com/oik/oik-donate/
+* Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github
-* Requires at least: 4.2
-* Tested up to: 5.0-alpha-42125-src
-* Stable tag: 1.31.0
+* Requires at least: 4.9
+* Tested up to: 5.0-RC3
+* Stable tag: 1.31.1
 * Gutenberg compatible: Likely-yes
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 ## Description 
 * More lazy smart shortcodes: bw_csv, bw_plug, bw_search, bw_page, bw_post, oik, wp, wpms, bp, artisteer, drupal and github
+
+New in v1.31.1
+[bw_archive] -
 
 New in v1.30.2
 https://github.com - create links to GitHub repositories, issues etc
@@ -54,6 +57,7 @@ In alphabetical order:
 * [artisteer]
 * [bp]
 * [bw_action]	- prototype
+* [bw_archive] - category archives
 * [bw_crumbs]
 * [bw_csv] - improved in v1.30, v1.30.1
 * [bw_dash]
@@ -100,6 +104,10 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"]
 
 ## Upgrade Notice 
+
+# 1.31.1 
+Update for [bw_archive] shortcode	to display category archives. Upgrade for peaceful coexistence with Gutenberg.
+
 # 1.31.0 
 Update if using Gutenberg - the new block editor for WordPress 5.0
 
@@ -171,6 +179,13 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 ## Changelog 
+# 1.31.1 
+* Added: [bw_archive] shortcode to wrap wp_get_archives https://github.com/bobbingwide/oik-bob-bing-wide/issues/28
+* Changed: Depends on oik v3.2.8
+* Tested: With WordPress 5.0
+* Tested: With Gutenberg 4.6.1
+* Tested: With PHP 7.1 and 7.2
+
 # 1.31.0 
 * Changed: work towards making the plugin 100% translatable and localizable https://github.com/bobbingwide/oik-bob-bing-wide/issues/23
 * Changed: [bw_dash] - Update for WordPress 5.0 and the new editor https://github.com/bobbingwide/oik-bob-bing-wide/issues/26
