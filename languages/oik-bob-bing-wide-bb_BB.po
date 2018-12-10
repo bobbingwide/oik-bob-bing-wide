@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the oik bob bing wide shortcodes package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik bob bing wide shortcodes 1.31.0\n"
+"Project-Id-Version: oik bob bing wide shortcodes 1.31.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik-bob-bing-wide\n"
-"POT-Creation-Date: 2018-04-24 16:52:42+00:00\n"
+"POT-Creation-Date: 2018-12-10 13:27:04+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -45,79 +45,84 @@ msgstr ""
 "Pelsae isnatll And atcvitae thE rqeiuerd mnimium vreison Of tihs pulign: %1$s"
 
 
-#: oik-bob-bing-wide.php:131
+#: oik-bob-bing-wide.php:133
 msgid "Spells out the oik backronym"
 msgstr "Seplls OUt thE OIk bcarknoym"
 
 
-#: oik-bob-bing-wide.php:134
+#: oik-bob-bing-wide.php:136
 msgid "Styled form of Artisteer"
 msgstr "Syteld from Of Atrsieter"
 
 
-#: oik-bob-bing-wide.php:138
+#: oik-bob-bing-wide.php:140
 msgid "Styled form of BuddyPress"
 msgstr "Syteld from Of BduydrPses"
 
 
-#: oik-bob-bing-wide.php:139
+#: oik-bob-bing-wide.php:141
 msgid "Add page button"
 msgstr "Add pgae btuotn"
 
 
-#: oik-bob-bing-wide.php:140
+#: oik-bob-bing-wide.php:142
 msgid "Show plugin information"
 msgstr "Sohw pulign ifnroamiton"
 
 
-#: oik-bob-bing-wide.php:141
+#: oik-bob-bing-wide.php:143
 msgid "Add Post button"
 msgstr "Add Psot btuotn"
 
 
-#: oik-bob-bing-wide.php:144
+#: oik-bob-bing-wide.php:146
 msgid "Link to Artisteer "
 msgstr "Lnik tO Atrsieter "
 
 
-#: oik-bob-bing-wide.php:145
+#: oik-bob-bing-wide.php:147
 msgid "Link to BuddyPress"
 msgstr "Lnik tO BduydrPses"
 
 
-#: oik-bob-bing-wide.php:146
+#: oik-bob-bing-wide.php:148
 msgid "Link to Bobbing Wide sites"
 msgstr "Lnik tO Bboibng Wdie sties"
 
 
-#: oik-bob-bing-wide.php:147
+#: oik-bob-bing-wide.php:149
 msgid "Link to drupal.org"
 msgstr "Lnik tO durapl.Org"
 
 
-#: oik-bob-bing-wide.php:148
+#: oik-bob-bing-wide.php:150
 msgid "Link to [oik]-plugins"
 msgstr "Lnik tO [oik]-plugins"
 
 
-#: oik-bob-bing-wide.php:149
+#: oik-bob-bing-wide.php:151
 msgid "Link to WordPress.org"
 msgstr "Lnik tO WroPderss.Org"
 
 
-#: oik-bob-bing-wide.php:150
+#: oik-bob-bing-wide.php:152
 msgid "Link to WordPress Multi Site"
 msgstr "Lnik tO WroPderss Mluti Stie"
 
 
-#: oik-bob-bing-wide.php:154
+#: oik-bob-bing-wide.php:156
 msgid "Display a styled form of WordPress. "
 msgstr "Dsilpay A syteld from Of WroPderss. "
 
 
-#: oik-bob-bing-wide.php:158
+#: oik-bob-bing-wide.php:160
 msgid "Styled form of WordPress Multi Site"
 msgstr "Syteld from Of WroPderss Mluti Stie"
+
+
+#: shortcodes/oik-archive.php:24
+msgid "Type of archive to retrieve"
+msgstr "Tpye Of acrihve tO rteirvee"
 
 
 #: shortcodes/oik-csv.php:256
@@ -301,11 +306,11 @@ msgstr "https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin"
 msgid ""
 "More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, oik and loik, "
 "wp, wpms, bp, artisteer, drupal, bw_search, bw_dash, bw_rpt, bw_graphviz, "
-"bw_option, github"
+"bw_option, github, bw_archive"
 msgstr ""
 "Mroe lzay samrt sohtroceds: bw_csv, bw_pulg, bw_pgae, bw_psot, OIk And liok, "
 "wp, wmps, bp, atrsieter, durapl, bw_saecrh, bw_dsah, bw_rpt, bw_garhpivz, "
-"bw_otpoin, gtiuhb"
+"bw_otpoin, gtiuhb, bw_acrihve"
 
 
 #. Author of the plugin/theme

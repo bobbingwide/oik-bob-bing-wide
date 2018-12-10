@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the oik bob bing wide shortcodes package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik bob bing wide shortcodes 1.31.0\n"
+"Project-Id-Version: oik bob bing wide shortcodes 1.31.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik-bob-bing-wide\n"
-"POT-Creation-Date: 2018-04-24 16:52:42+00:00\n"
+"POT-Creation-Date: 2018-12-10 13:27:04+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,64 +37,68 @@ msgid ""
 "Please install and activate the required minimum version of this plugin: %1$s"
 msgstr ""
 
-#: oik-bob-bing-wide.php:131
+#: oik-bob-bing-wide.php:133
 msgid "Spells out the oik backronym"
 msgstr ""
 
-#: oik-bob-bing-wide.php:134
+#: oik-bob-bing-wide.php:136
 msgid "Styled form of Artisteer"
 msgstr ""
 
-#: oik-bob-bing-wide.php:138
+#: oik-bob-bing-wide.php:140
 msgid "Styled form of BuddyPress"
 msgstr ""
 
-#: oik-bob-bing-wide.php:139
+#: oik-bob-bing-wide.php:141
 msgid "Add page button"
 msgstr ""
 
-#: oik-bob-bing-wide.php:140
+#: oik-bob-bing-wide.php:142
 msgid "Show plugin information"
 msgstr ""
 
-#: oik-bob-bing-wide.php:141
+#: oik-bob-bing-wide.php:143
 msgid "Add Post button"
 msgstr ""
 
-#: oik-bob-bing-wide.php:144
+#: oik-bob-bing-wide.php:146
 msgid "Link to Artisteer "
 msgstr ""
 
-#: oik-bob-bing-wide.php:145
+#: oik-bob-bing-wide.php:147
 msgid "Link to BuddyPress"
 msgstr ""
 
-#: oik-bob-bing-wide.php:146
+#: oik-bob-bing-wide.php:148
 msgid "Link to Bobbing Wide sites"
 msgstr ""
 
-#: oik-bob-bing-wide.php:147
+#: oik-bob-bing-wide.php:149
 msgid "Link to drupal.org"
 msgstr ""
 
-#: oik-bob-bing-wide.php:148
+#: oik-bob-bing-wide.php:150
 msgid "Link to [oik]-plugins"
 msgstr ""
 
-#: oik-bob-bing-wide.php:149
+#: oik-bob-bing-wide.php:151
 msgid "Link to WordPress.org"
 msgstr ""
 
-#: oik-bob-bing-wide.php:150
+#: oik-bob-bing-wide.php:152
 msgid "Link to WordPress Multi Site"
 msgstr ""
 
-#: oik-bob-bing-wide.php:154
+#: oik-bob-bing-wide.php:156
 msgid "Display a styled form of WordPress. "
 msgstr ""
 
-#: oik-bob-bing-wide.php:158
+#: oik-bob-bing-wide.php:160
 msgid "Styled form of WordPress Multi Site"
+msgstr ""
+
+#: shortcodes/oik-archive.php:24
+msgid "Type of archive to retrieve"
 msgstr ""
 
 #: shortcodes/oik-csv.php:256
@@ -242,7 +246,7 @@ msgstr ""
 msgid ""
 "More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, oik and loik, "
 "wp, wpms, bp, artisteer, drupal, bw_search, bw_dash, bw_rpt, bw_graphviz, "
-"bw_option, github"
+"bw_option, github, bw_archive"
 msgstr ""
 
 #. Author of the plugin/theme

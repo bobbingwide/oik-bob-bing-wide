@@ -2,9 +2,9 @@
 ![banner](https://raw.githubusercontent.com/bobbingwide/oik-bob-bing-wide/master/assets/oik-bob-bing-wide-banner-772x250.jpg)
 * Contributors: bobbingwide
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
-* Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github
-* Requires at least: 4.9
-* Tested up to: 5.0-RC3
+* Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github, [bw_archive]
+* Requires at least: 4.9.8
+* Tested up to: 5.0
 * Stable tag: 1.31.1
 * Gutenberg compatible: Likely-yes
 * License: GPLv2 or later
@@ -14,7 +14,7 @@
 * More lazy smart shortcodes: bw_csv, bw_plug, bw_search, bw_page, bw_post, oik, wp, wpms, bp, artisteer, drupal and github
 
 New in v1.31.1
-[bw_archive] -
+[bw_archive] - display category archives
 
 New in v1.30.2
 https://github.com - create links to GitHub repositories, issues etc
@@ -57,7 +57,7 @@ In alphabetical order:
 * [artisteer]
 * [bp]
 * [bw_action]	- prototype
-* [bw_archive] - category archives
+* [bw_archive] - category archives new in v1.31.1
 * [bw_crumbs]
 * [bw_csv] - improved in v1.30, v1.30.1
 * [bw_dash]
@@ -106,7 +106,7 @@ Implement them using diy-oik if required.
 ## Upgrade Notice 
 
 # 1.31.1 
-Update for [bw_archive] shortcode	to display category archives. Upgrade for peaceful coexistence with Gutenberg.
+Update for [bw_archive] shortcode to display category archives. Upgrade for peaceful coexistence with Gutenberg.
 
 # 1.31.0 
 Update if using Gutenberg - the new block editor for WordPress 5.0
