@@ -193,8 +193,7 @@ function oik_bob_bing_wide_admin_menu() {
  * ------- | --------------
  * v1.30.6 | oik v3.2.3
  * v1.31.1 | oik v3.2.8
- * 
- 
+ *
  */ 
 function oik_bob_bing_wide_activation() {
   static $plugin_basename = null;

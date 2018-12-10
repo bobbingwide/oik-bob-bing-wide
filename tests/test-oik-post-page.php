@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2017
+<?php // (C) Copyright Bobbing Wide 2017, 2018
 
 /**
  * @package oik-bob-bing-wide
@@ -47,10 +47,10 @@ class Tests_oik_post_page extends BW_UnitTestCase {
     $expected_output = '<a href="http://example.com/wp-admin/post-new.php" title="Add New Post"><span class="dashicons dashicons-admin-post "></span></a>';
 		$expected_output = str_replace( "http://example.com", home_url(), $expected_output );
 		$html = bw_do_shortcode( "[bw_post]" );
-		bw_trace2( $expected_output, "Expected output" );
-		bw_trace2( $html, "Actual output" );
+		//bw_trace2( $expected_output, "Expected output" );
+		//bw_trace2( $html, "Actual output" );
 		$html = $this->replace_home_url( $html );
-		$this->generate_expected_file( $html );
+		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 		//$this->assertEquals( $expected_output, $html );
 	}
@@ -66,9 +66,12 @@ class Tests_oik_post_page extends BW_UnitTestCase {
     $expected_output = '<a href="http://example.com/wp-admin/post-new.php?post_type=page" title="Add New Page"><span class="dashicons dashicons-admin-page "></span></a>';
 		$expected_output = str_replace( "http://example.com", home_url(), $expected_output );
 		$html = bw_do_shortcode( "[bw_page]" );
-		bw_trace2( $expected_output, "Expected output" );
-		bw_trace2( $html, "Actual output" );
-		$this->assertEquals( $expected_output, $html );
+		//bw_trace2( $expected_output, "Expected output" );
+		//bw_trace2( $html, "Actual output" );
+		$html = $this->replace_home_url( $html );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		//$this->assertEquals( $expected_output, $html );
 	}
 	
 	/**
@@ -85,7 +88,10 @@ class Tests_oik_post_page extends BW_UnitTestCase {
 		$html = bw_do_shortcode( "[bw_page post_type=oik-faq icon=sos]" );
 		bw_trace2( $expected_output, "Expected output" );
 		bw_trace2( $html, "Actual output" );
-		$this->assertEquals( $expected_output, $html );
+		$html = $this->replace_home_url( $html );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		//$this->assertEquals( $expected_output, $html );
 	}
 
 }
