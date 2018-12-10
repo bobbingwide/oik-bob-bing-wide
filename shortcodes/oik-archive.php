@@ -16,6 +16,10 @@ function bw_archive( $atts=null, $content=null, $tag=null) {
 	
 }
 
+function bw_archive__help( $shortcode ) {
+	return( "Display category archives" );
+}
+
 function bw_archive__syntax( $shortcode ) {
 	$syntax = array( "type" => bw_skv( "monthly", "daily|weekly|yearly|postbypost|alpha", "Type of archive to retrieve" )
 								);
