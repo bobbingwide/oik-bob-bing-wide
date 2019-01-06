@@ -4,8 +4,8 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github, [bw_archive]
 * Requires at least: 4.9.8
-* Tested up to: 5.0
-* Stable tag: 1.31.1
+* Tested up to: 5.0.2
+* Stable tag: 1.31.2
 * Gutenberg compatible: Likely-yes
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -104,6 +104,8 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"]
 
 ## Upgrade Notice 
+# 1.31.2 
+Update for the new SVG icon for the Archives block
 
 # 1.31.1 
 Update for [bw_archive] shortcode to display category archives. Upgrade for peaceful coexistence with Gutenberg.
@@ -179,6 +181,12 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 ## Changelog 
+# 1.31.2 
+* Changed: Updated SVG icon for archive - Archives block, https://github.com/bobbingwide/oik-bob-bing-wide/issues/26
+* Tested: With WordPress 5.0.2
+* Tested: With Gutenberg 4.7.1
+* Tested: With PHP 7.2
+
 # 1.31.1 
 * Added: [bw_archive] shortcode to wrap wp_get_archives https://github.com/bobbingwide/oik-bob-bing-wide/issues/28
 * Changed: Depends on oik v3.2.8
@@ -193,7 +201,7 @@ This version matches the child plugin oik-bob-bing-wide in oik v1.17
 * Fixed: update test_bw_plug_banner_image_url https://github.com/bobbingwide/oik-bob-bing-wide/issues/18
 * Tested: With PHP 7.1. and 7.2
 * Tested: With WordPress 4.9.5 and 5.0-alpha and WordPress Multisite
-* Tetsed: With Gutenberg 2.7.0
+* Tested: With Gutenberg 2.7.0
 
 # 1.30.8 
 * Changed: Adjusted requests to api.wordpress.org https://github.com/bobbingwide/oik-bob-bing-wide/issues/21
