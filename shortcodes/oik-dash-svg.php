@@ -5,6 +5,7 @@
  * Code copied and cobbled from gutenberg/components/dashicon/index.js
  * and variables given $'s
  *
+ * @TODO Isn't this redundant - see oik-dash-svg-list.php
  */
 function bw_dash_get_svg_icon( $icon ) {
  		$path = null;

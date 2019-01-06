@@ -151,12 +151,16 @@ function bw_dash_svg_icon( $icon, $font_class, $class, $dpath ) {
 	$svg .= kv( "focusable", "false" );
 	//$svg .= kv( "className", $font_class ); // needed?
 	$svg .= kv( "xmlns", "http://www.w3.org/2000/svg" );
-	$svg .= kv( "width", 20 );
-	$svg .= kv( "height", 20 );
-	$svg .= kv( "viewBox", "0 0 20 20" );
+	$svg .= kv( "width", 24 );
+	$svg .= kv( "height", 24 );
+	$svg .= kv( "viewBox", "0 0 24 24" );
 	
 	stag( "svg aria-hidden", "$font_class $class", null, $svg );
-	bw_dash_svg_icon_dpath( $dpath );
+	if ( '<' === $dpath[0] ) {
+		bw_dash_svg_icon_raw( $dpath );
+	} else {
+		bw_dash_svg_icon_dpath( $dpath );
+	}
 	etag( "svg" );
 }
 
@@ -166,7 +170,10 @@ function bw_dash_svg_icon( $icon, $font_class, $class, $dpath ) {
 function bw_dash_svg_icon_dpath( $dpath ) {
 	$kv = kv( "d", $dpath );
 	bw_echo( "<path" . $kv . " />" );
-	
+}
+
+function bw_dash_svg_icon_raw( $dpath ) {
+	bw_echo( $dpath );
 }
 
 /**
