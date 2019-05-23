@@ -609,11 +609,11 @@ function _bw_tidy_response_xml( $response_xml ) {
 function bw_format_link( $name, $link, $plugininfo, $banner=null ) {
   if ( $banner ) {
     sdiv( "bw_plug" );
+    bw_link_plugin_banner( $name, $plugininfo, $banner );
   } else { 
     span( "bw_plug" );
-  }  
-  bw_link_plugin_banner( $name, $plugininfo, $banner ); 
-  bw_link_plugin_download( $name, $plugininfo );          
+    bw_link_plugin_download( $name, $plugininfo );
+  }
   bw_link_notes_page( $name, $link, "(", ")" );
   if ( $banner ) {
     ediv();
@@ -651,7 +651,7 @@ function bw_link_plugin_banner( $name, $plugininfo, $banner ) {
         // Deliver a .png style banner image from WordPress.org
         $banner_type = ".png";
 				//
-        $file = "http://ps.w.org/$name/assets/banner-772x250$banner_type";
+        $file = "https://ps.w.org/$name/assets/banner-772x250$banner_type";
         $image = retimage( "bw_banner", $file, $name );
         alink( "bw_banner", "https://wordpress.org/plugins/$name", $image, $file );   
         break;
@@ -661,7 +661,7 @@ function bw_link_plugin_banner( $name, $plugininfo, $banner ) {
         // Deliver a .jpg banner image from WordPress.org
         
         $banner_type = ".jpg"; 
-        $file = "http://ps.w.org/$name/assets/banner-772x250$banner_type";
+        $file = "https://ps.w.org/$name/assets/banner-772x250$banner_type";
         $image = retimage( "bw_banner", $file, $name );
         alink( "bw_banner", "https://wordpress.org/plugins/$name", $image, $file );   
         break;
