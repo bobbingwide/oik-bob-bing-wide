@@ -1,15 +1,18 @@
 <?php // (C) Copyright Bobbing Wide 2018, 2019
 /**
- * 	List SVG icons
+ * List SVG icons
  *
  * Code copied and cobbled from gutenberg/components/dashicon/index.js
  * and restructured to return the list of all SVG icons.
  *
  * Source for "dashicons" is now gutenberg/packages/components/src/dashicon/index.js
+ *
  * But some Blocks ( e.g. archives ) have their own SVG which isn't just the contents of the path d parameter.
- * For these we copy all the HTML within the SVG from the icon: attribute.
+ * Originally I thought we needed to copy all the HTML within the SVG from the icon: attribute.
+ * But now we have a Block icon, we do not need to do this.
+ * The dashicon for archive has a different appearance from the block icon.
  *
- *
+ * @TODO Update for new dashicons in WordPress 5.2
  */
 function bw_dash_list_svg_icons() {
 	$icons = array();
@@ -102,8 +105,8 @@ function bw_dash_list_svg_icons() {
 			/*
 			 * $path = 'M19 4v2H1V4h18zM2 7h16v10H2V7zm11 3V9H7v1h6z';
 			*/
-			$icons['archive']
-			=  '<Path fill="none" d="M0 0h24v24H0V0z" /><G><Path d="M7 11h2v2H7v-2zm14-5v14l-2 2H5l-2-2V6l2-2h1V2h2v2h8V2h2v2h1l2 2zM5 8h14V6H5v2zm14 12V10H5v10h14zm-4-7h2v-2h-2v2zm-4 0h2v-2h-2v2z" /></G>';
+			//$icons['archive']
+			//=  '<Path fill="none" d="M0 0h24v24H0V0z" /><G><Path d="M7 11h2v2H7v-2zm14-5v14l-2 2H5l-2-2V6l2-2h1V2h2v2h8V2h2v2h1l2 2zM5 8h14V6H5v2zm14 12V10H5v10h14zm-4-7h2v-2h-2v2zm-4 0h2v-2h-2v2z" /></G>';
 
 
 			$icons['arrow-down-alt'] 
