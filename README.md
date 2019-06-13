@@ -4,8 +4,8 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github, [bw_archive]
 * Requires at least: 4.9.8
-* Tested up to: 5.0.2
-* Stable tag: 1.31.2
+* Tested up to: 5.2.1
+* Stable tag: 1.32.0
 * Gutenberg compatible: Likely-yes
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -50,7 +50,7 @@ New in v1.23
 
 ## Frequently Asked Questions 
 # Where is the FAQ? 
-[oik FAQ](http://www.oik-plugins.com/oik/oik-faq)
+[oik FAQ](https://www.oik-plugins.com/oik/oik-faq)
 
 # What shortcodes does this plugin provide? 
 In alphabetical order:
@@ -104,6 +104,9 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"]
 
 ## Upgrade Notice 
+# 1.32.0 
+Update for improvements to the bw_plug shortcode... used on blocks.wp-a2z.org
+
 # 1.31.2 
 Update for the new SVG icon for the Archives block
 
@@ -181,6 +184,15 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 ## Changelog 
+# 1.32.0 
+* Changed: Improvements to [bw_plug] shortcode, https://github.com/bobbingwide/oik-bob-bing-wide/issues/18
+* Fixed: Undefined index 'host' https://github.com/bobbingwide/oik-bob-bing-wide/issues/20
+* Fixed: Undo unnecessary change to the archive dashicon
+* Added: Add test for bw_list_dashicons to help code oik-blocks
+* Tested: With WordPress 5.2.1
+* Tested: With Gutenberg 5.8.0 & 5.9.0
+* Tested: With PHP 7.2
+
 # 1.31.2 
 * Changed: Updated SVG icon for archive - Archives block, https://github.com/bobbingwide/oik-bob-bing-wide/issues/26
 * Tested: With WordPress 5.0.2
@@ -330,6 +342,6 @@ This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 ## Further reading 
 If you want to read more about the oik plugins then please visit the
-[oik plugin](http://www.oik-plugins.com/oik)
+[oik plugin](https://www.oik-plugins.com/oik)
 **"the oik plugin - for often included key-information"**
 
