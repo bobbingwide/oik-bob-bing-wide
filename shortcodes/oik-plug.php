@@ -382,7 +382,8 @@ function bw_get_local_plugin_data( $plugin_slug ) {
   if ( $plugin_data ) {
     $pluginURI = bw_array_get( $plugin_data, "PluginURI", null );
     $url = parse_url( $pluginURI );
-    if ( $url['host'] != "wordpress.org" ) { 
+    $url_host = bw_array_get( $url, 'host', null );
+    if ( $url_host != "wordpress.org" ) {
     
       //$xml = new SimpleXmlElement( "<plugin></plugin>" );
       //$plugin = $xml->plugin;
@@ -476,7 +477,11 @@ function bw_get_local_plugin_xml( $plugin_slug ) {
  */
 function bw_get_plugin_data( $plugin_slug ) {
 
+	//$plugins = get_plugins( '/' . $plugin_slug ) ;
+	//print_r( $plugins );
+
   require_once( ABSPATH . "wp-admin/includes/plugin.php" );
+
   $file = oik_path( "$plugin_slug.php" , $plugin_slug ); 
   if ( file_exists( $file ) ) {
     $plugin_data = get_plugin_data( $file );
