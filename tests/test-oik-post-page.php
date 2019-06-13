@@ -21,6 +21,8 @@ class Tests_oik_post_page extends BW_UnitTestCase {
 	 * 
 	 * home_url() on the other hand does respect the setting. 
 	 * and admin_url() tests the value in force_ssl_admin().
+	 *
+	 * This has now been catered for in oik-batch. So all the comparing assertions should be assertEquals.
 	 */
 	function test_site_url() {
 		$siteurl = get_option("siteurl" );
@@ -28,7 +30,7 @@ class Tests_oik_post_page extends BW_UnitTestCase {
 		$this->assertEquals( $siteurl, $homeurl );
 		$site_url = site_url();
 		$home_url = home_url();
-		$this->assertNotEquals( $site_url, $home_url );
+		$this->assertEquals( $site_url, $home_url );
 		
 		$force_ssl = force_ssl_admin();
 		$this->assertTrue( $force_ssl );
