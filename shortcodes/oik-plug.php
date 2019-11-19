@@ -97,7 +97,7 @@ function bw_get_notes_page_url( $link ) {
   if ( $torf ) {
     $link = bw_get_option( "notes_page", "bw_bobbingwide" );  // **?** Not yet implemented
     if ( !$link ) {
-      $link = "http://www.bobbingwidewebdesign.com/plugins";  // For some backward compatability
+      $link = "https://www.bobbingwidewebdesign.com/plugins";  // For some backward compatibility
     }  
   } else {
     // It's false so it could have been an URL
@@ -115,6 +115,7 @@ function bw_get_notes_page_url( $link ) {
  * table header for bw_plug
  *
  * Produce a table header like this:
+ * ```
  * <table>
  * <tbody>
  * <tr>
@@ -122,18 +123,19 @@ function bw_get_notes_page_url( $link ) {
  * <th>Plugin links</th>
  * <th>Version, total downloads, last update, tested</th>
  * </tr>
+ * ```
  *
  * @param bool $table - true if a table is being displayed
  *
  */
 function bw_plug_table( $table=false ) {
   if ( $table ) {
-    stag( "table" );
+    stag( "table", "bw_plug" );
     stag( "tbody" );
     stag( "tr" );
-    th( "Plugin name and description" );
-    th( "Plugin links" );
-    th( "Version, total downloads, last update, tested" );
+    th( "Plugin name and description", 'name' );
+    th( "Plugin links", 'links' );
+    th( "Version, total downloads, last update, tested", 'vtdlut' );
     etag( "tr" );
   }  
 }
@@ -771,12 +773,12 @@ function bw_format_plug_table( $name, $link, $plugininfo ) {
     td( "&nbsp;" );
     }
   else {
-    stag( "td" );
+    stag( "td", 'name' );
     strong( $plugininfo->name );
     br();
     e( $plugininfo->short_description );
     etag( "td" );
-    stag( "td" );
+    stag( "td", 'links' );
     $download_page = bw_link_plugin_download( $name, $plugininfo );
     if ( $download_page != $plugininfo->homepage ) {
       br();
@@ -785,10 +787,21 @@ function bw_format_plug_table( $name, $link, $plugininfo ) {
     br();
     bw_link_notes_page( $name, $link );
     etag( "td" );
-		$downloaded = bw_get_property( $plugininfo, "Downloaded", null );
-		$last_updated = bw_get_property( $plugininfo, "Last_updated", null );
-		$tested = bw_get_property( $plugininfo, "Tested", null );
-    td( $plugininfo->version . '<br />' . $downloaded . '<br />'. $last_updated . '<br />' . $tested );
+    stag( 'td', 'vtdlut');
+    sepan( 'version', $plugininfo->version );
+    br();
+	$downloaded = bw_get_property( $plugininfo, "Downloaded", null );
+	sepan( 'downloaded', number_format_i18n( $downloaded, 0 ) );
+	br();
+	$last_updated = bw_get_property( $plugininfo, "Last_updated", null );
+	$time = strtotime( $last_updated ) ;
+	$format = get_option( 'date_format' );
+	$formatted_date = wp_date( $format, $time );
+	sepan( 'updated', $formatted_date );
+	br();
+	$tested = bw_get_property( $plugininfo, "Tested", null );
+	sepan( 'tested', $tested );
+    etag( 'td' );
   } 
   etag("tr");  
 }
