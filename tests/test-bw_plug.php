@@ -7,7 +7,7 @@
  */
 class Tests_bw_plug extends BW_UnitTestCase {
 
-	function setUp() {
+	function setUp() : void {
 		parent::setUp();
 		oik_require( "shortcodes/oik-plug.php", "oik-bob-bing-wide" );
 	}

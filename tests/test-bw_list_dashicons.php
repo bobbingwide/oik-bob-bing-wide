@@ -7,7 +7,7 @@
  */
 class Tests_bw_list_dashicons extends BW_UnitTestCase {
 
-	function setUp() {
+	function setUp() : void {
 		parent::setUp();
 		oik_require( "shortcodes/oik-dash.php", "oik-bob-bing-wide" );
 	}

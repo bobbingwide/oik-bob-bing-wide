@@ -7,7 +7,7 @@
  */
 class Tests_oik_post_page extends BW_UnitTestCase {
 
-	function setUp() {
+	function setUp() : void {
 		//parent::setUp();
 		//oik_require( "shortcodes/oik-post-page.php", "oik-bob-bing-wide" );
 		oik_do_shortcode( '[bw] ');

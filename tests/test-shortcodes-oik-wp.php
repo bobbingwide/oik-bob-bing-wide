@@ -13,7 +13,7 @@ class Tests_shortcodes_oik_wp extends BW_UnitTestCase {
 	 * - ensure any database updates are rolled back
 	 * - we need oik-googlemap to load the functions we're testing
 	 */
-	function setUp() {
+	function setUp() : void {
 		parent::setUp();
 		oik_require( "shortcodes/oik-wp.php", "oik-bob-bing-wide" );
 	}

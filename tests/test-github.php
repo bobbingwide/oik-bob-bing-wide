@@ -7,7 +7,7 @@
  */
 class Tests_oik_github extends BW_UnitTestCase {
 
-	function setUp() {
+	function setUp() : void {
 		parent::setUp();
 		oik_require( "shortcodes/oik-github.php", "oik-bob-bing-wide" );
 	}
