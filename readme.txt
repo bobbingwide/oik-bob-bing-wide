@@ -2,9 +2,9 @@
 Contributors: bobbingwide
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github, [bw_archive]
-Requires at least: 4.9.8
-Tested up to: 5.2.1
-Stable tag: 1.32.0
+Requires at least: 5.0
+Tested up to: 5.3
+Stable tag: 1.33.0
 Gutenberg compatible: Likely-yes
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -103,6 +103,9 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"] 
 
 == Upgrade Notice ==
+= 1.33.0 =
+Update for more improvements to the bw_plug shortcode
+
 = 1.32.0 = 
 Update for improvements to the bw_plug shortcode... used on blocks.wp-a2z.org
 
@@ -183,6 +186,12 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 == Changelog ==
+= 1.33.0 = 
+* Changed: Improve ability to style bw_plug table display,[github bobbingwide oik-bob-bing-wide issues 30]
+* Tested: With WordPress 5.3 and WordPress Multi Site
+* Tested: With PHP 7.3
+* Tested: With PHPUnit 8
+
 = 1.32.0 = 
 * Changed: Improvements to [bw_plug] shortcode, [github bobbingwide oik-bob-bing-wide issues 18]
 * Fixed: Undefined index 'host' [github bobbingwide oik-bob-bing-wide issues 20]

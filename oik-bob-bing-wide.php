@@ -3,9 +3,9 @@
 Plugin Name: oik bob bing wide shortcodes
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin
 Description: More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, oik and loik, wp, wpms, bp, artisteer, drupal, bw_search, bw_dash, bw_rpt, bw_graphviz, bw_option, github, bw_archive
-Version: 1.32.0
+Version: 1.33.0
 Author: bobbingwide
-Author URI: https://www.oik-plugins.com/author/bobbingwide
+Author URI: https://www.bobbingwide.com/about-bobbing-wide
 Text Domain: oik-bob-bing-wide
 Domain Path: /languages/
 License: GPLv2 or later
@@ -187,12 +187,13 @@ function oik_bob_bing_wide_admin_menu() {
 /**
  * Implements "admin_notices" action for oik_bob_bing_wide
  
- * This code will produce a message when oik-bob-bing-widee is activated but oik isn't.
+ * This code will produce a message when oik-bob-bing-wide is activated but oik isn't.
  *
  * Version | Dependency
  * ------- | --------------
  * v1.30.6 | oik v3.2.3
  * v1.31.1 | oik v3.2.8
+ * v1.33.0 | oik v3.3.7
  *
  */ 
 function oik_bob_bing_wide_activation() {
@@ -204,7 +205,7 @@ function oik_bob_bing_wide_activation() {
       require_once( "admin/oik-activation.php" );
     }
   }  
-  $depends = "oik:3.2.8";
+  $depends = "oik:3.3.7";
   oik_plugin_lazy_activation( __FILE__, $depends, "oik_plugin_plugin_inactive" );
 }
 
