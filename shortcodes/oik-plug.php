@@ -794,9 +794,13 @@ function bw_format_plug_table( $name, $link, $plugininfo ) {
 	sepan( 'downloaded', number_format_i18n( $downloaded, 0 ) );
 	br();
 	$last_updated = bw_get_property( $plugininfo, "Last_updated", null );
-	$time = strtotime( $last_updated ) ;
-	$format = get_option( 'date_format' );
-	$formatted_date = wp_date( $format, $time );
+	if ( function_exists( 'wp_date') ) {
+		$time = strtotime( $last_updated ) ;
+		$format = get_option( 'date_format' );
+		$formatted_date = wp_date( $format, $time );
+	} else {
+		$formatted_date = substr( $last_updated, 0, 10 );
+	}
 	sepan( 'updated', $formatted_date );
 	br();
 	$tested = bw_get_property( $plugininfo, "Tested", null );
