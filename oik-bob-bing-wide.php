@@ -11,7 +11,7 @@ Domain Path: /languages/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-    Copyright 2010-2019 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2010-2020 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -221,8 +221,107 @@ function oik_bob_bing_wide_loaded() {
   add_action( "oik_add_shortcodes", "oik_bob_bing_wide_init" );
   add_action( "admin_notices", "oik_bob_bing_wide_activation", 11 );
   add_action( "oik_admin_menu", "oik_bob_bing_wide_admin_menu" );
-	add_filter( "oik_block_gather_site_opinions", "oik_bob_bing_wide_gather_site_opinions" );
+  add_filter( "oik_block_gather_site_opinions", "oik_bob_bing_wide_gather_site_opinions" );
+add_action( 'init', 'oik_bob_bing_wide_init_blocks', 100);
 }
+
+/**
+ * This logic is expected to run independent of oik and oik-blocks
+ */
+function oik_bob_bing_wide_init_blocks() {
+	oik_bob_bing_wide_plugins_loaded();
+	$library_file = oik_require_lib( 'oik-blocks');
+	oik\oik_blocks\oik_blocks_register_editor_scripts(  'oik-bob-bing-wide', 'oik-bob-bing-wide');
+	oik\oik_blocks\oik_blocks_register_block_styles( 'oik-bob-bing-wide' );
+	oik_bob_bing_wide_register_dynamic_blocks();
+
+}
+
+/**
+* Implements 'init' action for oik-bob-bing-wode.
+ *
+ * Prepares use of shared libraries if this has not already been done.
+ */
+function oik_bob_bing_wide_plugins_loaded() {
+	oik_bob_bing_wide_boot_libs();
+	oik_require_lib( 'bwtrace' );
+	oik_require_lib( 'bobbfunc' );
+	if ( ! function_exists( 'bw_add_shortcode' ) ) {
+		$oik_shortcodes_path = oik_path( 'oik-add-shortcodes.php' );
+		if ( file_exists( $oik_shortcodes_path ) ) {
+			/* Don't load oik-shortcodes library */
+			require_once $oik_shortcodes_path;
+		} else {
+			oik_require_lib( 'oik-shortcodes' );
+		}
+	}
+}
+
+/**
+ * Boot up process for shared libraries
+ *
+ * ... if not already performed
+ */
+function oik_bob_bing_wide_boot_libs() {
+	if ( ! function_exists( 'oik_require' ) ) {
+		$oik_boot_file = __DIR__ . '/libs/oik_boot.php';
+		$loaded        = include_once( $oik_boot_file );
+	}
+	oik_lib_fallback( __DIR__ . '/libs' );
+}
+
+/**
+ * Registers action/filter hooks for oik-bob-bing-wide's dynamic blocks
+ *
+ * We have to do this during init, which comes after _enqueue_ stuff
+ *
+ * script, style, editor_script, and editor_style
+ */
+function oik_bob_bing_wide_register_dynamic_blocks() {
+	if ( function_exists( "register_block_type" ) ) {
+		//oik_blocks_register_editor_scripts();
+		//oik_blocks_boot_libs();
+
+
+		register_block_type( 'oik-bbw/csv',
+			[
+				'render_callback'=>'oik_bob_bing_wide_dynamic_block_csv',
+				'attributes'     =>[
+					'csv' =>[ 'type'=>'string' ],
+					'text'=>[ 'type'=>'string' ]
+				]
+				,				'editor_script'  =>'oik-bob-bing-wide-blocks-js'
+				,				'editor_style'   =>null
+				,				'script'         =>null
+				,				'style'          =>'oik-bob-bing-wide-blocks-css'
+			] );
+	}
+}
+
+/**
+ * Server rendering dynamic CSV block
+ *
+ *
+ * @param array $attributes
+ * @return string generated HTML
+ */
+function oik_bob_bing_wide_dynamic_block_csv( $attributes ) {
+	//bw_backtrace();
+	$html = oik_blocks_check_server_func( "shortcodes/oik-csv.php", "oik-bob-bing-wide", "bw_csv");
+	if ( !$html ) {
+		if ( function_exists( "oik_is_block_renderer") ) {
+			oik_is_block_renderer( true );
+		}
+		do_action( "oik_add_shortcodes");
+		$content = bw_array_get( $attributes, "content", null );
+		bw_trace2( $content, "Content" );
+		//oik_require( "shortcodes/oik-csv.php", "oik-bob-bing-wide" );
+		$html = bw_csv( $attributes, $content );
+		bw_trace2( $html, "html", false );
+	}
+	return $html;
+}
+
 
 oik_bob_bing_wide_loaded();
 

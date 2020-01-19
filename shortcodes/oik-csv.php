@@ -149,7 +149,7 @@ function bw_csv_content_array_table( $content_array, $atts=null ) {
 	$totals = bw_array_get( $atts, 'totals', null );
 	$csv_totals = null;
 	if ( $totals ) {
-		oik_require( 'classes/class-oik-csv-totals.php', 'oik-bob-bing-wide' );
+		oik_require_lib( 'class-oik-csv-totals' );
 		$csv_totals = new Oik_csv_totals( $totals );
 	}
 	foreach ( $content_array as $line ) {
