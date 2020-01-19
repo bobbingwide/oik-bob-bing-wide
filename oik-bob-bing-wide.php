@@ -55,7 +55,8 @@ function oik_bob_bing_wide_init() {
   //if ( version_compare( oik_version(), "2.2-alpha.0403", "<" ) ) { 
   //oik_require( "shortcodes/oik-bob-bing-wide.php" );
   //  define( "OIK_WP_LOADED",  true );
-  //}  
+  //}
+	oik_require_lib( 'class-BW-');
 
   /* Shortcodes for each of the more useful bobbingwide babbles  */
   if ( false ) {
@@ -247,6 +248,7 @@ function oik_bob_bing_wide_plugins_loaded() {
 	oik_require_lib( 'bwtrace' );
 	// Do other plugins need to perform this test on bobbfunc?
 	oik_bob_bing_wide_standalone_compat( 'bw_array_get_from', 'includes/bobbcomp.php' , 'bobbfunc' );
+	oik_bob_bing_wide_standalone_compat( 'bw_as_array', 'libs/bobbfunc.php', 'bobbfunc');
 	oik_bob_bing_wide_standalone_compat( 'bw_add_shortcode', 'oik-add-shortcodes.php', 'oik-shortcodes' );
 }
 
