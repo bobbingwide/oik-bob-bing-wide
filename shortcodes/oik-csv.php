@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013-2017
+<?php // (C) Copyright Bobbing Wide 2013-2020
 
 /**
  * Expand any shortcodes in the row
@@ -141,27 +141,41 @@ function bw_csv_content_array( $content_array, $atts=null ) {
  * @param array $atts - shortcode parameters 
  */ 
 function bw_csv_content_array_table( $content_array, $atts=null ) {
-  $class = bw_array_get( $atts, "class", null );
-  stag( "table", "bw_csv " . $class );
-  oik_require( "bobbforms.inc" );
-  $th = bw_array_get( $atts, "th", "y"  );
-  $th = bw_validate_torf( $th );
-  foreach ( $content_array as $line ) {
-    //bw_trace2( $line, "line" );
-    $line = trim( $line );
-    if ( $line ) {
-      $tablerow = str_getcsv( $line, $atts['del'] );
+	$class = bw_array_get( $atts, "class", null );
+	stag( "table", "bw_csv " . $class );
+	oik_require( "bobbforms.inc" );
+	$th = bw_array_get( $atts, "th", "y"  );
+	$th = bw_validate_torf( $th );
+	$totals = bw_array_get( $atts, 'totals', null );
+	$csv_totals = null;
+	if ( $totals ) {
+		oik_require( 'classes/class-oik-csv-totals.php', 'oik-bob-bing-wide' );
+		$csv_totals = new Oik_csv_totals( $totals );
+	}
+	foreach ( $content_array as $line ) {
+		//bw_trace2( $line, "line" );
+		$line = trim( $line );
+		if ( $line ) {
+			$tablerow = str_getcsv( $line, bw_array_get( $atts, 'del', ',' ) );
 			$tablerow = bw_csv_dashicons( $tablerow, $atts );
-      $tablerow = bw_csv_expand_shortcodes( $tablerow );
-      if ( $th ) {
-        bw_tablerow( $tablerow, "tr", "th" );
-        $th = false;
-      } else {    
-        bw_tablerow( $tablerow );
-      }
-    }    
-  }
-  etag( "table" ); 
+			$tablerow = bw_csv_expand_shortcodes( $tablerow );
+
+			if ( $th ) {
+				bw_tablerow( $tablerow, "tr", "th" );
+				$th = false;
+			} else {
+				bw_tablerow( $tablerow );
+				if ( $csv_totals ) {
+					$csv_totals->row( $tablerow );
+				}
+			}
+		}
+	}
+	if ( $csv_totals ) {
+		$prefixes = bw_array_get( $atts, 'prefixes', null );
+		$csv_totals->totals_row( $prefixes );
+	}
+    etag( "table" );
 }
 
 /**
@@ -279,10 +293,12 @@ function bw_csv__syntax( $shortcode="bw_csv" ) {
   $syntax = array( "src,0" => bw_skv( null, "file", "File containing CSV data to display" )
                  , "th" => bw_skv( "y", "n", "Format table headings" )
                  , "uo" => bw_skv( "table", "u|ul|o|ol|d|dl", "Format as list - unordered, ordered or definition" )
-								 , "y" => bw_skv( null, "Y|N", "Convert y to a dash icon tick or cross" )
-								 , "n" => bw_skv( null, "N|Y", "Convert n to a dash icon cross or tick" )
-								 , "del,sep" => bw_skv( ",", "&#124;", "Delimeter between columns" )
-								 );
+				 , "y" => bw_skv( null, "Y|N", "Convert y to a dash icon tick or cross" )
+				 , "n" => bw_skv( null, "N|Y", "Convert n to a dash icon cross or tick" )
+				 , "del,sep" => bw_skv( ",", "&#124;", "Delimeter between columns" )
+	             , 'totals' => bw_skv( null, 't,c,-', 'Comma separated codes for totalling the columns')
+	  , 'prefixes' => bw_skv( null, 'prefix1,prefix2', 'Comma separated prefixed for totals cells' )
+				);
   return( $syntax );                 
 }
 
