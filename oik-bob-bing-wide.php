@@ -53,7 +53,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 function oik_bob_bing_wide_init() {
   // wp_enqueue_style( 'bwlinkCSS', WP_PLUGIN_URL . '/oik/bwlink.css', 'oikCSS' ); 
   //if ( version_compare( oik_version(), "2.2-alpha.0403", "<" ) ) { 
-  oik_require( "shortcodes/oik-bob-bing-wide.php" );
+  //oik_require( "shortcodes/oik-bob-bing-wide.php" );
   //  define( "OIK_WP_LOADED",  true );
   //}  
 
@@ -219,7 +219,7 @@ function oik_bob_bing_wide_gather_site_opinions( $opinions ) {
  */
 function oik_bob_bing_wide_loaded() {
   add_action( "oik_add_shortcodes", "oik_bob_bing_wide_init" );
-  add_action( "admin_notices", "oik_bob_bing_wide_activation", 11 );
+  //add_action( "admin_notices", "oik_bob_bing_wide_activation", 11 );
   add_action( "oik_admin_menu", "oik_bob_bing_wide_admin_menu" );
   add_filter( "oik_block_gather_site_opinions", "oik_bob_bing_wide_gather_site_opinions" );
 add_action( 'init', 'oik_bob_bing_wide_init_blocks', 100);
@@ -231,8 +231,8 @@ add_action( 'init', 'oik_bob_bing_wide_init_blocks', 100);
 function oik_bob_bing_wide_init_blocks() {
 	oik_bob_bing_wide_plugins_loaded();
 	$library_file = oik_require_lib( 'oik-blocks');
-	oik\oik_blocks\oik_blocks_register_editor_scripts(  'oik-bob-bing-wide', 'oik-bob-bing-wide');
-	oik\oik_blocks\oik_blocks_register_block_styles( 'oik-bob-bing-wide' );
+	//oik\oik_blocks\oik_blocks_register_editor_scripts(  'oik-bob-bing-wide', 'oik-bob-bing-wide');
+	//oik\oik_blocks\oik_blocks_register_block_styles( 'oik-bob-bing-wide' );
 	oik_bob_bing_wide_register_dynamic_blocks();
 
 }
@@ -245,14 +245,28 @@ function oik_bob_bing_wide_init_blocks() {
 function oik_bob_bing_wide_plugins_loaded() {
 	oik_bob_bing_wide_boot_libs();
 	oik_require_lib( 'bwtrace' );
-	oik_require_lib( 'bobbfunc' );
-	if ( ! function_exists( 'bw_add_shortcode' ) ) {
-		$oik_shortcodes_path = oik_path( 'oik-add-shortcodes.php' );
-		if ( file_exists( $oik_shortcodes_path ) ) {
+	// Do other plugins need to perform this test on bobbfunc?
+	oik_bob_bing_wide_standalone_compat( 'bw_array_get_from', 'includes/bobbcomp.php' , 'bobbfunc' );
+	oik_bob_bing_wide_standalone_compat( 'bw_add_shortcode', 'oik-add-shortcodes.php', 'oik-shortcodes' );
+}
+
+/**
+ * Backward compatibility with oik v3.3.7 or earlier.
+ *
+ * Even when it's not activated.
+ *
+ * @param string $function The function we're looking for.
+ * @param string $oik_file the relative path in oik.
+ * @param string $library The shared library to load.
+ */
+function oik_bob_bing_wide_standalone_compat( $function, $oik_file, $library ) {
+	if ( ! function_exists( $function ) ) {
+		$oik_file_path = oik_path( $oik_file );
+		if ( file_exists( $oik_file_path ) ) {
 			/* Don't load oik-shortcodes library */
-			require_once $oik_shortcodes_path;
+			require_once $oik_file_path;
 		} else {
-			oik_require_lib( 'oik-shortcodes' );
+			oik_require_lib( $library );
 		}
 	}
 }

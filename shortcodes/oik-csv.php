@@ -143,7 +143,8 @@ function bw_csv_content_array( $content_array, $atts=null ) {
 function bw_csv_content_array_table( $content_array, $atts=null ) {
 	$class = bw_array_get( $atts, "class", null );
 	stag( "table", "bw_csv " . $class );
-	oik_require( "bobbforms.inc" );
+	oik_require_lib( 'bobbforms' );
+	//oik_require_lib( 'bobbcomp');
 	$th = bw_array_get( $atts, "th", "y"  );
 	$th = bw_validate_torf( $th );
 	$totals = bw_array_get( $atts, 'totals', null );

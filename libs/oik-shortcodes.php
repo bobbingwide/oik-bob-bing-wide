@@ -11,11 +11,9 @@ if ( !defined( 'OIK_SHORTCODES_INCLUDED' ) ) {
 	 *
 	 */
 
-	//oik_require( 'oik-add-shortcodes.php');
-	// (C) Copyright Bobbing Wide 2011-2019
-
 	/**
-	 * OIK Shortcodes APIs
+	 * OIK Shortcodes APIs - copied from oik-add-shortcodes.php ( oik base plugin )
+	 * with oik base plugin specific logic removed.
 	 *
 	 * Note: The logic to add the OIK shortcodes is in includes/oik-shortcodes.php
 	 */

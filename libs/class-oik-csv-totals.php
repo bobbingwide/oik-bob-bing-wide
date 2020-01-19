@@ -42,6 +42,7 @@ class Oik_csv_totals {
 		foreach ( $this->totals as $key => $total ) {
 			$total = trim( $total );
 			$total = strtolower( $total );
+			$total .= ' ';
 			$total = $total[0];
 			switch ( $total ) {
 				case 's':
