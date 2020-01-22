@@ -8,6 +8,7 @@
  */
 //import './style.scss';
 //import './editor.scss';
+import { transforms } from './transforms.js';
 
 // Get just the __() localization function from wp.i18n
 const { __ } = wp.i18n;
@@ -34,6 +35,7 @@ const {
 
 import { DashiconsSelect } from './dashicons.js';
 //import { BlockiconsSelect } from './blockicons.js';
+const { Fragment } = wp.element;
 
 /**
  * Register the WordPress block
@@ -69,6 +71,7 @@ export default registerBlockType(
 
 
         },
+        transforms,
 
         edit: props => {
 
@@ -77,7 +80,8 @@ export default registerBlockType(
             };
 
 
-            return [
+            return (
+                <Fragment>
                 <InspectorControls >
                     <PanelBody>
                         <PanelRow>
@@ -95,13 +99,14 @@ export default registerBlockType(
                     </PanelBody>
 
                 </InspectorControls>
-                ,
+
                 <p>
                 <Dashicon icon={ props.attributes.dashicon} />
 
                 </p>
+                </Fragment>
 
-            ];
+            );
         },
         /*
         <ServerSideRender

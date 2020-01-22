@@ -38,7 +38,7 @@ class DashiconsSelect extends Component {
         );
     }
     renderDashicon( icon ) {
-                    return( <li><Dashicon icon={icon} /> {icon} </li> );
+                    return( <li key={icon}><Dashicon icon={icon} /> {icon} </li> );
     }
 }
 export { DashiconsSelect };
