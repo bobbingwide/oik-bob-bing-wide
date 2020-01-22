@@ -40,7 +40,7 @@ import { DashiconsSelect } from './dashicons.js';
  */
 export default registerBlockType(
     // Namespaced, hyphens, lowercase, unique name
-    'oik-block/dashicon',
+    'oik-bbw/dashicon',
     {
         // Localize title using wp.i18n.__()
         title: __( 'Dashicon' ),

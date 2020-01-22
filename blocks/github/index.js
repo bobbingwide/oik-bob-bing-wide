@@ -27,12 +27,12 @@ const {
  */
 export default registerBlockType(
     // Namespaced, hyphens, lowercase, unique name
-    'oik-block/github',
+    'oik-bbw/github',
     {
         // Localize title using wp.i18n.__()
         title: __( 'GitHub Issue', 'oik-blocks' ),
 				
-				description: 'Display a link to a GitHub issue',
+		description: 'Display a link to a GitHub issue',
 
         // Category Options: common, formatting, layout, widgets, embed
         category: 'common',

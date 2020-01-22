@@ -38,7 +38,7 @@ const Fragment = wp.element.Fragment;
  */
 export default registerBlockType(
     // Namespaced, hyphens, lowercase, unique name
-    'oik-block/search',
+    'oik-bbw/search',
     {
         // Localize title using wp.i18n.__()
         title: __( 'Search' ),

@@ -7,8 +7,8 @@ icons.descriptionList =
         id="SVGRoot"
         version="1.1"
         viewBox="0 0 128 128"
-        height="128px"
-        width="128px">
+        height="20px"
+        width="20px">
 
         <g
             id="layer1">

@@ -3,7 +3,7 @@
 Plugin Name: oik bob bing wide shortcodes
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin
 Description: More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, oik and loik, wp, wpms, bp, artisteer, drupal, bw_search, bw_dash, bw_rpt, bw_graphviz, bw_option, github, bw_archive
-Version: 1.33.0
+Version: 1.34.0-alpha-20200122
 Author: bobbingwide
 Author URI: https://www.bobbingwide.com/about-bobbing-wide
 Text Domain: oik-bob-bing-wide
@@ -57,26 +57,15 @@ function oik_bob_bing_wide_init() {
   //  define( "OIK_WP_LOADED",  true );
   //}
 	oik_require_lib( 'class-BW-');
-
-  /* Shortcodes for each of the more useful bobbingwide babbles  */
-  if ( false ) {
-  bw_add_shortcode( 'bob', 'bw_bob', oik_path("shortcodes/oik-bob-bing-wide.php", "oik-bob-bing-wide" ), true );
-  bw_add_shortcode( 'fob', 'bw_fob', oik_path("shortcodes/oik-bob-bing-wide.php", "oik-bob-bing-wide" ), true );
-  bw_add_shortcode( 'bing', 'bw_bing', oik_path("shortcodes/oik-bob-bing-wide.php", "oik-bob-bing-wide" ), true );
-  bw_add_shortcode( 'bong', 'bw_bong', oik_path("shortcodes/oik-bob-bing-wide.php", "oik-bob-bing-wide" ), true );
-  bw_add_shortcode( 'wide', 'bw_wide', oik_path("shortcodes/oik-bob-bing-wide.php", "oik-bob-bing-wide" ), true );
-  bw_add_shortcode( 'hide', 'bw_hide', oik_path("shortcodes/oik-bob-bing-wide.php", "oik-bob-bing-wide" ), true );
-
-  bw_add_shortcode( 'wow', 'bw_wow', oik_path("shortcodes/oik-wow.php", "oik-bob-bing-wide" ), true );
-  bw_add_shortcode( 'WoW', 'bw_wow', oik_path("shortcodes/oik-wow.php", "oik-bob-bing-wide" ), true );
-  bw_add_shortcode( 'WOW', 'bw_wow_long', oik_path("shortcodes/oik-wow.php", "oik-bob-bing-wide" ), true);
+ // Note: The bw_oik() & bw_oik_long() functions are actually delivered from oik's includes/bobbcomp.php
+ // If includes/bobbcomp.php exists we reckon shortcodes/oik-bob-bing-wide.php will do too.
+  $bobbcomp_file = oik_path( 'includes/bobbcomp.php' );
+  if ( file_exists( $bobbcomp_file ) ) {
+	  bw_add_shortcode( 'oik', 'bw_oik', $bobbcomp_file, true );
+	  bw_add_shortcode( 'loik', 'bw_loik', oik_path( "shortcodes/oik-bob-bing-wide.php" ), false ); // Link to the plugin
+	  bw_add_shortcode( 'OIK', 'bw_oik_long', $bobbcomp_file, true ); // Spells out OIK Information kit
+	  bw_add_shortcode( 'lbw', 'bw_lbw', oik_path( "shortcodes/oik-bob-bing-wide.php" ), false ); // Link to Bobbing Wide or other websites
   }
-  
-  // Note: The bw_oik() & bw_oik_long() functions are actually delivered from bobbcomp.inc 
-  bw_add_shortcode( 'oik', 'bw_oik', oik_path("shortcodes/oik-bob-bing-wide.php"), true );  
-  bw_add_shortcode( 'loik', 'bw_loik', oik_path("shortcodes/oik-bob-bing-wide.php"), false ); // Link to the plugin  
-  bw_add_shortcode( 'OIK', 'bw_oik_long', oik_path("shortcodes/oik-bob-bing-wide.php"), true); // Spells out OIK Information kit
-  bw_add_shortcode( 'lbw', 'bw_lbw', oik_path("shortcodes/oik-bob-bing-wide.php"), false); // Link to Bobbing Wide or other websites
 
   bw_add_shortcode( 'bw_page', 'bw_page', oik_path("shortcodes/oik-post-page.php", "oik-bob-bing-wide" ), false );
   bw_add_shortcode( 'bw_post', 'bw_post', oik_path("shortcodes/oik-post-page.php", "oik-bob-bing-wide" ), false );
@@ -232,8 +221,8 @@ add_action( 'init', 'oik_bob_bing_wide_init_blocks', 100);
 function oik_bob_bing_wide_init_blocks() {
 	oik_bob_bing_wide_plugins_loaded();
 	$library_file = oik_require_lib( 'oik-blocks');
-	//oik\oik_blocks\oik_blocks_register_editor_scripts(  'oik-bob-bing-wide', 'oik-bob-bing-wide');
-	//oik\oik_blocks\oik_blocks_register_block_styles( 'oik-bob-bing-wide' );
+	oik\oik_blocks\oik_blocks_register_editor_scripts(  'oik-bob-bing-wide', 'oik-bob-bing-wide');
+	oik\oik_blocks\oik_blocks_register_block_styles( 'oik-bob-bing-wide' );
 	oik_bob_bing_wide_register_dynamic_blocks();
 
 }

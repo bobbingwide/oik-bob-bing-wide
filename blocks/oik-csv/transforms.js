@@ -1,10 +1,5 @@
-/* Transformation of [bw_csv] shortcode to oik-blocks/csv
- * Is this possible?
+/* Transformation to oik-bbw/csv of to oik-block/csv and [bw_csv]
  *
- * Well. If you use source: 'text' then the new lines disappear
- * If you use source: 'html' then you get <br> tags
- * How can I use a function?
- * Maybe we can strip the <br> tags in some onChange logic
  *
  */
 const { createBlock
@@ -12,6 +7,18 @@ const { createBlock
 
 const transforms = {
     from: [
+        {
+            type: 'block',
+            blocks: ['oik-block/csv'],
+            transform: function (attributes) {
+                return createBlock('oik-bbw/csv', {
+                    content: attributes.content,
+                    th: attributes.th,
+                    uo: attributes.uo,
+
+                });
+            },
+        },
         {
             type: 'shortcode',
             tag: 'bw_csv',
@@ -27,3 +34,4 @@ const transforms = {
 };
 
 export { transforms } ;
+

@@ -35,7 +35,7 @@ const {
  */
 export default registerBlockType(
     // Namespaced, hyphens, lowercase, unique name
-    'oik-block/wp',
+    'oik-bbw/wp',
     {
         // Localize title using wp.i18n.__()
         title: __( 'WordPress' ),

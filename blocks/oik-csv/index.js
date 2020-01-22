@@ -8,7 +8,7 @@
  */
 import './style.scss';
 import './editor.scss';
-import portOptions from "../oik-uk-tides/tidetimes-co-uk";
+//import portOptions from "../oik-uk-tides/tidetimes-co-uk";
 import { transforms } from './transforms.js';
 
 // Get just the __() localization function from wp.i18n
@@ -20,14 +20,16 @@ const {
 
 const { 
 	Editable,
-	PlainText,
+
   AlignmentToolbar,
-  BlockControls,
 
 	ServerSideRender,
  } = wp.editor;
 const {
 	InspectorControls,
+	BlockControls,
+	PlainText,
+
 } = wp.blockEditor;
 	 
 const {
@@ -65,7 +67,7 @@ import icons from './icons.js';
  */
 export default registerBlockType(
     // Namespaced, hyphens, lowercase, unique name
-		'oik-block/csv', 
+		'oik-bbw/csv',
     {
         // Localize title using wp.i18n.__()
         title: __( 'CSV' ),
