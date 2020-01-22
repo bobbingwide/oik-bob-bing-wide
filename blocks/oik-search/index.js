@@ -93,7 +93,7 @@ export default registerBlockType(
                 </InspectorControls>
 
                 <ServerSideRender
-                    block="oik-block/search" attributes={ props.attributes }
+                    block="oik-bbw/search" attributes={ props.attributes }
                 />
             </Fragment>
 

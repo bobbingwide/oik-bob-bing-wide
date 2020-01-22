@@ -300,6 +300,22 @@ function oik_bob_bing_wide_register_dynamic_blocks() {
 				,				'script'         =>null
 				,				'style'          =>'oik-bob-bing-wide-blocks-css'
 			] );
+
+
+
+		register_block_type( "oik-bbw/search",
+			[ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_search' ]
+		);
+
+		register_block_type( 'oik-bbw/wp',
+			[ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_wp',
+			  'attributes' => [ 'v' =>  [ 'type' => 'string', ]
+				  , 'p' => ['type' => 'string' ]
+				  , 'm' => ['type' => 'string']
+			  ]
+			]
+		);
+
 	}
 }
 
@@ -327,9 +343,28 @@ function oik_bob_bing_wide_dynamic_block_csv( $attributes ) {
 	return $html;
 }
 
+/**
+ * Renders the Search block
+ *
+ * @param array $attributes
+ */
+function oik_bob_bing_wide_dynamic_block_search( $attributes ) {
+	$html = get_search_form( false );
+	return $html;
+}
+
+/**
+ * Renders the WordPress block
+ *
+ * @param array $attributes v, m, p
+ */
+function oik_bob_bing_wide_dynamic_block_wp( $attributes ) {
+	$html = \oik\oik_blocks\oik_blocks_check_server_func( "shortcodes/oik-bob-bing-wide.php", "oik-bob-bing-wide", "bw_wp");
+	if ( !$html ) {
+		$html=bw_wp( $attributes );
+	}
+	return $html;
+}
+
 
 oik_bob_bing_wide_loaded();
-
-
-
-

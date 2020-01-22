@@ -1,13 +1,12 @@
 /**
 * Implements [wp] shortcode as a server side rendered block
 *
-* Uses [wp] shortcode from oik-bob-bing-wide plugin
-*
-* @copyright (C) Copyright Bobbing Wide 2018, 2019
+* @copyright (C) Copyright Bobbing Wide 2018-2020
 * @author Herb Miller @bobbingwide
 */
 import './style.scss';
 import './editor.scss';
+import { transforms } from './transforms.js';
 
 // Get just the __() localization function from wp.i18n
 const { __ } = wp.i18n;
@@ -68,6 +67,7 @@ export default registerBlockType(
             },
 					
         },
+        transforms,
 
         edit: props => {
 
@@ -107,7 +107,7 @@ export default registerBlockType(
                 </InspectorControls>
   				,
 				<ServerSideRender
-                    block="oik-block/wp" attributes={ props.attributes }
+                    block="oik-bbw/wp" attributes={ props.attributes }
                 />
 
           ];
