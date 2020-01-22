@@ -8,6 +8,7 @@
  */
 import './style.scss';
 import './editor.scss';
+import { transforms } from './transforms.js';
 
 // Get just the __() localization function from wp.i18n
 const { __ } = wp.i18n;
@@ -66,6 +67,7 @@ export default registerBlockType(
           },
 					
         },
+		transforms,
 
         edit: props => {
           const onChangeInput = ( event ) => {
