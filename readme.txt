@@ -1,16 +1,31 @@
 === oik-bob-bing-wide ===
 Contributors: bobbingwide
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
-Tags: shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github, [bw_archive]
+Tags: blocks, shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github, [bw_archive]
 Requires at least: 5.0
-Tested up to: 5.3
-Stable tag: 1.33.0
+Tested up to: 5.3.2
+Stable tag: 1.34.0
 Gutenberg compatible: Likely-yes
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
-More lazy smart shortcodes: bw_csv, bw_plug, bw_search, bw_page, bw_post, oik, wp, wpms, bp, artisteer, drupal and github
+More blocks and lazy smart shortcodes for the WordPress block editor.
+
+New in v1.34.0, incl. v1.33.0
+
+Blocks: 
+
+* CSV - Displays CSV content
+* Dashicon - Displays icons
+* GitHub Issue - Displays a link to a GitHub issue
+* Search - Displays a search form
+* WordPress - Displays information about WordPress and PHP versions
+
+Updated shortcodes: 
+
+* bw_csv - Added totals= and prefixes= parameter
+* bw_plug - Improved styling capabilities
 
 New in v1.31.1
 [bw_archive] - display category archives
@@ -103,6 +118,9 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"] 
 
 == Upgrade Notice ==
+= 1.34.0 =
+Upgrade to use the new blocks and improvements to the shortcodes. 
+
 = 1.33.0 =
 Update for more improvements to the bw_plug shortcode
 
@@ -186,6 +204,17 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 == Changelog ==
+= 1.34.0 =
+* Added: 5 blocks forked from oik-blocks with transforms from shortcodes,[github bobbingwide oik-bob-bing-wide issues 25]
+* Changed: Delivers blocks as a standalone plugin not dependent upon oik,[github bobbingwide oik-bob-bing-wide issues 25]
+* Changed: Backward compatible with oik v3.3.7 ( or earlier ),[github bobbingwide oik-bob-bing-wide issues 25]
+* Changed: Add totals= and prefixes= parameter to the [bw_csv] shortcode,[github bobbingwide oik-bob-bing-wide issues 32]
+* Fixed: wp_date is in 5.3. Only use if available,[github bobbingwide oik-bob-bing-wide issues 30]
+* Tested: With WordPress 5.3.2 and WordPress Multi Site
+* Tested: With Gutenberg 7.3.0
+* Tested: With PHP 7.3 and PHP 7.4
+* Tested: With PHPUnit 8
+
 = 1.33.0 = 
 * Changed: Improve ability to style bw_plug table display,[github bobbingwide oik-bob-bing-wide issues 30]
 * Tested: With WordPress 5.3 and WordPress Multi Site
