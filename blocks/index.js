@@ -29,6 +29,8 @@ import './oik-dashicon';     // From oik-bob-bing-wide [bw_dash]
 //import './oik-blockinfo';    // Displays a selected Block's information
 //import './oik-blocklist';    // Displays a list of Blocks for a selected prefix
 
+//import './oik-inline-shortcode'; // First attempt at inline shortcodes added by a toolbar button
+
 
 
 
