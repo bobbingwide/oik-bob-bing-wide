@@ -118,6 +118,9 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"] 
 
 == Upgrade Notice ==
+= 1.34.1-alpha-20200209 =
+Upgrade for compatibility with oik v4.1.0-alpha-20200209
+
 = 1.34.0 =
 Upgrade to use the new blocks and improvements to the shortcodes. 
 
@@ -204,6 +207,9 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 == Changelog ==
+= 1.34.1-alpha-20200209 = 
+* Changed: Updated shared library file - libs/class-oik-csv-totals.php
+
 = 1.34.0 =
 * Added: 5 blocks forked from oik-blocks with transforms from shortcodes,[github bobbingwide oik-bob-bing-wide issues 25]
 * Changed: Delivers blocks as a standalone plugin not dependent upon oik,[github bobbingwide oik-bob-bing-wide issues 25]
