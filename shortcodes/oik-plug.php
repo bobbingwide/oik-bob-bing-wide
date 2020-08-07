@@ -791,8 +791,13 @@ function bw_format_plug_table( $name, $link, $plugininfo ) {
     sepan( 'version', $plugininfo->version );
     br();
 	$downloaded = bw_get_property( $plugininfo, "Downloaded", null );
-	sepan( 'downloaded', number_format_i18n( $downloaded, 0 ) );
-	br();
+	if ( is_numeric( $downloaded ) ) {
+		sepan( 'downloaded', number_format_i18n( $downloaded, 0 ) );
+		br();
+	} else {
+		sepan( 'downloaded', $downloaded );
+		br();
+	}
 	$last_updated = bw_get_property( $plugininfo, "Last_updated", null );
 	if ( function_exists( 'wp_date') ) {
 		$time = strtotime( $last_updated ) ;
@@ -868,7 +873,14 @@ function bw_plug__syntax( $shortcode='bw_plug' ) {
 }
 
 /**
- * Return the object property if it exists
+ * Returns the object property if it exists.
+ *
+ * Note: This can return a blank value. Which may not be expected.
+ *
+ * @param object $object the object containing the property.
+ * @param string $property Property name. May be in mixed case.
+ * @param string $default
+ * @return string the property value or the default.
  */
 function bw_get_property( $object, $property, $default=null ) {
 	$lprop = strtolower( $property ); 
