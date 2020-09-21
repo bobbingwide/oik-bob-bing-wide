@@ -758,14 +758,14 @@ function bw_dash__help( $shortcode="bw_dash" ) {
 function bw_dash__syntax( $shortcode="bw_dash" ) {
   $icons = bw_list_dashicons();
   array_shift( $icons );
-  $values = implode( $icons, "|" );
+  $values = implode( '|', $icons );
   oik_require( "shortcodes/oik-gener.php", "oik-bob-bing-wide" );
   $icons = bw_list_genericons();
   $values .= "|" ;
-  $values .= implode( $icons, "|" );
+  $values .= implode( '|', $icons );
   $icons = bw_list_texticons();
   $values .= "|" ;
-  $values .= implode( $icons, "|" );
+	$values = implode( '|', $icons );
   $syntax = array( bw_skv( null, "text", "Dash icon to display"  )
                  , "icon,0" => bw_skv( "menu", $values, "Dash icon to display"  )
                  , "class,1" => bw_skv( null, "<i>classnames</i>", "CSS classes" )
