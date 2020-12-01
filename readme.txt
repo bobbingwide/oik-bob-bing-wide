@@ -3,8 +3,8 @@ Contributors: bobbingwide
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: blocks, shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github, [bw_archive]
 Requires at least: 5.0
-Tested up to: 5.3.2
-Stable tag: 1.34.0
+Tested up to: 5.6-RC1
+Stable tag: 1.34.1
 Gutenberg compatible: Likely-yes
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -118,6 +118,9 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"] 
 
 == Upgrade Notice ==
+= 1.34.1 =
+Upgrade for fixes to the [bw_plug] shortcode 
+
 = 1.34.1-alpha-20200209 =
 Upgrade for compatibility with oik v4.1.0-alpha-20200209
 
@@ -207,6 +210,13 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 == Changelog ==
+= 1.34.1 = 
+* Fixed: Swap parms to implode for PHP 7.4 compatibility,[github bobbingwide oik-bob-bing-wide issues 35]
+* Fixed: Cater for downloaded being blank for local plugins,[github bobbingwide oik-bobbing-wide issues 19]
+* Tested: With PHP 7.4
+* Tested: With WordPress 5.6-RC1 and WordPress Multi Site
+* Tested: With Gutenberg 9.4.1 
+
 = 1.34.1-alpha-20200209 = 
 * Changed: Updated shared library file - libs/class-oik-csv-totals.php
 
