@@ -1,6 +1,6 @@
-<?php // (C) Copyright Bobbing Wide 2009-2020
+<?php // (C) Copyright Bobbing Wide 2009-2021
 if ( !defined( "BOBBFUNC_INCLUDED" ) ) {
-define( "BOBBFUNC_INCLUDED", "3.4.0" );
+define( "BOBBFUNC_INCLUDED", "3.4.2" );
 
 /**
  * HTML output library functions
@@ -209,7 +209,7 @@ function aname( $name, $text=null ) {
 /**
  * Create a translatable link
  */
-function _alink( $class=NULL, $url, $linktori=NULL, $alt=NULL, $id=NULL, $extra=NULL ) {
+function _alink( $class, $url, $linktori=NULL, $alt=NULL, $id=NULL, $extra=NULL ) {
   $linktoril10n = bw_translate( $linktori );
   if ( is_null( $alt ) || $linktori == $alt ) {
     $altl10n = $linktoril10n;
@@ -223,7 +223,7 @@ function _alink( $class=NULL, $url, $linktori=NULL, $alt=NULL, $id=NULL, $extra=
 /**
  * Create a link
  * 
- * @param string $class - the classes for the anchor tag
+ * @param string|null $class - the classes for the anchor tag
  * @param string $url - the fully formed URL e.g. http://www.oik-plugins.com
  * @param string $linktori - is the text or image
  * @param string $alt - text for title= attribute. a11y recommendations are to leave this null
@@ -233,7 +233,7 @@ function _alink( $class=NULL, $url, $linktori=NULL, $alt=NULL, $id=NULL, $extra=
  * @uses retlink()
  * 
 */   
-function alink( $class=NULL, $url, $linktori=NULL, $alt=NULL, $id=NULL, $extra=NULL ) {
+function alink( $class, $url, $linktori=NULL, $alt=NULL, $id=NULL, $extra=NULL ) {
   $link = retlink( $class, $url, $linktori, $alt, $id, $extra );
   e( $link ); 
 }
@@ -243,7 +243,7 @@ function alink( $class=NULL, $url, $linktori=NULL, $alt=NULL, $id=NULL, $extra=N
  *
  * Parameters as for `alink()`
  *
- * @param string $class - the classes for the anchor tag
+ * @param string|null $class - the classes for the anchor tag
  * @param string $url - the fully formed URL e.g. https://www.oik-plugins.com
  * @param string $linktori - is the text or image
  * @param string $alt - text for title= attribute. a11y recommendations are to leave this null
@@ -252,7 +252,7 @@ function alink( $class=NULL, $url, $linktori=NULL, $alt=NULL, $id=NULL, $extra=N
  * @return string the link
  * 
  */
-function retlink( $class=NULL, $url, $linktori=NULL, $alt=NULL, $id=NULL, $extra=NULL  ) {
+function retlink( $class, $url, $linktori=NULL, $alt=NULL, $id=NULL, $extra=NULL  ) {
   if ( is_null( $linktori ) )	{
     $linktori = $url;
 	}
@@ -1291,22 +1291,21 @@ function bw_global_post_id() {
 }
 
 /**
- * Set/return the current post ID
+ * Sets/returns the current post ID.
  * 
  * When processing nested posts we need to determine the current post_id rather than the global post id
  * So we provide a routine to set/query the current post id
  *
  * @param ID/null $id - ID to set for the current post ID, if this is reset to 0 then we revert to using the bw_global_post_id()
  * @return ID - the value of the current post, if set.
- *
  */
 function bw_current_post_id( $id=null ) {
   static $current_post_id = null;
   if ( $id !== null ) {
     $current_post_id = $id;
   }
-  if ( !$current_post_id ) { 
-    $current_post_id = bw_global_post_id();
+  if ( !$current_post_id ) {
+    return( bw_global_post_id() );
   }
   //bw_trace2( $current_post_id, "current_post_id", true );
   return( $current_post_id ); 
