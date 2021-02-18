@@ -2,9 +2,9 @@
 
    id="SVGRoot"
    version="1.1"
-   viewBox="0 0 128 128"
-   height="128px"
-   width="128px">
+   viewBox="0 0 20 20"
+   height="20px"
+   width="20px">
 
   <g
      id="layer1">
