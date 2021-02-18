@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2011-2017
+<?php // (C) Copyright Bobbing Wide 2011-2021
 
 /**
  * New implementation of [bw_post] shortcode using dashicons
@@ -9,7 +9,9 @@
  * @return string Generated HTML
  */
 function bw_post( $atts=null, $content=null, $tag=null ) {
-  $atts['post_type'] = bw_array_get_from( $atts, "post_type,0", "post" ); 
+  //	bw_trace2();
+  $atts['post_type'] = bw_array_get_from( $atts, "post_type,0", "post" );
+  // bw_trace2( $atts, "atts", false);
   return( bw_dash_link( $atts ) );
 }
 
@@ -39,7 +41,8 @@ function bw_page( $atts=null, $content=null, $tag=null ) {
  *  
  */
 function bw_dash_link( $atts, $content=null, $tag=null ) {
-  $post_type = bw_array_get_from( $atts, "post_type,0", "post" );    
+  $post_type = bw_array_get_from( $atts, "post_type,0", "post" );
+  bw_trace2( $post_type, 'post_type', false, BW_TRACE_VERBOSE );
   $icon = bw_array_get( $atts, "icon", null );
   $text = bw_array_get( $atts, "text", null );
   $post_object = get_post_type_object( $post_type ); 
@@ -48,22 +51,22 @@ function bw_dash_link( $atts, $content=null, $tag=null ) {
     if ( !$text ) { 
       $text = $post_object->labels->add_new_item;
     }
-    if ( !$icon ) {  
-      if ( $post_object->menu_icon ) {
-        $icon = " " . $post_object->menu_icon;
-      } else {
-        if ( $post_type == "page" ) {
-          $icon = "admin-page";
-        } else {
-          $icon = "admin-post";
+    if ( !$icon ) {
+    	if ( $post_type === "page" ) {
+	        $icon = "admin-page";
+        } elseif ( 'post' === $post_type ) {
+	        $icon = "admin-post";
+        } elseif ( $post_object->menu_icon ) {
+      	    // Why is there a blank prefix?
+            $icon = " " . $post_object->menu_icon;
+            //$icon = $post_object->menu_icon;
         }
-          
-      }  
     }     
   } else {
     bw_trace2( $post_type, "Invalid post_type", true, BW_TRACE_WARNING );
   }   
   $dash_atts = array( $icon );
+  bw_trace2( $dash_atts, "dash_atts", false, BW_TRACE_VERBOSE );
   oik_require( "shortcodes/oik-dash.php", "oik-bob-bing-wide" );
   $dash = bw_dash( $dash_atts );
   $url = admin_url( "post-new.php" );

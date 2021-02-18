@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2014-2018
+<?php // (C) Copyright Bobbing Wide 2014-2021
 
 /**
  * Enqueue the correct font for this icon
@@ -88,7 +88,7 @@ function bw_dash_enqueue_font( $icon, $atts ) {
  * @return string - generated HTML for the dash form
  */
 function bw_dash( $atts=null, $content=null, $tag=null ) {
-	//bw_trace2();
+	bw_trace2();
 	$icons = bw_array_get_from( $atts, "icon,0", "menu" );
 	$icons = bw_as_array( $icons );
 	$class = bw_array_get_from( $atts, "class,1", null );
