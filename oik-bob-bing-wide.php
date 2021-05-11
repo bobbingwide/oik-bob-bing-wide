@@ -311,7 +311,8 @@ function oik_bob_bing_wide_register_dynamic_blocks() {
 			[ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_wp',
 			  'attributes' => [ 'v' =>  [ 'type' => 'string', ]
 				  , 'p' => ['type' => 'string' ]
-				  , 'm' => ['type' => 'string']
+				  , 'm' => ['type' => 'string' ]
+				  , 'g' => ['type' => 'string' ]
 			  ]
 			]
 		);
@@ -354,14 +355,27 @@ function oik_bob_bing_wide_dynamic_block_search( $attributes ) {
 }
 
 /**
- * Renders the WordPress block
+ * Renders the WordPress block.
  *
- * @param array $attributes v, m, p
+ * If the g attribute is specified then we want to run "[guts]" to display the
+ * WordPress and Gutenberg version.
+ * If not then we display WordPress
+ *
+ * @param array $attributes v, m, p, g
  */
 function oik_bob_bing_wide_dynamic_block_wp( $attributes ) {
-	$html = \oik\oik_blocks\oik_blocks_check_server_func( "shortcodes/oik-bob-bing-wide.php", "oik-bob-bing-wide", "bw_wp");
-	if ( !$html ) {
-		$html=bw_wp( $attributes );
+	$g = bw_array_get( $attributes, 'g', null );
+	if ( $g ) {
+		$html=\oik\oik_blocks\oik_blocks_check_server_func( "shortcodes/oik-guts.php", "oik-bob-bing-wide", "oik_block_guts" );
+		if ( ! $html ) {
+			$html=oik_block_guts( $attributes, null, null );
+		}
+
+	} else {
+		$html=\oik\oik_blocks\oik_blocks_check_server_func( "shortcodes/oik-bob-bing-wide.php", "oik-bob-bing-wide", "bw_wp" );
+		if ( ! $html ) {
+			$html=bw_wp( $attributes );
+		}
 	}
 	return $html;
 }
