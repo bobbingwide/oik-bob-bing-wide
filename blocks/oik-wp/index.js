@@ -1,7 +1,7 @@
 /**
 * Implements [wp] shortcode as a server side rendered block
 *
-* @copyright (C) Copyright Bobbing Wide 2018-2020
+* @copyright (C) Copyright Bobbing Wide 2018-2021
 * @author Herb Miller @bobbingwide
 */
 import './style.scss';
@@ -65,6 +65,9 @@ export default registerBlockType(
             m: {
                 type: 'string'
             },
+            g: {
+                type: 'string'
+            }
 					
         },
         transforms,
@@ -79,6 +82,9 @@ export default registerBlockType(
             };
             const onChangeM = ( event ) => {
                 props.setAttributes( { m: event } );
+            };
+            const onChangeG = ( event ) => {
+                props.setAttributes( { g: event } );
             };
 					
             return [
@@ -102,6 +108,12 @@ export default registerBlockType(
                                         onChange={ onChangeM }
                                     />
                                 </PanelRow>
+                                    <PanelRow>
+                                        <TextControl label="Gutenberg details"
+                                                     value={ props.attributes.g }
+                                                     onChange={ onChangeG }
+                                        />
+                                    </PanelRow>
                                 </PanelBody>
 
                 </InspectorControls>
