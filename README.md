@@ -4,8 +4,8 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: blocks, shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github, [bw_archive]
 * Requires at least: 5.0
-* Tested up to: 5.6-RC1
-* Stable tag: 1.34.1
+* Tested up to: 5.7.2
+* Stable tag: 1.34.2
 * Gutenberg compatible: Likely-yes
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -119,6 +119,9 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"]
 
 ## Upgrade Notice 
+# 1.34.2 
+Upgrade for an improved WordPress block
+
 # 1.34.1 
 Upgrade for fixes to the [bw_plug] shortcode
 
@@ -211,6 +214,17 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 ## Changelog 
+# 1.34.2 
+* Changed: Add g attribute to display Gutenberg details,https://github.com/bobbingwide/oik-bob-bing-wide/issues/39
+* Changed: Add server side rendering enhancements to oik-bbw/wp to display Gutenberg version,https://github.com/bobbingwide/oik-bob-bing-wide/issues/39
+* Changed: Update shared library files for PHP 8
+* Fixed: Change size for drawings.js
+* Fixed: Correct bw_post and bw_page shortcodes,https://github.com/bobbingwide/oik-bob-bing-wide/issues/38
+* Tested: With Gutenberg 10.6.0
+* Tested: With PHP 8.0
+* Tested: With PHPUnit 9
+* Tested: With WordPress 5.7.2 and WordPress Multi Site
+
 # 1.34.1 
 * Fixed: Swap parms to implode for PHP 7.4 compatibility,https://github.com/bobbingwide/oik-bob-bing-wide/issues/35
 * Fixed: Cater for downloaded being blank for local plugins,https://github.com/bobbingwide/oik-bobbing-wide/issues/19
