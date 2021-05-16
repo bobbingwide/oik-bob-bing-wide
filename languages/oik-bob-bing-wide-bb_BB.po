@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the oik bob bing wide shortcodes package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik bob bing wide shortcodes 1.35\n"
+"Project-Id-Version: oik bob bing wide shortcodes 1.35.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik-bob-bing-wide\n"
-"POT-Creation-Date: 2021-05-16 11:04:02+00:00\n"
+"POT-Creation-Date: 2021-05-16 15:13:36+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
