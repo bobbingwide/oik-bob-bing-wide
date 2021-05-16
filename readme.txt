@@ -4,7 +4,7 @@ Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: blocks, shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github, [bw_archive]
 Requires at least: 5.0
 Tested up to: 5.7.2
-Stable tag: 1.35.0
+Stable tag: 1.35.1
 Gutenberg compatible: Yes
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -118,6 +118,9 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"] 
 
 == Upgrade Notice ==
+= 1.35.1 =
+Upgrade for an improved oik-bbw/csv block
+
 = 1.35.0 =
 Upgrade for an improved oik-bbw/csv block
 
@@ -216,6 +219,9 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 == Changelog ==
+= 1.35.1 =
+* Changed: Reconcile changes to libs/class-oik-attachment-contents,[github bobbingwide oik-bob-bing-wide issues 40]
+
 = 1.35.0 =
 * Changed: Add src attribute to oik-bbw/csv,[github bobbingwide oik-bob-bing-wide issues 40]
 * Changed: Improve handling of src parameter to [bw_csv],[github oik-bob-bing-wide issues 40]
