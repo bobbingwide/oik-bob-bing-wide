@@ -3,7 +3,7 @@
 Plugin Name: oik bob bing wide shortcodes
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin
 Description: More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, oik and loik, wp, wpms, bp, artisteer, drupal, bw_search, bw_dash, bw_rpt, bw_graphviz, bw_option, github, bw_archive
-Version: 1.34.2
+Version: 1.35
 Author: bobbingwide
 Author URI: https://www.bobbingwide.com/about-bobbing-wide
 Text Domain: oik-bob-bing-wide
@@ -292,8 +292,11 @@ function oik_bob_bing_wide_register_dynamic_blocks() {
 			[
 				'render_callback'=>'oik_bob_bing_wide_dynamic_block_csv',
 				'attributes'     =>[
-					'csv' =>[ 'type'=>'string' ],
-					'text'=>[ 'type'=>'string' ]
+					'content' =>[ 'type'=>'string' ],
+					'text'=>[ 'type'=>'string' ],
+					'src'=>['type'=>'string'],
+					'uo' => ['type' => 'string'],
+					'th' => ['type' => 'boolean']
 				]
 				,				'editor_script'  =>'oik-bob-bing-wide-blocks-js'
 				,				'editor_style'   =>null
@@ -329,7 +332,7 @@ function oik_bob_bing_wide_register_dynamic_blocks() {
  */
 function oik_bob_bing_wide_dynamic_block_csv( $attributes ) {
 	//bw_backtrace();
-	$html = oik_blocks_check_server_func( "shortcodes/oik-csv.php", "oik-bob-bing-wide", "bw_csv");
+	$html = \oik\oik_blocks\oik_blocks_check_server_func( "shortcodes/oik-csv.php", "oik-bob-bing-wide", "bw_csv");
 	if ( !$html ) {
 		if ( function_exists( "oik_is_block_renderer") ) {
 			oik_is_block_renderer( true );
@@ -379,6 +382,5 @@ function oik_bob_bing_wide_dynamic_block_wp( $attributes ) {
 	}
 	return $html;
 }
-
 
 oik_bob_bing_wide_loaded();

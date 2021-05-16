@@ -39,6 +39,7 @@ function oik_block_gutenberg_version() {
 			//print_r( $active );
 			$version=$plugin;
 			if ( $plugin ) {
+				require_once( ABSPATH . "wp-admin/includes/plugin.php" );
 				$plugin =WP_PLUGIN_DIR . '/' . $plugin;
 				$data   =get_plugin_data( $plugin );
 				$version.=' ';

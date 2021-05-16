@@ -248,35 +248,27 @@ function bw_csv_output_list_item( $tablerow, $uo ) {
  * - If there is a src= parameter or unnamed parameter then this indicates the CSV source file
  * - If this is numeric it's considered to be a post ID
  * - The display format is controlled using the uo= and th= parameters
- * - We need to cater for filters already applied by WordPress core, such as removing a trailing br's added just before newlines
+ * - We need to cater for filters already applied by WordPress core, such as removing any trailing br's added just before newlines
  *
  * @param array $atts - shortcode parameters
  * @param string $content - inline content is accepted
  * @param string $tag - shortcode tag
  */                     
 function bw_csv( $atts=null, $content=null, $tag=null ) {
-  // bw_trace2();
-  if ( $content ) {
-		$content = str_replace( "<br />\n", "\n", $content );
-    $content = rtrim( $content ); 
-    $content_array = explode( "\n", $content );
-  } else {
-    $src = bw_array_get_from( $atts, "src,0", null );
-    if ( $src ) {
-      if ( is_numeric( $src ) ) {
-        $src = wp_get_attachment_url( $src );
-      }  
-      $content_array = file( $src );
-    } else {
-      p( "Invalid use of bw_csv. src= parameter not set" );
-      $content_array = null;
-    }  
-  }
-  if ( $content_array ) {
+	// bw_trace2();
+	$content_array = null;
+	oik_require_lib( 'class-oik-attachment-contents');
+	if ( class_exists( 'Oik_attachment_contents') ) {
+		$oik_attachment_contents=new Oik_attachment_contents();
+		$content_array = $oik_attachment_contents->get_contents_array( $atts, $content );
+	} else {
+		e( "Error: Oik_attachment_contents not loaded" );
+	}
+	if ( $content_array ) {
 		$atts['del'] = bw_csv_determine_delimiter( $content_array, $atts ); 
-    bw_csv_content_array_paged( $content_array, $atts ); 
-  }   
-  return( bw_ret() );
+        bw_csv_content_array_paged( $content_array, $atts );
+    }
+	return( bw_ret() );
 }
 
 /**
