@@ -5,8 +5,8 @@
 * Tags: blocks, shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github, [bw_archive]
 * Requires at least: 5.0
 * Tested up to: 5.7.2
-* Stable tag: 1.34.2
-* Gutenberg compatible: Likely-yes
+* Stable tag: 1.35.0
+* Gutenberg compatible: Yes
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,7 +21,7 @@ Blocks:
 * Dashicon - Displays icons
 * GitHub Issue - Displays a link to a GitHub issue
 * Search - Displays a search form
-* WordPress - Displays information about WordPress and PHP versions
+* WordPress - Displays information about WordPress and PHP versions or Gutenberg
 
 Updated shortcodes:
 
@@ -74,7 +74,7 @@ In alphabetical order:
 * [bw_action]	- prototype
 * [bw_archive] - category archives new in v1.31.1
 * [bw_crumbs]
-* [bw_csv] - improved in v1.30, v1.30.1
+* [bw_csv] - improved in v1.30, v1.30.1 & v1.35.0
 * [bw_dash]
 * [bw_graphviz]
 * [bw_option] - new in v1.27
@@ -119,6 +119,9 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"]
 
 ## Upgrade Notice 
+# 1.35.0 
+Upgrade for an improved oik-bbw/csv block
+
 # 1.34.2 
 Upgrade for an improved WordPress block
 
@@ -214,6 +217,15 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 ## Changelog 
+# 1.35.0 
+* Changed: Add src attribute to oik-bbw/csv,https://github.com/bobbingwide/oik-bob-bing-wide/issues/40
+* Changed: Improve handling of src parameter to [bw_csv],https://github.com/oik-bob-bing-wide/issues/40
+* Fixed: Support g attribute for standalone plugin,https://github.com/oik-bob-bing-wide/issues/39
+* Tested: With WordPress 5.7.2 and WordPress Multi Site
+* Tested: With Gutenberg 10.6.0
+* Tested: with PHP 8.0
+* Tested: With PHPUnit 9
+
 # 1.34.2 
 * Changed: Add g attribute to display Gutenberg details,https://github.com/bobbingwide/oik-bob-bing-wide/issues/39
 * Changed: Add server side rendering enhancements to oik-bbw/wp to display Gutenberg version,https://github.com/bobbingwide/oik-bob-bing-wide/issues/39
