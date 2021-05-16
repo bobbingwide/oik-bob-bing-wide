@@ -1,99 +1,124 @@
-# Copyright (C) 2019 oik bob bing wide shortcodes
+# Copyright (C) 2021 oik bob bing wide shortcodes
 # This file is distributed under the same license as the oik bob bing wide shortcodes package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik bob bing wide shortcodes 1.32.0\n"
+"Project-Id-Version: oik bob bing wide shortcodes 1.35\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik-bob-bing-wide\n"
-"POT-Creation-Date: 2019-06-13 17:22:57+00:00\n"
+"POT-Creation-Date: 2021-05-16 11:04:02+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: admin/oik-activation.php:23
+#: admin/oik-activation.php:29 libs/oik-depends.php:284
 msgid "Install %1$s"
 msgstr ""
 
-#: admin/oik-activation.php:55
+#: admin/oik-activation.php:61 libs/oik-depends.php:312
 msgid "Activate %1$s"
 msgstr ""
 
-#: admin/oik-activation.php:73
+#: admin/oik-activation.php:79 libs/oik-depends.php:330
 msgid "Upgrade %1$s"
 msgstr ""
 
-#: admin/oik-activation.php:189
-msgid " version "
+#: admin/oik-activation.php:195 libs/oik-depends.php:147
+msgid "version"
 msgstr ""
 
-#: admin/oik-activation.php:191
+#: admin/oik-activation.php:197 libs/oik-depends.php:150
 msgid "%1$s may not be fully functional."
 msgstr ""
 
-#: admin/oik-activation.php:193
+#: admin/oik-activation.php:199 libs/oik-depends.php:106
+#: libs/oik-depends.php:152
 msgid ""
 "Please install and activate the required minimum version of this plugin: %1$s"
 msgstr ""
 
-#: oik-bob-bing-wide.php:133
+#: libs/bobbforms.php:509
+msgid "None"
+msgstr ""
+
+#: libs/class-BW-.php:108
+msgid "Toggle panel: %s"
+msgstr ""
+
+#: libs/oik-depends.php:100
+msgid " version "
+msgstr ""
+
+#: libs/oik-depends.php:103
+msgid "Plugin %1$s may not be fully functional."
+msgstr ""
+
+#: libs/oik-shortcodes.php:28
+msgid "<b>Unable to locate routine to expand shortcode.</b>"
+msgstr ""
+
+#: libs/oik-shortcodes.php:243
+msgid "missing post processing function: %1$s"
+msgstr ""
+
+#: oik-bob-bing-wide.php:123
 msgid "Spells out the oik backronym"
 msgstr ""
 
-#: oik-bob-bing-wide.php:136
+#: oik-bob-bing-wide.php:126
 msgid "Styled form of Artisteer"
 msgstr ""
 
-#: oik-bob-bing-wide.php:140
+#: oik-bob-bing-wide.php:130
 msgid "Styled form of BuddyPress"
 msgstr ""
 
-#: oik-bob-bing-wide.php:141
+#: oik-bob-bing-wide.php:131
 msgid "Add page button"
 msgstr ""
 
-#: oik-bob-bing-wide.php:142
+#: oik-bob-bing-wide.php:132
 msgid "Show plugin information"
 msgstr ""
 
-#: oik-bob-bing-wide.php:143
+#: oik-bob-bing-wide.php:133
 msgid "Add Post button"
 msgstr ""
 
-#: oik-bob-bing-wide.php:146
+#: oik-bob-bing-wide.php:136
 msgid "Link to Artisteer "
 msgstr ""
 
-#: oik-bob-bing-wide.php:147
+#: oik-bob-bing-wide.php:137
 msgid "Link to BuddyPress"
 msgstr ""
 
-#: oik-bob-bing-wide.php:148
+#: oik-bob-bing-wide.php:138
 msgid "Link to Bobbing Wide sites"
 msgstr ""
 
-#: oik-bob-bing-wide.php:149
+#: oik-bob-bing-wide.php:139
 msgid "Link to drupal.org"
 msgstr ""
 
-#: oik-bob-bing-wide.php:150
+#: oik-bob-bing-wide.php:140
 msgid "Link to [oik]-plugins"
 msgstr ""
 
-#: oik-bob-bing-wide.php:151
+#: oik-bob-bing-wide.php:141
 msgid "Link to WordPress.org"
 msgstr ""
 
-#: oik-bob-bing-wide.php:152
+#: oik-bob-bing-wide.php:142
 msgid "Link to WordPress Multi Site"
 msgstr ""
 
-#: oik-bob-bing-wide.php:156
+#: oik-bob-bing-wide.php:146
 msgid "Display a styled form of WordPress. "
 msgstr ""
 
-#: oik-bob-bing-wide.php:160
+#: oik-bob-bing-wide.php:150
 msgid "Styled form of WordPress Multi Site"
 msgstr ""
 
@@ -101,32 +126,56 @@ msgstr ""
 msgid "Type of archive to retrieve"
 msgstr ""
 
-#: shortcodes/oik-csv.php:256
-msgid "Invalid use of bw_csv. src= parameter not set"
+#: shortcodes/oik-bob-bing-wide.php:103
+msgid "Visit the Bobbing Wide website: "
 msgstr ""
 
-#: shortcodes/oik-csv.php:279
+#: shortcodes/oik-bob-bing-wide.php:106
+msgid "Visit the website: "
+msgstr ""
+
+#: shortcodes/oik-bob-bing-wide.php:211
+msgid "Spells out the %1$s backronym"
+msgstr ""
+
+#: shortcodes/oik-bob-bing-wide.php:213
+msgid "Expand to the logo for oik"
+msgstr ""
+
+#: shortcodes/oik-bob-bing-wide.php:221
+msgid "e.g."
+msgstr ""
+
+#: shortcodes/oik-csv.php:286
 msgid "File containing CSV data to display"
 msgstr ""
 
-#: shortcodes/oik-csv.php:280
+#: shortcodes/oik-csv.php:287
 msgid "Format table headings"
 msgstr ""
 
-#: shortcodes/oik-csv.php:281
+#: shortcodes/oik-csv.php:288
 msgid "Format as list - unordered, ordered or definition"
 msgstr ""
 
-#: shortcodes/oik-csv.php:282
+#: shortcodes/oik-csv.php:289
 msgid "Convert y to a dash icon tick or cross"
 msgstr ""
 
-#: shortcodes/oik-csv.php:283
+#: shortcodes/oik-csv.php:290
 msgid "Convert n to a dash icon cross or tick"
 msgstr ""
 
-#: shortcodes/oik-csv.php:284
+#: shortcodes/oik-csv.php:291
 msgid "Delimeter between columns"
+msgstr ""
+
+#: shortcodes/oik-csv.php:292
+msgid "Comma separated codes for totalling the columns"
+msgstr ""
+
+#: shortcodes/oik-csv.php:293
+msgid "Comma separated prefixed for totals cells"
 msgstr ""
 
 #: shortcodes/oik-dash.php:769 shortcodes/oik-dash.php:770
@@ -173,60 +222,60 @@ msgstr ""
 msgid "Field type. e.g. URL, textarea"
 msgstr ""
 
-#: shortcodes/oik-plug.php:134
+#: shortcodes/oik-plug.php:136
 msgid "Plugin name and description"
 msgstr ""
 
-#: shortcodes/oik-plug.php:135
+#: shortcodes/oik-plug.php:137
 msgid "Plugin links"
 msgstr ""
 
-#: shortcodes/oik-plug.php:136
+#: shortcodes/oik-plug.php:138
 msgid "Version, total downloads, last update, tested"
 msgstr ""
 
-#: shortcodes/oik-plug.php:771
+#: shortcodes/oik-plug.php:773
 msgid "&nbsp;"
 msgstr ""
 
-#: shortcodes/oik-plug.php:783
+#: shortcodes/oik-plug.php:785
 msgid "home"
 msgstr ""
 
-#: shortcodes/oik-plug.php:783
+#: shortcodes/oik-plug.php:785
 msgid "Link to plugin homepage"
 msgstr ""
 
-#: shortcodes/oik-plug.php:844
+#: shortcodes/oik-plug.php:866
 msgid "names of plugins to summarise"
 msgstr ""
 
-#: shortcodes/oik-plug.php:845
+#: shortcodes/oik-plug.php:867
 msgid ""
 "Show detailed information. Defaults to 'Y' if more than one plugin is listed"
 msgstr ""
 
-#: shortcodes/oik-plug.php:846
+#: shortcodes/oik-plug.php:868
 msgid "Summarise the activated plugins"
 msgstr ""
 
-#: shortcodes/oik-plug.php:847
+#: shortcodes/oik-plug.php:869
 msgid "URL for where to find additional information"
 msgstr ""
 
-#: shortcodes/oik-plug.php:848
+#: shortcodes/oik-plug.php:870
 msgid "Display the plugin banner image"
 msgstr ""
 
-#: shortcodes/oik-post-page.php:78 shortcodes/oik-post-page.php:86
+#: shortcodes/oik-post-page.php:81 shortcodes/oik-post-page.php:89
 msgid "Post type to add"
 msgstr ""
 
-#: shortcodes/oik-post-page.php:79 shortcodes/oik-post-page.php:87
+#: shortcodes/oik-post-page.php:82 shortcodes/oik-post-page.php:90
 msgid "Dash icon override"
 msgstr ""
 
-#: shortcodes/oik-post-page.php:80 shortcodes/oik-post-page.php:88
+#: shortcodes/oik-post-page.php:83 shortcodes/oik-post-page.php:91
 msgid "tooltip text override"
 msgstr ""
 
@@ -254,5 +303,5 @@ msgid "bobbingwide"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://www.oik-plugins.com/author/bobbingwide"
+msgid "https://www.bobbingwide.com/about-bobbing-wide"
 msgstr ""
