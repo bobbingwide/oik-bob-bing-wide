@@ -90,19 +90,20 @@ export default registerBlockType(
         // Set for each piece of dynamic data used in your block
         attributes: {
 				
-          content: {
-            type: 'string',
- 
-          },
-
-		 uo: {
-			type: 'string',
-			default: '',
-		},
-
+        	content: {
+        		type: 'string',
+            },
+			uo: {
+				type: 'string',
+				default: '',
+			},
 			th: {
           		type: 'boolean',
 				default: true,
+			},
+			src: {
+          		type: 'string',
+				default: '',
 			}
 					
         },
@@ -132,6 +133,10 @@ export default registerBlockType(
 				const onChangeUo = (value) => {
 					setAttributes({uo: value});
 				};
+
+				const onChangeSrc = (value) => {
+					setAttributes( {src: value} );
+				}
 
 				function isTable() {
 					return attributes.uo == "";
@@ -196,6 +201,15 @@ export default registerBlockType(
 									/>
 
 								</PanelRow>
+								<PanelRow>
+									<TextControl
+										label={ __( 'Source file: ID, URL or path' ) }
+										value={  attributes.src }
+										onChange={ onChangeSrc }
+
+									/>
+
+								</PanelRow>
 							</PanelBody>
 						</InspectorControls>
 
@@ -240,12 +254,12 @@ export default registerBlockType(
 								<PlainText
 									id={inputId}
 									value={attributes.content}
-									placeholder={__('Enter your CSV data')}
+									placeholder={__('Enter your CSV data or specify a source file.')}
 									onChange={onChangeContent}
 								/>
 							</div>
 							{!isSelected &&
-								<ServerSideRender block="oik-block/csv" attributes={attributes}/>
+								<ServerSideRender block="oik-bbw/csv" attributes={attributes}/>
 							}
 						</Fragment>
 
