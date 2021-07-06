@@ -70,6 +70,19 @@ export default registerBlockType(
             }
 					
         },
+
+        supports: {
+            typography: {
+                fontSize: true
+            },
+            color: {
+                gradients: false,
+                text: false,
+                background: true,
+                link: false
+            }
+        },
+
         transforms,
 
         edit: props => {
