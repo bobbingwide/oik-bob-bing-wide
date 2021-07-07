@@ -1,0 +1,55 @@
+{
+  "apiVersion": 2,
+  "name": "oik-bbw/wp",
+  "title": "WordPress info",
+  "category": "widgets",
+  "icon": "wordpress",
+  "description": "Displays information about WordPress and PHP versions / Gutenberg",
+  "keywords": [ "WordPress", "oik", "PHP" ],
+  "attributes": {
+    "v": {
+      "type": "string"
+    },
+    "p": {
+      "type": "string"
+    },
+    "m": {
+      "type": "string"
+    },
+    "g": {
+      "type": "string"
+    },
+    "textAlign": {
+      "type": "string"
+    },
+    "className": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "style": {
+      "type": "object"
+    },
+    "fontSize": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "html": false,
+    "color": {
+      "gradients": true,
+      "text": false,
+      "background": true,
+      "link": false
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
+  },
+  "textdomain": "oik-bob-bing-wide",
+  "editorScript": "oik-bob-bing-wide-blocks-js",
+  "editorStyle": "file:./build/css/blocks.editor.css",
+  "style": "file:../build/css/blocks.style.css"
+}
