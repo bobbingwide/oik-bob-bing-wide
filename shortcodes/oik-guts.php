@@ -10,15 +10,36 @@
 
 function oik_block_guts( $atts, $content, $tag ) {
 	global $wp_version;
-	sdiv( "guts");
-	p( "WordPress version: " . $wp_version );
-	p( "Gutenberg version: " . oik_block_gutenberg_version() );
+	//sdiv( "guts");
+	$extra_attributes = [];
+	//print_r( $extra_attributes );
+	// get_block_wrapper_attributes needs to know what the block supports
+    // It doesn't need to know about the $atts
+    $wrapper_attributes = get_block_wrapper_attributes( $extra_attributes );
+    span( "label");
+	e( "WordPress version: ");
+    epan();
+    span( "value");
+    e( $wp_version );
+    epan();
+    br();
+    span( "label" );
+	e( "Gutenberg version: " );
+	epan();
+	span( "value" );
+	e( oik_block_gutenberg_version() );
+	epan();
 	//oik_block_display_constant( "GUTENBERG_VERSION", "string" );
 	oik_block_display_constant( "GUTENBERG_LOAD_VENDOR_SCRIPTS", "bool" );
 	oik_block_display_constant( "GUTENBERG_LIST_VENDOR_ASSETS", "bool" );
 	oik_block_display_constant( "GUTENBERG_DEVELOPMENT_MODE", "bool" );
-	ediv();
-	return bw_ret();
+	$text = bw_ret();
+	$html = sprintf(
+        '<div %1$s>%2$s</div>',
+        $wrapper_attributes,
+       $text
+    );
+	return $html;
 }
 
 /**
