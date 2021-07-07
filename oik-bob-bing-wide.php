@@ -309,17 +309,29 @@ function oik_bob_bing_wide_register_dynamic_blocks() {
 		register_block_type( "oik-bbw/search",
 			[ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_search' ]
 		);
-
+    /*
 		register_block_type( 'oik-bbw/wp',
 			[ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_wp',
 			  'attributes' => [ 'v' =>  [ 'type' => 'string', ]
 				  , 'p' => ['type' => 'string' ]
 				  , 'm' => ['type' => 'string' ]
 				  , 'g' => ['type' => 'string' ]
+                  , 'fontSize' => ['type' => 'string']
+                  , 'className' => ['type' => 'string']
+                  , 'backgroundColor' => ['type' => 'string']
 			  ]
 			]
 		);
+		*/
 
+        // https://s.b/hm/wp-content/plugins/oik-bob-bing-wide/blocks/oik-wp/build/css/blocks.style.css?ver=5.8-beta4
+		$args = [ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_wp'];
+	    $registered = register_block_type_from_metadata( __DIR__ . '/blocks/oik-wp', $args );
+        if ( $registered ) {
+            //echo "Registered";
+        } else {
+            echo "oik-bbw/wp not registered";
+        }
 	}
 }
 
