@@ -310,9 +310,7 @@ function oik_bob_bing_wide_register_dynamic_blocks() {
 */
 
 		$args = [ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_search'];
-		$registered = register_block_type( "oik-bbw/search",
-			[ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_search' ]
-		);
+		$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-search', $args );
 		//print_r( $registered);
 
     /*
@@ -341,6 +339,7 @@ function oik_bob_bing_wide_register_dynamic_blocks() {
         }
 
 		$registered = register_block_type_from_metadata( __DIR__ .'/src/github' );
+		$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-dashicon' );
 	}
 }
 
