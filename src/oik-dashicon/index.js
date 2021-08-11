@@ -1,13 +1,11 @@
 /**
- * Implements [bw_dash] shortcode
- *
- * tries to use Dashicon component
+ * Implements the block equivalent of the [bw_dash] shortcode using the Dashicon component.
  *
  * @copyright (C) Copyright Bobbing Wide 2019-2021
  * @author Herb Miller @bobbingwide
  */
-//import './style.scss';
-//import './editor.scss';
+import './style.scss';
+import './editor.scss';
 import { transforms } from './transforms.js';
 
 import { DashiconsSelect } from './dashicons.js';

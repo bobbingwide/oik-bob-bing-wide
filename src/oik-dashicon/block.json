@@ -34,8 +34,8 @@
   },
   "supports": {
 	"html": false,
-	"customClassName": false,
-	"className": false,
+	"customClassName": true,
+	"className": true,
 	"color": {
 	  "gradients": false,
 	  "text": true,
@@ -43,7 +43,7 @@
 	  "link": false
 	},
 	"typography": {
-	  "fontSize": false,
+	  "fontSize": true,
 	  "lineHeight": false
 	}
   },
