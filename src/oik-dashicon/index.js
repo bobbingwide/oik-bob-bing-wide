@@ -3,39 +3,34 @@
  *
  * tries to use Dashicon component
  *
- * @copyright (C) Copyright Bobbing Wide 2019, 2020
+ * @copyright (C) Copyright Bobbing Wide 2019-2021
  * @author Herb Miller @bobbingwide
  */
 //import './style.scss';
 //import './editor.scss';
 import { transforms } from './transforms.js';
 
-// Get just the __() localization function from wp.i18n
-const { __ } = wp.i18n;
-// Get registerBlockType from wp.blocks
-const {
-    registerBlockType,
-} = wp.blocks;
-const {
-    ServerSideRender,
-} = wp.editor;
-const {
-    InspectorControls,
-} = wp.blockEditor;
-
-const {
-    Toolbar,
-    PanelBody,
-    PanelRow,
-    FormToggle,
-    TextControl,
-    Dashicon,
-
-} = wp.components;
-
 import { DashiconsSelect } from './dashicons.js';
 //import { BlockiconsSelect } from './blockicons.js';
-const { Fragment } = wp.element;
+import {__} from "@wordpress/i18n";
+
+import classnames from 'classnames';
+import { registerBlockType } from '@wordpress/blocks';
+
+import {
+	Dashicon,
+	Toolbar,
+	PanelBody,
+	PanelRow,
+	FormToggle,
+	TextControl,
+	TextareaControl,
+	ToggleControl,
+	SelectControl } from '@wordpress/components';
+import { Fragment} from '@wordpress/element';
+import { map, partial } from 'lodash';
+
+import {AlignmentControl, BlockControls, InspectorControls, useBlockProps, PlainText} from '@wordpress/block-editor';
 
 /**
  * Register the WordPress block
@@ -44,36 +39,16 @@ export default registerBlockType(
     // Namespaced, hyphens, lowercase, unique name
     'oik-bbw/dashicon',
     {
-        // Localize title using wp.i18n.__()
-        title: __( 'Dashicon' ),
-
-        description: 'Displays icons',
-
-        // Category Options: common, formatting, layout, widgets, embed
-        category: 'widgets',
-
-        // Dashicons Options - https://goo.gl/aTM1DQ
-        icon: 'heart',
-
-        // Limit to 3 Keywords / Phrases
-        keywords: [
-            __( 'icon' ),
-            __( 'oik' ),
-            __( 'dash'),
-        ],
-
-        // Set for each piece of dynamic data used in your block
-        attributes: {
-            dashicon: {
-                type: 'string',
-                default: 'heart'
-            },
-
-
-        },
         transforms,
 
         edit: props => {
+			const { attributes, setAttributes, instanceId, focus, isSelected } = props;
+			const { textAlign, label } = props.attributes;
+			const blockProps = useBlockProps( {
+				className: classnames( {
+					[ `has-text-align-${ textAlign }` ]: textAlign,
+				} ),
+			} );
 
             const onChangeDashicon = ( event ) => {
                 props.setAttributes( { dashicon: event } );
@@ -100,22 +75,20 @@ export default registerBlockType(
 
                 </InspectorControls>
 
-                <p>
+				<div {...blockProps} >
                 <Dashicon icon={ props.attributes.dashicon} />
+				</div>
 
-                </p>
                 </Fragment>
 
             );
         },
-        /*
-        <ServerSideRender
-                    block="oik-block/dashicon" attributes={ props.attributes }
-                />
-         */
         save: props => {
+        	const blockProps = useBlockProps.save();
             return(
+				<div {...blockProps} >
                 <Dashicon icon={props.attributes.dashicon} />
+				</div>
 
             );
         },
