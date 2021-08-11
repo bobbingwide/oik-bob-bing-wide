@@ -4,87 +4,36 @@
 * @copyright (C) Copyright Bobbing Wide 2018-2021
 * @author Herb Miller @bobbingwide
 */
+import { transforms } from './transforms.js';
 import './style.scss';
 import './editor.scss';
-import { transforms } from './transforms.js';
 
-// Get just the __() localization function from wp.i18n
-const { __ } = wp.i18n;
-// Get registerBlockType from wp.blocks
-const { 
-	registerBlockType,
-} = wp.blocks;
-const { 
-  InspectorControls,
-    ServerSideRender,
-} = wp.editor;
-	 
-const {
-  Toolbar,
-   PanelBody,
-  PanelRow,
-  FormToggle,
+import { __ } from '@wordpress/i18n';
+import classnames from 'classnames';
 
+import { registerBlockType, createBlock } from '@wordpress/blocks';
+import {AlignmentControl, BlockControls, InspectorControls, useBlockProps, PlainText} from '@wordpress/block-editor';
+import ServerSideRender from '@wordpress/server-side-render';
+import {
+	Toolbar,
+	PanelBody,
+	PanelRow,
+	FormToggle,
 	TextControl,
+	TextareaControl,
+	SelectControl } from '@wordpress/components';
+import { Fragment} from '@wordpress/element';
+import { map, partial } from 'lodash';
 
-} = wp.components;
+import metadata from './block.json';
+
 
 /**
  * Register the WordPress block
  */
-export default registerBlockType(
-    // Namespaced, hyphens, lowercase, unique name
-    'oik-bbw/wp',
+export default registerBlockType( metadata,
     {
-        // Localize title using wp.i18n.__()
-        title: __( 'WordPress' ),
-				
-		description: 'Displays information about WordPress and PHP versions',
-
-        // Category Options: common, formatting, layout, widgets, embed
-        category: 'widgets',
-
-        // Dashicons Options - https://goo.gl/aTM1DQ
-        icon: 'wordpress',
-
-        // Limit to 3 Keywords / Phrases
-        keywords: [
-            __( 'WordPress' ),
-            __( 'oik' ),
-            __( 'PHP'),
-        ],
-
-        // Set for each piece of dynamic data used in your block
-        attributes: {
-            v: {
-                type: 'string',
-            },
-            p: {
-                type: 'string'
-            },
-            m: {
-                type: 'string'
-            },
-            g: {
-                type: 'string'
-            }
-					
-        },
-
-        supports: {
-            typography: {
-                fontSize: true
-            },
-            color: {
-                gradients: false,
-                text: false,
-                background: true,
-                link: false
-            }
-        },
-
         transforms,
-
         edit: props => {
 
 			const onChangeV = ( event ) => {
@@ -99,7 +48,7 @@ export default registerBlockType(
             const onChangeG = ( event ) => {
                 props.setAttributes( { g: event } );
             };
-					
+
             return [
                 <InspectorControls >
 								<PanelBody>
@@ -137,8 +86,8 @@ export default registerBlockType(
 
           ];
         },
-				
-				
+
+
         save() {
 				return null;
         },

@@ -5,7 +5,7 @@
   "category": "widgets",
   "icon": "wordpress",
   "description": "Displays information about WordPress and PHP versions / Gutenberg",
-  "keywords": [ "WordPress", "oik", "PHP" ],
+  "keywords": [ "WordPress", "version", "PHP", "Gutenberg" ],
   "attributes": {
     "v": {
       "type": "string"
@@ -39,7 +39,7 @@
     "html": false,
     "color": {
       "gradients": true,
-      "text": false,
+      "text": true,
       "background": true,
       "link": false
     },
@@ -48,8 +48,5 @@
       "lineHeight": true
     }
   },
-  "textdomain": "oik-bob-bing-wide",
-  "editorScript": "oik-bob-bing-wide-blocks-js",
-  "editorStyle": "file:./build/css/blocks.editor.css",
-  "style": "file:../build/css/blocks.style.css"
+  "textdomain": "oik-bob-bing-wide"
 }

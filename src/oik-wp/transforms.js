@@ -3,8 +3,7 @@
  * You'll find that the shortcode doesn't transform if it's been coded with positional parameters.
 
  */
-const { createBlock
-} = wp.blocks;
+import { registerBlockType, createBlock } from '@wordpress/blocks';
 
 const transforms = {
     from: [
