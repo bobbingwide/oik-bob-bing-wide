@@ -3,7 +3,7 @@
 Plugin Name: oik bob bing wide shortcodes
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin
 Description: More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, oik and loik, wp, wpms, bp, artisteer, drupal, bw_search, bw_dash, bw_rpt, bw_graphviz, bw_option, github, bw_archive
-Version: 1.35.1
+Version: 2.0.0
 Author: bobbingwide
 Author URI: https://www.bobbingwide.com/about-bobbing-wide
 Text Domain: oik-bob-bing-wide
@@ -33,9 +33,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
  *
  * Note: as of version 2.1-alpha.1108 bwlink.css is no longer included in the oik base plugin.
  * It's been moved to this plugin and has been stripped right down anyway; since people didn't like the CSS styling.
- * 
- * The original styling is commented out. Only the styling for "bobbing wide" as a logo remains. 
- * 
+ *
+ * The original styling is commented out. Only the styling for "bobbing wide" as a logo remains.
+ *
  * In order to include it you can add it to your oik custom CSS file.
  *
  * If the oik_version is less than 2.2-alpha we load oik's shortcodes functions to prevent
@@ -43,16 +43,16 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * In fact, we have to load it for all versions since
  * 1. It contains functions needed by some of these shortcodes
  * 2. oik_version() currently only works in wp-admin
- * 
- * 
+ *
+ *
  * Note: But if that's the case then we won't even register our shortcodes so it doesn't matter
- * once the new code for each version is correct. 
+ * once the new code for each version is correct.
  * So this is definitely belt and braces code.
- * 
+ *
  */
 function oik_bob_bing_wide_init() {
-  // wp_enqueue_style( 'bwlinkCSS', WP_PLUGIN_URL . '/oik/bwlink.css', 'oikCSS' ); 
-  //if ( version_compare( oik_version(), "2.2-alpha.0403", "<" ) ) { 
+  // wp_enqueue_style( 'bwlinkCSS', WP_PLUGIN_URL . '/oik/bwlink.css', 'oikCSS' );
+  //if ( version_compare( oik_version(), "2.2-alpha.0403", "<" ) ) {
   //oik_require( "shortcodes/oik-bob-bing-wide.php" );
   //  define( "OIK_WP_LOADED",  true );
   //}
@@ -70,19 +70,19 @@ function oik_bob_bing_wide_init() {
   bw_add_shortcode( 'bw_page', 'bw_page', oik_path("shortcodes/oik-post-page.php", "oik-bob-bing-wide" ), false );
   bw_add_shortcode( 'bw_post', 'bw_post', oik_path("shortcodes/oik-post-page.php", "oik-bob-bing-wide" ), false );
   bw_add_shortcode( 'bw_plug', 'bw_plug', oik_path("shortcodes/oik-plug.php", "oik-bob-bing-wide" ), false );
-  
+
   // Dropped support for bw_module as it didn't work anyway
   //bw_add_shortcode( 'bw_module',  'bw_module', oik_path("shortcodes/oik-bob-bing-wide.php"), false );
 
   bw_add_shortcode( 'bp', 'bw_bp', oik_path("shortcodes/oik-wp.php", "oik-bob-bing-wide"), true );   // BuddyPress
-  bw_add_shortcode( 'lwp', 'bw_lwp', oik_path("shortcodes/oik-wp.php", "oik-bob-bing-wide"), false ); // Link to WordPress.org 
-  bw_add_shortcode( 'lbp', 'bw_lbp', oik_path("shortcodes/oik-wp.php", "oik-bob-bing-wide"), false ); // Link to BuddyPress.org 
+  bw_add_shortcode( 'lwp', 'bw_lwp', oik_path("shortcodes/oik-wp.php", "oik-bob-bing-wide"), false ); // Link to WordPress.org
+  bw_add_shortcode( 'lbp', 'bw_lbp', oik_path("shortcodes/oik-wp.php", "oik-bob-bing-wide"), false ); // Link to BuddyPress.org
   bw_add_shortcode( 'wpms', 'bw_wpms', oik_path("shortcodes/oik-wp.php", "oik-bob-bing-wide"), true );   // WordPress Multisite
   bw_add_shortcode( 'lwpms', 'bw_lwpms', oik_path("shortcodes/oik-wp.php", "oik-bob-bing-wide"), false ); // Link to WordPress multisite - .org
   bw_add_shortcode( 'drupal', 'bw_drupal', oik_path("shortcodes/oik-wp.php", "oik-bob-bing-wide"), true );   // Drupal
   bw_add_shortcode( 'ldrupal', 'bw_ldrupal', oik_path("shortcodes/oik-wp.php", "oik-bob-bing-wide"), false ); // Link to Drupal.org
   bw_add_shortcode( 'artisteer', 'bw_art', oik_path("shortcodes/oik-wp.php", "oik-bob-bing-wide"), true ); // Artisteer
-  bw_add_shortcode( 'lartisteer', 'bw_lart', oik_path("shortcodes/oik-wp.php", "oik-bob-bing-wide"), false ); // Link to artisteer.com 
+  bw_add_shortcode( 'lartisteer', 'bw_lart', oik_path("shortcodes/oik-wp.php", "oik-bob-bing-wide"), false ); // Link to artisteer.com
   // This is just a bit of code to help determine if a fix to shortcodes (ticket #17657) has been implemented or not
   // whether or not a shortcode containing hyphen(s) is handled depends on when it's registered.
   // if it's registered before the shortcode that is the same as the prefix before the '-' it's OK
@@ -106,14 +106,14 @@ function oik_bob_bing_wide_init() {
   bw_add_shortcode( "bw_text", "bw_text", oik_path( "shortcodes/oik-text.php", "oik-bob-bing-wide" ), false );
 	bw_add_shortcode( "github", "bw_github", oik_path( "shortcodes/oik-github.php", "oik-bob-bing-wide" ), false );
 	bw_add_shortcode( "bw_archive", "bw_archive", oik_path( "shortcodes/oik-archive.php", "oik-bob-bing-wide" ), false );
-	
-	
-	
+
+
+
 	add_filter( "_sc__help", "oik_bob_bing_wide_sc__help", 10, 2 );
 }
 /**
  * Implements "_sc__help" filter for oik-bob-bing-wide
- * 
+ *
  * @param array $help array of translated help keyed by shortcode
  * @param string $shortcode
  * @param array updated help array
@@ -148,8 +148,8 @@ function oik_bob_bing_wide_sc__help( $help, $shortcode ) {
 		//"wp-2": $l10n_help = __( 'Sample hyphenated shortcode', 'oik-bob-bing-wide' ); break;
 		//"wp-3": $l10n_help = __( 'Sample hyphenated shortcode', 'oik-bob-bing-wide' ); break;
 		case "wpms": $l10n_help = __( 'Styled form of WordPress Multi Site', 'oik-bob-bing-wide' ); break;
- 
-		default: 
+
+		default:
 			$l10n_help = null;
 	}
 
@@ -160,13 +160,13 @@ function oik_bob_bing_wide_sc__help( $help, $shortcode ) {
 
 }
 
-	
+
 
 /**
  * Implement "oik_admin_menu" action for oik-bob-bing-wide
- * 
- * Set the plugin server    
- * It should no longer be necessary to relocate the plugin to become its own plugin 
+ *
+ * Set the plugin server
+ * It should no longer be necessary to relocate the plugin to become its own plugin
  *
  */
 function oik_bob_bing_wide_admin_menu() {
@@ -176,7 +176,7 @@ function oik_bob_bing_wide_admin_menu() {
 
 /**
  * Implements "admin_notices" action for oik_bob_bing_wide
- 
+
  * This code will produce a message when oik-bob-bing-wide is activated but oik isn't.
  *
  * Version | Dependency
@@ -185,16 +185,16 @@ function oik_bob_bing_wide_admin_menu() {
  * v1.31.1 | oik v3.2.8
  * v1.33.0 | oik v3.3.7
  *
- */ 
+ */
 function oik_bob_bing_wide_activation() {
   static $plugin_basename = null;
   if ( !$plugin_basename ) {
     $plugin_basename = plugin_basename(__FILE__);
-    add_action( "after_plugin_row_oik-bob-bing-wide/oik-bob-bing-wide.php", "oik_bob_bing_wide_activation" );   
-    if ( !function_exists( "oik_plugin_lazy_activation" ) ) { 
+    add_action( "after_plugin_row_oik-bob-bing-wide/oik-bob-bing-wide.php", "oik_bob_bing_wide_activation" );
+    if ( !function_exists( "oik_plugin_lazy_activation" ) ) {
       require_once( "admin/oik-activation.php" );
     }
-  }  
+  }
   $depends = "oik:3.3.7";
   oik_plugin_lazy_activation( __FILE__, $depends, "oik_plugin_plugin_inactive" );
 }
@@ -204,8 +204,8 @@ function oik_bob_bing_wide_gather_site_opinions( $opinions ) {
 	return $opinions;
 }
 
-/** 
- * Function to invoke when oik-bob-bing-wide is loaded 
+/**
+ * Function to invoke when oik-bob-bing-wide is loaded
  */
 function oik_bob_bing_wide_loaded() {
   add_action( "oik_add_shortcodes", "oik_bob_bing_wide_init" );
@@ -221,8 +221,8 @@ add_action( 'init', 'oik_bob_bing_wide_init_blocks', 100);
 function oik_bob_bing_wide_init_blocks() {
 	oik_bob_bing_wide_plugins_loaded();
 	$library_file = oik_require_lib( 'oik-blocks');
-	oik\oik_blocks\oik_blocks_register_editor_scripts(  'oik-bob-bing-wide', 'oik-bob-bing-wide');
-	oik\oik_blocks\oik_blocks_register_block_styles( 'oik-bob-bing-wide' );
+	//oik\oik_blocks\oik_blocks_register_editor_scripts(  'oik-bob-bing-wide', 'oik-bob-bing-wide');
+	//oik\oik_blocks\oik_blocks_register_block_styles( 'oik-bob-bing-wide' );
 	oik_bob_bing_wide_register_dynamic_blocks();
 
 }
@@ -286,6 +286,10 @@ function oik_bob_bing_wide_register_dynamic_blocks() {
 	if ( function_exists( "register_block_type" ) ) {
 		//oik_blocks_register_editor_scripts();
 		//oik_blocks_boot_libs();
+		$args = [ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_csv'];
+		$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-csv', $args );
+		//print_r( $registered);
+		/*
 
 
 		register_block_type( 'oik-bbw/csv',
@@ -303,12 +307,14 @@ function oik_bob_bing_wide_register_dynamic_blocks() {
 				,				'script'         =>null
 				,				'style'          =>'oik-bob-bing-wide-blocks-css'
 			] );
+*/
 
-
-
-		register_block_type( "oik-bbw/search",
+		$args = [ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_search'];
+		$registered = register_block_type( "oik-bbw/search",
 			[ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_search' ]
 		);
+		//print_r( $registered);
+
     /*
 		register_block_type( 'oik-bbw/wp',
 			[ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_wp',
@@ -326,12 +332,15 @@ function oik_bob_bing_wide_register_dynamic_blocks() {
 
         // https://s.b/hm/wp-content/plugins/oik-bob-bing-wide/blocks/oik-wp/build/css/blocks.style.css?ver=5.8-beta4
 		$args = [ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_wp'];
-	    $registered = register_block_type_from_metadata( __DIR__ . '/blocks/oik-wp', $args );
+	    $registered = register_block_type_from_metadata( __DIR__ . '/src/oik-wp', $args );
         if ( $registered ) {
             //echo "Registered";
+            //print_r( $registered);
         } else {
             echo "oik-bbw/wp not registered";
         }
+
+		$registered = register_block_type_from_metadata( __DIR__ .'/src/github' );
 	}
 }
 
