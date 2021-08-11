@@ -4,34 +4,19 @@
  * Originally intended to uses [bw_search] shortcode from oik-bob-bing-wide plugin
  * but it's much easier to use get_search_form... that's all that [bw_search] does.
  *
- * @copyright (C) Copyright Bobbing Wide 2018-2020
+ * @copyright (C) Copyright Bobbing Wide 2018-2021
  * @author Herb Miller @bobbingwide
  */
 //import './style.scss';
 //import './editor.scss';
+import {__} from "@wordpress/i18n";
+import classnames from 'classnames';
+import ServerSideRender from '@wordpress/server-side-render';
 
-// Get just the __() localization function from wp.i18n
-const { __ } = wp.i18n;
-// Get registerBlockType from wp.blocks
-const {
-    registerBlockType,
-} = wp.blocks;
-const {
-    ServerSideRender
-} = wp.editor;
-const {
-    InspectorControls,
-} = wp.blockEditor;
+import { useBlockProps } from '@wordpress/block-editor';
+import { registerBlockType } from '@wordpress/blocks';
 
-const {
-    Toolbar,
-    PanelBody,
-    PanelRow,
-    FormToggle,
-    TextControl,
 
-} = wp.components;
-const Fragment = wp.element.Fragment;
 
 /**
  * Register the WordPress block
@@ -40,62 +25,23 @@ export default registerBlockType(
     // Namespaced, hyphens, lowercase, unique name
     'oik-bbw/search',
     {
-        // Localize title using wp.i18n.__()
-        title: __( 'Search' ),
 
-        description: 'Displays a search form',
-
-        // Category Options: common, formatting, layout, widgets, embed
-        category: 'widgets',
-
-        // Dashicons Options - https://goo.gl/aTM1DQ
-        icon: 'search',
-
-        // Limit to 3 Keywords / Phrases
-        keywords: [
-            __( 'search' ),
-            __( 'oik' ),
-            __( 'find'),
-        ],
-
-        // Set for each piece of dynamic data used in your block
-        attributes: {
-
-
-        },
         example: {
-        },
-        supports: {
-            customClassName: false,
-            className: false,
-            html: false,
         },
 
         edit: props => {
-
-
-
+			const { attributes, setAttributes, instanceId, focus, isSelected } = props;
+			const { textAlign, label } = props.attributes;
+			const blockProps = useBlockProps( {
+				className: classnames( {
+					[ `has-text-align-${ textAlign }` ]: textAlign,
+				} ),
+			} );
             return (
-                <Fragment>
-                <InspectorControls >
-                    <PanelBody>
-                        <PanelRow>
-
-                        </PanelRow>
-                        <PanelRow>
-
-                        </PanelRow>
-                        <PanelRow>
-
-                        </PanelRow>
-                    </PanelBody>
-
-                </InspectorControls>
-
-                <ServerSideRender
-                    block="oik-bbw/search" attributes={ props.attributes }
-                />
-            </Fragment>
+                <div {...blockProps}>
+					<ServerSideRender block="oik-bbw/search" attributes={ props.attributes }
+                	/>
+                </div>
 
             );
         },
