@@ -1,9 +1,6 @@
-/* Transformation to oik-bbw/csv of to oik-block/csv and [bw_csv]
- *
- *
+/* Transformation to oik-bbw/csv of oik-block/csv and [bw_csv]
  */
-const { createBlock
-} = wp.blocks;
+import { createBlock } from '@wordpress/blocks';
 
 const transforms = {
     from: [
@@ -34,4 +31,3 @@ const transforms = {
 };
 
 export { transforms } ;
-
