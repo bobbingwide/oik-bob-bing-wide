@@ -362,8 +362,30 @@ function oik_bob_bing_wide_dynamic_block_csv( $attributes ) {
 		bw_trace2( $content, "Content" );
 		//oik_require( "shortcodes/oik-csv.php", "oik-bob-bing-wide" );
 		$html = bw_csv( $attributes, $content );
+		$html = oik_bob_bing_wide_server_side_wrapper( $attributes, $html );
 		bw_trace2( $html, "html", false );
 	}
+	return $html;
+}
+
+/**
+ * Implements wrapper for Server Side Rendered blocks.
+ *
+ * @param $attributes
+ * @param $html
+ * @return string
+ */
+function oik_bob_bing_wide_server_side_wrapper( $attributes, $html ) {
+	$align_class_name=empty( $attributes['textAlign'] ) ? '' : "has-text-align-{$attributes['textAlign']}";
+	$extra_attributes  =[ 'class'=>$align_class_name ];
+	$wrapper_attributes = get_block_wrapper_attributes( $extra_attributes );
+
+	$html=sprintf(
+		'<div %1$s>%2$s</div>',
+		$wrapper_attributes,
+		$html
+	);
+
 	return $html;
 }
 
