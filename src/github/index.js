@@ -90,12 +90,11 @@ export default registerBlockType( 'oik-bbw/github',
           );
         },
         save: props => {
-
-
-					var lsb = '[';
-					var rsb = ']'
+			var lsb = '[';
+			var rsb = ']';
+			const blockProps = useBlockProps.save();
           return (
-            <div >
+            <div {...blockProps} >
 						{blockHeader}
 						<div>{lsb}
 						github {props.attributes.owner} {props.attributes.repo} issue {props.attributes.issue}
