@@ -13,7 +13,6 @@ import { transforms } from './transforms';
 
 import { registerBlockType } from '@wordpress/blocks';
 
-
 /**
  * Register the oik-bbw/csv block
  *
@@ -27,9 +26,12 @@ export default registerBlockType(
     {
 
 		transforms,
-		
 
-
+		example: {
+			attributes: {
+				content: "A,B,C\n1,2,3\n4,5,6"
+			}
+		},
 
 		/**
 		 * @see ./edit.js
@@ -46,4 +48,3 @@ export default registerBlockType(
 		},
 	},
 );
-
