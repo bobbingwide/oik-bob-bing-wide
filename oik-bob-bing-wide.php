@@ -3,7 +3,7 @@
 Plugin Name: oik bob bing wide shortcodes
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin
 Description: More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, oik and loik, wp, wpms, bp, artisteer, drupal, bw_search, bw_dash, bw_rpt, bw_graphviz, bw_option, github, bw_archive
-Version: 2.0.0
+Version: 2.1.0
 Author: bobbingwide
 Author URI: https://www.bobbingwide.com/about-bobbing-wide
 Text Domain: oik-bob-bing-wide
@@ -241,6 +241,7 @@ function oik_bob_bing_wide_plugins_loaded() {
 	oik_bob_bing_wide_standalone_compat( 'bw_add_shortcode', 'oik-add-shortcodes.php', 'oik-shortcodes' );
 	/** Enable localization of blocks */
 	bw_load_plugin_textdomain( "oik-bob-bing-wide");
+
 }
 
 /**
@@ -286,59 +287,17 @@ function oik_bob_bing_wide_boot_libs() {
  */
 function oik_bob_bing_wide_register_dynamic_blocks() {
 	if ( function_exists( "register_block_type" ) ) {
-		//oik_blocks_register_editor_scripts();
-		//oik_blocks_boot_libs();
+		add_filter( 'block_type_metadata', 'oik_bob_bing_wide_block_type_metadata', 10 );
+
 		$args = [ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_csv'];
 		$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-csv', $args );
-		//print_r( $registered);
-		/*
-
-
-		register_block_type( 'oik-bbw/csv',
-			[
-				'render_callback'=>'oik_bob_bing_wide_dynamic_block_csv',
-				'attributes'     =>[
-					'content' =>[ 'type'=>'string' ],
-					'text'=>[ 'type'=>'string' ],
-					'src'=>['type'=>'string'],
-					'uo' => ['type' => 'string'],
-					'th' => ['type' => 'boolean']
-				]
-				,				'editor_script'  =>'oik-bob-bing-wide-blocks-js'
-				,				'editor_style'   =>null
-				,				'script'         =>null
-				,				'style'          =>'oik-bob-bing-wide-blocks-css'
-			] );
-*/
+		//bw_trace2( $registered, "registered");
 
 		$args = [ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_search'];
 		$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-search', $args );
-		//print_r( $registered);
 
-    /*
-		register_block_type( 'oik-bbw/wp',
-			[ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_wp',
-			  'attributes' => [ 'v' =>  [ 'type' => 'string', ]
-				  , 'p' => ['type' => 'string' ]
-				  , 'm' => ['type' => 'string' ]
-				  , 'g' => ['type' => 'string' ]
-                  , 'fontSize' => ['type' => 'string']
-                  , 'className' => ['type' => 'string']
-                  , 'backgroundColor' => ['type' => 'string']
-			  ]
-			]
-		);
-		*/
-
-        // https://s.b/hm/wp-content/plugins/oik-bob-bing-wide/blocks/oik-wp/build/css/blocks.style.css?ver=5.8-beta4
-		$args = [ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_wp'];
+       	$args = [ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_wp'];
 	    $registered = register_block_type_from_metadata( __DIR__ . '/src/oik-wp', $args );
-        if ( $registered ) {
-            //echo "Registered";
-            //print_r( $registered);
-        } else {
-            echo "oik-bbw/wp not registered";
-        }
 
 		$registered = register_block_type_from_metadata( __DIR__ .'/src/github' );
 		$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-dashicon' );
@@ -349,7 +308,29 @@ function oik_bob_bing_wide_register_dynamic_blocks() {
 		 */
 		$ok = wp_set_script_translations( 'oik-bbw-csv-editor-script', 'oik-bob-bing-wide' , __DIR__ .'/languages' );
 		bw_trace2( $ok, "OK?");
+
 	}
+}
+
+/**
+ * Implements block_type_metadata filter to set the textdomain if not set.
+ *
+ * Note: $metadata['name'] will be set for each block.
+ *
+ * @param $metadata
+ * @return mixed
+ */
+function oik_bob_bing_wide_block_type_metadata( $metadata ) {
+	if ( !isset( $metadata['textdomain']) ) {
+		$name = $metadata['name'];
+		$name_parts = explode( '/', $name );
+		$textdomain = $name_parts[0];
+		if ( 'oik-bbw' == $textdomain ) {
+			$textdomain = 'oik-bob-bing-wide';
+			$metadata['textdomain'] = $textdomain;
+		}
+	}
+	return $metadata;
 }
 
 /**

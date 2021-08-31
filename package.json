@@ -1,9 +1,13 @@
 {
 	"name": "oik-bob-bing-wide",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"description": "More blocks and lazy smart shortcodes for the WordPress block editor.",
 	"author": "bobbingwide",
-	"license": "GPLv3",
+  	"license": "GPL-2.0-or-later",
+  	"repository": {
+		"type": "git",
+		"url": "git://github.com/bobbingwide/oik-bob-bing-wide.git"
+  	},
 	"main": "build/index.js",
 	"scripts": {
 		"build": "wp-scripts build",
@@ -13,7 +17,7 @@
 		"start": "wp-scripts start",
 		"packages-update": "wp-scripts packages-update",
 		"dev": "wp-scripts start",
-		"makepot": "wp i18n make-pot . languages/oik-bob-bing-wide.pot --exclude=node_modules,vendor,src",
+		"makepot": "wp i18n make-pot . languages/oik-bob-bing-wide.pot  --ignore-domain --domain=oik-bob-bing-wide --exclude=node_modules,vendor,src/*.js,tests,shortcodes/jquery",
 		"makejson": "wp i18n make-json languages --no-purge",
 		"l10n": "l10n oik-bob-bing-wide"
 	},
