@@ -1,41 +1,67 @@
-# Copyright (C) 2021 oik bob bing wide shortcodes
-# This file is distributed under the same license as the oik bob bing wide shortcodes package.
+# Copyright (C) 2021 bobbingwide
+# This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik bob bing wide shortcodes 1.35.1\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/oik-bob-bing-wide\n"
-"POT-Creation-Date: 2021-05-16 15:13:36+00:00\n"
+"Project-Id-Version: oik bob bing wide shortcodes 2.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/oik-bob-bing-wide\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2021-08-31T10:45:59+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.5.0\n"
 
-#: admin/oik-activation.php:29 libs/oik-depends.php:284
+#. Plugin Name of the plugin
+msgid "oik bob bing wide shortcodes"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin"
+msgstr ""
+
+#. Description of the plugin
+msgid "More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, oik and loik, wp, wpms, bp, artisteer, drupal, bw_search, bw_dash, bw_rpt, bw_graphviz, bw_option, github, bw_archive"
+msgstr ""
+
+#. Author of the plugin
+msgid "bobbingwide"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.bobbingwide.com/about-bobbing-wide"
+msgstr ""
+
+#: admin/oik-activation.php:29
+#: libs/oik-depends.php:284
 msgid "Install %1$s"
 msgstr ""
 
-#: admin/oik-activation.php:61 libs/oik-depends.php:312
+#: admin/oik-activation.php:61
+#: libs/oik-depends.php:312
 msgid "Activate %1$s"
 msgstr ""
 
-#: admin/oik-activation.php:79 libs/oik-depends.php:330
+#: admin/oik-activation.php:79
+#: libs/oik-depends.php:330
 msgid "Upgrade %1$s"
 msgstr ""
 
-#: admin/oik-activation.php:195 libs/oik-depends.php:147
+#: admin/oik-activation.php:195
+#: libs/oik-depends.php:147
 msgid "version"
 msgstr ""
 
-#: admin/oik-activation.php:197 libs/oik-depends.php:150
+#: admin/oik-activation.php:197
+#: libs/oik-depends.php:150
 msgid "%1$s may not be fully functional."
 msgstr ""
 
-#: admin/oik-activation.php:199 libs/oik-depends.php:106
+#: admin/oik-activation.php:199
+#: libs/oik-depends.php:106
 #: libs/oik-depends.php:152
-msgid ""
-"Please install and activate the required minimum version of this plugin: %1$s"
+msgid "Please install and activate the required minimum version of this plugin: %1$s"
 msgstr ""
 
 #: libs/bobbforms.php:509
@@ -122,10 +148,6 @@ msgstr ""
 msgid "Styled form of WordPress Multi Site"
 msgstr ""
 
-#: shortcodes/oik-archive.php:24
-msgid "Type of archive to retrieve"
-msgstr ""
-
 #: shortcodes/oik-bob-bing-wide.php:103
 msgid "Visit the Bobbing Wide website: "
 msgstr ""
@@ -146,162 +168,157 @@ msgstr ""
 msgid "e.g."
 msgstr ""
 
-#: shortcodes/oik-csv.php:286
-msgid "File containing CSV data to display"
+#: build/index.js:1
+msgid "GitHub Issue"
 msgstr ""
 
-#: shortcodes/oik-csv.php:287
-msgid "Format table headings"
+#: build/index.js:1
+msgid "Format table heading"
 msgstr ""
 
-#: shortcodes/oik-csv.php:288
-msgid "Format as list - unordered, ordered or definition"
+#: build/index.js:1
+msgid "Source file: ID, URL or path"
 msgstr ""
 
-#: shortcodes/oik-csv.php:289
-msgid "Convert y to a dash icon tick or cross"
+#: build/index.js:1
+msgid "Display as table"
 msgstr ""
 
-#: shortcodes/oik-csv.php:290
-msgid "Convert n to a dash icon cross or tick"
+#: build/index.js:1
+msgid "Display as unordered list"
 msgstr ""
 
-#: shortcodes/oik-csv.php:291
-msgid "Delimeter between columns"
+#: build/index.js:1
+msgid "Display as ordered list"
 msgstr ""
 
-#: shortcodes/oik-csv.php:292
-msgid "Comma separated codes for totalling the columns"
+#: build/index.js:1
+msgid "Display as description list"
 msgstr ""
 
-#: shortcodes/oik-csv.php:293
-msgid "Comma separated prefixed for totals cells"
+#: build/index.js:1
+msgid "Enter your CSV data or specify a source file."
 msgstr ""
 
-#: shortcodes/oik-dash.php:769 shortcodes/oik-dash.php:770
-msgid "Dash icon to display"
+#: src/github/block.json
+msgctxt "block title"
+msgid "GitHub issue"
 msgstr ""
 
-#: shortcodes/oik-dash.php:771
-msgid "CSS classes"
+#: src/github/block.json
+msgctxt "block description"
+msgid "'Display a link to a GitHub issue'"
 msgstr ""
 
-#: shortcodes/oik-github.php:94
-msgid "Repository owner"
+#: src/github/block.json
+msgctxt "block keyword"
+msgid "GitHub"
 msgstr ""
 
-#: shortcodes/oik-github.php:95
-msgid "Repository name"
+#: src/github/block.json
+msgctxt "block keyword"
+msgid "issue"
 msgstr ""
 
-#: shortcodes/oik-github.php:96
-msgid "Content type"
+#: src/github/block.json
+msgctxt "block keyword"
+msgid "link"
 msgstr ""
 
-#: shortcodes/oik-github.php:97
-msgid "Identifier"
+#: src/github/block.json
+#: src/oik-csv/block.json
+#: src/oik-dashicon/block.json
+#: src/oik-search/block.json
+msgctxt "block keyword"
+msgid "oik"
 msgstr ""
 
-#: shortcodes/oik-github.php:98
-msgid "GitHub URL"
+#: src/oik-csv/block.json
+msgctxt "block title"
+msgid "CSV"
 msgstr ""
 
-#: shortcodes/oik-graphviz.php:139
-msgid "Output format"
+#: src/oik-csv/block.json
+msgctxt "block description"
+msgid "Displays CSV content"
 msgstr ""
 
-#: shortcodes/oik-graphviz.php:140
-msgid "Content language"
+#: src/oik-csv/block.json
+msgctxt "block keyword"
+msgid "CSV"
 msgstr ""
 
-#: shortcodes/oik-option.php:70
-msgid "Option name"
+#: src/oik-csv/block.json
+msgctxt "block keyword"
+msgid "list"
 msgstr ""
 
-#: shortcodes/oik-option.php:71
-msgid "Field type. e.g. URL, textarea"
+#: src/oik-dashicon/block.json
+msgctxt "block title"
+msgid "Dashicon"
 msgstr ""
 
-#: shortcodes/oik-plug.php:136
-msgid "Plugin name and description"
+#: src/oik-dashicon/block.json
+msgctxt "block description"
+msgid "Displays icons"
 msgstr ""
 
-#: shortcodes/oik-plug.php:137
-msgid "Plugin links"
+#: src/oik-dashicon/block.json
+msgctxt "block keyword"
+msgid "icon"
 msgstr ""
 
-#: shortcodes/oik-plug.php:138
-msgid "Version, total downloads, last update, tested"
+#: src/oik-dashicon/block.json
+msgctxt "block keyword"
+msgid "dash"
 msgstr ""
 
-#: shortcodes/oik-plug.php:773
-msgid "&nbsp;"
+#: src/oik-search/block.json
+msgctxt "block title"
+msgid "Search"
 msgstr ""
 
-#: shortcodes/oik-plug.php:785
-msgid "home"
+#: src/oik-search/block.json
+msgctxt "block description"
+msgid "Displays a Search form"
 msgstr ""
 
-#: shortcodes/oik-plug.php:785
-msgid "Link to plugin homepage"
+#: src/oik-search/block.json
+msgctxt "block keyword"
+msgid "Search"
 msgstr ""
 
-#: shortcodes/oik-plug.php:866
-msgid "names of plugins to summarise"
+#: src/oik-search/block.json
+msgctxt "block keyword"
+msgid "find"
 msgstr ""
 
-#: shortcodes/oik-plug.php:867
-msgid ""
-"Show detailed information. Defaults to 'Y' if more than one plugin is listed"
+#: src/oik-wp/block.json
+msgctxt "block title"
+msgid "WordPress info"
 msgstr ""
 
-#: shortcodes/oik-plug.php:868
-msgid "Summarise the activated plugins"
+#: src/oik-wp/block.json
+msgctxt "block description"
+msgid "Displays information about WordPress and PHP versions / Gutenberg"
 msgstr ""
 
-#: shortcodes/oik-plug.php:869
-msgid "URL for where to find additional information"
+#: src/oik-wp/block.json
+msgctxt "block keyword"
+msgid "WordPress"
 msgstr ""
 
-#: shortcodes/oik-plug.php:870
-msgid "Display the plugin banner image"
+#: src/oik-wp/block.json
+msgctxt "block keyword"
+msgid "version"
 msgstr ""
 
-#: shortcodes/oik-post-page.php:81 shortcodes/oik-post-page.php:89
-msgid "Post type to add"
+#: src/oik-wp/block.json
+msgctxt "block keyword"
+msgid "PHP"
 msgstr ""
 
-#: shortcodes/oik-post-page.php:82 shortcodes/oik-post-page.php:90
-msgid "Dash icon override"
-msgstr ""
-
-#: shortcodes/oik-post-page.php:83 shortcodes/oik-post-page.php:91
-msgid "tooltip text override"
-msgstr ""
-
-#: shortcodes/oik-pricing-table.php:66
-msgid "Invalid use of bw_rpt. src= parameter not set"
-msgstr ""
-
-#. Plugin Name of the plugin/theme
-msgid "oik bob bing wide shortcodes"
-msgstr ""
-
-#. Plugin URI of the plugin/theme
-msgid "https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid ""
-"More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, oik and loik, "
-"wp, wpms, bp, artisteer, drupal, bw_search, bw_dash, bw_rpt, bw_graphviz, "
-"bw_option, github, bw_archive"
-msgstr ""
-
-#. Author of the plugin/theme
-msgid "bobbingwide"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "https://www.bobbingwide.com/about-bobbing-wide"
+#: src/oik-wp/block.json
+msgctxt "block keyword"
+msgid "Gutenberg"
 msgstr ""

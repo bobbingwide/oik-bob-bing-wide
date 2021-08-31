@@ -1,42 +1,63 @@
-# Copyright (C) 2021 oik bob bing wide shortcodes
-# This file is distributed under the same license as the oik bob bing wide shortcodes package.
+# Copyright (C) 2021 bobbingwide
+# This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik bob bing wide shortcodes 1.35.1\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/oik-bob-bing-wide\n"
-"POT-Creation-Date: 2021-05-16 15:13:36+00:00\n"
+"Project-Id-Version: oik bob bing wide shortcodes 2.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/oik-bob-bing-wide\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-#: admin/oik-activation.php:29 libs/oik-depends.php:284
+"POT-Creation-Date: 2021-08-31T10:45:59+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.5.0\n"
+msgid "oik bob bing wide shortcodes"
+msgstr "OIk bOb bnig wdie sohtroceds"
+
+msgid "https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin"
+msgstr "https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin"
+
+msgid "More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, oik and loik, wp, wpms, bp, artisteer, drupal, bw_search, bw_dash, bw_rpt, bw_graphviz, bw_option, github, bw_archive"
+msgstr "Mroe lzay samrt sohtroceds: bw_csv, bw_pulg, bw_pgae, bw_psot, OIk And liok, wp, wmps, bp, atrsieter, durapl, bw_saecrh, bw_dsah, bw_rpt, bw_garhpivz, bw_otpoin, gtiuhb, bw_acrihve"
+
+msgid "bobbingwide"
+msgstr "bboibgniwde"
+
+msgid "https://www.bobbingwide.com/about-bobbing-wide"
+msgstr "https://www.bobbingwide.com/about-bobbing-wide"
+
+#: admin/oik-activation.php:29
+#: libs/oik-depends.php:284
 msgid "Install %1$s"
 msgstr "Isnatll %1$s"
 
-#: admin/oik-activation.php:61 libs/oik-depends.php:312
+#: admin/oik-activation.php:61
+#: libs/oik-depends.php:312
 msgid "Activate %1$s"
 msgstr "Atcvitae %1$s"
 
-#: admin/oik-activation.php:79 libs/oik-depends.php:330
+#: admin/oik-activation.php:79
+#: libs/oik-depends.php:330
 msgid "Upgrade %1$s"
 msgstr "Ugparde %1$s"
 
-#: admin/oik-activation.php:195 libs/oik-depends.php:147
+#: admin/oik-activation.php:195
+#: libs/oik-depends.php:147
 msgid "version"
 msgstr "vreison"
 
-#: admin/oik-activation.php:197 libs/oik-depends.php:150
+#: admin/oik-activation.php:197
+#: libs/oik-depends.php:150
 msgid "%1$s may not be fully functional."
 msgstr "%1$s mAy nOt bE fluly fnutcoianl."
 
-#: admin/oik-activation.php:199 libs/oik-depends.php:106
+#: admin/oik-activation.php:199
+#: libs/oik-depends.php:106
 #: libs/oik-depends.php:152
-msgid ""
-"Please install and activate the required minimum version of this plugin: %1$s"
+msgid "Please install and activate the required minimum version of this plugin: %1$s"
 msgstr "Pelsae isnatll And atcvitae thE rqeiuerd mnimium vreison Of tihs pulign: %1$s"
 
 #: libs/bobbforms.php:509
@@ -123,10 +144,6 @@ msgstr "Dsilpay A syteld from Of WroPderss."
 msgid "Styled form of WordPress Multi Site"
 msgstr "Syteld from Of WroPderss Mluti Stie"
 
-#: shortcodes/oik-archive.php:24
-msgid "Type of archive to retrieve"
-msgstr "Tpye Of acrihve tO rteirvee"
-
 #: shortcodes/oik-bob-bing-wide.php:103
 msgid "Visit the Bobbing Wide website: "
 msgstr "Vsiit thE Bboibng Wdie wbeiste:"
@@ -147,158 +164,158 @@ msgstr "Epxnad tO thE lgoo fOr OIk"
 msgid "e.g."
 msgstr "E.g."
 
-#: shortcodes/oik-csv.php:286
-msgid "File containing CSV data to display"
-msgstr "Flie cnoatninig CSV dtaa tO dsilpay"
+#: build/index.js:1
+msgid "GitHub Issue"
+msgstr "GtiuHb Issue"
 
-#: shortcodes/oik-csv.php:287
-msgid "Format table headings"
-msgstr "Froamt tbale haeidgns"
+#: build/index.js:1
+msgid "Format table heading"
+msgstr "Froamt tbale haeidng"
 
-#: shortcodes/oik-csv.php:288
-msgid "Format as list - unordered, ordered or definition"
-msgstr "Froamt As lsit - uondrreed, odrreed Or dfenitioin"
+#: build/index.js:1
+msgid "Source file: ID, URL or path"
+msgstr "Suocre flie: ID, URL Or ptah"
 
-#: shortcodes/oik-csv.php:289
-msgid "Convert y to a dash icon tick or cross"
-msgstr "Cnoevrt y tO A dsah iocn tcik Or corss"
+#: build/index.js:1
+msgid "Display as table"
+msgstr "Dsilpay As tbale"
 
-#: shortcodes/oik-csv.php:290
-msgid "Convert n to a dash icon cross or tick"
-msgstr "Cnoevrt n tO A dsah iocn corss Or tcik"
+#: build/index.js:1
+msgid "Display as unordered list"
+msgstr "Dsilpay As uondrreed lsit"
 
-#: shortcodes/oik-csv.php:291
-msgid "Delimeter between columns"
-msgstr "Dlemiteer bteewen clomuns"
+#: build/index.js:1
+msgid "Display as ordered list"
+msgstr "Dsilpay As odrreed lsit"
 
-#: shortcodes/oik-csv.php:292
-msgid "Comma separated codes for totalling the columns"
-msgstr "Cmoma sperataed cdoes fOr ttolailng thE clomuns"
+#: build/index.js:1
+msgid "Display as description list"
+msgstr "Dsilpay As dsercpiiton lsit"
 
-#: shortcodes/oik-csv.php:293
-msgid "Comma separated prefixed for totals cells"
-msgstr "Cmoma sperataed perifexd fOr ttolas clels"
+#: build/index.js:1
+msgid "Enter your CSV data or specify a source file."
+msgstr "Etner yuor CSV dtaa Or sepicfy A suocre flie."
 
-#: shortcodes/oik-dash.php:769 shortcodes/oik-dash.php:770
-msgid "Dash icon to display"
-msgstr "Dsah iocn tO dsilpay"
+#: src/github/block.json
+msgctxt "block title"
+msgid "GitHub issue"
+msgstr "GtiuHb issue"
 
-#: shortcodes/oik-dash.php:771
-msgid "CSS classes"
-msgstr "CSS calsses"
+#: src/github/block.json
+msgctxt "block description"
+msgid "'Display a link to a GitHub issue'"
+msgstr "'Dsilpay A lnik tO A GtiuHb issue'"
 
-#: shortcodes/oik-github.php:94
-msgid "Repository owner"
-msgstr "Rpesotiroy onwer"
+#: src/github/block.json
+msgctxt "block keyword"
+msgid "GitHub"
+msgstr "GtiuHb"
 
-#: shortcodes/oik-github.php:95
-msgid "Repository name"
-msgstr "Rpesotiroy nmae"
+#: src/github/block.json
+msgctxt "block keyword"
+msgid "issue"
+msgstr "issue"
 
-#: shortcodes/oik-github.php:96
-msgid "Content type"
-msgstr "Cnoetnt tpye"
+#: src/github/block.json
+msgctxt "block keyword"
+msgid "link"
+msgstr "lnik"
 
-#: shortcodes/oik-github.php:97
-msgid "Identifier"
-msgstr "Iedtnfieir"
+#: src/github/block.json
+#: src/oik-csv/block.json
+#: src/oik-dashicon/block.json
+#: src/oik-search/block.json
+msgctxt "block keyword"
+msgid "oik"
+msgstr "OIk"
 
-#: shortcodes/oik-github.php:98
-msgid "GitHub URL"
-msgstr "GtiuHb URL"
+#: src/oik-csv/block.json
+msgctxt "block title"
+msgid "CSV"
+msgstr "CSV"
 
-#: shortcodes/oik-graphviz.php:139
-msgid "Output format"
-msgstr "Otuupt froamt"
+#: src/oik-csv/block.json
+msgctxt "block description"
+msgid "Displays CSV content"
+msgstr "Dsilpyas CSV cnoetnt"
 
-#: shortcodes/oik-graphviz.php:140
-msgid "Content language"
-msgstr "Cnoetnt lnauggae"
+#: src/oik-csv/block.json
+msgctxt "block keyword"
+msgid "CSV"
+msgstr "CSV"
 
-#: shortcodes/oik-option.php:70
-msgid "Option name"
-msgstr "Otpoin nmae"
+#: src/oik-csv/block.json
+msgctxt "block keyword"
+msgid "list"
+msgstr "lsit"
 
-#: shortcodes/oik-option.php:71
-msgid "Field type. e.g. URL, textarea"
-msgstr "Feild tpye. E.g. URL, txeatera"
+#: src/oik-dashicon/block.json
+msgctxt "block title"
+msgid "Dashicon"
+msgstr "Dsaihocn"
 
-#: shortcodes/oik-plug.php:136
-msgid "Plugin name and description"
-msgstr "Pulign nmae And dsercpiiton"
+#: src/oik-dashicon/block.json
+msgctxt "block description"
+msgid "Displays icons"
+msgstr "Dsilpyas iocns"
 
-#: shortcodes/oik-plug.php:137
-msgid "Plugin links"
-msgstr "Pulign lniks"
+#: src/oik-dashicon/block.json
+msgctxt "block keyword"
+msgid "icon"
+msgstr "iocn"
 
-#: shortcodes/oik-plug.php:138
-msgid "Version, total downloads, last update, tested"
-msgstr "Vreison, ttoal dwolnaods, lsat udptae, tseetd"
+#: src/oik-dashicon/block.json
+msgctxt "block keyword"
+msgid "dash"
+msgstr "dsah"
 
-#: shortcodes/oik-plug.php:773
-msgid "&nbsp;"
-msgstr "&nbsp;"
+#: src/oik-search/block.json
+msgctxt "block title"
+msgid "Search"
+msgstr "Saecrh"
 
-#: shortcodes/oik-plug.php:785
-msgid "home"
-msgstr "hmoe"
+#: src/oik-search/block.json
+msgctxt "block description"
+msgid "Displays a Search form"
+msgstr "Dsilpyas A Saecrh from"
 
-#: shortcodes/oik-plug.php:785
-msgid "Link to plugin homepage"
-msgstr "Lnik tO pulign hmopegae"
+#: src/oik-search/block.json
+msgctxt "block keyword"
+msgid "Search"
+msgstr "Saecrh"
 
-#: shortcodes/oik-plug.php:866
-msgid "names of plugins to summarise"
-msgstr "nmaes Of puligns tO smuamirse"
+#: src/oik-search/block.json
+msgctxt "block keyword"
+msgid "find"
+msgstr "fnid"
 
-#: shortcodes/oik-plug.php:867
-msgid ""
-"Show detailed information. Defaults to 'Y' if more than one plugin is listed"
-msgstr "Sohw dteiaeld ifnroamiton. Dfeuatls tO 'Y' If mroe tahn OnE pulign Is lsietd"
+#: src/oik-wp/block.json
+msgctxt "block title"
+msgid "WordPress info"
+msgstr "WroPderss ifno"
 
-#: shortcodes/oik-plug.php:868
-msgid "Summarise the activated plugins"
-msgstr "Smuamirse thE atcvitaed puligns"
+#: src/oik-wp/block.json
+msgctxt "block description"
+msgid "Displays information about WordPress and PHP versions / Gutenberg"
+msgstr "Dsilpyas ifnroamiton aobut WroPderss And PHP vreisnos / Gtuneebrg"
 
-#: shortcodes/oik-plug.php:869
-msgid "URL for where to find additional information"
-msgstr "URL fOr wehre tO fnid addtioianl ifnroamiton"
+#: src/oik-wp/block.json
+msgctxt "block keyword"
+msgid "WordPress"
+msgstr "WroPderss"
 
-#: shortcodes/oik-plug.php:870
-msgid "Display the plugin banner image"
-msgstr "Dsilpay thE pulign bnaenr iamge"
+#: src/oik-wp/block.json
+msgctxt "block keyword"
+msgid "version"
+msgstr "vreison"
 
-#: shortcodes/oik-post-page.php:81 shortcodes/oik-post-page.php:89
-msgid "Post type to add"
-msgstr "Psot tpye tO Add"
+#: src/oik-wp/block.json
+msgctxt "block keyword"
+msgid "PHP"
+msgstr "PHP"
 
-#: shortcodes/oik-post-page.php:82 shortcodes/oik-post-page.php:90
-msgid "Dash icon override"
-msgstr "Dsah iocn oevrrdie"
-
-#: shortcodes/oik-post-page.php:83 shortcodes/oik-post-page.php:91
-msgid "tooltip text override"
-msgstr "tootlip txet oevrrdie"
-
-#: shortcodes/oik-pricing-table.php:66
-msgid "Invalid use of bw_rpt. src= parameter not set"
-msgstr "Ivnlaid UsE Of bw_rpt. src= pramateer nOt sEt"
-
-msgid "oik bob bing wide shortcodes"
-msgstr "OIk bOb bnig wdie sohtroceds"
-
-msgid "https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin"
-msgstr "https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin"
-
-msgid ""
-"More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, oik and loik, "
-"wp, wpms, bp, artisteer, drupal, bw_search, bw_dash, bw_rpt, bw_graphviz, "
-"bw_option, github, bw_archive"
-msgstr "Mroe lzay samrt sohtroceds: bw_csv, bw_pulg, bw_pgae, bw_psot, OIk And liok, wp, wmps, bp, atrsieter, durapl, bw_saecrh, bw_dsah, bw_rpt, bw_garhpivz, bw_otpoin, gtiuhb, bw_acrihve"
-
-msgid "bobbingwide"
-msgstr "bboibgniwde"
-
-msgid "https://www.bobbingwide.com/about-bobbing-wide"
-msgstr "https://www.bobbingwide.com/about-bobbing-wide"
+#: src/oik-wp/block.json
+msgctxt "block keyword"
+msgid "Gutenberg"
+msgstr "Gtuneebrg"
 
