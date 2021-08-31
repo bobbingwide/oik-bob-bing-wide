@@ -228,7 +228,7 @@ function oik_bob_bing_wide_init_blocks() {
 }
 
 /**
-* Implements 'init' action for oik-bob-bing-wode.
+* Implements 'init' action for oik-bob-bing-wide.
  *
  * Prepares use of shared libraries if this has not already been done.
  */
@@ -239,6 +239,8 @@ function oik_bob_bing_wide_plugins_loaded() {
 	oik_bob_bing_wide_standalone_compat( 'bw_array_get_from', 'includes/bobbcomp.php' , 'bobbfunc' );
 	oik_bob_bing_wide_standalone_compat( 'bw_as_array', 'libs/bobbfunc.php', 'bobbfunc');
 	oik_bob_bing_wide_standalone_compat( 'bw_add_shortcode', 'oik-add-shortcodes.php', 'oik-shortcodes' );
+	/** Enable localization of blocks */
+	bw_load_plugin_textdomain( "oik-bob-bing-wide");
 }
 
 /**
@@ -340,6 +342,13 @@ function oik_bob_bing_wide_register_dynamic_blocks() {
 
 		$registered = register_block_type_from_metadata( __DIR__ .'/src/github' );
 		$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-dashicon' );
+
+		/**
+		 * Localise the script by loading the required strings for the build/index.js file
+		 * from the locale specific .json file in the languages folder.
+		 */
+		$ok = wp_set_script_translations( 'oik-bbw-csv-editor-script', 'oik-bob-bing-wide' , __DIR__ .'/languages' );
+		bw_trace2( $ok, "OK?");
 	}
 }
 
