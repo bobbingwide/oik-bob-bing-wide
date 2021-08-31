@@ -10,7 +10,7 @@ import './style.scss';
 import './editor.scss';
 import { transforms } from './transforms.js';
 
-const blockHeader = <h3>{ __( 'GitHub Issue', 'oik-blocks' ) }</h3>;
+const blockHeader = <h3>{ __( 'GitHub Issue', 'oik-bob-bing-wide' ) }</h3>;
 
 import { __ } from '@wordpress/i18n';
 import classnames from 'classnames';
@@ -64,27 +64,24 @@ export default registerBlockType( 'oik-bbw/github',
 
 				  {blockHeader}
 				  <TextControl
-					  id="owner"
-					  label="Owner"
+					  label={ __("Owner",'oik-bob-bing-wide') }
 					  value={ props.attributes.owner }
 					  onChange={ onChangeOwner }
 					  onFocus={ focus }
 				  />
 				  <TextControl
-					  id="repo"
-					  label="Repository"
+					  label={ __("Repository",'oik-bob-bing-wide' ) }
 					  value={ props.attributes.repo }
 					  onChange={ onChangeRepo }
 					  onFocus={ focus }
 				  />
 
-			  	<TextControl
-								id="issue"
-								label="Issue"
-								value={ props.attributes.issue }
-								onChange={ onChangeInput }
-								onFocus={ focus }
-							/>
+			  		<TextControl
+					label={ __("Issue", 'oik-bob-bing-wide' ) }
+					value={ props.attributes.issue }
+					onChange={ onChangeInput }
+					onFocus={ focus }
+					/>
 
             </div>
           );
