@@ -38,6 +38,7 @@ export default registerBlockType(
     'oik-bbw/dashicon',
     {
         transforms,
+		example: {},
 
         edit: props => {
 			const { attributes, setAttributes, instanceId, focus, isSelected } = props;
