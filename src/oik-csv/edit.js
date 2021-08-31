@@ -95,10 +95,10 @@ export default function Edit  ( props ) {
 		}
 
 		const uoOptions = {
-			"": "Table",
-			"u": "Unordered list",
-			"o": "Ordered list",
-			"d": "Description list",
+			"": __("Table", 'oik-bob-bing-wide' ),
+			"u": __("Unordered list", 'oik-bob-bing-wide' ),
+			"o": __("Ordered list", 'oik-bob-bing-wide' ),
+			"d": __("Description list", 'oik-bob-bing-wide' )
 		};
 
 		var mapped = map(uoOptions, (key, label) => ({value: label, label: key}));
@@ -109,14 +109,14 @@ export default function Edit  ( props ) {
 
 			<Fragment>
 
-				<InspectorControls key="csv">
+				<InspectorControls>
 					<PanelBody>
-						<SelectControl label="Format" value={attributes.uo} onChange={onChangeUo}
+						<SelectControl label={__("Format",'oik-bob-bing-wide' )} value={attributes.uo} onChange={onChangeUo}
 									   options={mapped}
 						/>
 						<PanelRow>
 							<ToggleControl
-								label={ __( 'Format table heading' ) }
+								label={ __( 'Format table heading', 'oik-bob-bing-wide' ) }
 								checked={ !! attributes.th }
 								onChange={ onChangeTh }
 
@@ -125,7 +125,7 @@ export default function Edit  ( props ) {
 						</PanelRow>
 						<PanelRow>
 							<TextControl
-								label={ __( 'Source file: ID, URL or path' ) }
+								label={ __( 'Source file: ID, URL or path', 'oik-bob-bing-wide' ) }
 								value={  attributes.src }
 								onChange={ onChangeSrc }
 
@@ -136,32 +136,32 @@ export default function Edit  ( props ) {
 				</InspectorControls>
 
 
-				<BlockControls key="flagbogtiddle"
+				<BlockControls
 							   controls={[
 								   {
 									   icon: 'editor-table',
-									   title: __('Display as table'),
+									   title: __('Display as table', 'oik-bob-bing-wide'),
 									   isActive: isTable(),
 									   onClick: setTable,
 								   },
 
 								   {
 									   icon: 'editor-ul',
-									   title: __('Display as unordered list'),
+									   title: __('Display as unordered list', 'oik-bob-bing-wide'),
 									   isActive: isUl(),
 									   onClick: setUl,
 								   },
 
 								   {
 									   icon: 'editor-ol',
-									   title: __('Display as ordered list'),
+									   title: __('Display as ordered list', 'oik-bob-bing-wide'),
 									   isActive: isOl(),
 									   onClick: setOl,
 
 								   },
 								   {
 									   icon: icons.descriptionList,
-									   title: __('Display as description list'),
+									   title: __('Display as description list', 'oik-bob-bing-wide'),
 									   isActive: isDl(),
 									   onClick: setDl,
 								   }
@@ -175,7 +175,7 @@ export default function Edit  ( props ) {
 					<div { ...blockProps}>
 						<PlainText
 							value={attributes.content}
-							placeholder={__('Enter your CSV data or specify a source file.')}
+							placeholder={__('Enter your CSV data or specify a source file.', 'oik-bob-bing-wide')}
 							onChange={onChangeContent}
 						/>
 
