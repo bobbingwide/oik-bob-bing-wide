@@ -58,7 +58,7 @@ export default registerBlockType(
                 <InspectorControls >
                     <PanelBody>
                         <PanelRow>
-                            <TextControl label="Dashicon"
+                            <TextControl label={ __("Dashicon", 'oik-bob-bing-wide' ) }
                                          value={ props.attributes.dashicon }
                                          onChange={ onChangeDashicon }
                             />
