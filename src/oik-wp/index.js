@@ -21,70 +21,85 @@ import {
 	FormToggle,
 	TextControl,
 	TextareaControl,
+	ToggleControl,
 	SelectControl } from '@wordpress/components';
 import { Fragment} from '@wordpress/element';
 import { map, partial } from 'lodash';
 
-import metadata from './block.json';
+//import metadata from './block.json';
 
 
 /**
  * Register the WordPress block
  */
-export default registerBlockType( metadata,
+export default registerBlockType( 'oik-bbw/wp',
     {
         transforms,
+		example: {
+        	attributes: {
+        		v: true,
+				g: true
+			}
+		},
         edit: props => {
+			const { attributes, setAttributes, instanceId, focus, isSelected } = props;
+			const { textAlign, label } = props.attributes;
+			const blockProps = useBlockProps( {
+				className: classnames( {
+					[ `has-text-align-${ textAlign }` ]: textAlign,
+				} ),
+			} );
 
 			const onChangeV = ( event ) => {
-				props.setAttributes( { v: event } );
+				props.setAttributes( { v: ! props.attributes.v } );
 			};
 			const onChangeP = ( event ) => {
-			    props.setAttributes( { p: event } );
+			    props.setAttributes( { p: ! props.attributes.p } );
             };
             const onChangeM = ( event ) => {
-                props.setAttributes( { m: event } );
+                props.setAttributes( { m: !props.attributes.m } );
             };
             const onChangeG = ( event ) => {
-                props.setAttributes( { g: event } );
+                props.setAttributes( { g: !props.attributes.g } );
             };
 
-            return [
-                <InspectorControls >
-								<PanelBody>
-								<PanelRow>
-									<TextControl label="Version"
-											value={ props.attributes.v }
+            return (
+            	<Fragment>
+                	<InspectorControls >
+						<PanelBody>
+							<PanelRow>
+								<ToggleControl label={__("Show WordPress version", 'oik-bob-bing-wide' )}
+										   checked={ !! props.attributes.v }
 											onChange={ onChangeV }
-									/>
-                                </PanelRow>
-                                <PanelRow>
-                                    <TextControl label="PHP Version"
-                                        value={ props.attributes.p }
-                                        onChange={ onChangeP }
-                                    />
-								</PanelRow>
-                                <PanelRow>
-                                    <TextControl label="Memory limit"
-                                        value={ props.attributes.m }
-                                        onChange={ onChangeM }
-                                    />
-                                </PanelRow>
-                                    <PanelRow>
-                                        <TextControl label="Gutenberg details"
-                                                     value={ props.attributes.g }
-                                                     onChange={ onChangeG }
-                                        />
-                                    </PanelRow>
-                                </PanelBody>
-
-                </InspectorControls>
-  				,
-				<ServerSideRender
-                    block="oik-bbw/wp" attributes={ props.attributes }
-                />
-
-          ];
+								/>
+                        	</PanelRow>
+							<PanelRow>
+								<ToggleControl label={__("Show Gutenberg details", 'oik-bob-bing-wide' )}
+													   checked={ !! props.attributes.g }
+													   onChange={ onChangeG }
+								/>
+							</PanelRow>
+                        	<PanelRow>
+                           		<ToggleControl label={__("Show PHP version", 'oik-bob-bing-wide' )}
+												   checked={ !! props.attributes.p }
+												   onChange={ onChangeP }
+								/>
+							</PanelRow>
+                        	<PanelRow>
+                     	   <	ToggleControl label={__("Show Memory limit", 'oik-bob-bing-wide' )}
+												   checked={ !! props.attributes.m }
+												   onChange={ onChangeM }
+						   	/>
+                        	</PanelRow>
+						</PanelBody>
+                	</InspectorControls>
+					<div {...blockProps}>
+						<ServerSideRender
+                    		block="oik-bbw/wp" attributes={ props.attributes }
+                		/>
+					</div>
+				</Fragment>
+			);
         },
 
 

@@ -8,16 +8,16 @@
   "keywords": [ "WordPress", "version", "PHP", "Gutenberg" ],
   "attributes": {
     "v": {
-      "type": "string"
+      "type": "boolean"
     },
     "p": {
-      "type": "string"
+      "type": "boolean"
     },
     "m": {
-      "type": "string"
+      "type": "boolean"
     },
     "g": {
-      "type": "string"
+      "type": "boolean"
     },
     "textAlign": {
       "type": "string"
