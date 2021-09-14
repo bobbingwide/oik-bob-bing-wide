@@ -2,37 +2,81 @@
 // (C) Copyright Bobbing Wide 2018-2021
 
 /**
- * Implement [guts] shortcode
+ * Displays WordPress information.
  *
- * Displays information about WordPress and/or Gutenberg
+ * Displays information about
+ * - WordPress version
+ * - and/or Gutenberg version, if activated
+ * - and/or PHP version
+ * - and/or Memory limit
  *
  */
 
-function oik_block_guts( $atts, $content, $tag ) {
+function oik_block_guts( $attributes, $content, $tag ) {
 	global $wp_version;
 	//sdiv( "guts");
 	$extra_attributes = [];
+	$v = bw_array_get( $attributes, 'v', null );
+	$g = bw_array_get( $attributes, 'g', null );
+	$p = bw_array_get( $attributes, 'p', null );
+	$m = bw_array_get( $attributes, 'm', null );
+	$br = false;
 	//print_r( $extra_attributes );
 	// get_block_wrapper_attributes needs to know what the block supports
     // It doesn't need to know about the $atts
     $wrapper_attributes = get_block_wrapper_attributes( $extra_attributes );
-    span( "label");
-	e( "WordPress version: ");
-    epan();
-    span( "value");
-    e( $wp_version );
-    epan();
-    br();
-    span( "label" );
-	e( "Gutenberg version: " );
-	epan();
-	span( "value" );
-	e( oik_block_gutenberg_version() );
-	epan();
-	//oik_block_display_constant( "GUTENBERG_VERSION", "string" );
-	oik_block_display_constant( "GUTENBERG_LOAD_VENDOR_SCRIPTS", "bool" );
-	oik_block_display_constant( "GUTENBERG_LIST_VENDOR_ASSETS", "bool" );
-	oik_block_display_constant( "GUTENBERG_DEVELOPMENT_MODE", "bool" );
+    if ( $v ) {
+	    span( "label" );
+	    e( __( "WordPress version: ", 'oik-bob-bing-wide' ) );
+	    epan();
+	    span( "value" );
+	    e( $wp_version );
+	    epan();
+	    $br = true;
+    }
+    if ( $g ) {
+    	if ( $br ) {
+		    br();
+	    }
+    	$br = true;
+	    span( "label" );
+	    e( __( "Gutenberg version: ", 'oik-bob-bing-wide' ) );
+	    epan();
+	    span( "value" );
+	    e( oik_block_gutenberg_version() );
+	    epan();
+	    //oik_block_display_constant( "GUTENBERG_VERSION", "string" );
+	    oik_block_display_constant( "GUTENBERG_LOAD_VENDOR_SCRIPTS", "bool" );
+	    oik_block_display_constant( "GUTENBERG_LIST_VENDOR_ASSETS", "bool" );
+	    oik_block_display_constant( "GUTENBERG_DEVELOPMENT_MODE", "bool" );
+    }
+    if ( $p ) {
+	    if ( $br ) {
+		    br();
+	    }
+	    $br = true;
+	    span( "label" );
+	    e( __( "PHP version: ", 'oik-bob-bing-wide' ) );
+	    epan();
+	    span( "value" );
+	    e( phpversion() );
+	    epan();
+
+    }
+	if ( $m ) {
+		if ( $br ) {
+			br();
+		}
+		$br = true;
+		span( "label" );
+		e( __( "Memory limit: ", 'oik-bob-bing-wide' ) );
+		epan();
+		span( "value" );
+		$memory_limit = ini_get( "memory_limit" );
+		e( $memory_limit  );
+		epan();
+
+	}
 	$text = bw_ret();
 	$html = sprintf(
         '<div %1$s>%2$s</div>',
