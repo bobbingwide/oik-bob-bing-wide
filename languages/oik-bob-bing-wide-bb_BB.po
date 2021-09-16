@@ -2,7 +2,7 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik bob bing wide shortcodes 2.0.0\n"
+"Project-Id-Version: oik bob bing wide shortcodes 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/oik-bob-bing-wide\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Language: bb_BB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-08-31T10:45:59+00:00\n"
+"POT-Creation-Date: 2021-09-16T09:16:49+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 msgid "oik bob bing wide shortcodes"
@@ -164,37 +164,105 @@ msgstr "Epxnad tO thE lgoo fOr OIk"
 msgid "e.g."
 msgstr "E.g."
 
-#: build/index.js:1
+#: shortcodes/oik-guts.php:33
+msgid "WordPress version:"
+msgstr "WroPderss vreison:"
+
+#: shortcodes/oik-guts.php:46
+msgid "Gutenberg version:"
+msgstr "Gtuneebrg vreison:"
+
+#: shortcodes/oik-guts.php:62
+msgid "PHP version:"
+msgstr "PHP vreison:"
+
+#: shortcodes/oik-guts.php:75
+msgid "Memory limit:"
+msgstr "Mmeroy lmiit:"
+
+#: build/index.js:564
 msgid "GitHub Issue"
 msgstr "GtiuHb Issue"
 
-#: build/index.js:1
+#: build/index.js:611
+msgid "Owner"
+msgstr "Onwer"
+
+#: build/index.js:616
+msgid "Repository"
+msgstr "Rpesotiroy"
+
+#: build/index.js:621
+msgid "Issue"
+msgstr "Issue"
+
+#: build/index.js:869
+msgid "Table"
+msgstr "Tbale"
+
+#: build/index.js:870
+msgid "Unordered list"
+msgstr "Uondrreed lsit"
+
+#: build/index.js:871
+msgid "Ordered list"
+msgstr "Odrreed lsit"
+
+#: build/index.js:872
+msgid "Description list"
+msgstr "Dsercpiiton lsit"
+
+#: build/index.js:882
+msgid "Format"
+msgstr "Froamt"
+
+#: build/index.js:887
 msgid "Format table heading"
 msgstr "Froamt tbale haeidng"
 
-#: build/index.js:1
+#: build/index.js:891
 msgid "Source file: ID, URL or path"
 msgstr "Suocre flie: ID, URL Or ptah"
 
-#: build/index.js:1
+#: build/index.js:897
 msgid "Display as table"
 msgstr "Dsilpay As tbale"
 
-#: build/index.js:1
+#: build/index.js:902
 msgid "Display as unordered list"
 msgstr "Dsilpay As uondrreed lsit"
 
-#: build/index.js:1
+#: build/index.js:907
 msgid "Display as ordered list"
 msgstr "Dsilpay As odrreed lsit"
 
-#: build/index.js:1
+#: build/index.js:912
 msgid "Display as description list"
 msgstr "Dsilpay As dsercpiiton lsit"
 
-#: build/index.js:1
+#: build/index.js:918
 msgid "Enter your CSV data or specify a source file."
 msgstr "Etner yuor CSV dtaa Or sepicfy A suocre flie."
+
+#: build/index.js:1307
+msgid "Dashicon"
+msgstr "Dsaihocn"
+
+#: build/index.js:1555
+msgid "Show WordPress version"
+msgstr "Sohw WroPderss vreison"
+
+#: build/index.js:1559
+msgid "Show Gutenberg details"
+msgstr "Sohw Gtuneebrg dteials"
+
+#: build/index.js:1563
+msgid "Show PHP version"
+msgstr "Sohw PHP vreison"
+
+#: build/index.js:1567
+msgid "Show Memory limit"
+msgstr "Sohw Mmeroy lmiit"
 
 #: src/github/block.json
 msgctxt "block title"
@@ -296,8 +364,8 @@ msgstr "WroPderss ifno"
 
 #: src/oik-wp/block.json
 msgctxt "block description"
-msgid "Displays information about WordPress and PHP versions / Gutenberg"
-msgstr "Dsilpyas ifnroamiton aobut WroPderss And PHP vreisnos / Gtuneebrg"
+msgid "Displays information about WordPress, Gutenberg, PHP version and Memory limit"
+msgstr "Dsilpyas ifnroamiton aobut WroPderss, Gtuneebrg, PHP vreison And Mmeroy lmiit"
 
 #: src/oik-wp/block.json
 msgctxt "block keyword"
@@ -318,4 +386,9 @@ msgstr "PHP"
 msgctxt "block keyword"
 msgid "Gutenberg"
 msgstr "Gtuneebrg"
+
+#: src/oik-wp/block.json
+msgctxt "block keyword"
+msgid "memory"
+msgstr "mmeroy"
 

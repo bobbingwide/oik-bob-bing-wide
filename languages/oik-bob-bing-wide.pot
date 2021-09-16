@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik bob bing wide shortcodes 2.0.0\n"
+"Project-Id-Version: oik bob bing wide shortcodes 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/oik-bob-bing-wide\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-08-31T10:45:59+00:00\n"
+"POT-Creation-Date: 2021-09-16T09:16:49+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 
@@ -168,36 +168,104 @@ msgstr ""
 msgid "e.g."
 msgstr ""
 
-#: build/index.js:1
+#: shortcodes/oik-guts.php:33
+msgid "WordPress version:"
+msgstr ""
+
+#: shortcodes/oik-guts.php:46
+msgid "Gutenberg version:"
+msgstr ""
+
+#: shortcodes/oik-guts.php:62
+msgid "PHP version:"
+msgstr ""
+
+#: shortcodes/oik-guts.php:75
+msgid "Memory limit:"
+msgstr ""
+
+#: build/index.js:564
 msgid "GitHub Issue"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:611
+msgid "Owner"
+msgstr ""
+
+#: build/index.js:616
+msgid "Repository"
+msgstr ""
+
+#: build/index.js:621
+msgid "Issue"
+msgstr ""
+
+#: build/index.js:869
+msgid "Table"
+msgstr ""
+
+#: build/index.js:870
+msgid "Unordered list"
+msgstr ""
+
+#: build/index.js:871
+msgid "Ordered list"
+msgstr ""
+
+#: build/index.js:872
+msgid "Description list"
+msgstr ""
+
+#: build/index.js:882
+msgid "Format"
+msgstr ""
+
+#: build/index.js:887
 msgid "Format table heading"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:891
 msgid "Source file: ID, URL or path"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:897
 msgid "Display as table"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:902
 msgid "Display as unordered list"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:907
 msgid "Display as ordered list"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:912
 msgid "Display as description list"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:918
 msgid "Enter your CSV data or specify a source file."
+msgstr ""
+
+#: build/index.js:1307
+msgid "Dashicon"
+msgstr ""
+
+#: build/index.js:1555
+msgid "Show WordPress version"
+msgstr ""
+
+#: build/index.js:1559
+msgid "Show Gutenberg details"
+msgstr ""
+
+#: build/index.js:1563
+msgid "Show PHP version"
+msgstr ""
+
+#: build/index.js:1567
+msgid "Show Memory limit"
 msgstr ""
 
 #: src/github/block.json
@@ -300,7 +368,7 @@ msgstr ""
 
 #: src/oik-wp/block.json
 msgctxt "block description"
-msgid "Displays information about WordPress and PHP versions / Gutenberg"
+msgid "Displays information about WordPress, Gutenberg, PHP version and Memory limit"
 msgstr ""
 
 #: src/oik-wp/block.json
@@ -321,4 +389,9 @@ msgstr ""
 #: src/oik-wp/block.json
 msgctxt "block keyword"
 msgid "Gutenberg"
+msgstr ""
+
+#: src/oik-wp/block.json
+msgctxt "block keyword"
+msgid "memory"
 msgstr ""
