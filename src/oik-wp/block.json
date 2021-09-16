@@ -4,8 +4,8 @@
   "title": "WordPress info",
   "category": "widgets",
   "icon": "wordpress",
-  "description": "Displays information about WordPress and PHP versions / Gutenberg",
-  "keywords": [ "WordPress", "version", "PHP", "Gutenberg" ],
+  "description": "Displays information about WordPress, Gutenberg, PHP version and Memory limit",
+  "keywords": [ "WordPress", "version", "PHP", "Gutenberg", "memory" ],
   "attributes": {
     "v": {
       "type": "boolean"
@@ -25,15 +25,21 @@
     "className": {
       "type": "string"
     },
-    "backgroundColor": {
-      "type": "string"
-    },
-    "style": {
+    "textColor": {
+	  "type": "string"
+	},
+	"backgroundColor": {
+	  "type": "string"
+	},
+	"style": {
       "type": "object"
     },
     "fontSize": {
       "type": "string"
-    }
+    },
+	"gradient": {
+	  "type": "string"
+	}
   },
   "supports": {
     "html": false,
