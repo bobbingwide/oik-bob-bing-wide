@@ -1,11 +1,11 @@
 # oik-bob-bing-wide 
-![banner](https://raw.githubusercontent.com/bobbingwide/oik-bob-bing-wide/master/assets/oik-bob-bing-wide-banner-772x250.jpg)
+![banner](assets/oik-bob-bing-wide-banner-772x250.jpg)
 * Contributors: bobbingwide
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: blocks, shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github, [bw_archive]
 * Requires at least: 5.0
-* Tested up to: 5.8
-* Stable tag: 2.0.0
+* Tested up to: 5.8.1
+* Stable tag: 2.1.0
 * Gutenberg compatible: Yes
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -119,6 +119,9 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"]
 
 ## Upgrade Notice 
+# 2.1.0 
+Update for internationalized blocks with examples.
+
 # 2.0.0 
 Update for refactored blocks for WordPress 5.8
 
@@ -223,6 +226,21 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 ## Changelog 
+# 2.1.0 
+* Changed: Refactor the WordPress info block and internationalize #45
+* Changed: Add example for Search block #44
+* Changed: Internationalize Dashicon block #42
+* Changed: Internationalize CSV block #42
+* Changed: Internationalize GitHub block #42
+* Changed: Add example for CSV block #43
+* Changed: Remove textdomain attribute from block.json files #42
+* Changed: Update for i18n/l10n #42
+* Changed: Load plugin textdomain and call wp_set_script_translations #42
+* Tested: With WordPress 5.8.1 and WordPress Multi Site
+* Tested: With Gutenberg 11.4.1
+* Tested: With PHP 8.0
+* Tested: With PHPUnit 9
+
 # 2.0.0 
 * Changed: Updated build to use wp-scripts #42
 * Changed: Improve blocks for block API version 2 #42

@@ -3,8 +3,8 @@ Contributors: bobbingwide
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: blocks, shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github, [bw_archive]
 Requires at least: 5.0
-Tested up to: 5.8
-Stable tag: 2.0.0
+Tested up to: 5.8.1
+Stable tag: 2.1.0
 Gutenberg compatible: Yes
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -14,7 +14,7 @@ More blocks and lazy smart shortcodes for the WordPress block editor.
 
 New in v1.34.0, incl. v1.33.0
 
-Blocks: 
+Blocks:
 
 * CSV - Displays CSV content
 * Dashicon - Displays icons
@@ -22,7 +22,7 @@ Blocks:
 * Search - Displays a search form
 * WordPress - Displays information about WordPress and PHP versions or Gutenberg
 
-Updated shortcodes: 
+Updated shortcodes:
 
 * bw_csv - Added totals= and prefixes= parameter
 * bw_plug - Improved styling capabilities
@@ -47,7 +47,7 @@ New in v1.27
 
 New in v1.25
 [bw_graphviz] - shortcode to display Grapviz diagrams
-[bw_crumbs] - wrapper to [wpseo_breadcrumbs] 
+[bw_crumbs] - wrapper to [wpseo_breadcrumbs]
 
 New in v1.24
 [bw_action] - Perform a WordPress action/filter hook
@@ -55,7 +55,7 @@ New in v1.24
 [bw_rpt]    - Display a Responsive Pricing Table
 
 New in v1.23
-[bw_search] - Display a simple Search form 
+[bw_search] - Display a simple Search form
 
 == Installation ==
 1. Upload the contents of the oik-bob-bing-wide plugin to the `/wp-content/plugins/oik-bob-bing-wide' directory
@@ -97,15 +97,15 @@ In alphabetical order:
 * [wp]
 * [wpms]
 
-= Which shortcodes have been deprecated? = 
+= Which shortcodes have been deprecated? =
 
-The following shortcodes have been deprecated. 
+The following shortcodes have been deprecated.
 Implement them using diy-oik if required.
 
-* [bing] 
+* [bing]
 * [bob]
 * [bong]
-* [fob] 
+* [fob]
 * [hide]
 * [wide]
 * [wow]
@@ -115,10 +115,13 @@ Implement them using diy-oik if required.
 
 == Screenshots ==
 1. oik-bob-bing-wide sample shortcodes
-2. [ bw_plug name="oik,oik-bob-bing-wide"] 
+2. [ bw_plug name="oik,oik-bob-bing-wide"]
 
 == Upgrade Notice ==
-= 2.0.0 = 
+= 2.1.0 =
+Update for internationalized blocks with examples. 
+
+= 2.0.0 =
 Update for refactored blocks for WordPress 5.8
 
 = 1.35.1 =
@@ -131,45 +134,45 @@ Upgrade for an improved oik-bbw/csv block
 Upgrade for an improved WordPress block
 
 = 1.34.1 =
-Upgrade for fixes to the [bw_plug] shortcode 
+Upgrade for fixes to the [bw_plug] shortcode
 
 = 1.34.1-alpha-20200209 =
 Upgrade for compatibility with oik v4.1.0-alpha-20200209
 
 = 1.34.0 =
-Upgrade to use the new blocks and improvements to the shortcodes. 
+Upgrade to use the new blocks and improvements to the shortcodes.
 
 = 1.33.0 =
 Update for more improvements to the bw_plug shortcode
 
-= 1.32.0 = 
+= 1.32.0 =
 Update for improvements to the bw_plug shortcode... used on blocks.wp-a2z.org
 
 = 1.31.2 =
 Update for the new SVG icon for the Archives block
 
-= 1.31.1 = 
+= 1.31.1 =
 Update for [bw_archive] shortcode to display category archives. Upgrade for peaceful coexistence with Gutenberg.
 
 = 1.31.0 =
 Update if using Gutenberg - the new block editor for WordPress 5.0
 
-= 1.30.8 = 
+= 1.30.8 =
 Updated so that [bw_plug] works with recent changes to api.wordpress.org
 
 = 1.30.7 =
 Contains improvements to the [bw_csv] shortcode. Tested with WordPress 4.7.5
 
-= 1.30.6 = 
+= 1.30.6 =
 Contains improvements to the [bw_plug] shortcode. Tested with WordPress 4.7.2
 
-= 1.30.5 = 
+= 1.30.5 =
 Contains a fix for bw_plug displaying banner images. Tested with WordPress 4.7
 
 = 1.30.4 =
 [bw_option] now supports display of serialized data, [github] now displays the GitHub genericon. Tested with WordPress 4.6
 
-= 1.30.3 = 
+= 1.30.3 =
 Required for oik-ajax pagination of content in the [bw_csv] shortcode
 
 = 1.30.2 =
@@ -178,7 +181,7 @@ Upgrade to use the [github] shortcode. Requires latest version of the bw_trace2 
 = 1.30.1 =
 Upgrade for improved support of dash icons in the [bw_csv] shortcode
 
-= 1.30 = 
+= 1.30 =
 Improved [bw_csv]: Added pagination. Added uo=o|ol|u|ul|d|dl parameter to display different styles of list
 
 = 1.29 =
@@ -190,8 +193,8 @@ Upgrade if you want to set the class= parameter for [bw_csv] or use [bw_dash] fo
 = 1.27 =
 For oik-plugins and any other site wanting to display data from wp_options
 
-= 1.26 = 
-Required for AumAbsFitnessStudios.com. 
+= 1.26 =
+Required for AumAbsFitnessStudios.com.
 
 = 1.25 =
 Upgrade if you want to use [bw_graphviz] or [bw_crumbs]
@@ -202,7 +205,7 @@ Upgrade if you want to use the new shortcodes: [bw_action], [bw_dash] or [bw_rpt
 = 1.23 =
 Upgrade if you want to use [bw_search] to replace Artisteer's [search].
 
-= 1.22 = 
+= 1.22 =
 Needed for sites using [bw_csv] with nested shortcodes. Note: We now only support WordPress 3.9 and above.
 
 = 1.21 =
@@ -222,7 +225,22 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 == Changelog ==
-= 2.0.0 = 
+= 2.1.0 =
+* Changed: Refactor the WordPress info block and internationalize #45
+* Changed: Add example for Search block #44
+* Changed: Internationalize Dashicon block #42
+* Changed: Internationalize CSV block #42
+* Changed: Internationalize GitHub block #42
+* Changed: Add example for CSV block #43
+* Changed: Remove textdomain attribute from block.json files #42
+* Changed: Update for i18n/l10n #42
+* Changed: Load plugin textdomain and call wp_set_script_translations #42
+* Tested: With WordPress 5.8.1 and WordPress Multi Site
+* Tested: With Gutenberg 11.4.1
+* Tested: With PHP 8.0
+* Tested: With PHPUnit 9
+
+= 2.0.0 =
 * Changed: Updated build to use wp-scripts #42
 * Changed: Improve blocks for block API version 2 #42
 * Tested: With WordPress 5.8 and WordPress Multi Site
@@ -248,19 +266,19 @@ This version matches the child plugin oik-bob-bing-wide in oik v1.17
 * Changed: Update shared library files for PHP 8
 * Fixed: Change size for drawings.js
 * Fixed: Correct bw_post and bw_page shortcodes,[github bobbingwide oik-bob-bing-wide issues 38]
-* Tested: With Gutenberg 10.6.0 
+* Tested: With Gutenberg 10.6.0
 * Tested: With PHP 8.0
 * Tested: With PHPUnit 9
 * Tested: With WordPress 5.7.2 and WordPress Multi Site
 
-= 1.34.1 = 
+= 1.34.1 =
 * Fixed: Swap parms to implode for PHP 7.4 compatibility,[github bobbingwide oik-bob-bing-wide issues 35]
 * Fixed: Cater for downloaded being blank for local plugins,[github bobbingwide oik-bobbing-wide issues 19]
 * Tested: With PHP 7.4
 * Tested: With WordPress 5.6-RC1 and WordPress Multi Site
-* Tested: With Gutenberg 9.4.1 
+* Tested: With Gutenberg 9.4.1
 
-= 1.34.1-alpha-20200209 = 
+= 1.34.1-alpha-20200209 =
 * Changed: Updated shared library file - libs/class-oik-csv-totals.php
 
 = 1.34.0 =
@@ -274,19 +292,19 @@ This version matches the child plugin oik-bob-bing-wide in oik v1.17
 * Tested: With PHP 7.3 and PHP 7.4
 * Tested: With PHPUnit 8
 
-= 1.33.0 = 
+= 1.33.0 =
 * Changed: Improve ability to style bw_plug table display,[github bobbingwide oik-bob-bing-wide issues 30]
 * Tested: With WordPress 5.3 and WordPress Multi Site
 * Tested: With PHP 7.3
 * Tested: With PHPUnit 8
 
-= 1.32.0 = 
+= 1.32.0 =
 * Changed: Improvements to [bw_plug] shortcode, [github bobbingwide oik-bob-bing-wide issues 18]
 * Fixed: Undefined index 'host' [github bobbingwide oik-bob-bing-wide issues 20]
 * Fixed: Undo unnecessary change to the archive dashicon
 * Added: Add test for bw_list_dashicons to help code oik-blocks
 * Tested: With WordPress 5.2.1
-* Tested: With Gutenberg 5.8.0 & 5.9.0 
+* Tested: With Gutenberg 5.8.0 & 5.9.0
 * Tested: With PHP 7.2
 
 = 1.31.2 =
@@ -297,7 +315,7 @@ This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 = 1.31.1 =
 * Added: [bw_archive] shortcode to wrap wp_get_archives [github bobbingwide oik-bob-bing-wide issues 28]
-* Changed: Depends on oik v3.2.8 
+* Changed: Depends on oik v3.2.8
 * Tested: With WordPress 5.0
 * Tested: With Gutenberg 4.6.1
 * Tested: With PHP 7.1 and 7.2
@@ -323,7 +341,7 @@ This version matches the child plugin oik-bob-bing-wide in oik v1.17
 * Changed: Improve [bw_plug] when oik-plugins CPT defined locally [github bobbingwide oik-bob-bing-wide issue 19 ]
 * Changed: Add test for [bw_post] and [bw_page] post_type and icon parameters [github bobbingwide oik-bob-bing-wide issue 17]
 * Changed: Extend bw_dash to display multiple icons [github bobbingwide oik-bob-bing-wide issue 16]
-* Changed: Cater for br tags added during the_content filtering [github bobbingwide oik-bob-bing-wide issue 14] 
+* Changed: Cater for br tags added during the_content filtering [github bobbingwide oik-bob-bing-wide issue 14]
 * Changed: Cater for plugininfo being array or object [github bobbingwide oik-bob-bing-wide issue 15]
 * Added: Add dashicons added between v4.1 and v4.7  [github bobbingwide oik-bob-bing-wide issue 13 ]
 * Added: Add unit tests for issue #11 and issue #12
@@ -333,42 +351,42 @@ This version matches the child plugin oik-bob-bing-wide in oik v1.17
 * Fixed: Update URL for [bw_plug] banner images from wordpress.org,[github bobbingwide oik-bob-bing-wide issues 12]
 * Tested: With WordPress 4.7 and WordPress Multisite
 
-= 1.30.4 = 
+= 1.30.4 =
 * Changed: [bw_option] to suppport serialized fields [github bobbingwide oik-bob-bing-wide issue 6]
 * Changed: [github] now displays the GitHub genericon [github bobbingwide oik-bob-bing-wide issue 10]
 * Changed: Add the y=Y and n=N parameters in bw_csv__syntax [github bobbingwide oik-bob-bing-wide issue 9 ]
 * Tested: With WordPress 4.6 and WordPress Multisite
 
-= 1.30.3 = 
+= 1.30.3 =
 * Added: A few language versions
 * Changed: Coreq changes for ajaxified pagination [github bobbingwide oik-ajax issue 1]
 * Changed: Minor tweaks to [bw_plug] shortcode [github bobbingwide oik-bob-bing-wide issue 4]
 * Fixed: Autocorrect the [github] type parameter [github bobbingwide oik-bobbing-wide issue 3]
- 
-= 1.30.2 = 
+
+= 1.30.2 =
 * Added: [github] shortcode - Issue #1
 * Changed: Some bw_trace2() calls
 
 = 1.30.1 =
 * Changed: [bw_csv] now supports y=Y and n=N parameters to ease the use of dashicons
 * Fixed: [bw_plug] casts $pluginfo from array to object when required
-* Fixed: [bw_plug] detects WP_error returned from oik_lazy_pluginsapi() 
+* Fixed: [bw_plug] detects WP_error returned from oik_lazy_pluginsapi()
 * Changed: Now using semantic versioning.
-* Changed: Now depends on oik v2.6-alpha.0724 
+* Changed: Now depends on oik v2.6-alpha.0724
 * Tested: With WordPress 4.3-beta4
 
-= 1.30 = 
+= 1.30 =
 * Changed: [bw_csv] now supports pagination. Use posts_per_page= parameter
 * Changed: [bw_csv] now supports 4 styles: table (default), ordered, unordered and definition lists. Use uo= parameter
-* Changed: [bw_graphviz] works for a symlinked plugin 
- 
-= 1.29 = 
+* Changed: [bw_graphviz] works for a symlinked plugin
+
+= 1.29 =
 * Fixed: [bw_plug] shortcode now actually caches the results, for half a day
 * Deprecated: The bobbingwide babble shortcodes are no longer active
 * Added: [bw_text] shortcode - prototype logic for wptexturize on demand
 * Changed: [lwp]/[lwpms] shortcodes - remove the www.prefix
 * Changed: [bw_dash] shortcode now supports new WordPress 4.1 dashicons, plus many others previously omitted.
-* Changed: Updated plugin dependency checks. 
+* Changed: Updated plugin dependency checks.
 
 = 1.28 =
 * Added: Support for class= parameter on [bw_csv]
@@ -376,17 +394,17 @@ This version matches the child plugin oik-bob-bing-wide in oik v1.17
 * Addded: Support for texticons in [bw_dash]: cent, css, shortcode, sterling, euro, yen, dollar
 * Changed: [bw_csv] ignores empty lines
 
-= 1.27 = 
+= 1.27 =
 * Added: [bw_option] shortcode - to help in examples where the result depends on the current value of an option field
-* Changed: Now dependent upon oik v2.3 or higher 
+* Changed: Now dependent upon oik v2.3 or higher
 
-= 1.26 = 
+= 1.26 =
 * Added: Help and syntax hooks for [bw_crumbs] and [bw_graphviz] shortcodes
 * Changed: Dashicons now displayed in span rather than div
-* Changed: Dashicons support embedded content. 
+* Changed: Dashicons support embedded content.
 * Changed: Improved docblocks
 * Changed: [bw_post] and [bw_page] shortcodes now use dashicons and support post_type= icon= and text= parameters
-* Changed: [bw_rpt] shortcode now accepts class= parameter to allow styling of multiple tables being displayed 
+* Changed: [bw_rpt] shortcode now accepts class= parameter to allow styling of multiple tables being displayed
 * Fixed: incorrect variable used in bw_action()
 
 
@@ -410,17 +428,17 @@ This version matches the child plugin oik-bob-bing-wide in oik v1.17
 * Changed: Improved plugin dependency checking
 * Changed: No longer performs relocation
 
-= 1.21 = 
+= 1.21 =
 * Changed: Moved much of the code from the oik base plugin to the oik-bob-bing-wide shortcodes folder
 * Changed: Now responds to "oik_add_shortcodes" action, so shortcodes are only registered when shortcodes are being used.
 * Tested: with WordPress 3.9-beta3
 
 = 1.20 =
 * Added: [bw_csv] shortcode
-* Changed: Plugin dependency 
+* Changed: Plugin dependency
 * Changed: Some docblocks
 * Changed: bwlink.css no longer enqueued by default
- 
+
 = 1.19 =
 * Added: Moved bwlink.css from oik and stripped right down
 * Changed: bwlink.css is no longer automatically enqueued
@@ -438,6 +456,6 @@ This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 == Further reading ==
 If you want to read more about the oik plugins then please visit the
-[oik plugin](https://www.oik-plugins.com/oik) 
+[oik plugin](https://www.oik-plugins.com/oik)
 **"the oik plugin - for often included key-information"**
 
