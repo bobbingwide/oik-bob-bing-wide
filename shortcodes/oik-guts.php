@@ -27,7 +27,10 @@ function oik_block_guts( $attributes, $content, $tag ) {
     $wrapper_attributes = get_block_wrapper_attributes( $extra_attributes );
     if ( $v ) {
 	    span( "label" );
-	    e( __( "WordPress version: ", 'oik-bob-bing-wide' ) );
+	    /** Note: Translators / automatic translation tools may remove trailing blanks.
+	     * Instead of using these we add padding to span.label
+	     */
+	    e( __( "WordPress version:", 'oik-bob-bing-wide' ) );
 	    epan();
 	    span( "value" );
 	    e( $wp_version );
@@ -40,7 +43,7 @@ function oik_block_guts( $attributes, $content, $tag ) {
 	    }
     	$br = true;
 	    span( "label" );
-	    e( __( "Gutenberg version: ", 'oik-bob-bing-wide' ) );
+	    e( __( "Gutenberg version:", 'oik-bob-bing-wide' ) );
 	    epan();
 	    span( "value" );
 	    e( oik_block_gutenberg_version() );
@@ -56,7 +59,7 @@ function oik_block_guts( $attributes, $content, $tag ) {
 	    }
 	    $br = true;
 	    span( "label" );
-	    e( __( "PHP version: ", 'oik-bob-bing-wide' ) );
+	    e( __( "PHP version:", 'oik-bob-bing-wide' ) );
 	    epan();
 	    span( "value" );
 	    e( phpversion() );
@@ -69,7 +72,7 @@ function oik_block_guts( $attributes, $content, $tag ) {
 		}
 		$br = true;
 		span( "label" );
-		e( __( "Memory limit: ", 'oik-bob-bing-wide' ) );
+		e( __( "Memory limit:", 'oik-bob-bing-wide' ) );
 		epan();
 		span( "value" );
 		$memory_limit = ini_get( "memory_limit" );
