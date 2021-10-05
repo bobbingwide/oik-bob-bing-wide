@@ -11,21 +11,14 @@
  * - and/or Memory limit
  *
  */
-
 function oik_block_guts( $attributes, $content, $tag ) {
 	global $wp_version;
-	//sdiv( "guts");
-	$extra_attributes = [];
 	$v = bw_array_get( $attributes, 'v', null );
 	$g = bw_array_get( $attributes, 'g', null );
 	$p = bw_array_get( $attributes, 'p', null );
 	$m = bw_array_get( $attributes, 'm', null );
 	$br = false;
-	//print_r( $extra_attributes );
-	// get_block_wrapper_attributes needs to know what the block supports
-    // It doesn't need to know about the $atts
-    $wrapper_attributes = get_block_wrapper_attributes( $extra_attributes );
-    if ( $v ) {
+	if ( $v ) {
 	    span( "label" );
 	    /** Note: Translators / automatic translation tools may remove trailing blanks.
 	     * Instead of using these we add padding to span.label
@@ -78,15 +71,9 @@ function oik_block_guts( $attributes, $content, $tag ) {
 		$memory_limit = ini_get( "memory_limit" );
 		e( $memory_limit  );
 		epan();
-
 	}
 	$text = bw_ret();
-	$html = sprintf(
-        '<div %1$s>%2$s</div>',
-        $wrapper_attributes,
-       $text
-    );
-	return $html;
+	return $text;
 }
 
 /**

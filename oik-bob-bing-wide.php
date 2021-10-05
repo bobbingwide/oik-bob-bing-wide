@@ -400,8 +400,29 @@ function oik_bob_bing_wide_dynamic_block_search( $attributes ) {
 function oik_bob_bing_wide_dynamic_block_wp( $attributes ) {
 	$html=\oik\oik_blocks\oik_blocks_check_server_func( "shortcodes/oik-guts.php", "oik-bob-bing-wide", "oik_block_guts" );
 	if ( ! $html ) {
-		$html=oik_block_guts( $attributes, null, null );
+		$html = oik_block_guts( $attributes, null, null );
+		$html = oik_bob_bing_wide_wrap_wp( $html );
+
 	}
+	return $html;
+}
+
+/**
+ * Wraps the output using the block's attributes.
+ *
+ * @param $html
+ * @return mixed
+ */
+function oik_bob_bing_wide_wrap_wp( $text ) {
+	// get_block_wrapper_attributes needs to know what the block supports
+	// It doesn't need to know about the $atts
+	$extra_attributes = [];
+	$wrapper_attributes=get_block_wrapper_attributes( $extra_attributes );
+	$html = sprintf(
+		'<div %1$s>%2$s</div>',
+		$wrapper_attributes,
+		$text
+	);
 	return $html;
 }
 
