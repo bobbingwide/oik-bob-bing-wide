@@ -11,7 +11,7 @@ msgstr ""
 "Language: en_GB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-09-16T09:16:49+00:00\n"
+"POT-Creation-Date: 2021-10-05T10:19:08+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 msgid "oik bob bing wide shortcodes"
@@ -164,105 +164,105 @@ msgstr "Expand to the logo for oik"
 msgid "e.g."
 msgstr "e.g."
 
-#: shortcodes/oik-guts.php:33
+#: shortcodes/oik-guts.php:26
 msgid "WordPress version:"
 msgstr "WordPress version:"
 
-#: shortcodes/oik-guts.php:46
+#: shortcodes/oik-guts.php:39
 msgid "Gutenberg version:"
 msgstr "Gutenberg version:"
 
-#: shortcodes/oik-guts.php:62
+#: shortcodes/oik-guts.php:55
 msgid "PHP version:"
 msgstr "PHP version:"
 
-#: shortcodes/oik-guts.php:75
+#: shortcodes/oik-guts.php:68
 msgid "Memory limit:"
 msgstr "Memory limit:"
 
-#: build/index.js:564
+#: build/index.js:1
 msgid "GitHub Issue"
 msgstr "GitHub Issue"
 
-#: build/index.js:611
+#: build/index.js:1
 msgid "Owner"
 msgstr "Owner"
 
-#: build/index.js:616
+#: build/index.js:1
 msgid "Repository"
 msgstr "Repository"
 
-#: build/index.js:621
+#: build/index.js:1
 msgid "Issue"
 msgstr "Issue"
 
-#: build/index.js:869
+#: build/index.js:1
 msgid "Table"
 msgstr "Table"
 
-#: build/index.js:870
+#: build/index.js:1
 msgid "Unordered list"
 msgstr "Unordered list"
 
-#: build/index.js:871
+#: build/index.js:1
 msgid "Ordered list"
 msgstr "Ordered list"
 
-#: build/index.js:872
+#: build/index.js:1
 msgid "Description list"
 msgstr "Description list"
 
-#: build/index.js:882
+#: build/index.js:1
 msgid "Format"
 msgstr "Format"
 
-#: build/index.js:887
+#: build/index.js:1
 msgid "Format table heading"
 msgstr "Format table heading"
 
-#: build/index.js:891
+#: build/index.js:1
 msgid "Source file: ID, URL or path"
 msgstr "Source file: ID, URL or path"
 
-#: build/index.js:897
+#: build/index.js:1
 msgid "Display as table"
 msgstr "Display as table"
 
-#: build/index.js:902
+#: build/index.js:1
 msgid "Display as unordered list"
 msgstr "Display as unordered list"
 
-#: build/index.js:907
+#: build/index.js:1
 msgid "Display as ordered list"
 msgstr "Display as ordered list"
 
-#: build/index.js:912
+#: build/index.js:1
 msgid "Display as description list"
 msgstr "Display as description list"
 
-#: build/index.js:918
+#: build/index.js:1
 msgid "Enter your CSV data or specify a source file."
 msgstr "Enter your CSV data or specify a source file."
 
-#: build/index.js:1307
-msgid "Dashicon"
-msgstr "Dashicon"
-
-#: build/index.js:1555
+#: build/index.js:1
 msgid "Show WordPress version"
 msgstr "Show WordPress version"
 
-#: build/index.js:1559
+#: build/index.js:1
 msgid "Show Gutenberg details"
 msgstr "Show Gutenberg details"
 
-#: build/index.js:1563
+#: build/index.js:1
 msgid "Show PHP version"
 msgstr "Show PHP version"
 
-#: build/index.js:1567
+#: build/index.js:1
 msgid "Show Memory limit"
 msgstr "Show Memory limit"
+
+#: build/index.js:1
+msgid "Dashicon"
+msgstr "Dashicon"
 
 #: src/github/block.json
 msgctxt "block title"
