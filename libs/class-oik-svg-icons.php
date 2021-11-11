@@ -10,11 +10,17 @@ if ( !defined( 'CLASS_OIK_SVG_ICONS_INCLUDED' ) ) {
      *
      * Most of the SVG icons are sourced from Gutenberg's icons library,
      * which is JavaScript code.
-     *
+	 *
+	 * Usage:
+	 * ```
+	 * oik_require_lib( 'class-oik-svg-icons' );
+	 * $svgicons = new OIK_svg_icons();
+	 * $dash = $svgicons->get_icon( "menu", "" );
+     * ```
      */
     class OIK_SVG_icons
     {
-        public static $svgicons;
+        private static $svgicons;
         /**
          * @var OIK_SVG_icons - the true instance
          */
@@ -34,6 +40,10 @@ if ( !defined( 'CLASS_OIK_SVG_ICONS_INCLUDED' ) ) {
         function __construct() {
             self::$svgicons = $this->list_svg_icons();
         }
+
+        function get_icons() {
+        	return self::$svgicons;
+		}
 
         /**
          * Returns the SVG for the chosen icon.
@@ -91,8 +101,8 @@ if ( !defined( 'CLASS_OIK_SVG_ICONS_INCLUDED' ) ) {
             $svg .= kv( "width", 24 );
             $svg .= kv( "height", 24 );
             $svg .= kv( "viewBox", "0 0 24 24" );
-
-            stag( "svg aria-hidden", "$icon $font_class $class", null, $svg );
+			// Prefix the icon name with svg_ to avoid unwanted CSS styling on icons such as button.
+            stag( "svg aria-hidden", "svg_$icon $font_class $class", null, $svg );
             if ( '<' === $dpath[0] ) {
                 $this->svg_icon_raw( $dpath );
             } else {
