@@ -236,22 +236,17 @@ function bw_github_file_url( $url, $owner=null, $repository=null, $file=null, $t
 	return( $target );
 }
 
-
+/**
+ * Returns the SVG icon for Github.
+ *
+ * @param $icon
+ * @param $class
+ * @return string
+ */
 function bw_github_svgicon( $icon, $class ) {
 	oik_require_lib( 'class-oik-svg-icons');
 	$svgicons = new OIK_SVG_icons();
 	$dash = $svgicons->get_icon( $icon, $class );
-
-	/*
-	oik_require( "shortcodes/oik-dash.php", "oik-bob-bing-wide" );
-	oik_require( "shortcodes/oik-dash-svg-list.php", "oik-bob-bing-wide" );
-	$svgicons = bw_dash_list_svg_icons();
-	$dpath = bw_array_get( $svgicons, $icon, null );
-	bw_push();
-	bw_dash_svg_icon( $icon, "svg", $class, $dpath );
-	$dash = bw_ret();
-	bw_pop();
-	*/
 	return $dash;
 }
 

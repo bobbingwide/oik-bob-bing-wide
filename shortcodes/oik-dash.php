@@ -2,27 +2,31 @@
 
 /**
  * Enqueue the correct font for this icon
- * 
+ *
  *
  * We may find genericons in jetpack\_inc\genericons\genericons.css
  *
- * Note: 
+ * Note:
  * Default sizes for dashicons are 20px, genericons 16px
- * So if we want to display a mixture then we'll need to do something to get the sizes consistent.  
- * 
+ * So if we want to display a mixture then we'll need to do something to get the sizes consistent.
+ *
  * @param string $icon - the name of the icon required
  * @param array $atts - shortcode parameters
  * @return string - the name of the base class to use based on the chosen font
- * 
- * @TODO Refactor to better allow for SVG icons 
+ *
+ * @TODO Refactor to better allow for SVG icons
  */
 function bw_dash_enqueue_font( $icon, $atts ) {
   //bw_trace2();
   //e( $icon );
   $font = bw_array_get( $atts, "font", null );
   if ( !$font ) {
-		$svgicons = bw_list_svgicons();
-		$svgicon = bw_array_get( $svgicons, $icon, null );
+	  oik_require_lib( 'class-oik-svg-icons');
+	  $svgicons = new OIK_SVG_icons();
+	  $svgicon = $svgicons->get_icon( $icon, '' );
+
+	  //$svgicons = bw_list_svgicons();
+		//$svgicon = bw_array_get( $svgicons, $icon, null );
 		if ( !$svgicon ) {
 			$dashicons = bw_assoc( bw_list_dashicons());
 			$dashicon = bw_array_get( $dashicons, $icon, null );
@@ -35,34 +39,34 @@ function bw_dash_enqueue_font( $icon, $atts ) {
 				} else {
 				 // No need to load a font for this? OR do we default to dashicons anyway?
 					// Or do we load up our special one which contains the definition of the extras
-					// 
+					//
 					$texticons = bw_assoc( bw_list_texticons() );
 					$texticon = bw_array_get( $texticons, $icon, null );
 					if ( $texticon ) {
 						$font = "texticons";
 					}
-				} 	 
+				}
 			} else {
-				$font = "dashicons"; 
+				$font = "dashicons";
 			}
 		} else {
 			$font = "svg";
-		}	
+		}
   }
   switch ( $font ) {
 		case "svg":
 			$font = null;
 			$font_class = "svg";
 			break;
-			
+
     case "genericons" :
       wp_register_style( 'genericons', oik_url( 'css/genericons/genericons.css' ), false );
       $font_class = "genericon";
       break;
-      
+
     default:
       $font_class = $font;
-  }    
+  }
   if ( $font ) {
     $enqueued = wp_style_is( $font, "enqueued" );
     if ( !$enqueued ) {
@@ -70,9 +74,9 @@ function bw_dash_enqueue_font( $icon, $atts ) {
     }
   }
   return( $font_class );
-}  
+}
 
-                                        
+
 /**
  * Implement [bw_dash] shortcode
  *
@@ -81,7 +85,7 @@ function bw_dash_enqueue_font( $icon, $atts ) {
  *
  * Originally the code created a div, now it creates a span
  * This makes it easier to use dashicons inline.
- * 
+ *
  * @param array $atts - shortcode parameters
  * @param string $content - not (really) expected
  * @param string $tag - shortcode tag
@@ -92,15 +96,18 @@ function bw_dash( $atts=null, $content=null, $tag=null ) {
 	$icons = bw_array_get_from( $atts, "icon,0", "menu" );
 	$icons = bw_as_array( $icons );
 	$class = bw_array_get_from( $atts, "class,1", null );
-	$icon = bw_array_get( $icons, 0, null ); 
-	
-	oik_require( "shortcodes/oik-dash-svg-list.php", "oik-bob-bing-wide" );
-	$svgicons = bw_dash_list_svg_icons();
+	$icon = bw_array_get( $icons, 0, null );
+
+	// Assume we're using SVG icons rather than dashicons.
+	oik_require_lib( 'class-oik-svg-icons');
+	$svgicons = new OIK_SVG_icons();
 	$font_class = bw_dash_enqueue_font( $icon, $atts );
 	if ( $font_class === "svg" ) {
 		foreach ( $icons as $icon ) {
-			$dpath = bw_array_get( $svgicons, $icon, null );
-			bw_dash_svg_icon( $icon, $font_class, $class, $dpath );
+			//$dpath = bw_array_get( $svgicons, $icon, null );
+			//bw_dash_svg_icon( $icon, $font_class, $class, $dpath );
+			$dash = $svgicons->get_icon( $icon, $class );
+			e( $dash );
 		}
 	} else {
 
@@ -116,7 +123,7 @@ function bw_dash( $atts=null, $content=null, $tag=null ) {
 				e( bw_do_shortcode( $content ) );
 			}
 			//epan();
-			epan(); 
+			epan();
 		}
 	}
   return( bw_ret() );
@@ -127,9 +134,9 @@ function bw_dash( $atts=null, $content=null, $tag=null ) {
  * Duplicates what's done in the new editor
  *
  * `
- * <svg aria-hidden 
-				role="img" 
-				focusable="false" 
+ * <svg aria-hidden
+				role="img"
+				focusable="false"
 				className={ className }
 				xmlns="http://www.w3.org/2000/svg"
 				width={ size }
@@ -139,13 +146,14 @@ function bw_dash( $atts=null, $content=null, $tag=null ) {
 				<path d={ path } />
 			</svg>
  * `
- * 
+ *
  * @param string $icon Icon name - e.g. button
  * @param string $font_class SVG
  * @param string $class Additional CSS class - can be used to override width, height and viewBox
  * @param string $dpath - All the SVG stuff
  */
 function bw_dash_svg_icon( $icon, $font_class, $class, $dpath ) {
+	gob();
 	$svg = null;
 	$svg .= kv( "role", 'img' );
 	$svg .= kv( "focusable", "false" );
@@ -154,8 +162,8 @@ function bw_dash_svg_icon( $icon, $font_class, $class, $dpath ) {
 	$svg .= kv( "width", 24 );
 	$svg .= kv( "height", 24 );
 	$svg .= kv( "viewBox", "0 0 24 24" );
-	
-	stag( "svg aria-hidden", "$font_class $class", null, $svg );
+
+	stag( "svg aria-hidden", "$icon $font_class $class", null, $svg );
 	if ( '<' === $dpath[0] ) {
 		bw_dash_svg_icon_raw( $dpath );
 	} else {
@@ -178,11 +186,11 @@ function bw_dash_svg_icon_raw( $dpath ) {
 
 /**
  * Produce a list of the possible dashicons in the dashicons.css file
- * 
+ *
  * Icon list copied on 2014/06/21
- * OR we could parse the values from 
+ * OR we could parse the values from
  * wp-includes/css/dashicons.css
- * 
+ *
  * @link https://github.com/melchoyce/dashicons/blob/master/index.html
  *
  * List updated from WordPress 4.1 version of dashicons.css
@@ -190,9 +198,9 @@ function bw_dash_svg_icon_raw( $dpath ) {
  * - Added the 20 icons mentioned in post 4.1 blogs
  * - Added some others added between 3.9 and 4.1
  * - Added - quite a few I'd previously omitted for no good reason
- * 
+ *
  * List updated again for WordPress 4.7
- * 
+ *
  * @return array - array of dashicon class names excluding the "dashicons-" prefix
  */
 function bw_list_dashicons() {
@@ -235,7 +243,7 @@ function bw_list_dashicons() {
  $di[] = 'admin-home';
  $di[] = 'admin-generic';
  $di[] = 'admin-collapse';
- 
+
  /*
 			<!-- welcome screen -->
 			<div data-code="f119" class="dashicons dashicons-welcome-write-blog"></div>
@@ -245,14 +253,14 @@ function bw_list_dashicons() {
 			<div data-code="f116" class="dashicons dashicons-welcome-widgets-menus"></div>
 			<div data-code="f117" class="dashicons dashicons-welcome-comments"></div>
 			<div data-code="f118" class="dashicons dashicons-welcome-learn-more"></div>
- */     
+ */
  $di[] = 'welcome-write-blog';
  $di[] = 'welcome-add-page';
  $di[] = 'welcome-view-site';
  $di[] = 'welcome-widgets-menus';
  $di[] = 'welcome-comments';
  $di[] = 'welcome-learn-more';
- 
+
  /*
 			<!-- post formats -->
 			<!--<div data-code="f109" class="dashicons dashicons-format-standard"></div> Duplicate -->
@@ -286,7 +294,7 @@ function bw_list_dashicons() {
  $di[] = 'video-alt';
  $di[] = 'video-alt2';
  $di[] = 'video-alt3';
- 
+
  /*
 			<!-- media -->
 			<div data-code="f501" class="dashicons dashicons-media-archive"></div>
@@ -300,7 +308,7 @@ function bw_list_dashicons() {
 			<div data-code="f490" class="dashicons dashicons-media-video"></div>
 			<div data-code="f492" class="dashicons dashicons-playlist-audio"></div>
 			<div data-code="f493" class="dashicons dashicons-playlist-video"></div>
- */     
+ */
  $di[] = 'media-archive';
  $di[] = 'media-audio';
  $di[] = 'media-code';
@@ -321,7 +329,7 @@ function bw_list_dashicons() {
 			<div data-code="f169" class="dashicons dashicons-image-flip-horizontal"></div>
 			<div data-code="f171" class="dashicons dashicons-undo"></div>
 			<div data-code="f172" class="dashicons dashicons-redo"></div>
- */     
+ */
  $di[] = 'image-crop';
  $di[] = 'image-rotate-left';
  $di[] = 'image-rotate-right';
@@ -329,7 +337,7 @@ function bw_list_dashicons() {
  $di[] = 'image-flip-horizontal';
  $di[] = 'undo';
  $di[] = 'redo';
- 
+
  /*
 
 			<!-- tinymce -->
@@ -365,7 +373,7 @@ function bw_list_dashicons() {
 			<div data-code="f475" class="dashicons dashicons-editor-code"></div>
 			<div data-code="f476" class="dashicons dashicons-editor-paragraph"></div>
    */
-   
+
  $di[] = 'editor-bold';
  $di[] = 'editor-italic';
  $di[] = 'editor-ul';
@@ -397,7 +405,7 @@ function bw_list_dashicons() {
  $di[] = 'editor-break';
  $di[] = 'editor-code';
  $di[] = 'editor-paragraph';
-  /* 
+  /*
 
 			<!-- posts -->
 			<div data-code="f135" class="dashicons dashicons-align-left"></div>
@@ -444,7 +452,7 @@ function bw_list_dashicons() {
 			<div data-code="f163" class="dashicons dashicons-list-view"></div>
 			<div data-code="f164" class="dashicons dashicons-exerpt-view"></div>
    */
-   
+
  $di[] = 'external';
  $di[] = 'arrow-up';
  $di[] = 'arrow-down';
@@ -464,8 +472,8 @@ function bw_list_dashicons() {
  $di[] = 'list-view';
  $di[] = 'exerpt-view';  // sic	- not been fixed yet
  $di[] = 'grid-view';
-  
-   
+
+
    /*
 			<!-- social -->
 			<div data-code="f237" class="dashicons dashicons-share"></div>
@@ -492,7 +500,7 @@ function bw_list_dashicons() {
   $di[] = 'facebook-alt';
   $di[] = 'googleplus';
   $di[] = 'networking';
-  
+
   /*
 			<!-- WPorg specific icons: Jobs, Profiles, WordCamps -->
 			<div data-code="f308" class="dashicons dashicons-hammer"></div>
@@ -659,7 +667,7 @@ function bw_list_dashicons() {
   $di[] = 'tablet';
   $di[] = 'smartphone';
   $di[] = 'smiley';
-  
+
 
   // New in WordPress 4.1
   $di[] = "controls-play";
@@ -670,7 +678,7 @@ function bw_list_dashicons() {
   $di[] = "controls-skipback";
   $di[] = "controls-repeat";
   $di[] = "controls-volumeon";
-  $di[] = "controls-volumeoff"; 
+  $di[] = "controls-volumeoff";
   $di[] = "align-left";
   $di[] = "align-right";
   $di[] = "align-center";
@@ -682,7 +690,7 @@ function bw_list_dashicons() {
   $di[] = "palmtree";
   $di[] = "tickets-alt";
   $di[] = "money";
-  
+
   $di[] = 'index-card';
   $di[] = 'carrot';
 
@@ -705,7 +713,7 @@ function bw_list_dashicons() {
 	$di[] = "thumbs-down";
 	$di[] = "layout";
 	$di[] = "paperclip";
-	
+
 	// New in WordPress 4.x	 - NO, this is an SVG icon...
 	//$di[] = "button";
 
@@ -713,10 +721,10 @@ function bw_list_dashicons() {
 
 }
 
-/** 
+/**
  * Return a list of texticons which are normal characters
  * but displayed using dashicons logic
- * 
+ *
  */
 function bw_list_texticons() {
   $ti = array();
@@ -738,24 +746,28 @@ function bw_list_texticons() {
  * @return array names for SVG icons
  */
 function bw_list_svgicons() {
-	oik_require( "shortcodes/oik-dash-svg-list.php", "oik-bob-bing-wide" );
-	$svgicons =	bw_dash_list_svg_icons();
-	return $svgicons;
+	oik_require_lib( 'class-oik-svg-icons' );
+	$svg_icons = new OIK_svg_icons();
+	$svgicons = $svg_icons->get_icons();
+	$icons = array_keys( $svgicons );
+	asort( $icons );
+	return $icons;
 }
 
-  
+
 
 
 function bw_dash__help( $shortcode="bw_dash" ) {
   return( "Display a dash icon" );
-} 
+}
 
 /**
  * Syntax hook for [bw_dash] shortcode
- * 
- * @TODO Add SVG icons 
+ *
+ * @TODO Add SVG icons
  */
 function bw_dash__syntax( $shortcode="bw_dash" ) {
+	/*
   $icons = bw_list_dashicons();
   array_shift( $icons );
   $values = implode( '|', $icons );
@@ -765,9 +777,15 @@ function bw_dash__syntax( $shortcode="bw_dash" ) {
   $values .= implode( '|', $icons );
   $icons = bw_list_texticons();
   $values .= "|" ;
-	$values = implode( '|', $icons );
-  $syntax = array( bw_skv( null, "text", "Dash icon to display"  )
-                 , "icon,0" => bw_skv( "menu", $values, "Dash icon to display"  )
+	$values .= implode( '|', $icons );
+	$svg_icons = bw_list_svgicons();
+	$values .= implode( '|', $svg_icons );
+	*/
+	$values = '<i>any SVG icon</i>| <i>any dashicon</i>| <i>any genericon</i> | <i>any texticon</i>';
+	//$icons = bw_list_texticons();
+	//$values .= "|" ;
+	//$values .= implode( ' |', $icons );
+  $syntax = array( "icon,0" => bw_skv( "menu", $values, "Dash icon to display"  )
                  , "class,1" => bw_skv( null, "<i>classnames</i>", "CSS classes" )
                  );
   return( $syntax );
@@ -776,37 +794,35 @@ function bw_dash__syntax( $shortcode="bw_dash" ) {
 /**
  * Example hook for [bw_dash] shortcode
  *
- * @TODO Add SVG icons
- * 
- */ 
+ */
 function bw_dash__example( $shortcode="bw_dash" ) {
   $icons = bw_list_dashicons();
   $class = null;
-  
+
   wp_enqueue_style( 'dashicons' );
   asort( $icons );
-  
+
   h3( "font=dashicons" );
-  
+
   foreach ( $icons as $icon ) {
-    sdiv( "inline" ); 
+    sdiv( "inline" );
     span( "dashicons dashicons-$icon $class", null, kv( "text", $icon) );
     epan();
     e( $icon );
     ediv();
-    
+
   }
   bw_genericons_example();
   bw_texticons_example();
-	bw_svgicons_example();
+  bw_svgicons_example();
 }
 
 /**
  * Display all the genericons that are available.
- * 
+ *
  * Note: There will be duplicates with dashicons
- * 
- * 
+ *
+ *
  */
 function bw_genericons_example() {
   oik_require( "shortcodes/oik-gener.php", "oik-bob-bing-wide" );
@@ -819,20 +835,21 @@ function bw_genericons_example() {
   asort( $icons );
   h3( "font=genericons" );
   foreach ( $icons as $icon ) {
-    sdiv( "inline" ); 
+    sdiv( "inline" );
     span( "genericon genericon-$icon $class", null, kv( "text", $icon) );
     epan();
     e( $icon );
     ediv();
-  } 
+  }
 }
 
- 
+
 /**
  * Display all the texticons that are available.
- * 
+ *
  * Note: There may be duplicates with dashicons
- * 
+ * Note: The CSS for texticons is defined in oik.css
+ *
  */
 function bw_texticons_example() {
   $icons = bw_list_texticons();
@@ -840,13 +857,13 @@ function bw_texticons_example() {
   asort( $icons );
   h3( "font=texticons" );
   foreach ( $icons as $icon ) {
-    sdiv( "inline" ); 
+    sdiv( "inline" );
     span( "texticons texticons-$icon $class", null, kv( "text", $icon) );
     epan();
     e( " " );
     e( $icon );
     ediv();
-  } 
+  }
 }
 
 /**
@@ -854,7 +871,7 @@ function bw_texticons_example() {
  *
  * @param array $icons - array of icons
  * @param array $atts - shortcode parameters
- * @return string - the registered font class - may be texticon 
+ * @return string - the registered font class - may be texticon
  */
 function bw_dash_enqueue_fonts( $icons, $atts ) {
 	$font_class =null;
@@ -866,20 +883,19 @@ function bw_dash_enqueue_fonts( $icons, $atts ) {
 
 /**
  * Examples of SVG icons
- */ 
+ */
 function bw_svgicons_example() {
-	$svgicons = bw_list_svgicons();
+	oik_require_lib( 'class-oik-svg-icons' );
+	$svg_icons = new OIK_svg_icons();
+	$svgicons = $svg_icons->get_icons();
+	ksort( $svgicons );
 	h3( "SVG icons" );
 	foreach ( $svgicons as $icon => $dpath ) {
-    sdiv( "inline" ); 
-		bw_dash_svg_icon( $icon, "svg", "", $dpath ); 
-    e( " " );
-    e( $icon );
-    ediv();
+    	sdiv( "inline" );
+		//bw_dash_svg_icon( $icon, "svg", "", $dpath );
+		$svg_icons->svg_icon( $icon, 'svg', '', $dpath );
+    	e( " " );
+    	e( $icon );
+    	ediv();
 	}
 }
-	 
-
-
-
-
