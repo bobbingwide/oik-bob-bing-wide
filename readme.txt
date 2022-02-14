@@ -3,8 +3,8 @@ Contributors: bobbingwide
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: blocks, shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github, [bw_archive]
 Requires at least: 5.0
-Tested up to: 5.8.1
-Stable tag: 2.1.1
+Tested up to: 5.9
+Stable tag: 2.2.0
 Gutenberg compatible: Yes
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -118,6 +118,9 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"]
 
 == Upgrade Notice ==
+= 2.2.0 = 
+Upgrade for dashicons delivered as inline SVGs.
+
 = 2.1.1 = 
 Update to avoid Warnings from the [guts] shortcode.
 
@@ -228,6 +231,13 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 == Changelog ==
+= 2.2.0 = 
+* Changed: Change logic to use OIK_SVG_icons #46
+* Changed: Add get_icons() method . Prefix class for icon with svg_ #46
+* Changed: Add shared library for class OIK_SVG_icons #46
+* Tested: With WordPress 5.9 and WordPress Multi Site
+* Tested: With PHP 8.0
+
 = 2.1.1 =
 * Fixed: Avoid warnings from the [guts] shortcode #45 
 * Tested: With Gutenberg 11.6.0
