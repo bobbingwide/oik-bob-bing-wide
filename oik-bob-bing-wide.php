@@ -3,7 +3,7 @@
 Plugin Name: oik bob bing wide shortcodes
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-plugin
 Description: More lazy smart shortcodes: bw_csv, bw_plug, bw_page, bw_post, oik and loik, wp, wpms, bp, artisteer, drupal, bw_search, bw_dash, bw_rpt, bw_graphviz, bw_option, github, bw_archive
-Version: 2.2.0
+Version: 2.2.1
 Author: bobbingwide
 Author URI: https://www.bobbingwide.com/about-bobbing-wide
 Text Domain: oik-bob-bing-wide
@@ -349,11 +349,11 @@ function oik_bob_bing_wide_dynamic_block_csv( $attributes ) {
 		}
 		do_action( "oik_add_shortcodes");
 		$content = bw_array_get( $attributes, "content", null );
-		bw_trace2( $content, "Content" );
+		bw_trace2( $content, "Content", true, BW_TRACE_VERBOSE );
 		//oik_require( "shortcodes/oik-csv.php", "oik-bob-bing-wide" );
 		$html = bw_csv( $attributes, $content );
 		$html = oik_bob_bing_wide_server_side_wrapper( $attributes, $html );
-		bw_trace2( $html, "html", false );
+		bw_trace2( $html, "html", false, BW_TRACE_VERBOSE );
 	}
 	return $html;
 }
@@ -361,21 +361,23 @@ function oik_bob_bing_wide_dynamic_block_csv( $attributes ) {
 /**
  * Implements wrapper for Server Side Rendered blocks.
  *
+ * Here we have to specifically add `has-text-align-something`
+ * to the classes in order to support left, center or right alignment.
+ *
  * @param $attributes
  * @param $html
  * @return string
  */
 function oik_bob_bing_wide_server_side_wrapper( $attributes, $html ) {
 	$align_class_name=empty( $attributes['textAlign'] ) ? '' : "has-text-align-{$attributes['textAlign']}";
+	$align_class_name .= empty( $attributes['align'] ) ? '' : " has-text-align-{$attributes['align']}";
 	$extra_attributes  =[ 'class'=>$align_class_name ];
 	$wrapper_attributes = get_block_wrapper_attributes( $extra_attributes );
-
 	$html=sprintf(
 		'<div %1$s>%2$s</div>',
 		$wrapper_attributes,
 		$html
 	);
-
 	return $html;
 }
 
@@ -401,28 +403,8 @@ function oik_bob_bing_wide_dynamic_block_wp( $attributes ) {
 	$html=\oik\oik_blocks\oik_blocks_check_server_func( "shortcodes/oik-guts.php", "oik-bob-bing-wide", "oik_block_guts" );
 	if ( ! $html ) {
 		$html = oik_block_guts( $attributes, null, null );
-		$html = oik_bob_bing_wide_wrap_wp( $html );
-
+		$html = oik_bob_bing_wide_server_side_wrapper( $attributes, $html );
 	}
-	return $html;
-}
-
-/**
- * Wraps the output using the block's attributes.
- *
- * @param $html
- * @return mixed
- */
-function oik_bob_bing_wide_wrap_wp( $text ) {
-	// get_block_wrapper_attributes needs to know what the block supports
-	// It doesn't need to know about the $atts
-	$extra_attributes = [];
-	$wrapper_attributes=get_block_wrapper_attributes( $extra_attributes );
-	$html = sprintf(
-		'<div %1$s>%2$s</div>',
-		$wrapper_attributes,
-		$text
-	);
 	return $html;
 }
 

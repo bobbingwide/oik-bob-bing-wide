@@ -1,5 +1,7 @@
 {
   "apiVersion": 2,
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+
   "name": "oik-bbw/wp",
   "title": "WordPress info",
   "category": "widgets",
@@ -19,6 +21,9 @@
     "g": {
       "type": "boolean"
     },
+	"align": {
+	  "type": "string"
+	},
     "textAlign": {
       "type": "string"
     },
@@ -43,6 +48,8 @@
   },
   "supports": {
     "html": false,
+	"align": ["left","center","right"],
+	"alignWide": false,
     "color": {
       "gradients": true,
       "text": true,
