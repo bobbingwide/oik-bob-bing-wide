@@ -1,0 +1,64 @@
+{
+  "apiVersion": 2,
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+
+  "name": "oik-bbw/wp",
+  "title": "WordPress info",
+  "category": "widgets",
+  "icon": "wordpress",
+  "description": "Displays information about WordPress, Gutenberg, PHP version and Memory limit",
+  "keywords": [ "WordPress", "version", "PHP", "Gutenberg", "memory" ],
+  "attributes": {
+    "v": {
+      "type": "boolean"
+    },
+    "p": {
+      "type": "boolean"
+    },
+    "m": {
+      "type": "boolean"
+    },
+    "g": {
+      "type": "boolean"
+    },
+	"align": {
+	  "type": "string"
+	},
+    "textAlign": {
+      "type": "string"
+    },
+    "className": {
+      "type": "string"
+    },
+    "textColor": {
+	  "type": "string"
+	},
+	"backgroundColor": {
+	  "type": "string"
+	},
+	"style": {
+      "type": "object"
+    },
+    "fontSize": {
+      "type": "string"
+    },
+	"gradient": {
+	  "type": "string"
+	}
+  },
+  "supports": {
+    "html": false,
+	"align": ["left","center","right"],
+	"alignWide": false,
+    "color": {
+      "gradients": true,
+      "text": true,
+      "background": true,
+      "link": false
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
+  }
+}

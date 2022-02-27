@@ -1,0 +1,62 @@
+{
+  "apiVersion": 2,
+  "name": "oik-bbw/github",
+  "title": "GitHub issue",
+  "category": "common",
+  "icon": "wordpress-alt",
+  "description": "'Display a link to a GitHub issue'",
+  "attributes": {
+	"shortcode": {
+	  "type": "string",
+	  "default": "github"
+	},
+	"owner": {
+	  "type": "string",
+	  "default": "wordpress"
+	},
+	"repo": {
+	  "type": "string",
+	  "default": "gutenberg"
+	},
+	  "issue": {
+		"type": "string"
+	  },
+	"textAlign": {
+	  "type": "string"
+	},
+	"className": {
+	  "type": "string"
+	},
+	"textColor": {
+	  "type": "string"
+	},
+	"backgroundColor": {
+	  "type": "string"
+	},
+	"style": {
+	  "type": "object"
+	},
+	"fontSize": {
+	  "type": "string"
+	},
+	"gradient": {
+	  "type": "string"
+	}
+  },
+  "supports": {
+	"html": false,
+	"customClassName": true,
+	"className": true,
+	"color": {
+	  "gradients": true,
+	  "text": true,
+	  "background": true,
+	  "link": true
+	},
+	"typography": {
+	  "fontSize": true,
+	  "lineHeight": true
+	}
+  },
+  "keywords": [ "GitHub", "issue", "link", "oik" ]
+}

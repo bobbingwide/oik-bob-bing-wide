@@ -1,0 +1,51 @@
+{
+  "apiVersion": 2,
+  "name": "oik-bbw/dashicon",
+  "title": "Dashicon",
+  "category": "widgets",
+  "icon": "heart",
+  "description": "Displays icons",
+  "attributes": {
+	"dashicon": {
+	  "type": "string",
+	  "default": "heart"
+	},
+	"textAlign": {
+	  "type": "string"
+	},
+	"className": {
+	  "type": "string"
+	},
+	"textColor": {
+	  "type": "string"
+	},
+	"backgroundColor": {
+	  "type": "string"
+	},
+	"style": {
+	  "type": "object"
+	},
+	"fontSize": {
+	  "type": "string"
+	},
+	"gradient": {
+	  "type": "string"
+	}
+  },
+  "supports": {
+	"html": false,
+	"customClassName": true,
+	"className": true,
+	"color": {
+	  "gradients": false,
+	  "text": true,
+	  "background": false,
+	  "link": false
+	},
+	"typography": {
+	  "fontSize": true,
+	  "lineHeight": false
+	}
+  },
+  "keywords": [ "icon", "dash", "oik" ]
+}

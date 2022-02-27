@@ -1,0 +1,47 @@
+{
+  "apiVersion": 2,
+  "name": "oik-bbw/search",
+  "title": "Search",
+  "category": "widgets",
+  "icon": "search",
+  "description": "Displays a Search form",
+  "attributes": {
+	"textAlign": {
+	  "type": "string"
+	},
+	"className": {
+	  "type": "string"
+	},
+	"textColor": {
+	  "type": "string"
+	},
+	"backgroundColor": {
+	  "type": "string"
+	},
+	"style": {
+	  "type": "object"
+	},
+	"fontSize": {
+	  "type": "string"
+	},
+	"gradient": {
+	  "type": "string"
+	}
+  },
+  "supports": {
+	"html": false,
+	"customClassName": false,
+	"className": false,
+	"color": {
+	  "gradients": false,
+	  "text": false,
+	  "background": false,
+	  "link": false
+	},
+	"typography": {
+	  "fontSize": false,
+	  "lineHeight": false
+	}
+  },
+  "keywords": [ "Search", "find", "oik" ]
+}

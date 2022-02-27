@@ -3,11 +3,11 @@
 	"version": "2.1.0",
 	"description": "More blocks and lazy smart shortcodes for the WordPress block editor.",
 	"author": "bobbingwide",
-  	"license": "GPL-2.0-or-later",
-  	"repository": {
+	"license": "GPL-2.0-or-later",
+	"repository": {
 		"type": "git",
 		"url": "git://github.com/bobbingwide/oik-bob-bing-wide.git"
-  	},
+	},
 	"main": "build/index.js",
 	"scripts": {
 		"build": "wp-scripts build",
@@ -22,12 +22,12 @@
 		"l10n": "l10n oik-bob-bing-wide"
 	},
 	"dependencies": {
-		"@wordpress/block-editor": "^5.3.3",
-		"@wordpress/blocks": "^8.0.3",
-		"@wordpress/i18n": "^3.20.0",
-		"postcss": "^8.3.6"
+		"@wordpress/block-editor": "^8.2.0",
+		"@wordpress/blocks": "^11.2.2",
+		"@wordpress/i18n": "^4.3.1",
+		"postcss": "^8.4.7"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^15.0.1"
+		"@wordpress/scripts": "^22.0.1"
 	}
 }
