@@ -1,7 +1,7 @@
 /*
  * Dashicons Select list
  *
- * @copyright (C) Copyright Bobbing Wide 2019
+ * @copyright (C) Copyright Bobbing Wide 2019-2022
  * @author Herb Miller @bobbingwide
  *
  * We want a big list of icons from which the user can choose one to have displayed in the Dashicon block.
@@ -14,8 +14,8 @@
  *
  */
 
-const { Component }  = wp.element;
-const { Dashicon } = wp.components;
+import { Component }  from '@wordpress/element';
+import { Dashicon, Icon } from '@wordpress/components';
 
 import { dashiconslist } from './dashiconlist.js';
 
@@ -26,22 +26,24 @@ import { dashiconslist } from './dashiconlist.js';
  * Assume we can do this in a standard select list
  */
 
-
-
 class DashiconsSelect extends Component {
 
     render() {
         return(
                     <ul>
-                        { dashiconslist.map ( ( icon ) => this.renderDashicon( icon ) )}
+                        { dashiconslist.map ( ( icon ) => this.renderIcon( icon ) )}
                     </ul>
         );
     }
     renderDashicon( icon ) {
                     return( <li key={icon}><Dashicon icon={icon} /> {icon} </li> );
     }
+
+    renderIcon( icon) {
+    	var key = icon && icon.name ? icon.name : icon;
+    	var iconValue = icon && icon.icon ? <Icon icon={icon.icon} /> : <Icon icon={icon} />
+		return( <li key={key}>{iconValue}{key} </li> );
+	}
+
 }
 export { DashiconsSelect };
-
-
-
