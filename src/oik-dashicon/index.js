@@ -7,7 +7,7 @@
 import './style.scss';
 import './editor.scss';
 import { transforms } from './transforms.js';
-import { SVGSelectControl} from './SVGSelect';
+import { SVGSelectControl, SVGComboboxControl, SVGCustomSelectControl } from './SVGSelect';
 
 import { DashiconsSelect } from './dashicons.js';
 import { dashiconslist } from './dashiconlist.js';
@@ -55,6 +55,11 @@ export default registerBlockType(
                 props.setAttributes( { dashicon: event } );
             };
 
+            const onChangeSelectedItem = ( selectedItem ) => {
+            	console.log( selectedItem );
+            	onChangeDashicon( selectedItem.key );
+			}
+
             const getIconortext = ( dashicon ) => {
             	if ( dashiconslist.includes( dashicon ) ) {
             		var icon = dashicon;
@@ -80,19 +85,32 @@ export default registerBlockType(
                 <Fragment>
                 <InspectorControls >
                     <PanelBody>
-                        <PanelRow>
-                            <TextControl label={ __("Dashicon", 'oik-bob-bing-wide' ) }
-                                         value={ props.attributes.dashicon }
-                                         onChange={ onChangeDashicon }
-                            />
-                        </PanelRow>
+						{false &&
 						<PanelRow>
-						<SVGSelectControl value={ props.attributes.dashicon} onChange={onChangeDashicon} />
+							<TextControl label={__("Dashicon", 'oik-bob-bing-wide')}
+										 value={props.attributes.dashicon}
+										 onChange={onChangeDashicon}
+							/>
+						</PanelRow>
+						}
+						{false &&
+							<PanelRow>
+							<SVGSelectControl value={props.attributes.dashicon} onChange={onChangeDashicon} />
+							</PanelRow>
+						}
+						<PanelRow>
+							<SVGComboboxControl value={ props.attributes.dashicon} onChange={onChangeDashicon} />
 						</PanelRow>
 
-                        <PanelRow>
-                            <DashiconsSelect />
-                        </PanelRow>
+						<PanelRow>
+							<SVGCustomSelectControl value={ props.attributes.dashicon} setAttributes={ setAttributes }   />
+						</PanelRow>
+
+						{false &&
+						<PanelRow>
+							<DashiconsSelect/>
+						</PanelRow>
+						}
 
 
 
