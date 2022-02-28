@@ -31,7 +31,7 @@ class DashiconsSelect extends Component {
     render() {
         return(
                     <ul>
-                        { dashiconslist.map ( ( icon ) => this.renderIcon( icon ) )}
+                        { dashiconslist.map( ( icon ) => this.renderIcon( icon ) )}
                     </ul>
         );
     }
@@ -46,4 +46,5 @@ class DashiconsSelect extends Component {
 	}
 
 }
+
 export { DashiconsSelect };

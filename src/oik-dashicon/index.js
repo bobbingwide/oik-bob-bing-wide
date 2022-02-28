@@ -7,6 +7,7 @@
 import './style.scss';
 import './editor.scss';
 import { transforms } from './transforms.js';
+import { SVGSelectControl} from './SVGSelect';
 
 import { DashiconsSelect } from './dashicons.js';
 import { dashiconslist } from './dashiconlist.js';
@@ -85,10 +86,15 @@ export default registerBlockType(
                                          onChange={ onChangeDashicon }
                             />
                         </PanelRow>
+						<PanelRow>
+						<SVGSelectControl value={ props.attributes.dashicon} onChange={onChangeDashicon} />
+						</PanelRow>
 
                         <PanelRow>
                             <DashiconsSelect />
                         </PanelRow>
+
+
 
 
                     </PanelBody>
@@ -106,6 +112,7 @@ export default registerBlockType(
 
 		deprecated: [
 			{
+
 				attributes : {
 					dashicon: {
 						type: 'string',
@@ -116,6 +123,8 @@ export default registerBlockType(
 						default: 'wp-block-oik-bbw-dashicon'
 					}
 				},
+
+
 				//isEligible: ( {dashicon }) => true,
 				save: props => {
 					const blockProps = useBlockProps.save();
