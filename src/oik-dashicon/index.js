@@ -9,7 +9,7 @@ import './editor.scss';
 import { transforms } from './transforms.js';
 
 import { DashiconsSelect } from './dashicons.js';
-//import { BlockiconsSelect } from './blockicons.js';
+import { dashiconslist } from './dashiconlist.js';
 import {__} from "@wordpress/i18n";
 
 import classnames from 'classnames';
@@ -17,6 +17,7 @@ import { registerBlockType } from '@wordpress/blocks';
 
 import {
 	Dashicon,
+	Icon,
 	Toolbar,
 	PanelBody,
 	PanelRow,
@@ -53,6 +54,26 @@ export default registerBlockType(
                 props.setAttributes( { dashicon: event } );
             };
 
+            const getIconortext = ( dashicon ) => {
+            	if ( dashiconslist.includes( dashicon ) ) {
+            		var icon = dashicon;
+            		icon = <Icon icon={icon} />;
+				} else {
+            		var icon = dashiconslist.find( element => element.name === dashicon );
+            		icon = ( icon && icon.icon ) ? <Icon icon={icon.icon}/> : '';
+				}
+            	console.log( icon );
+            	return icon;
+			}
+
+            var icon = getIconortext(attributes.dashicon );
+
+
+			//	renderIcon( icon) {
+			//	var key = icon && icon.name ? icon.name : icon;
+			//	var iconValue = icon && icon.icon ? icon.icon.props : icon;
+			//	return( <li key={key}><Icon icon={iconValue} /> {key} </li> );
+			//  }
 
             return (
                 <Fragment>
@@ -75,21 +96,41 @@ export default registerBlockType(
                 </InspectorControls>
 
 				<div {...blockProps} >
-                <Dashicon icon={ props.attributes.dashicon} />
+					{ icon }
 				</div>
 
                 </Fragment>
 
             );
         },
-        save: props => {
-        	const blockProps = useBlockProps.save();
-            return(
-				<div {...blockProps} >
-                <Dashicon icon={props.attributes.dashicon} />
-				</div>
 
-            );
-        },
+		deprecated: [
+			{
+				attributes : {
+					dashicon: {
+						type: 'string',
+						default: 'heart'
+					},
+					className: {
+						type: 'string',
+						default: 'wp-block-oik-bbw-dashicon'
+					}
+				},
+				//isEligible: ( {dashicon }) => true,
+				save: props => {
+					const blockProps = useBlockProps.save();
+					return(
+						<div {...blockProps} >
+							<Dashicon icon={props.attributes.dashicon} />
+						</div>
+
+					);
+				},
+			}
+		],
+
+		save(  props  ) {
+			return null;
+		},
     },
 );
