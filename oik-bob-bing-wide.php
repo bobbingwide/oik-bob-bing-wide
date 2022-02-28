@@ -300,7 +300,9 @@ function oik_bob_bing_wide_register_dynamic_blocks() {
 	    $registered = register_block_type_from_metadata( __DIR__ . '/src/oik-wp', $args );
 
 		$registered = register_block_type_from_metadata( __DIR__ .'/src/github' );
-		$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-dashicon' );
+
+		$args = [ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_dashicon'];
+		$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-dashicon', $args );
 
 		/**
 		 * Localise the script by loading the required strings for the build/index.js file
@@ -403,6 +405,23 @@ function oik_bob_bing_wide_dynamic_block_wp( $attributes ) {
 	$html=\oik\oik_blocks\oik_blocks_check_server_func( "shortcodes/oik-guts.php", "oik-bob-bing-wide", "oik_block_guts" );
 	if ( ! $html ) {
 		$html = oik_block_guts( $attributes, null, null );
+		$html = oik_bob_bing_wide_server_side_wrapper( $attributes, $html );
+	}
+	return $html;
+}
+
+/**
+ * Renders the Dashicon block.
+ *
+ * Use the logic for the [bw_dash] shortcode rendering the SVG version of the dashicon.
+ *
+ * @param array $attributes v, m, p, g
+ */
+function oik_bob_bing_wide_dynamic_block_dashicon( $attributes ) {
+	$html=\oik\oik_blocks\oik_blocks_check_server_func( "shortcodes/oik-dash.php", "oik-bob-bing-wide", "bw_dash" );
+	if ( ! $html ) {
+		$attributes['icon'] = bw_array_get( $attributes, 'dashicon', 'heart');
+		$html = bw_dash( $attributes, null, null );
 		$html = oik_bob_bing_wide_server_side_wrapper( $attributes, $html );
 	}
 	return $html;
