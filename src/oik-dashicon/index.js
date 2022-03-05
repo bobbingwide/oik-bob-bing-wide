@@ -1,7 +1,7 @@
 /**
  * Implements the block equivalent of the [bw_dash] shortcode using the Dashicon component.
  *
- * @copyright (C) Copyright Bobbing Wide 2019-2021
+ * @copyright (C) Copyright Bobbing Wide 2019-2022
  * @author Herb Miller @bobbingwide
  */
 import './style.scss';
@@ -24,6 +24,7 @@ import {
 	PanelRow,
 	FormToggle,
 	TextControl,
+	RangeControl,
 	TextareaControl,
 	ToggleControl,
 	SelectControl } from '@wordpress/components';
@@ -60,13 +61,18 @@ export default registerBlockType(
             	onChangeDashicon( selectedItem.key );
 			}
 
+			const onChangeSize = ( event ) => {
+            	props.setAttributes( { size: event } );
+			}
+
             const getIconortext = ( dashicon ) => {
             	if ( dashiconslist.includes( dashicon ) ) {
             		var icon = dashicon;
-            		icon = <Icon icon={icon} />;
+            		const style = { fontSize: attributes.size };
+            		icon = <Icon icon={icon} size={ attributes.size} style={ style }/>;
 				} else {
             		var icon = dashiconslist.find( element => element.name === dashicon );
-            		icon = ( icon && icon.icon ) ? <Icon icon={icon.icon}/> : '';
+            		icon = ( icon && icon.icon ) ? <Icon icon={icon.icon} size={attributes.size }/> : '';
 				}
             	console.log( icon );
             	return icon;
@@ -111,6 +117,15 @@ export default registerBlockType(
 							<DashiconsSelect/>
 						</PanelRow>
 						}
+
+						<PanelRow>
+							<RangeControl label={__('Size', 'oik-bob-bing-wide')}
+										  value={props.attributes.Size} onChange={onChangeSize}
+										  allowReset initialPosition={ props.attributes.size.default }
+										  resetFallbackValue={24}
+										  withInputField={ true }
+										  min={2} max={250 } />
+					</PanelRow>
 
 
 

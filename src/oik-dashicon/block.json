@@ -30,6 +30,10 @@
 	},
 	"gradient": {
 	  "type": "string"
+	},
+	"size": {
+	  "type": "number",
+	  "default": 24
 	}
   },
   "supports": {
@@ -43,9 +47,10 @@
 	  "link": false
 	},
 	"typography": {
-	  "fontSize": true,
+	  "fontSize": false,
 	  "lineHeight": false
 	}
   },
-  "keywords": [ "icon", "dash", "oik", "SVG" ]
+  "keywords": [ "icon", "dash", "oik", "SVG" ],
+  "style": "file:../../build/style-index.css"
 }
