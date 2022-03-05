@@ -35,8 +35,9 @@ function bw_github( $atts=null, $content=null, $tag=null ) {
 	} else {
 		$class = "github";
 		//$text = bw_github_genericon( "github", $class );
-		$text = bw_github_svgicon( "github", $class);
-
+		// The GitHub icon is from the WordPress social links set. Now suffixed with -link.
+		$text = bw_github_svgicon( "github-link", $class);
+		$text .= ' ';
 		$github[] = $url;
 		if ( $owner ) {
 			$github[] = $owner;
