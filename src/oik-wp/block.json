@@ -60,5 +60,6 @@
       "fontSize": true,
       "lineHeight": true
     }
-  }
+  },
+  "style": "file:../../build/style-index.css"
 }
