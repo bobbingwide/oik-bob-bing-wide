@@ -1,5 +1,5 @@
 import { SelectControl, Icon, ComboboxControl, CustomSelectControl, Fragment } from '@wordpress/components';
-
+import { __ } from '@wordpress/i18n';
 
 import { dashiconslist } from './dashiconlist.js';
 
@@ -21,12 +21,12 @@ function renderCustom( icon ) {
 
 function SVGSelectControl( { value, onChange, ...props }) {
 	var SVGoptions = dashiconslist.map( ( icon ) => renderOption( icon ) );
-	return <SelectControl label="Icon" value={value} options={ SVGoptions } onChange={onChange }/>;
+	return <SelectControl label={__("Icon", 'oik-bob-bing-wide')} value={value} options={ SVGoptions } onChange={onChange }/>;
 }
 
 function SVGComboboxControl( { value, onChange, ...props } ) {
 	var SVGoptions = dashiconslist.map( ( icon ) => renderOption( icon ) );
-	return <ComboboxControl label="Icon" value={value} options={ SVGoptions } onChange={onChange }/>;
+	return <ComboboxControl label={__("Icon", 'oik-bob-bing-wide')}value={value} options={ SVGoptions } onChange={onChange }/>;
 }
 
 /**
@@ -51,11 +51,10 @@ function SVGCustomSelectControl( { value, setAttributes, ...props } ) {
 	//console.log( SVGoptions );
 	var selectedValue= SVGoptions.find(  (option ) => option.key === value ) ;
 
-	return <CustomSelectControl label="Icon" value={ selectedValue  } options={ SVGoptions }
+	return <CustomSelectControl label={__("Icon", 'oik-bob-bing-wide')} value={ selectedValue  } options={ SVGoptions }
 	onChange={ ( { selectedItem } ) => setAttributes( { dashicon: selectedItem.key } ) }/>;
 }
 
 
 
 export { SVGSelectControl, SVGComboboxControl, SVGCustomSelectControl };
-
