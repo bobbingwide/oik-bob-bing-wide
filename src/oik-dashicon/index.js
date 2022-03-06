@@ -117,20 +117,19 @@ export default registerBlockType(
 							<DashiconsSelect/>
 						</PanelRow>
 						}
-
+					</PanelBody>
+					<PanelBody>
 						<PanelRow>
-							<RangeControl label={__('Size', 'oik-bob-bing-wide')}
-										  value={props.attributes.Size} onChange={onChangeSize}
-										  allowReset initialPosition={ props.attributes.size.default }
+							<RangeControl label={__('Icon size (pixels)', 'oik-bob-bing-wide')}
+										  value={props.attributes.size}
+										  onChange={onChangeSize}
+										  allowReset
+										  initialPosition={ props.attributes.size }
 										  resetFallbackValue={24}
 										  withInputField={ true }
 										  min={2} max={250 } />
-					</PanelRow>
-
-
-
-
-                    </PanelBody>
+						</PanelRow>
+					</PanelBody>
 
                 </InspectorControls>
 

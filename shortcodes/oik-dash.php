@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2014-2021
+<?php // (C) Copyright Bobbing Wide 2014-2022
 
 /**
  * Enqueue the correct font for this icon
@@ -97,6 +97,7 @@ function bw_dash( $atts=null, $content=null, $tag=null ) {
 	$icons = bw_as_array( $icons );
 	$class = bw_array_get_from( $atts, "class,1", null );
 	$icon = bw_array_get( $icons, 0, null );
+	$size = bw_array_get( $atts, 'size', 24);
 
 	// Assume we're using SVG icons rather than dashicons.
 	oik_require_lib( 'class-oik-svg-icons');
@@ -106,7 +107,7 @@ function bw_dash( $atts=null, $content=null, $tag=null ) {
 		foreach ( $icons as $icon ) {
 			//$dpath = bw_array_get( $svgicons, $icon, null );
 			//bw_dash_svg_icon( $icon, $font_class, $class, $dpath );
-			$dash = $svgicons->get_icon( $icon, $class );
+			$dash = $svgicons->get_icon( $icon, $class, $size );
 			e( $dash );
 		}
 	} else {
