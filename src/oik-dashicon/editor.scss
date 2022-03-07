@@ -3,3 +3,10 @@
   width: auto;
   height: auto;
 }
+
+/** Style the custom select control. First bit styles the selected button. */
+.components-custom-select-control__button svg,
+.components-custom-select-control__menu li svg,
+{
+  max-height: 24px;
+}
