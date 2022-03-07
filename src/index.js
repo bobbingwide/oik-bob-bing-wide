@@ -1,10 +1,12 @@
 /**
+ * Redundant file. Replaced by webpack.config.js to build multiple entry points.
+ *
  * Imports oik-bob-bing-wide shortcode blocks
  *
  * Each block is in a separate folder.
  * The ../build directory is the target.
  *
- * @copyright (C) Copyright Bobbing Wide 2018, 2019, 2020, 2021
+ * @copyright (C) Copyright Bobbing Wide 2018, 2019, 2020, 2021, 2022
  * @author Herb Miller @bobbingwide
  */
 import './github';	         // From oik-bob-bing-wide

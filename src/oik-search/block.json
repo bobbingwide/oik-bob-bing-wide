@@ -1,5 +1,6 @@
 {
   "apiVersion": 2,
+  "$schema": "https://schemas.wp.org/trunk/block.json",
   "name": "oik-bbw/search",
   "title": "Search",
   "category": "widgets",
@@ -43,5 +44,6 @@
 	  "lineHeight": false
 	}
   },
-  "keywords": [ "Search", "find", "oik" ]
+  "keywords": [ "Search", "find", "oik" ],
+  "editorScript": "file:../../build/search.js"
 }
