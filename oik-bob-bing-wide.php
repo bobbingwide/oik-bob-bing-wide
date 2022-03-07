@@ -309,7 +309,33 @@ function oik_bob_bing_wide_register_dynamic_blocks() {
 		 * from the locale specific .json file in the languages folder.
 		 */
 		$ok = wp_set_script_translations( 'oik-bbw-csv-editor-script', 'oik-bob-bing-wide' , __DIR__ .'/languages' );
+		$ok = wp_set_script_translations( 'oik-bbw-search-editor-script', 'oik-bob-bing-wide' , __DIR__ .'/languages' );
+		$ok = wp_set_script_translations( 'oik-bbw-wp-editor-script', 'oik-bob-bing-wide' , __DIR__ .'/languages' );
+		$ok = wp_set_script_translations( 'oik-bbw-github-editor-script', 'oik-bob-bing-wide' , __DIR__ .'/languages' );
+		$ok = wp_set_script_translations( 'oik-bbw-dashicon-editor-script', 'oik-bob-bing-wide' , __DIR__ .'/languages' );
 		bw_trace2( $ok, "OK?");
+		add_filter( 'load_script_textdomain_relative_path', 'oik_bob_bing_wide_load_script_textdomain_relative_path', 10, 2 );
+	}
+
+	/**
+	 * Filters $relative so that md5's match what's expected.
+	 *
+	 * Depending on how it was built the `build/entry-point.js` may be preceded by `./` or `src/block-name/../../`.
+	 * In either of these situations we want the $relative value to be returned as `build/entry-point.js`.
+	 * This then produces the correct md5 value and the .json file is found.
+	 *
+	 * @param $relative
+	 * @param $src
+	 *
+	 * @return mixed
+	 */
+	function oik_bob_bing_wide_load_script_textdomain_relative_path( $relative, $src ) {
+		//bw_trace2();
+		if ( false !== strpos( $src, '/oik-bob-bing-wide/src/' )) {
+			$relative = 'build/' . basename( $relative );
+		}
+		//bw_trace2( $relative, "relative", false);
+		return $relative;
 
 	}
 }
