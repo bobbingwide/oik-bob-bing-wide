@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-03-06T09:01:34+00:00\n"
+"POT-Creation-Date: 2022-03-07T13:37:18+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 
@@ -184,121 +184,121 @@ msgstr ""
 msgid "Memory limit:"
 msgstr ""
 
-#: build/index.js:6861
-#: build/index.js:3344
-msgid "GitHub Issue"
-msgstr ""
-
-#: build/index.js:6913
-#: build/index.js:3398
-msgid "Owner"
-msgstr ""
-
-#: build/index.js:6918
-#: build/index.js:3404
-msgid "Repository"
-msgstr ""
-
-#: build/index.js:6923
-#: build/index.js:3411
-msgid "Issue"
-msgstr ""
-
-#: build/index.js:7186
-#: build/index.js:3603
+#: build/csv.js:142
+#: build/csv.js:98
 msgid "Table"
 msgstr ""
 
-#: build/index.js:7187
-#: build/index.js:3604
+#: build/csv.js:143
+#: build/csv.js:99
 msgid "Unordered list"
 msgstr ""
 
-#: build/index.js:7188
-#: build/index.js:3605
+#: build/csv.js:144
+#: build/csv.js:100
 msgid "Ordered list"
 msgstr ""
 
-#: build/index.js:7189
-#: build/index.js:3606
+#: build/csv.js:145
+#: build/csv.js:101
 msgid "Description list"
 msgstr ""
 
-#: build/index.js:7197
-#: build/index.js:3619
+#: build/csv.js:153
+#: build/csv.js:114
 msgid "Format"
 msgstr ""
 
-#: build/index.js:7202
-#: build/index.js:3624
+#: build/csv.js:158
+#: build/csv.js:119
 msgid "Format table heading"
 msgstr ""
 
-#: build/index.js:7206
-#: build/index.js:3633
+#: build/csv.js:162
+#: build/csv.js:128
 msgid "Source file: ID, URL or path"
 msgstr ""
 
-#: build/index.js:7212
-#: build/index.js:3648
+#: build/csv.js:168
+#: build/csv.js:143
 msgid "Display as table"
 msgstr ""
 
-#: build/index.js:7217
-#: build/index.js:3655
+#: build/csv.js:173
+#: build/csv.js:150
 msgid "Display as unordered list"
 msgstr ""
 
-#: build/index.js:7222
-#: build/index.js:3662
+#: build/csv.js:178
+#: build/csv.js:157
 msgid "Display as ordered list"
 msgstr ""
 
-#: build/index.js:7227
-#: build/index.js:3669
+#: build/csv.js:183
+#: build/csv.js:164
 msgid "Display as description list"
 msgstr ""
 
-#: build/index.js:7233
-#: build/index.js:3683
+#: build/csv.js:189
+#: build/csv.js:178
 msgid "Enter your CSV data or specify a source file."
 msgstr ""
 
-#: build/index.js:7461
-#: build/index.js:7476
-#: build/index.js:7511
-#: build/index.js:3862
-#: build/index.js:3867
-#: build/index.js:3892
+#: build/dashicon.js:6878
+#: build/dashicon.js:6893
+#: build/dashicon.js:6928
+#: build/dashicon.js:3355
+#: build/dashicon.js:3360
+#: build/dashicon.js:3385
 msgid "Icon"
 msgstr ""
 
-#: build/index.js:8732
-#: build/index.js:4704
+#: build/dashicon.js:8149
+#: build/dashicon.js:4197
 msgid "Icon size (pixels)"
 msgstr ""
 
-#: build/index.js:8999
-#: build/index.js:4924
+#: build/github.js:44
+#: build/github.js:13
+msgid "GitHub Issue"
+msgstr ""
+
+#: build/github.js:96
+#: build/github.js:67
+msgid "Owner"
+msgstr ""
+
+#: build/github.js:101
+#: build/github.js:73
+msgid "Repository"
+msgstr ""
+
+#: build/github.js:106
+#: build/github.js:80
+msgid "Issue"
+msgstr ""
+
+#: build/wp.js:106
+#: build/wp.js:71
 msgid "Show WordPress version"
 msgstr ""
 
-#: build/index.js:9003
-#: build/index.js:4930
+#: build/wp.js:110
+#: build/wp.js:77
 msgid "Show Gutenberg details"
 msgstr ""
 
-#: build/index.js:9007
-#: build/index.js:4936
+#: build/wp.js:114
+#: build/wp.js:83
 msgid "Show PHP version"
 msgstr ""
 
-#: build/index.js:9011
-#: build/index.js:4942
+#: build/wp.js:118
+#: build/wp.js:89
 msgid "Show Memory limit"
 msgstr ""
 
-#: build/index.js:4677
+#: build/dashicon.js:4170
 msgid "Dashicon"
 msgstr ""
 
