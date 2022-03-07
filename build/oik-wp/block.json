@@ -1,7 +1,6 @@
 {
   "apiVersion": 2,
   "$schema": "https://schemas.wp.org/trunk/block.json",
-
   "name": "oik-bbw/wp",
   "title": "WordPress info",
   "category": "widgets",
@@ -61,5 +60,7 @@
       "lineHeight": true
     }
   },
-  "style": "file:../../build/style-index.css"
+  "editorScript": "file:../../build/wp.js",
+  "editorStyle": "file:../../build/wp.css",
+  "style": "file:../../build/style-wp.css"
 }

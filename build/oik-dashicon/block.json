@@ -1,5 +1,6 @@
 {
   "apiVersion": 2,
+  "$schema": "https://schemas.wp.org/trunk/block.json",
   "name": "oik-bbw/dashicon",
   "title": "Dashicon",
   "category": "widgets",
@@ -52,5 +53,7 @@
 	}
   },
   "keywords": [ "icon", "dash", "oik", "SVG" ],
-  "style": "file:../../build/style-index.css"
+  "editorScript": "file:../../build/dashicon.js",
+  "editorStyle": "file:../../build/dashicon.css",
+  "style": "file:../../build/style-dashicon.css"
 }

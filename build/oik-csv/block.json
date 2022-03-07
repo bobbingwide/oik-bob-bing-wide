@@ -1,5 +1,6 @@
 {
   "apiVersion": 2,
+  "$schema": "https://schemas.wp.org/trunk/block.json",
   "name": "oik-bbw/csv",
   "title": "CSV",
   "category": "layout",
@@ -59,7 +60,7 @@
 	}
   },
   "keywords": [ "CSV", "list", "oik" ],
-  "editorScript": "file:../../build/index.js",
-  "editorStyle": "file:../../build/index.css",
-  "style": "file:../../build/style-index.css"
+  "editorScript": "file:../../build/csv.js",
+  "editorStyle": "file:../../build/csv.css",
+  "style": "file:../../build/style-csv.css"
 }

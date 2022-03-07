@@ -1,5 +1,6 @@
 {
   "apiVersion": 2,
+  "$schema": "https://schemas.wp.org/trunk/block.json",
   "name": "oik-bbw/github",
   "title": "GitHub issue",
   "category": "common",
@@ -58,5 +59,8 @@
 	  "lineHeight": true
 	}
   },
-  "keywords": [ "GitHub", "issue", "link", "oik" ]
+  "keywords": [ "GitHub", "issue", "link", "oik" ],
+  "editorScript": "file:../../build/github.js",
+  "editorStyle": "file:../../build/github.css",
+  "style": "file:../../build/style-github.css"
 }
