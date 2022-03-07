@@ -1,8 +1,8 @@
-# Copyright (C) 2021 bobbingwide
+# Copyright (C) 2022 bobbingwide
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik bob bing wide shortcodes 2.1.0\n"
+"Project-Id-Version: oik bob bing wide shortcodes 2.2.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/oik-bob-bing-wide\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Language: bb_BB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-10-05T10:19:08+00:00\n"
+"POT-Creation-Date: 2022-03-06T09:01:34+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 msgid "oik bob bing wide shortcodes"
@@ -180,115 +180,158 @@ msgstr "PHP vreison:"
 msgid "Memory limit:"
 msgstr "Mmeroy lmiit:"
 
-#: build/index.js:1
+#: build/index.js:6861
+#: build/index.js:3344
 msgid "GitHub Issue"
 msgstr "GtiuHb Issue"
 
-#: build/index.js:1
+#: build/index.js:6913
+#: build/index.js:3398
 msgid "Owner"
 msgstr "Onwer"
 
-#: build/index.js:1
+#: build/index.js:6918
+#: build/index.js:3404
 msgid "Repository"
 msgstr "Rpesotiroy"
 
-#: build/index.js:1
+#: build/index.js:6923
+#: build/index.js:3411
 msgid "Issue"
 msgstr "Issue"
 
-#: build/index.js:1
+#: build/index.js:7186
+#: build/index.js:3603
 msgid "Table"
 msgstr "Tbale"
 
-#: build/index.js:1
+#: build/index.js:7187
+#: build/index.js:3604
 msgid "Unordered list"
 msgstr "Uondrreed lsit"
 
-#: build/index.js:1
+#: build/index.js:7188
+#: build/index.js:3605
 msgid "Ordered list"
 msgstr "Odrreed lsit"
 
-#: build/index.js:1
+#: build/index.js:7189
+#: build/index.js:3606
 msgid "Description list"
 msgstr "Dsercpiiton lsit"
 
-#: build/index.js:1
+#: build/index.js:7197
+#: build/index.js:3619
 msgid "Format"
 msgstr "Froamt"
 
-#: build/index.js:1
+#: build/index.js:7202
+#: build/index.js:3624
 msgid "Format table heading"
 msgstr "Froamt tbale haeidng"
 
-#: build/index.js:1
+#: build/index.js:7206
+#: build/index.js:3633
 msgid "Source file: ID, URL or path"
 msgstr "Suocre flie: ID, URL Or ptah"
 
-#: build/index.js:1
+#: build/index.js:7212
+#: build/index.js:3648
 msgid "Display as table"
 msgstr "Dsilpay As tbale"
 
-#: build/index.js:1
+#: build/index.js:7217
+#: build/index.js:3655
 msgid "Display as unordered list"
 msgstr "Dsilpay As uondrreed lsit"
 
-#: build/index.js:1
+#: build/index.js:7222
+#: build/index.js:3662
 msgid "Display as ordered list"
 msgstr "Dsilpay As odrreed lsit"
 
-#: build/index.js:1
+#: build/index.js:7227
+#: build/index.js:3669
 msgid "Display as description list"
 msgstr "Dsilpay As dsercpiiton lsit"
 
-#: build/index.js:1
+#: build/index.js:7233
+#: build/index.js:3683
 msgid "Enter your CSV data or specify a source file."
 msgstr "Etner yuor CSV dtaa Or sepicfy A suocre flie."
 
-#: build/index.js:1
+#: build/index.js:7461
+#: build/index.js:7476
+#: build/index.js:7511
+#: build/index.js:3862
+#: build/index.js:3867
+#: build/index.js:3892
+msgid "Icon"
+msgstr "Iocn"
+
+#: build/index.js:8732
+#: build/index.js:4704
+msgid "Icon size (pixels)"
+msgstr "Iocn szie (pxiles)"
+
+#: build/index.js:8999
+#: build/index.js:4924
 msgid "Show WordPress version"
 msgstr "Sohw WroPderss vreison"
 
-#: build/index.js:1
+#: build/index.js:9003
+#: build/index.js:4930
 msgid "Show Gutenberg details"
 msgstr "Sohw Gtuneebrg dteials"
 
-#: build/index.js:1
+#: build/index.js:9007
+#: build/index.js:4936
 msgid "Show PHP version"
 msgstr "Sohw PHP vreison"
 
-#: build/index.js:1
+#: build/index.js:9011
+#: build/index.js:4942
 msgid "Show Memory limit"
 msgstr "Sohw Mmeroy lmiit"
 
-#: build/index.js:1
+#: build/index.js:4677
 msgid "Dashicon"
 msgstr "Dsaihocn"
 
+#: build/github/block.json
 #: src/github/block.json
 msgctxt "block title"
 msgid "GitHub issue"
 msgstr "GtiuHb issue"
 
+#: build/github/block.json
 #: src/github/block.json
 msgctxt "block description"
 msgid "'Display a link to a GitHub issue'"
 msgstr "'Dsilpay A lnik tO A GtiuHb issue'"
 
+#: build/github/block.json
 #: src/github/block.json
 msgctxt "block keyword"
 msgid "GitHub"
 msgstr "GtiuHb"
 
+#: build/github/block.json
 #: src/github/block.json
 msgctxt "block keyword"
 msgid "issue"
 msgstr "issue"
 
+#: build/github/block.json
 #: src/github/block.json
 msgctxt "block keyword"
 msgid "link"
 msgstr "lnik"
 
+#: build/github/block.json
+#: build/oik-csv/block.json
+#: build/oik-dashicon/block.json
+#: build/oik-search/block.json
 #: src/github/block.json
 #: src/oik-csv/block.json
 #: src/oik-dashicon/block.json
@@ -297,96 +340,121 @@ msgctxt "block keyword"
 msgid "oik"
 msgstr "OIk"
 
+#: build/oik-csv/block.json
 #: src/oik-csv/block.json
 msgctxt "block title"
 msgid "CSV"
 msgstr "CSV"
 
+#: build/oik-csv/block.json
 #: src/oik-csv/block.json
 msgctxt "block description"
 msgid "Displays CSV content"
 msgstr "Dsilpyas CSV cnoetnt"
 
+#: build/oik-csv/block.json
 #: src/oik-csv/block.json
 msgctxt "block keyword"
 msgid "CSV"
 msgstr "CSV"
 
+#: build/oik-csv/block.json
 #: src/oik-csv/block.json
 msgctxt "block keyword"
 msgid "list"
 msgstr "lsit"
 
+#: build/oik-dashicon/block.json
 #: src/oik-dashicon/block.json
 msgctxt "block title"
 msgid "Dashicon"
 msgstr "Dsaihocn"
 
+#: build/oik-dashicon/block.json
 #: src/oik-dashicon/block.json
 msgctxt "block description"
 msgid "Displays icons"
 msgstr "Dsilpyas iocns"
 
+#: build/oik-dashicon/block.json
 #: src/oik-dashicon/block.json
 msgctxt "block keyword"
 msgid "icon"
 msgstr "iocn"
 
+#: build/oik-dashicon/block.json
 #: src/oik-dashicon/block.json
 msgctxt "block keyword"
 msgid "dash"
 msgstr "dsah"
 
+#: build/oik-dashicon/block.json
+#: src/oik-dashicon/block.json
+msgctxt "block keyword"
+msgid "SVG"
+msgstr "SVG"
+
+#: build/oik-search/block.json
 #: src/oik-search/block.json
 msgctxt "block title"
 msgid "Search"
 msgstr "Saecrh"
 
+#: build/oik-search/block.json
 #: src/oik-search/block.json
 msgctxt "block description"
 msgid "Displays a Search form"
 msgstr "Dsilpyas A Saecrh from"
 
+#: build/oik-search/block.json
 #: src/oik-search/block.json
 msgctxt "block keyword"
 msgid "Search"
 msgstr "Saecrh"
 
+#: build/oik-search/block.json
 #: src/oik-search/block.json
 msgctxt "block keyword"
 msgid "find"
 msgstr "fnid"
 
+#: build/oik-wp/block.json
 #: src/oik-wp/block.json
 msgctxt "block title"
 msgid "WordPress info"
 msgstr "WroPderss ifno"
 
+#: build/oik-wp/block.json
 #: src/oik-wp/block.json
 msgctxt "block description"
 msgid "Displays information about WordPress, Gutenberg, PHP version and Memory limit"
 msgstr "Dsilpyas ifnroamiton aobut WroPderss, Gtuneebrg, PHP vreison And Mmeroy lmiit"
 
+#: build/oik-wp/block.json
 #: src/oik-wp/block.json
 msgctxt "block keyword"
 msgid "WordPress"
 msgstr "WroPderss"
 
+#: build/oik-wp/block.json
 #: src/oik-wp/block.json
 msgctxt "block keyword"
 msgid "version"
 msgstr "vreison"
 
+#: build/oik-wp/block.json
 #: src/oik-wp/block.json
 msgctxt "block keyword"
 msgid "PHP"
 msgstr "PHP"
 
+#: build/oik-wp/block.json
 #: src/oik-wp/block.json
 msgctxt "block keyword"
 msgid "Gutenberg"
 msgstr "Gtuneebrg"
 
+#: build/oik-wp/block.json
 #: src/oik-wp/block.json
 msgctxt "block keyword"
 msgid "memory"
