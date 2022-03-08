@@ -4,8 +4,8 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: blocks, shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github, [bw_archive]
 * Requires at least: 5.0
-* Tested up to: 5.9
-* Stable tag: 2.2.0
+* Tested up to: 5.9.1
+* Stable tag: 2.2.1
 * Gutenberg compatible: Yes
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -13,50 +13,21 @@
 ## Description 
 More blocks and lazy smart shortcodes for the WordPress block editor.
 
-New in v1.34.0, incl. v1.33.0
-
 Blocks:
 
 * CSV - Displays CSV content
-* Dashicon - Displays icons
-* GitHub Issue - Displays a link to a GitHub issue
+* Dashicon - Displays over 600 SVG icons
+* GitHub Issue - Displays links to GitHub issues
 * Search - Displays a search form
 * WordPress - Displays information about WordPress and PHP versions or Gutenberg
 
-Updated shortcodes:
+Updated shortcodes in v2.2.1
 
 * bw_csv - Added totals= and prefixes= parameter
 * bw_plug - Improved styling capabilities
+* github -  Links to GitHub owners, repositories, issues, etcetera
 
-New in v1.31.1
-[bw_archive] - display category archives
 
-New in v1.30.2
-https://github.com - create links to GitHub repositories, issues etc
-
-New in v1.30.1
-[bw_csv] - supports dash icon mapping for "Y" and "N"
-
-New in v1.30
-[bw_csv] - supports pagination and 4 display formats; table, ordered list, unordered list and definition list
-
-New in v1.28 and 1.29
-[bw_text] - shortcode to texturize (prototype)
-
-New in v1.27
-[bw_option] - shortcode to display WordPress option fields
-
-New in v1.25
-[bw_graphviz] - shortcode to display Grapviz diagrams
-[bw_crumbs] - wrapper to [wpseo_breadcrumbs]
-
-New in v1.24
-[bw_action] - Perform a WordPress action/filter hook
-[bw_dash]   - Display a dashicon
-[bw_rpt]    - Display a Responsive Pricing Table
-
-New in v1.23
-[bw_search] - Display a simple Search form
 
 ## Installation 
 1. Upload the contents of the oik-bob-bing-wide plugin to the `/wp-content/plugins/oik-bob-bing-wide' directory
@@ -119,6 +90,9 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"]
 
 ## Upgrade Notice 
+# 2.2.1 
+Update for improved Dashicons and GitHub blocks. Each block is now delivered separately.
+
 # 2.2.0 
 Upgrade for dashicons delivered as inline SVGs.
 
@@ -232,6 +206,16 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 ## Changelog 
+# 2.2.1 
+* Changed: Improved GitHub block #47
+* Changed: Significantly improved Dashicon block displaying SVGs #46
+* Changed: Each block delivered with its own runtime components #42
+* Changed: oik-bbw/wp block: Ensure style.css is enqueued
+* Changed: Update build using latest wp-scripts v22.0.1
+* Changed: oik-bbw/wp: Enable text alignment, but not alignWide #45
+* Tested: With WordPress 5.9.1 and WordPress Multi Site
+* Tested: With PHP 8.0
+
 # 2.2.0 
 * Changed: Change logic to use OIK_SVG_icons #46
 * Changed: Add get_icons() method . Prefix class for icon with svg_ #46
