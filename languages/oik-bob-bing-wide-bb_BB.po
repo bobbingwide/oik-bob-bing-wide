@@ -11,7 +11,7 @@ msgstr ""
 "Language: bb_BB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-03-07T13:37:18+00:00\n"
+"POT-Creation-Date: 2022-03-08T19:48:54+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 msgid "oik bob bing wide shortcodes"
@@ -180,123 +180,93 @@ msgstr "PHP vreison:"
 msgid "Memory limit:"
 msgstr "Mmeroy lmiit:"
 
-#: build/csv.js:142
-#: build/csv.js:98
+#: build/csv.js:1
 msgid "Table"
 msgstr "Tbale"
 
-#: build/csv.js:143
-#: build/csv.js:99
+#: build/csv.js:1
 msgid "Unordered list"
 msgstr "Uondrreed lsit"
 
-#: build/csv.js:144
-#: build/csv.js:100
+#: build/csv.js:1
 msgid "Ordered list"
 msgstr "Odrreed lsit"
 
-#: build/csv.js:145
-#: build/csv.js:101
+#: build/csv.js:1
 msgid "Description list"
 msgstr "Dsercpiiton lsit"
 
-#: build/csv.js:153
-#: build/csv.js:114
+#: build/csv.js:1
 msgid "Format"
 msgstr "Froamt"
 
-#: build/csv.js:158
-#: build/csv.js:119
+#: build/csv.js:1
 msgid "Format table heading"
 msgstr "Froamt tbale haeidng"
 
-#: build/csv.js:162
-#: build/csv.js:128
+#: build/csv.js:1
 msgid "Source file: ID, URL or path"
 msgstr "Suocre flie: ID, URL Or ptah"
 
-#: build/csv.js:168
-#: build/csv.js:143
+#: build/csv.js:1
 msgid "Display as table"
 msgstr "Dsilpay As tbale"
 
-#: build/csv.js:173
-#: build/csv.js:150
+#: build/csv.js:1
 msgid "Display as unordered list"
 msgstr "Dsilpay As uondrreed lsit"
 
-#: build/csv.js:178
-#: build/csv.js:157
+#: build/csv.js:1
 msgid "Display as ordered list"
 msgstr "Dsilpay As odrreed lsit"
 
-#: build/csv.js:183
-#: build/csv.js:164
+#: build/csv.js:1
 msgid "Display as description list"
 msgstr "Dsilpay As dsercpiiton lsit"
 
-#: build/csv.js:189
-#: build/csv.js:178
+#: build/csv.js:1
 msgid "Enter your CSV data or specify a source file."
 msgstr "Etner yuor CSV dtaa Or sepicfy A suocre flie."
 
-#: build/dashicon.js:6878
-#: build/dashicon.js:6893
-#: build/dashicon.js:6928
-#: build/dashicon.js:3355
-#: build/dashicon.js:3360
-#: build/dashicon.js:3385
+#: build/dashicon.js:1
 msgid "Icon"
 msgstr "Iocn"
 
-#: build/dashicon.js:8149
-#: build/dashicon.js:4197
+#: build/dashicon.js:1
 msgid "Icon size (pixels)"
 msgstr "Iocn szie (pxiles)"
 
-#: build/github.js:44
-#: build/github.js:13
+#: build/github.js:1
 msgid "GitHub Issue"
 msgstr "GtiuHb Issue"
 
-#: build/github.js:96
-#: build/github.js:67
+#: build/github.js:1
 msgid "Owner"
 msgstr "Onwer"
 
-#: build/github.js:101
-#: build/github.js:73
+#: build/github.js:1
 msgid "Repository"
 msgstr "Rpesotiroy"
 
-#: build/github.js:106
-#: build/github.js:80
+#: build/github.js:1
 msgid "Issue"
 msgstr "Issue"
 
-#: build/wp.js:106
-#: build/wp.js:71
+#: build/wp.js:1
 msgid "Show WordPress version"
 msgstr "Sohw WroPderss vreison"
 
-#: build/wp.js:110
-#: build/wp.js:77
+#: build/wp.js:1
 msgid "Show Gutenberg details"
 msgstr "Sohw Gtuneebrg dteials"
 
-#: build/wp.js:114
-#: build/wp.js:83
+#: build/wp.js:1
 msgid "Show PHP version"
 msgstr "Sohw PHP vreison"
 
-#: build/wp.js:118
-#: build/wp.js:89
+#: build/wp.js:1
 msgid "Show Memory limit"
 msgstr "Sohw Mmeroy lmiit"
-
-#: build/dashicon.js:4170
-msgid "Dashicon"
-msgstr "Dsaihocn"
 
 #: build/github/block.json
 #: src/github/block.json
@@ -307,8 +277,8 @@ msgstr "GtiuHb issue"
 #: build/github/block.json
 #: src/github/block.json
 msgctxt "block description"
-msgid "'Display a link to a GitHub issue'"
-msgstr "'Dsilpay A lnik tO A GtiuHb issue'"
+msgid "Display a link to a GitHub owner, repository, issue, etcetera"
+msgstr "Dsilpay A lnik tO A GtiuHb onwer, rpesotiroy, issue, ectterea"
 
 #: build/github/block.json
 #: src/github/block.json

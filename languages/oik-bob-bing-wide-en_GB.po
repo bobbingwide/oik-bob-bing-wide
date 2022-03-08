@@ -11,7 +11,7 @@ msgstr ""
 "Language: en_GB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-03-07T13:37:18+00:00\n"
+"POT-Creation-Date: 2022-03-08T19:48:54+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 msgid "oik bob bing wide shortcodes"
@@ -180,123 +180,93 @@ msgstr "PHP version:"
 msgid "Memory limit:"
 msgstr "Memory limit:"
 
-#: build/csv.js:142
-#: build/csv.js:98
+#: build/csv.js:1
 msgid "Table"
 msgstr "Table"
 
-#: build/csv.js:143
-#: build/csv.js:99
+#: build/csv.js:1
 msgid "Unordered list"
 msgstr "Unordered list"
 
-#: build/csv.js:144
-#: build/csv.js:100
+#: build/csv.js:1
 msgid "Ordered list"
 msgstr "Ordered list"
 
-#: build/csv.js:145
-#: build/csv.js:101
+#: build/csv.js:1
 msgid "Description list"
 msgstr "Description list"
 
-#: build/csv.js:153
-#: build/csv.js:114
+#: build/csv.js:1
 msgid "Format"
 msgstr "Format"
 
-#: build/csv.js:158
-#: build/csv.js:119
+#: build/csv.js:1
 msgid "Format table heading"
 msgstr "Format table heading"
 
-#: build/csv.js:162
-#: build/csv.js:128
+#: build/csv.js:1
 msgid "Source file: ID, URL or path"
 msgstr "Source file: ID, URL or path"
 
-#: build/csv.js:168
-#: build/csv.js:143
+#: build/csv.js:1
 msgid "Display as table"
 msgstr "Display as table"
 
-#: build/csv.js:173
-#: build/csv.js:150
+#: build/csv.js:1
 msgid "Display as unordered list"
 msgstr "Display as unordered list"
 
-#: build/csv.js:178
-#: build/csv.js:157
+#: build/csv.js:1
 msgid "Display as ordered list"
 msgstr "Display as ordered list"
 
-#: build/csv.js:183
-#: build/csv.js:164
+#: build/csv.js:1
 msgid "Display as description list"
 msgstr "Display as description list"
 
-#: build/csv.js:189
-#: build/csv.js:178
+#: build/csv.js:1
 msgid "Enter your CSV data or specify a source file."
 msgstr "Enter your CSV data or specify a source file."
 
-#: build/dashicon.js:6878
-#: build/dashicon.js:6893
-#: build/dashicon.js:6928
-#: build/dashicon.js:3355
-#: build/dashicon.js:3360
-#: build/dashicon.js:3385
+#: build/dashicon.js:1
 msgid "Icon"
 msgstr "Icon"
 
-#: build/dashicon.js:8149
-#: build/dashicon.js:4197
+#: build/dashicon.js:1
 msgid "Icon size (pixels)"
 msgstr "Icon size (pixels)"
 
-#: build/github.js:44
-#: build/github.js:13
+#: build/github.js:1
 msgid "GitHub Issue"
 msgstr "GitHub Issue"
 
-#: build/github.js:96
-#: build/github.js:67
+#: build/github.js:1
 msgid "Owner"
 msgstr "Owner"
 
-#: build/github.js:101
-#: build/github.js:73
+#: build/github.js:1
 msgid "Repository"
 msgstr "Repository"
 
-#: build/github.js:106
-#: build/github.js:80
+#: build/github.js:1
 msgid "Issue"
 msgstr "Issue"
 
-#: build/wp.js:106
-#: build/wp.js:71
+#: build/wp.js:1
 msgid "Show WordPress version"
 msgstr "Show WordPress version"
 
-#: build/wp.js:110
-#: build/wp.js:77
+#: build/wp.js:1
 msgid "Show Gutenberg details"
 msgstr "Show Gutenberg details"
 
-#: build/wp.js:114
-#: build/wp.js:83
+#: build/wp.js:1
 msgid "Show PHP version"
 msgstr "Show PHP version"
 
-#: build/wp.js:118
-#: build/wp.js:89
+#: build/wp.js:1
 msgid "Show Memory limit"
 msgstr "Show Memory limit"
-
-#: build/dashicon.js:4170
-msgid "Dashicon"
-msgstr "Dashicon"
 
 #: build/github/block.json
 #: src/github/block.json
@@ -307,8 +277,8 @@ msgstr "GitHub issue"
 #: build/github/block.json
 #: src/github/block.json
 msgctxt "block description"
-msgid "'Display a link to a GitHub issue'"
-msgstr "'Display a link to a GitHub issue'"
+msgid "Display a link to a GitHub owner, repository, issue, etcetera"
+msgstr "Display a link to a GitHub owner, repository, issue, etcetera"
 
 #: build/github/block.json
 #: src/github/block.json
