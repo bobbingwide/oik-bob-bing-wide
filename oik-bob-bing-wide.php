@@ -299,7 +299,8 @@ function oik_bob_bing_wide_register_dynamic_blocks() {
        	$args = [ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_wp'];
 	    $registered = register_block_type_from_metadata( __DIR__ . '/src/oik-wp', $args );
 
-		$registered = register_block_type_from_metadata( __DIR__ .'/src/github' );
+		$args = [ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_github'];
+		$registered = register_block_type_from_metadata( __DIR__ .'/src/github', $args );
 
 		$args = [ 'render_callback' => 'oik_bob_bing_wide_dynamic_block_dashicon'];
 		$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-dashicon', $args );
@@ -431,6 +432,20 @@ function oik_bob_bing_wide_dynamic_block_wp( $attributes ) {
 	$html=\oik\oik_blocks\oik_blocks_check_server_func( "shortcodes/oik-guts.php", "oik-bob-bing-wide", "oik_block_guts" );
 	if ( ! $html ) {
 		$html = oik_block_guts( $attributes, null, null );
+		$html = oik_bob_bing_wide_server_side_wrapper( $attributes, $html );
+	}
+	return $html;
+}
+
+/**
+ * Renders the GitHub block.
+ *
+ * @param array $attributes repo, owner, issue
+ */
+function oik_bob_bing_wide_dynamic_block_github( $attributes ) {
+	$html=\oik\oik_blocks\oik_blocks_check_server_func( "shortcodes/oik-github.php", "oik-bob-bing-wide", "bw_github" );
+	if ( ! $html ) {
+		$html = bw_github( $attributes, null, null );
 		$html = oik_bob_bing_wide_server_side_wrapper( $attributes, $html );
 	}
 	return $html;

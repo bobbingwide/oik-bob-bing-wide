@@ -5,12 +5,8 @@
   "title": "GitHub issue",
   "category": "common",
   "icon": "wordpress-alt",
-  "description": "'Display a link to a GitHub issue'",
+  "description": "Display a link to a GitHub owner, repository, issue, etcetera",
   "attributes": {
-	"shortcode": {
-	  "type": "string",
-	  "default": "github"
-	},
 	"owner": {
 	  "type": "string",
 	  "default": "wordpress"
@@ -60,7 +56,5 @@
 	}
   },
   "keywords": [ "GitHub", "issue", "link", "oik" ],
-  "editorScript": "file:../../build/github.js",
-  "editorStyle": "file:../../build/github.css",
-  "style": "file:../../build/style-github.css"
+  "editorScript": "file:../../build/github.js"
 }

@@ -1,16 +1,16 @@
 /**
  * Implements GitHub Issue shortcode block
  *
- * Uses [github] shortcode from oik-bob-bing-wide plugin
+ * Uses SSR to invoke [github] shortcode functionality from oik-bob-bing-wide plugin
  *
- * @copyright (C) Copyright Bobbing Wide 2018-2021
+ * @copyright (C) Copyright Bobbing Wide 2018-2022
  * @author Herb Miller @bobbingwide
  */
-import './style.scss';
-import './editor.scss';
+//import './style.scss';
+//import './editor.scss';
 import { transforms } from './transforms.js';
 
-const blockHeader = <h3>{ __( 'GitHub Issue', 'oik-bob-bing-wide' ) }</h3>;
+//const blockHeader = <h3>{ __( 'GitHub Issue', 'oik-bob-bing-wide' ) }</h3>;
 
 import { __ } from '@wordpress/i18n';
 import classnames from 'classnames';
@@ -28,9 +28,7 @@ import {
 	SelectControl } from '@wordpress/components';
 import { Fragment} from '@wordpress/element';
 import { map, partial } from 'lodash';
-
-
-
+import deprecated from './deprecated.js';
 
 /**
  * Register the GitHub block
@@ -38,6 +36,7 @@ import { map, partial } from 'lodash';
 export default registerBlockType( 'oik-bbw/github',
 {
 		transforms,
+		deprecated,
 
         edit: props => {
 			const { attributes, setAttributes, instanceId, focus, isSelected } = props;
@@ -62,7 +61,6 @@ export default registerBlockType( 'oik-bbw/github',
           return (
 			  <div { ...blockProps}>
 
-				  {blockHeader}
 				  <TextControl
 					  label={ __("Owner",'oik-bob-bing-wide') }
 					  value={ props.attributes.owner }
@@ -83,22 +81,17 @@ export default registerBlockType( 'oik-bbw/github',
 					onFocus={ focus }
 					/>
 
-            </div>
+
+
+					{!isSelected &&
+					<ServerSideRender block="oik-bbw/github" attributes={attributes}/>
+					}
+				</div>
+
           );
         },
         save: props => {
-			var lsb = '[';
-			var rsb = ']';
-			const blockProps = useBlockProps.save();
-          return (
-            <div {...blockProps} >
-						{blockHeader}
-						<div>{lsb}
-						github {props.attributes.owner} {props.attributes.repo} issue {props.attributes.issue}
-						{rsb}
-						</div>
-            </div>
-          );
+			return null;
         },
     },
 );
