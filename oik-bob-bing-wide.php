@@ -445,6 +445,10 @@ function oik_bob_bing_wide_dynamic_block_wp( $attributes ) {
 function oik_bob_bing_wide_dynamic_block_github( $attributes ) {
 	$html=\oik\oik_blocks\oik_blocks_check_server_func( "shortcodes/oik-github.php", "oik-bob-bing-wide", "bw_github" );
 	if ( ! $html ) {
+		$issue = bw_array_get( $attributes, 'issue', null );
+		if ( $issue && is_numeric( $issue )) {
+			$attributes['type']='issue';
+		}
 		$html = bw_github( $attributes, null, null );
 		$html = oik_bob_bing_wide_server_side_wrapper( $attributes, $html );
 	}

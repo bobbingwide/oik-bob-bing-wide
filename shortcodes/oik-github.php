@@ -27,11 +27,13 @@ function bw_github( $atts=null, $content=null, $tag=null ) {
 	$owner = bw_array_get_from( $atts, "owner,0", null );
 	$repository = bw_array_get_from( $atts, "repo,1", null );
 	$type = bw_array_get_from( $atts, "type,2", null );
-	$number = bw_array_get_from( $atts, "3", null );
+	$number = bw_array_get_from( $atts, "issue,3", null );
 	$url = bw_array_get_from( $atts, "url", "https://github.com" );
 	$github = array();
 	if ( false != strpos( $type, "." ) ) {
 		bw_github_file( $url, $owner, $repository, $type );
+	} elseif ( 0 !== strpos($number, 'release' ) && false != strpos( $number, '.') ) {
+		bw_github_file( $url, $owner, $repository, $number );
 	} else {
 		$class = "github";
 		//$text = bw_github_genericon( "github", $class );
@@ -55,7 +57,12 @@ function bw_github( $atts=null, $content=null, $tag=null ) {
 		}
 		if ( $number ) {
 			$github[] = $number;
-			$text .= "#" . $number;
+			if ( is_numeric( $number )) {
+				$text.="#" . $number;
+			} else {
+				$text .= '/';
+				$text .= $number;
+			}
 		}
 		$target = implode( "/", $github );
 		alink( $class, $target, $text );
@@ -230,8 +237,8 @@ function bw_github_file_url( $url, $owner=null, $repository=null, $file=null, $t
 	$github[] = $url;
 	$github[] = $owner;
 	$github[] = $repository;
-	$github[] = $type;
-	$github[] = $branch;
+	//$github[] = $type;
+	//$github[] = $branch;
 	$github[] = $file;
 	$target = implode( "/", $github );
 	return( $target );
@@ -250,4 +257,3 @@ function bw_github_svgicon( $icon, $class ) {
 	$dash = $svgicons->get_icon( $icon, $class );
 	return $dash;
 }
-
