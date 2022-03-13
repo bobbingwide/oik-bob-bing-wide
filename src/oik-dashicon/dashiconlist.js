@@ -1,5 +1,6 @@
 import * as icon from '@wordpress/icons';
 // Note: Some icons are no longer part of the icons package!
+// They have to be commented out.
 const dashiconslist = [
 	'admin-appearance',
 	'admin-collapse',
