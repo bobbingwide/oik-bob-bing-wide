@@ -4,8 +4,8 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: blocks, shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github, [bw_archive]
 * Requires at least: 5.0
-* Tested up to: 5.9.1
-* Stable tag: 2.2.1
+* Tested up to: 5.9.2
+* Stable tag: 2.2.2
 * Gutenberg compatible: Yes
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -90,6 +90,9 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"]
 
 ## Upgrade Notice 
+# 2.2.2 
+Update for improvements to bw_dash examples and fixes to some SVG icon's visibility.
+
 # 2.2.1 
 Update for improved Dashicons and GitHub blocks. Each block is now delivered separately.
 
@@ -206,6 +209,13 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 ## Changelog 
+# 2.2.2 
+* Changed: For bw_dash examples show SVG icons first #46
+* Changed: Change SVG fill-rule to nonzero #46
+* Changed: Update oik-blocks.php shared library
+* Tested: With WordPress 5.9.1 and WordPress Multi Site
+* Tested: With PHP 8.0
+
 # 2.2.1 
 * Changed: Improved GitHub block #47
 * Changed: Significantly improved Dashicon block displaying SVGs #46
