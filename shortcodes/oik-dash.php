@@ -104,6 +104,9 @@ function bw_dash( $atts=null, $content=null, $tag=null ) {
 	$svgicons = new OIK_SVG_icons();
 	$font_class = bw_dash_enqueue_font( $icon, $atts );
 	if ( $font_class === "svg" ) {
+		if ( null === $tag ) {
+			bw_dash_inline_style_svg();
+		}
 		foreach ( $icons as $icon ) {
 			//$dpath = bw_array_get( $svgicons, $icon, null );
 			//bw_dash_svg_icon( $icon, $font_class, $class, $dpath );
@@ -797,6 +800,13 @@ function bw_dash__syntax( $shortcode="bw_dash" ) {
  *
  */
 function bw_dash__example( $shortcode="bw_dash" ) {
+	bw_svgicons_example();
+	bw_dashicons_example();
+	bw_genericons_example();
+	bw_texticons_example();
+}
+
+function bw_dashicons_example() {
   $icons = bw_list_dashicons();
   $class = null;
 
@@ -813,9 +823,7 @@ function bw_dash__example( $shortcode="bw_dash" ) {
     ediv();
 
   }
-  bw_genericons_example();
-  bw_texticons_example();
-  bw_svgicons_example();
+
 }
 
 /**
@@ -898,5 +906,26 @@ function bw_svgicons_example() {
     	e( " " );
     	e( $icon );
     	ediv();
+	}
+}
+
+/**
+ * Enqueues some inline CSS to make certain SVG icons visible.
+ *
+ * We only need to do this once.
+ *
+ * `fill: currentColor` makes some parts visible
+ * eg line-dashed-icon, line-dotted-icon, line-solid-icon
+ *
+ * `fill-rule: nonzero` affects how the SVG area is filled in.
+ * The other setting is `evenodd`
+ * plus-circle-icon doesn't display for `evenodd`.
+ */
+function bw_dash_inline_style_svg() {
+	if ( !wp_style_is( 'dash-svg-css')) {
+		$inline_css = 'svg.svg { fill: currentColor; fill-rule: nonzero; }';
+		wp_register_style( 'dash-svg-css', false );
+		wp_enqueue_style( 'dash-svg-css' );
+		wp_add_inline_style( 'dash-svg-css', $inline_css );
 	}
 }
