@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2014-2022
+<?php // (C) Copyright Bobbing Wide 2014-2023
 
 /**
  * Enqueue the correct font for this icon
@@ -122,7 +122,7 @@ function bw_dash( $atts=null, $content=null, $tag=null ) {
 				$icon = "unknown";
 			}
 			//span( $class );	 - temporarily added to test class=hide
-			span( "$font_class ${font_class}-$icon $class" );
+			span( "$font_class {$font_class}-$icon $class" );
 			if ( $content ) {
 				e( bw_do_shortcode( $content ) );
 			}
