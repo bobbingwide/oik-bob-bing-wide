@@ -25,7 +25,7 @@
 		"@wordpress/block-editor": "^8.2.0",
 		"@wordpress/blocks": "^11.2.2",
 		"@wordpress/i18n": "^4.3.1",
-		"postcss": "^8.4.7"
+		"postcss": "^8.4.31"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^22.0.1"
