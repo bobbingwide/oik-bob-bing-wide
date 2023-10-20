@@ -89,14 +89,14 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"]
 
 == Upgrade Notice ==
-= 2.2.3 = 
-Update for PHP 8.2 support 
+= 2.2.4 = 
+Update for PHP 8.1 and PHP 8.2 support 
 
 == Changelog ==
-= 2.2.3 =
-* Changed: Add support for PHP 8.1 and PHP 8.2 #63  
-* Tested: With WordPress 6.3.1 and WordPress Multi Site
-* Tested: With PHP 8.2
+= 2.2.4 =
+* Changed: More support for PHP 8.1 and PHP 8.2 #63  
+* Tested: With WordPress 6.4-RC1 and WordPress Multisite
+* Tested: With PHP 8.0, PHP 8.1 and PHP 8.2
 * Tested: With PHPUnit 9.6
 
 

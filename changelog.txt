@@ -1,4 +1,7 @@
 == Upgrade Notice ==
+= 2.2.3 = 
+Update for PHP 8.2 support 
+
 = 2.2.2 = 
 Update for improvements to bw_dash examples and fixes to some SVG icon's visibility.
 
@@ -118,6 +121,12 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 == Changelog ==
+= 2.2.3 =
+* Changed: Add support for PHP 8.1 and PHP 8.2 #63  
+* Tested: With WordPress 6.3.1 and WordPress Multi Site
+* Tested: With PHP 8.2
+* Tested: With PHPUnit 9.6
+
 = 2.2.2 = 
 * Changed: For bw_dash examples show SVG icons first #46
 * Changed: Change SVG fill-rule to nonzero #46
