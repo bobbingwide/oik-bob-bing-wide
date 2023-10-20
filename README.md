@@ -4,8 +4,8 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: blocks, shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github, [bw_archive]
 * Requires at least: 5.0
-* Tested up to: 6.3.1
-* Stable tag: 2.2.3
+* Tested up to: 6.4-RC1
+* Stable tag: 2.2.4
 * Gutenberg compatible: Yes
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
