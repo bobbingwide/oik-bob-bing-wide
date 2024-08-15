@@ -208,11 +208,16 @@ function oik_bob_bing_wide_gather_site_opinions( $opinions ) {
  * Function to invoke when oik-bob-bing-wide is loaded
  */
 function oik_bob_bing_wide_loaded() {
-  add_action( "oik_add_shortcodes", "oik_bob_bing_wide_init" );
+	add_action( 'oik_loaded', 'oik_bob_bing_wide_oik_loaded' );
+
   //add_action( "admin_notices", "oik_bob_bing_wide_activation", 11 );
   add_action( "oik_admin_menu", "oik_bob_bing_wide_admin_menu" );
   add_filter( "oik_block_gather_site_opinions", "oik_bob_bing_wide_gather_site_opinions" );
 add_action( 'init', 'oik_bob_bing_wide_init_blocks', 100);
+}
+
+function oik_bob_bing_wide_oik_loaded() {
+	add_action( "oik_add_shortcodes", "oik_bob_bing_wide_init" );
 }
 
 /**
