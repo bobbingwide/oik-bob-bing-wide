@@ -3,8 +3,8 @@ Contributors: bobbingwide
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: blocks, shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github, [bw_archive]
 Requires at least: 5.0
-Tested up to: 6.4-RC1
-Stable tag: 2.2.4
+Tested up to: 6.6.1
+Stable tag: 2.2.5
 Gutenberg compatible: Yes
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -25,8 +25,6 @@ Updated shortcodes in v2.2.1
 * bw_csv - Added totals= and prefixes= parameter
 * bw_plug - Improved styling capabilities
 * github -  Links to GitHub owners, repositories, issues, etcetera
-
-
 
 == Installation ==
 1. Upload the contents of the oik-bob-bing-wide plugin to the `/wp-content/plugins/oik-bob-bing-wide' directory
@@ -89,19 +87,19 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"]
 
 == Upgrade Notice ==
-= 2.2.4 =
-Update for PHP 8.1 and PHP 8.2 support
+= 2.2.5 =
+Update for PHP 8.3 support
 
 == Changelog ==
-= 2.2.4 =
-* Changed: More support for PHP 8.1 and PHP 8.2 #63
-* Tested: With WordPress 6.4-RC1 and WordPress Multisite
-* Tested: With PHP 8.0, PHP 8.1 and PHP 8.2
+= 2.2.5 =
+* Changed: Reconcile shared library file libs/bobbfunc.php #63
+* Fixed: Only respond to oik_add_shortcodes after oik_loaded has been run #67
+* Fixed: Correct readme Tested up to and Stable tag #63
+* Tested: With WordPress 6.6.1 and WordPress Multisite
+* Tested: With PHP 8.3
 * Tested: With PHPUnit 9.6
-
 
 == Further reading ==
 If you want to read more about the oik plugins then please visit the
 [oik plugin](https://www.oik-plugins.com/oik)
 **"the oik plugin - for often included key-information"**
-
