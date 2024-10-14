@@ -7,59 +7,63 @@
   "icon": "media-spreadsheet",
   "description": "Displays CSV content",
   "attributes": {
-	"content": {
-	  "type": "string"
-	},
-	"uo": {
-	  "type": "string",
-	  "default": ""
-	},
-	"th": {
-	  "type": "boolean",
-	  "default": "true"
-	},
-	"src": {
-	  "type": "string",
-	  "default": ""
-	},
-	"textAlign": {
-	  "type": "string"
-	},
-	"className": {
-	  "type": "string"
-	},
-	"textColor": {
-	  "type": "string"
-	},
-	"backgroundColor": {
-	  "type": "string"
-	},
-	"style": {
-	  "type": "object"
-	},
-	"fontSize": {
-	  "type": "string"
-	},
-	"gradient": {
-	  "type": "string"
-	}
+    "content": {
+      "type": "string"
+    },
+    "uo": {
+      "type": "string",
+      "default": ""
+    },
+    "th": {
+      "type": "boolean",
+      "default": "true"
+    },
+    "src": {
+      "type": "string",
+      "default": ""
+    },
+    "textAlign": {
+      "type": "string"
+    },
+    "className": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "style": {
+      "type": "object"
+    },
+    "fontSize": {
+      "type": "string"
+    },
+    "gradient": {
+      "type": "string"
+    }
   },
   "supports": {
-	"html": false,
-	"customClassName": true,
-	"className": true,
-	"color": {
-	  "gradients": true,
-	  "text": true,
-	  "background": true,
-	  "link": true
-	},
-	"typography": {
-	  "fontSize": true,
-	  "lineHeight": true
-	}
+    "html": false,
+    "customClassName": true,
+    "className": true,
+    "color": {
+      "gradients": true,
+      "text": true,
+      "background": true,
+      "link": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
   },
-  "keywords": [ "CSV", "list", "oik" ],
+  "keywords": [
+    "CSV",
+    "list",
+    "oik"
+  ],
   "editorScript": "file:../../build/csv.js",
   "editorStyle": "file:../../build/csv.css",
   "style": "file:../../build/style-csv.css"

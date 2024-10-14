@@ -7,54 +7,59 @@
   "icon": "wordpress-alt",
   "description": "Display a link to a GitHub owner, repository, issue, etcetera",
   "attributes": {
-	"owner": {
-	  "type": "string",
-	  "default": "wordpress"
-	},
-	"repo": {
-	  "type": "string",
-	  "default": "gutenberg"
-	},
-	  "issue": {
-		"type": "string"
-	  },
-	"textAlign": {
-	  "type": "string"
-	},
-	"className": {
-	  "type": "string"
-	},
-	"textColor": {
-	  "type": "string"
-	},
-	"backgroundColor": {
-	  "type": "string"
-	},
-	"style": {
-	  "type": "object"
-	},
-	"fontSize": {
-	  "type": "string"
-	},
-	"gradient": {
-	  "type": "string"
-	}
+    "owner": {
+      "type": "string",
+      "default": "wordpress"
+    },
+    "repo": {
+      "type": "string",
+      "default": "gutenberg"
+    },
+    "issue": {
+      "type": "string"
+    },
+    "textAlign": {
+      "type": "string"
+    },
+    "className": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "style": {
+      "type": "object"
+    },
+    "fontSize": {
+      "type": "string"
+    },
+    "gradient": {
+      "type": "string"
+    }
   },
   "supports": {
-	"html": false,
-	"customClassName": true,
-	"className": true,
-	"color": {
-	  "gradients": true,
-	  "text": true,
-	  "background": true,
-	  "link": true
-	},
-	"typography": {
-	  "fontSize": true,
-	  "lineHeight": true
-	}
+    "html": false,
+    "customClassName": true,
+    "className": true,
+    "color": {
+      "gradients": true,
+      "text": true,
+      "background": true,
+      "link": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
   },
-  "keywords": [ "GitHub", "issue", "link", "oik" ],
+  "keywords": [
+    "GitHub",
+    "issue",
+    "link",
+    "oik"
+  ],
   "editorScript": "file:../../build/github.js"
 }

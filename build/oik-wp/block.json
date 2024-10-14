@@ -6,7 +6,13 @@
   "category": "widgets",
   "icon": "wordpress",
   "description": "Displays information about WordPress, Gutenberg, PHP version and Memory limit",
-  "keywords": [ "WordPress", "version", "PHP", "Gutenberg", "memory" ],
+  "keywords": [
+    "WordPress",
+    "version",
+    "PHP",
+    "Gutenberg",
+    "memory"
+  ],
   "attributes": {
     "v": {
       "type": "boolean"
@@ -20,9 +26,9 @@
     "g": {
       "type": "boolean"
     },
-	"align": {
-	  "type": "string"
-	},
+    "align": {
+      "type": "string"
+    },
     "textAlign": {
       "type": "string"
     },
@@ -30,25 +36,29 @@
       "type": "string"
     },
     "textColor": {
-	  "type": "string"
-	},
-	"backgroundColor": {
-	  "type": "string"
-	},
-	"style": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "style": {
       "type": "object"
     },
     "fontSize": {
       "type": "string"
     },
-	"gradient": {
-	  "type": "string"
-	}
+    "gradient": {
+      "type": "string"
+    }
   },
   "supports": {
     "html": false,
-	"align": ["left","center","right"],
-	"alignWide": false,
+    "align": [
+      "left",
+      "center",
+      "right"
+    ],
+    "alignWide": false,
     "color": {
       "gradients": true,
       "text": true,

@@ -7,52 +7,57 @@
   "icon": "heart",
   "description": "Displays icons",
   "attributes": {
-	"dashicon": {
-	  "type": "string",
-	  "default": "heart"
-	},
-	"textAlign": {
-	  "type": "string"
-	},
-	"className": {
-	  "type": "string"
-	},
-	"textColor": {
-	  "type": "string"
-	},
-	"backgroundColor": {
-	  "type": "string"
-	},
-	"style": {
-	  "type": "object"
-	},
-	"fontSize": {
-	  "type": "string"
-	},
-	"gradient": {
-	  "type": "string"
-	},
-	"size": {
-	  "type": "number",
-	  "default": 24
-	}
+    "dashicon": {
+      "type": "string",
+      "default": "heart"
+    },
+    "textAlign": {
+      "type": "string"
+    },
+    "className": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "style": {
+      "type": "object"
+    },
+    "fontSize": {
+      "type": "string"
+    },
+    "gradient": {
+      "type": "string"
+    },
+    "size": {
+      "type": "number",
+      "default": 24
+    }
   },
   "supports": {
-	"html": false,
-	"customClassName": true,
-	"className": true,
-	"color": {
-	  "gradients": false,
-	  "text": true,
-	  "background": false,
-	  "link": false
-	},
-	"typography": {
-	  "fontSize": false,
-	  "lineHeight": false
-	}
+    "html": false,
+    "customClassName": true,
+    "className": true,
+    "color": {
+      "gradients": false,
+      "text": true,
+      "background": false,
+      "link": false
+    },
+    "typography": {
+      "fontSize": false,
+      "lineHeight": false
+    }
   },
-  "keywords": [ "icon", "dash", "oik", "SVG" ],
+  "keywords": [
+    "icon",
+    "dash",
+    "oik",
+    "SVG"
+  ],
   "editorScript": "file:../../build/dashicon.js",
   "editorStyle": "file:../../build/dashicon.css",
   "style": "file:../../build/style-dashicon.css"
