@@ -10,7 +10,7 @@
 //import './style.scss';
 //import './editor.scss';
 import {__} from "@wordpress/i18n";
-import classnames from 'classnames';
+import clsx from 'clsx';
 import ServerSideRender from '@wordpress/server-side-render';
 
 import { useBlockProps } from '@wordpress/block-editor';
@@ -33,7 +33,7 @@ export default registerBlockType(
 			const { attributes, setAttributes, instanceId, focus, isSelected } = props;
 			const { textAlign, label } = props.attributes;
 			const blockProps = useBlockProps( {
-				className: classnames( {
+				className: clsx( {
 					[ `has-text-align-${ textAlign }` ]: textAlign,
 				} ),
 			} );

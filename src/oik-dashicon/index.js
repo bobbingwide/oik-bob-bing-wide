@@ -13,7 +13,7 @@ import { DashiconsSelect } from './dashicons.js';
 import { dashiconslist } from './dashiconlist.js';
 import {__} from "@wordpress/i18n";
 
-import classnames from 'classnames';
+import clsx from 'clsx';
 import { registerBlockType } from '@wordpress/blocks';
 
 import {
@@ -47,7 +47,7 @@ export default registerBlockType(
 			const { attributes, setAttributes, instanceId, focus, isSelected } = props;
 			const { textAlign, label } = props.attributes;
 			const blockProps = useBlockProps( {
-				className: classnames( {
+				className: clsx( {
 					[ `has-text-align-${ textAlign }` ]: textAlign,
 				} ),
 			} );

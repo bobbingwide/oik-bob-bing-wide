@@ -1,7 +1,7 @@
 import icons from "./icons";
 import {__} from "@wordpress/i18n";
 
-import classnames from 'classnames';
+import clsx from 'clsx';
 import ServerSideRender from '@wordpress/server-side-render';
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -36,7 +36,7 @@ export default function Edit  ( props ) {
 	const { attributes, setAttributes, instanceId, focus, isSelected } = props;
 	const { textAlign, label } = props.attributes;
 	const blockProps = useBlockProps( {
-		className: classnames( {
+		className: clsx( {
 			[ `has-text-align-${ textAlign }` ]: textAlign,
 		} ),
 	} );
