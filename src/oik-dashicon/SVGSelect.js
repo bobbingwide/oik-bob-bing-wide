@@ -14,19 +14,19 @@ function renderOption( icon ) {
 function renderCustom( icon ) {
 	var label = icon && icon.name ? icon.name : icon;
 	//var iconValue = icon && icon.icon ? <Icon icon={icon.icon} /> : <Icon icon={icon} />
-	var iconValue = icon && icon.icon ? icon.icon : <Icon icon={icon} />;
+	var iconValue = ( icon && icon.icon ) ? <Icon icon={icon.icon } /> : <Icon icon={icon} />;
 	var option = { 'key': label, 'name': iconValue };
 	return option;
 }
 
 function SVGSelectControl( { value, onChange, ...props }) {
 	var SVGoptions = dashiconslist.map( ( icon ) => renderOption( icon ) );
-	return <SelectControl label={__("Icon", 'oik-bob-bing-wide')} value={value} options={ SVGoptions } onChange={onChange }/>;
+	return <SelectControl label={__("Icon select", 'oik-bob-bing-wide')} value={value} options={ SVGoptions } onChange={onChange }/>;
 }
 
 function SVGComboboxControl( { value, onChange, ...props } ) {
 	var SVGoptions = dashiconslist.map( ( icon ) => renderOption( icon ) );
-	return <ComboboxControl label={__("Icon", 'oik-bob-bing-wide')}value={value} options={ SVGoptions } onChange={onChange }/>;
+	return <ComboboxControl label={__("Icon combo", 'oik-bob-bing-wide')}value={value} options={ SVGoptions } onChange={onChange }/>;
 }
 
 /**
@@ -51,7 +51,7 @@ function SVGCustomSelectControl( { value, setAttributes, ...props } ) {
 	//console.log( SVGoptions );
 	var selectedValue= SVGoptions.find(  (option ) => option.key === value ) ;
 
-	return <CustomSelectControl label={__("Icon", 'oik-bob-bing-wide')} value={ selectedValue  } options={ SVGoptions }
+	return <CustomSelectControl label={__("Icon custom select", 'oik-bob-bing-wide')} value={ selectedValue  } options={ SVGoptions }
 	onChange={ ( { selectedItem } ) => setAttributes( { dashicon: selectedItem.key } ) }/>;
 }
 
