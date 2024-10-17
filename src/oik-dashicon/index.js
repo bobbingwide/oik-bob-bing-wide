@@ -99,7 +99,7 @@ export default registerBlockType(
 							/>
 						</PanelRow>
 						}
-						{false &&
+						{true &&
 							<PanelRow>
 							<SVGSelectControl value={props.attributes.dashicon} onChange={onChangeDashicon} />
 							</PanelRow>
