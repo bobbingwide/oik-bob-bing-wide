@@ -1,6 +1,6 @@
 <?php
 if ( !defined( 'OIK_DASH_SVG_LIST_INCLUDED' ) ) {
-define( 'OIK_DASH_SVG_LIST_INCLUDED', '0.0.1');
+define( 'OIK_DASH_SVG_LIST_INCLUDED', '0.1.0');
 /**
  * Generated at: 2024-10-14 08:41:03
  * By: C:\apache\htdocs\wordpress\wp-content\plugins\txt2md\svg2php.php
