@@ -3,8 +3,8 @@ Contributors: bobbingwide
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: blocks, shortcodes, smart, lazy, [bw_csv], [bw_plug], [bw_search], [bw_page], [bw_post], oik, WordPress, WPMS, BuddyPress, bbPress, Artisteer, Drupal, github, [bw_archive]
 Requires at least: 5.0
-Tested up to: 6.6.1
-Stable tag: 2.2.5
+Tested up to: 6.7-beta3
+Stable tag: 2.3.0
 Gutenberg compatible: Yes
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -15,7 +15,7 @@ More blocks and lazy smart shortcodes for the WordPress block editor.
 Blocks:
 
 * CSV - Displays CSV content
-* Dashicon - Displays over 600 SVG icons
+* Dashicon - Displays over 680 SVG icons
 * GitHub Issue - Displays links to GitHub issues
 * Search - Displays a search form
 * WordPress - Displays information about WordPress and PHP versions or Gutenberg
@@ -87,15 +87,20 @@ Implement them using diy-oik if required.
 2. [ bw_plug name="oik,oik-bob-bing-wide"]
 
 == Upgrade Notice ==
-= 2.2.5 =
-Update for PHP 8.3 support
+= 2.3.0 =
+Update for new SVG icons including the social-links icons
 
 == Changelog ==
-= 2.2.5 =
-* Changed: Reconcile shared library file libs/bobbfunc.php #63
-* Fixed: Only respond to oik_add_shortcodes after oik_loaded has been run #67
-* Fixed: Correct readme Tested up to and Stable tag #63
-* Tested: With WordPress 6.6.1 and WordPress Multisite
+= 2.3.0 =
+* Fixed: Correct SVG tag clip-rule and fill-rule attribute names #69
+* Fixed: Correct server side rendering of SVG tags attributes  #69
+* Changed: Ensure dashicons is enqueued in the block editor #69
+* Fixed: Correct renderCustom. Adjust labels #69
+* Changed: Update icons from Gutenberg source #69
+* Changed: Add social-link icons copied from Gutenberg and oldicons no longer part of @wordpress/icons #69
+* Changed: Change classname to clsx #69
+* Changed: Update wp-scripts to v30.1.0 #69
+* Tested: With WordPress 6.7-beta3 and WordPress Multisite
 * Tested: With PHP 8.3
 * Tested: With PHPUnit 9.6
 

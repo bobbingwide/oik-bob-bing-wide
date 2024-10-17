@@ -1,4 +1,7 @@
 == Upgrade Notice ==
+= 2.2.5 =
+Update for PHP 8.3 support
+
 = 2.2.4 =
 Update for PHP 8.1 and PHP 8.2 support
 
@@ -124,6 +127,14 @@ This version is a standalone version from www.oik-plugins.co.uk
 This version matches the child plugin oik-bob-bing-wide in oik v1.17
 
 == Changelog ==
+= 2.2.5 =
+* Changed: Reconcile shared library file libs/bobbfunc.php #63
+* Fixed: Only respond to oik_add_shortcodes after oik_loaded has been run #67
+* Fixed: Correct readme Tested up to and Stable tag #63
+* Tested: With WordPress 6.6.1 and WordPress Multisite
+* Tested: With PHP 8.3
+* Tested: With PHPUnit 9.6
+
 = 2.2.4 =
 * Changed: More support for PHP 8.1 and PHP 8.2 #63
 * Tested: With WordPress 6.4-RC1 and WordPress Multisite
