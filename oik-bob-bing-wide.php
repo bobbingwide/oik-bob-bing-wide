@@ -214,6 +214,7 @@ function oik_bob_bing_wide_loaded() {
   add_action( "oik_admin_menu", "oik_bob_bing_wide_admin_menu" );
   add_filter( "oik_block_gather_site_opinions", "oik_bob_bing_wide_gather_site_opinions" );
 add_action( 'init', 'oik_bob_bing_wide_init_blocks', 100);
+	add_action('enqueue_block_assets', 'oik_bob_bing_wide_frontend_styles');
 }
 
 function oik_bob_bing_wide_oik_loaded() {
@@ -476,5 +477,16 @@ function oik_bob_bing_wide_dynamic_block_dashicon( $attributes ) {
 	}
 	return $html;
 }
+
+
+/**
+ * Ensures dashicons is enqueued in the site editor.
+ *
+ * @return void
+ */
+function oik_bob_bing_wide_frontend_styles() {
+	wp_enqueue_style( 'dashicons');
+}
+
 
 oik_bob_bing_wide_loaded();
