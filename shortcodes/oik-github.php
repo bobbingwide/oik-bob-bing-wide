@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2015,2016
+<?php // (C) Copyright Bobbing Wide 2015,2016, 2024
 /**
  * Implement [github] shortcode
  *
@@ -56,6 +56,7 @@ function bw_github( $atts=null, $content=null, $tag=null ) {
 			$class .= " $type-link";
 		}
 		if ( $number ) {
+			$number = trim( $number, '#' );
 			$github[] = $number;
 			if ( is_numeric( $number )) {
 				$text.="#" . $number;
