@@ -233,18 +233,18 @@ function bw_get_oik_plugins_info( $plugin_slug ) {
   oik_require( "admin/oik-admin.php" );
   oik_require( "includes/oik-remote.inc" );
   $server = bw_get_defined_plugin_server( $plugin_slug );
+  $result = false;
   if ( $server ) {
     oik_register_plugin_server( $plugin_slug, $server );
     $result = oik_lazy_pluginsapi( false, "plugin_information", array( "slug" => $plugin_slug) );
 
     if ( is_wp_error( $result ) ) {
 		  $result = false;
-		} elseif ( $result ) {
-      $result->oik_server = $server;
-      //$result['oik_server'] = $server;
+	} elseif ( is_object( $result ) ) {
+		bw_trace2( $result, "result", false);
+        $result->oik_server = $server;
+        //$result['oik_server'] = $server;
     }
-  } else {
-    $result = false;
   }
   bw_trace2( $result );
   return( $result );
