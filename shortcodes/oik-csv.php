@@ -6,7 +6,7 @@
  * Each row in the [bw_csv] table, including the header row, may contain shortcodes which we want to expand.
  * We do a simple check for left square brackets before attempting to expand the shortcodes
  * If there isn't a '[' then we can save some time.
- * 
+ *
  * @param array $tablerow - an array of cells of content, which may contain shortcodes
  * @return array - array of expanded cells
  */
@@ -30,8 +30,8 @@ function bw_csv_expand_shortcodes( $tablerow ) {
  * @return array - mapping of uo= parameter value to function
  */
 function bw_csv_get_funcs() {
-  $funcs = array( "u" => "bw_csv_content_array_list" 
-                , "ul" => "bw_csv_content_array_list"  
+  $funcs = array( "u" => "bw_csv_content_array_list"
+                , "ul" => "bw_csv_content_array_list"
                 , "o" => "bw_csv_content_array_list"
                 , "ol" => "bw_csv_content_array_list"
                 , "d" => "bw_csv_content_array_list"
@@ -60,7 +60,7 @@ function bw_csv_content_array_paged( $content_array, $atts ) {
 		$posts_per_page = bw_array_get( $atts, "posts_per_page", null );
 	 if ( $posts_per_page ) {
 		 if ( !is_numeric( $posts_per_page ) ) {
-			 $posts_per_page = get_option( "posts_per_page" ); 
+			 $posts_per_page = get_option( "posts_per_page" );
 		 }
 		 oik_require( "shortcodes/oik-navi.php" );
 		 $bwscid = bw_get_shortcode_id( true );
@@ -72,15 +72,15 @@ function bw_csv_content_array_paged( $content_array, $atts ) {
 		 }
 		 $pages = ceil( $count / $posts_per_page );
 		 $start = ( $page-1 ) * $posts_per_page;
-		 $end = min( $start + $posts_per_page, $count ) -1 ;                              
+		 $end = min( $start + $posts_per_page, $count ) -1 ;
 		 bw_navi_s2eofn( $start, $end, $count );
 		 $select_array = bw_csv_content_array_select( $content_array, $start, $end, $atts );
 		 bw_csv_content_array( $select_array, $atts );
-		 bw_navi_paginate_links( $bwscid, $page, $pages ); 
+		 bw_navi_paginate_links( $bwscid, $page, $pages );
 	 } else {
 		 bw_csv_content_array( $content_array, $atts );
 	 }
-	} 
+	}
 }
 
 /**
@@ -100,17 +100,17 @@ function bw_csv_content_array_select( $content_array, $start, $end, $atts ) {
   $select_array = array();
   if ( $atts['uo'] == "table" ) {
     $heading = array_shift( $content_array );
-  }  
+  }
   //bw_trace2( $select_array, "select_array", false );
   //bw_trace2( $content_array, "content_array", false );
   $select_array = array_slice( $content_array, $start, 1+ $end-$start );
-  
+
   if ( $atts['uo'] == "table" ) {
     array_unshift( $select_array, $heading );
-  }  
+  }
   //bw_trace2( $select_array, "select_array ret", false );
   return( $select_array );
-} 
+}
 
 /**
  * Display the contents of a CSV array
@@ -118,7 +118,7 @@ function bw_csv_content_array_select( $content_array, $start, $end, $atts ) {
  * Invokes the appropriate function to display the CSV
  * The HTML style is determined by the uo= parameter
  * The default is to format the contents in a table.
- * 
+ *
  * @param array - array of CSV records - the first may contain table column headings
  * @atts array - parameters, incl th=y|n and uo=u|o|d|other
  */
@@ -131,15 +131,15 @@ function bw_csv_content_array( $content_array, $atts=null ) {
     call_user_func_array( $func, array( $content_array, $atts ) );
   } else {
     bw_csv_content_array_table( $content_array, $atts );
-  } 
+  }
 }
 
 /**
  * Display CSV as a table
  *
  * @param array $content_array - array of contents to be displayed
- * @param array $atts - shortcode parameters 
- */ 
+ * @param array $atts - shortcode parameters
+ */
 function bw_csv_content_array_table( $content_array, $atts=null ) {
 	$class = bw_array_get( $atts, "class", null );
 	stag( "table", "bw_csv " . $class );
@@ -157,7 +157,7 @@ function bw_csv_content_array_table( $content_array, $atts=null ) {
 		//bw_trace2( $line, "line" );
 		$line = trim( $line );
 		if ( $line ) {
-			$tablerow = str_getcsv( $line, bw_array_get( $atts, 'del', ',' ) );
+			$tablerow = str_getcsv( $line, bw_array_get( $atts, 'del', ',' ), '"', '' );
 			$tablerow = bw_csv_dashicons( $tablerow, $atts );
 			$tablerow = bw_csv_expand_shortcodes( $tablerow );
 
@@ -186,8 +186,8 @@ function bw_csv_content_array_table( $content_array, $atts=null ) {
  * - Empty lines are ignored
  *
  * @param array $content_array - array of contents to be displayed
- * @param array $atts - shortcode parameters 
- * 
+ * @param array $atts - shortcode parameters
+ *
  */
 function bw_csv_content_array_list( $content_array, $atts=null ) {
   oik_require( "shortcodes/oik-list.php" );
@@ -195,10 +195,10 @@ function bw_csv_content_array_list( $content_array, $atts=null ) {
   foreach ( $content_array as $line ) {
     $line = trim( $line );
     if ( $line ) {
-      $tablerow = str_getcsv( $line, $atts['del'] );
+      $tablerow = str_getcsv( $line, $atts['del'], '"', '' );
       $tablerow = bw_csv_expand_shortcodes( $tablerow );
       bw_csv_output_list_item( $tablerow, $ol );
-    }    
+    }
   }
   bw_el( $ol );
 }
@@ -210,7 +210,7 @@ function bw_csv_content_array_list( $content_array, $atts=null ) {
  * @TODO Determine what to do when not unordered, ordered or definition list. e.g. comma separated?
  *
  * @param array $tablerow - array of output
- * @param string $uo - list type  
+ * @param string $uo - list type
  */
 function bw_csv_output_list_item( $tablerow, $uo ) {
   switch ( $uo ) {
@@ -221,7 +221,7 @@ function bw_csv_output_list_item( $tablerow, $uo ) {
       $item = implode( " ", $tablerow);
       li( $item );
       break;
-      
+
     case "d":
     case "dl":
       $term = array_shift( $tablerow );
@@ -231,17 +231,17 @@ function bw_csv_output_list_item( $tablerow, $uo ) {
       etag( "dt" );
       stag( "dd" );
       e( $data );
-      etag( "dd" ); 
+      etag( "dd" );
       break;
-      
+
     default:
       //span( $class );
       $item = implode( " ", $tablerow );
       br( $item );
-  }    
+  }
 }
- 
-/** 
+
+/**
  * Implement [bw_csv] shortcode for simpler table display
  *
  * - If there's embedded content then this is displayed
@@ -253,7 +253,7 @@ function bw_csv_output_list_item( $tablerow, $uo ) {
  * @param array $atts - shortcode parameters
  * @param string $content - inline content is accepted
  * @param string $tag - shortcode tag
- */                     
+ */
 function bw_csv( $atts=null, $content=null, $tag=null ) {
 	// bw_trace2();
 	$content_array = null;
@@ -265,7 +265,7 @@ function bw_csv( $atts=null, $content=null, $tag=null ) {
 		e( "Error: Oik_attachment_contents not loaded" );
 	}
 	if ( $content_array ) {
-		$atts['del'] = bw_csv_determine_delimiter( $content_array, $atts ); 
+		$atts['del'] = bw_csv_determine_delimiter( $content_array, $atts );
         bw_csv_content_array_paged( $content_array, $atts );
     }
 	return( bw_ret() );
@@ -292,7 +292,7 @@ function bw_csv__syntax( $shortcode="bw_csv" ) {
 	             , 'totals' => bw_skv( null, 't,c,-', 'Comma separated codes for totalling the columns')
 	  , 'prefixes' => bw_skv( null, 'prefix1,prefix2', 'Comma separated prefixed for totals cells' )
 				);
-  return( $syntax );                 
+  return( $syntax );
 }
 
 /**
@@ -310,7 +310,7 @@ function bw_csv__example( $shortcode="bw_csv" ) {
 function bw_csv__snippet( $shortcode="bw_csv" ) {
  $example = ']a,b' . PHP_EOL . '1,2[/bw_csv';
   _sc__snippet( $shortcode, $example );
-} 
+}
 
 /**
  * Performs special mapping of characters
@@ -325,16 +325,16 @@ function bw_csv_get_mapping( $atts, $key ) {
 		case null:
 			$map = $key;
 			break;
-			
+
 		case "Y":
 			$map = "[bw_dash yes]";
 			break;
-			
+
 		case "N":
 			$map = "[bw_dash no]";
 			break;
-			
-		default: 
+
+		default:
 			// Whatever they said
 	}
 	bw_trace2( $map, "map", true, BW_TRACE_VERBOSE );
@@ -342,37 +342,37 @@ function bw_csv_get_mapping( $atts, $key ) {
 }
 
 /**
- * Convert to dash icons 
+ * Convert to dash icons
  *
  * @param array $tablerow array of columns
- * @param array $atts 
+ * @param array $atts
  * @return array updated tablerow
  */
 function bw_csv_dashicons( $tablerow, $atts ) {
 	bw_trace2();
-	
+
 	$mapping["Y"] = bw_csv_get_mapping( $atts, "y" );
 	$mapping["N"] = bw_csv_get_mapping( $atts, "n" );
-	
+
 	$dashed = array();
-	
+
 	foreach ( $tablerow as $col ) {
 		$ucol = strtoupper( $col );
 		$dashed[] = bw_array_get( $mapping, $ucol, $col );
 	}
 	bw_trace2( $dashed, "dashed", false, BW_TRACE_VERBOSE );
-	return( $dashed ); 
+	return( $dashed );
 }
 
 /**
  * Determine the delimiter for str_getcsv
- * 
+ *
  * Order of preference:
  * - Take the parameter value.
  * - Choose the first delimiter found in the first row of the $content_array.
- * - Default to ','. 
+ * - Default to ','.
  *
- * @param array $content_array 
+ * @param array $content_array
  * @param array $atts
  * @return string delimiter - defaults to ','
  */
@@ -383,7 +383,7 @@ function bw_csv_determine_delimiter( $content_array, $atts ) {
 	}
 	if ( !$delimiter ) {
 		$delimiter = ',';
-			
+
 	}
 	return( $delimiter );
 
@@ -391,7 +391,7 @@ function bw_csv_determine_delimiter( $content_array, $atts ) {
 
 /**
  * Finds which character comes first
- * 
+ *
  * @param string $haystack where to look
  * @param array $needles - characters to look for
  * @return null|string the first character found
@@ -412,7 +412,7 @@ function bw_csv_first_char( $haystack, $needles ) {
 		}
 	}
 	return( $first_char );
-}	
-			
-		 
-  
+}
+
+
+
